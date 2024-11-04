@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from demo.util.default_space import DefaultSpace
 from dbms.mysql import MysqlDBMS
-from dbms.postgres import PgDBMS
+# from dbms.postgres import PgDBMS
+from dbms.postgres_docker import PgDBMS
 import sys
 import os
 import json

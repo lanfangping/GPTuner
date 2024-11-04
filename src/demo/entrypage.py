@@ -11,7 +11,8 @@ from io import StringIO
 from streamlit_modal import Modal
 
 import matplotlib.pyplot as plt
-from dbms.postgres import PgDBMS
+# from dbms.postgres import PgDBMS
+from dbms.postgres_docker import PgDBMS
 from dbms.mysql import  MysqlDBMS
 from demo.util.coarse_stage import CoarseStage
 from demo.util.fine_stage import FineStage

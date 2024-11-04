@@ -2,6 +2,7 @@ from openai import OpenAI, APIError
 import re
 import json
 import tiktoken
+import transformers
 
 class GPT:
     def __init__(self, api_base, api_key, model="gpt-4o-mini"):
@@ -41,8 +42,15 @@ class GPT:
     def calc_token(self, in_text, out_text=""):
         if isinstance(out_text, dict):
             out_text = json.dumps(out_text)
-        # enc = tiktoken.encoding_for_model(self.model)
-        enc = tiktoken.get_encoding("o200k_base")
+
+        if self.model == 'deepseek-chat':
+            chat_tokenizer_dir = "./src/knowledge_handler/deepseek_v2_tokenizer"
+            enc =  transformers.AutoTokenizer.from_pretrained( 
+                    chat_tokenizer_dir, trust_remote_code=True
+                    )
+        else:
+            enc = tiktoken.encoding_for_model(self.model)
+            # enc = tiktoken.get_encoding("o200k_base")
         return len(enc.encode(out_text+in_text))
 
     def calc_money(self, in_text, out_text):
@@ -53,10 +61,29 @@ class GPT:
             return (self.calc_token(in_text) * 0.0015 + self.calc_token(out_text) * 0.002) / 1000
         elif self.model == "gpt-4-1106-preview" or self.model == "gpt-4-1106-vision-preview":
             return (self.calc_token(in_text) * 0.01 + self.calc_token(out_text) * 0.03) / 1000
+        elif self.model == 'deepseek-chat':
+            # input text: 0.14/1M, output text: 0.28/1M
+            return (self.calc_token(in_text) * 0.14 + self.calc_token(out_text) * 0.28) / 1000000
         else:
             return 0 
 
     def remove_html_tags(self, text):
         clean = re.compile('<.*?>')
         return re.sub(clean, '', text)
+    
+    def extract_json_from_text(self, text):
+        # Regex to find the JSON block between ```json ... ```
+        json_block = re.search(r"```json(.*?)```", text, re.DOTALL)
+        if json_block:
+            json_text = json_block.group(1).strip()  # Extract the JSON text inside ```json``` block
+            try:
+                # Parse the JSON text
+                json_data = json.loads(json_text)
+                return json_data
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON: {e}")
+                return None
+        else:
+            print("No JSON block found in the text.")
+            return None
     

@@ -5,7 +5,8 @@ import os
 import openai
 import concurrent.futures
 from knowledge_handler.knowledge_update import KGUpdate
-from dbms.postgres import PgDBMS
+# from dbms.postgres import PgDBMS
+from dbms.postgres_docker import PgDBMS
 from dbms.mysql import  MysqlDBMS
 from config_recommender.coarse_stage import CoarseStage
 from config_recommender.fine_stage import FineStage
@@ -56,23 +57,24 @@ if __name__ == '__main__':
 
     # Select target knobs, write your api_base and api_key
     dbms._connect("benchbase")
-    api_key=os.environ.get("OPENAI_API_KEY")
-    api_base = os.environ.get("OPENAI_API_BASE")
-    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model="gpt-4o")
+    api_key=os.environ.get("DEEPSEEK_API_KEY")
+    api_base = os.environ.get("DEEPSEEK_API_BASE")
+    model = "deepseek-chat"
+    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
     knob_selection.select_interdependent_all_knobs()
 
 
     # prepare tuning lake and structured knowledge
-    target_knobs_path = f"/Users/fangpinglan/Projects/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
+    target_knobs_path = f"./knowledge_collection/{args.db}/target_knobs.txt"
     with open(target_knobs_path, 'r') as file:
         lines = file.readlines()
         target_knobs = [line.strip() for line in lines]
 
 
     # write your api_base and api_key
-    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model="gpt-4o")
-    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model="gpt-4o")
-    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model="gpt-4o")
+    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
+    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
+    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)
     for i in range(1, 6):
         with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
             futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}

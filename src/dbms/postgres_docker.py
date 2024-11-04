@@ -20,7 +20,7 @@ class PgDBMS(DBMSTemplate):
             try:            
                 self.connection = psycopg2.connect(
                     database = db, user = self.user, 
-                    password = self.password, host = "localhost", port=5433
+                    password = self.password, host = "localhost", port=5432
                 )
                 print(f"Success to connect to {db} with user {self.user}")
                 return True

@@ -18,7 +18,7 @@ class KnobSelection(GPT):
             self.workload = "OLAP"
         else:
             self.workload = "OLTP"
-        self.system_view_dir = f"./knowledge_collection/{self.db}/candidate_knobs.txt"
+        self.system_view_dir = f"./knowledge_collection/{self.db}/knob_info/system_view.json"
         self.target_knobs_dir = f"./knowledge_collection/{self.db}/target_knobs.txt"
         if os.path.exists(self.target_knobs_dir):
             print(f"Knobs already selected for {self.db}")
@@ -27,10 +27,19 @@ class KnobSelection(GPT):
         
     def get_candidate_konbs(self):
         knobs = []
+        # if os.path.exists(self.system_view_dir):
         with open(self.system_view_dir, 'r') as file:
             data = json.load(file)
             for key, item in data.items():
                 knobs.append(key)
+        # else:
+        #     with open(f"./knowledge_collection/{self.db}/knob_info/system_view.json") as f:
+        #         data = json.load(f)
+        #         knobs = list(data.keys())
+        #         with open(self.system_view_dir, 'w') as file:
+        #             knob_str = '\n'.join(knobs)
+        #             file.write(f"{knob_str}\n")
+
         return knobs
 
     def read_files_in_directory(directory_path):
@@ -53,7 +62,7 @@ class KnobSelection(GPT):
                 }}
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
-            response = self.get_answer(prompt)
+            response = self.get_GPT_response_json(prompt, json_format=False)
             json_result = self.extract_json_from_text(response)
             print(json_result)
             selected_knobs.update(json_result)
@@ -77,7 +86,7 @@ class KnobSelection(GPT):
                 }}
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
-            response = self.get_answer(prompt)
+            response = self.get_GPT_response_json(prompt, json_format=False)
             json_result = self.extract_json_from_text(response)
             print(json_result)
             selected_knobs.update(json_result)
@@ -135,7 +144,7 @@ class KnobSelection(GPT):
                     }}
                     If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                     """)
-                response = self.get_answer(prompt)
+                response = self.get_GPT_response_json(prompt, json_format=False)
                 json_result = self.extract_json_from_text(response)
                 print(json_result)
                 selected_knobs.update(json_result)
@@ -179,7 +188,7 @@ class KnobSelection(GPT):
         If no knobs are interdependent, just fill "knob_list" with "None". 
         """
         )
-        response = self.get_answer(prompt)
+        response = self.get_GPT_response_json(prompt, json_format=False)
         json_result = self.extract_json_from_text(response)
         if json_result.get("knob_list") != 'None':
             selected_knobs = list(selected_knobs) + json_result["knob_list"]

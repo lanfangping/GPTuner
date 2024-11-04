@@ -3,7 +3,8 @@ import os
 import glob
 import json
 from dbms.mysql import MysqlDBMS
-from dbms.postgres import PgDBMS
+# from dbms.postgres import PgDBMS
+from dbms.postgres_docker import PgDBMS
 
 class BenchbaseRunner:
     def __init__(self, dbms, test, target_path="./optimization_results/temp_results"):

@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from space_optimizer.default_space import DefaultSpace
 from dbms.mysql import MysqlDBMS
-from dbms.postgres import PgDBMS
+# from dbms.postgres import PgDBMS
+from dbms.postgres_docker import PgDBMS
 from space_optimizer.fine_space import FineSpace
 import json
 from smac import HyperparameterOptimizationFacade, Scenario, initial_design, intensifier
