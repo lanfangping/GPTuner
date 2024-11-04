@@ -12,6 +12,8 @@ from config_recommender.fine_stage import FineStage
 from knowledge_handler.knowledge_preparation import KGPre
 from knowledge_handler.knowledge_transformation import KGTrans
 from space_optimizer.knob_selection import KnobSelection
+from dotenv import load_dotenv
+load_dotenv()  # take environment variables from .env.
 
 def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
     try:
@@ -54,27 +56,30 @@ if __name__ == '__main__':
 
     # Select target knobs, write your api_base and api_key
     dbms._connect("benchbase")
-    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base="your_api_base", api_key="your_api_key", model="gpt-4o")
+    api_key=os.environ.get("OPENAI_API_KEY")
+    api_base = os.environ.get("OPENAI_API_BASE")
+    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model="gpt-4o")
     knob_selection.select_interdependent_all_knobs()
 
 
     # prepare tuning lake and structured knowledge
-    target_knobs_path = f"/home/knob/revision/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
+    target_knobs_path = f"/Users/fangpinglan/Projects/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
     with open(target_knobs_path, 'r') as file:
         lines = file.readlines()
         target_knobs = [line.strip() for line in lines]
 
 
     # write your api_base and api_key
-    knowledge_pre = KGPre(db=args.db, api_base="your_api_base", api_key="your_api_key", model="gpt-4o")
-    knowledge_trans = KGTrans(db=args.db, api_base="your_api_base", api_key="your_api_key", model="gpt-4o")
-    knowledge_update = KGUpdate(db=args.db, api_base="your_api_base", api_key="your_api_key", model="gpt-4o")
+    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model="gpt-4o")
+    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model="gpt-4o")
+    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model="gpt-4o")
     for i in range(1, 6):
         with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
             futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
             for future in concurrent.futures.as_completed(futures):
                 print(future.result())
         print(f"Update {i} completed")
+        print("===============================\n")
 
 
     if args.db == 'postgres':

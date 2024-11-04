@@ -41,7 +41,8 @@ class GPT:
     def calc_token(self, in_text, out_text=""):
         if isinstance(out_text, dict):
             out_text = json.dumps(out_text)
-        enc = tiktoken.encoding_for_model(self.model)
+        # enc = tiktoken.encoding_for_model(self.model)
+        enc = tiktoken.get_encoding("o200k_base")
         return len(enc.encode(out_text+in_text))
 
     def calc_money(self, in_text, out_text):

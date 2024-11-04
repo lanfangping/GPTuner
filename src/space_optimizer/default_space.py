@@ -78,6 +78,9 @@ class DefaultSpace:
             'min': 60000,
             'day': 24 * 60 * 60000,
         }
+        if unit not in unit_to_size.keys():
+            print(f"Illegal unit:{unit}")
+            return float(number)
         return float(number) * unit_to_size[unit]
     
     def _type_transfer(self, knob_type, value):

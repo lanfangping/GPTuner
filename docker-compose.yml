@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: pg_benchmark
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: benchbase
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data  # Persistent storage
+    ports:
+      - "5433:5432"  # Expose PostgreSQL port
+
+# volumes:
+#   pgdata:
+#     driver: local
+#     driver_opts: 
+#       type: none
+#       device: /path/to/your/ssd_or_nvme
+#       o: bind
