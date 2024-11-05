@@ -22,7 +22,7 @@ class DefaultSpace:
     def __init__(self, dbms, test, timeout, target_knobs_path,seed=1):
         self.dbms = dbms
         self.seed = seed if seed is not None else 1
-        self.test = test
+        self.test = test # workload type
         self.timeout = timeout
         self.target_knobs_path = target_knobs_path
         self.round = 0
@@ -33,7 +33,7 @@ class DefaultSpace:
         self.skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/normal"
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
-            self.dbms.create_template(self.test)
+            self.dbms.copy_db(f"{self.test}_template", self.test)
         self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
         self.log_file = f"./optimization_results/{self.dbms.name}/log/{self.seed}_log.txt"
@@ -103,7 +103,7 @@ class DefaultSpace:
         candidate_knobs = [line.strip() for line in lines]
         target_knobs = []
         for knob in candidate_knobs:
-            if "vartype" not in self.dbms.knob_info[knob] or self.dbms.knob_info[knob]["vartype"] == "string":
+            if knob not in self.dbms.knob_info.keys() or "vartype" not in self.dbms.knob_info[knob] or self.dbms.knob_info[knob]["vartype"] == "string":
                 continue
             else:
                 target_knobs.append(knob)

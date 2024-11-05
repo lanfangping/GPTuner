@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument("db", type=str)
-    parser.add_argument("test", type=str)
+    parser.add_argument("test", type=str) # workload type
     parser.add_argument("timeout", type=int)
     parser.add_argument("-seed", type=int, default=1)
     args = parser.parse_args()
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     gptuner_coarse = CoarseStage(
         dbms=dbms, 
         target_knobs_path=target_knobs_path, 
-        test=args.test, 
+        test=args.test,  # workload type
         timeout=args.timeout, 
         seed=args.seed,
     )
