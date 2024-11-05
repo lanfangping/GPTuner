@@ -1,0 +1,3 @@
+**Comprehensive Suggestion:**
+
+The `statement_timeout` knob in PostgreSQL 13+ aborts any SQL statement that exceeds the specified time limit, measured in milliseconds. This timeout is applied separately to each statement within a multi-statement query. Additionally, if the `log_min_error_statement` is set to ERROR or lower, the timeout can be optionally logged.

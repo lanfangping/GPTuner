@@ -1,0 +1,3 @@
+**Comprehensive Suggestion:**
+
+The `wal_buffers` knob refers to the shared memory used for Write-Ahead Logging (WAL) data that has not yet been written to disk. Its default setting is -1, which automatically configures it to approximately 3% of the `shared_buffers`. This setting can be manually adjusted, with any value less than 32kB being treated as 32kB. The WAL data is written to disk at every transaction commit, which can potentially enhance write performance on busy servers.
