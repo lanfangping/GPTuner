@@ -27,7 +27,7 @@ class KGPre(GPT):
         suggestions_prompt = textwrap.dedent(f"""
             There are many useful manuals to guide the knob tuning process. For knob '{knob_name}' in {self.db}, summerize the way to set the value for it in a sentence. This sentence should be associated with concrete numbers as more detailed information if needed.
         """)
-        suggestions = self.get_GPT_response_json(suggestions_prompt)
+        suggestions = self.get_GPT_response_json(suggestions_prompt, json_format=False)
         self.token += self.calc_token(suggestions_prompt, suggestions)
         self.money += self.calc_money(suggestions_prompt, suggestions)
         return suggestions
@@ -50,7 +50,7 @@ class KGPre(GPT):
                 {description}
                 SENTECNCE:
             """)
-            answer = self.get_GPT_response_json(summerize_prompt)
+            answer = self.get_GPT_response_json(summerize_prompt, json_format=False)
             self.token += self.calc_token(summerize_prompt, answer)
             self.money += self.calc_money(summerize_prompt, answer)
             return answer
@@ -154,7 +154,7 @@ class KGPre(GPT):
         {suggestions_json}
         """    
         )
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -166,7 +166,7 @@ class KGPre(GPT):
         Summary:{summary}
         """    
         )
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -179,7 +179,7 @@ class KGPre(GPT):
             IMPROPER SUMMARY SUGGESTION: {summary}
         """    
         )
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -215,10 +215,16 @@ class KGPre(GPT):
             pass
 
         if knob + ".txt" not in summary_files:
-            sources_json = self.prune_suggestion(knob_info[knob], gpt_suggestion, web_suggestion)
+            if knob in knob_info.keys():
+                sources_json = self.prune_suggestion(knob_info[knob], gpt_suggestion, web_suggestion)
+            else:
+                sources_json = self.prune_suggestion(f"unrecognized parameter '{knob}' in {self.db}", gpt_suggestion, web_suggestion)
             sources_json["manual_suggestion"] = manual_suggestion
             sources_json = self.prune_contradiction(sources_json)
-            sources_json = self.prune_default(knob_info[knob], sources_json)
+            if knob in knob_info.keys():
+                sources_json = self.prune_default(knob_info[knob], sources_json)
+            else:
+                sources_json = self.prune_default(f"unrecognized parameter '{knob}' in {self.db}", sources_json)
             sources_json = sources_json
             summary = self.greedy_summarize(sources_json)
             print(f"SUMMARY:{summary}")

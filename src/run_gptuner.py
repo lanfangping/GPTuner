@@ -75,13 +75,22 @@ if __name__ == '__main__':
     knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
     knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
     knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)
-    for i in range(1, 6):
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-            futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
-            for future in concurrent.futures.as_completed(futures):
-                print(future.result())
-        print(f"Update {i} completed")
-        print("===============================\n")
+
+    for i, knob in enumerate(target_knobs):
+        print(f"{i}th, total {len(target_knobs)} knobs")
+        try: 
+            process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
+        except KeyError as e:
+            print(f"{e}")
+            continue
+
+    # for i in range(1, 6):
+    #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+    #         futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
+    #         for future in concurrent.futures.as_completed(futures):
+    #             print(future.result())
+    #     print(f"Update {i} completed")
+    #     print("===============================\n")
 
 
     if args.db == 'postgres':

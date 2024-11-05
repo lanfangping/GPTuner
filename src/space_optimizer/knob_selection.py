@@ -6,6 +6,7 @@ from configparser import ConfigParser
 import threading
 from knowledge_handler.gpt import GPT
 from config_recommender.workload_runner import BenchbaseRunner
+from tqdm import tqdm
 
 class KnobSelection(GPT):
     def __init__(self, api_base, api_key, db, dbms, benchmark, model=GPT.__init__.__defaults__[0]):
@@ -50,7 +51,7 @@ class KnobSelection(GPT):
     def select_on_system_level(self):
         print("select_on_system_level")
         selected_knobs = {}
-        for i in range(0, len(self.candidate_knobs), 30):
+        for i in tqdm(range(0, len(self.candidate_knobs), 30)):
             candidates = self.candidate_knobs[i:i + 30]
             prompt = textwrap.dedent(f"""
                 You are an experienced DBA and your will determine which knobs are worth tuning. You only tune knobs that have a significant impact on DBMS performance and the target DBMS is {self.db}. Given the following candidate knobs, score the importance for each knob between 0 and 1, with a higher value indicating that it is more likey to impact {self.db} performance significantly. 
@@ -62,9 +63,10 @@ class KnobSelection(GPT):
                 }}
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
-            response = self.get_GPT_response_json(prompt, json_format=False)
-            json_result = self.extract_json_from_text(response)
-            print(json_result)
+            # response = self.get_GPT_response_json(prompt, json_format=False)
+            # json_result = self.extract_json_from_text(response)
+            json_result = self.get_json_result_from_GPT(prompt)
+            # print(json_result)
             selected_knobs.update(json_result)
 
         print(selected_knobs)
@@ -73,7 +75,7 @@ class KnobSelection(GPT):
     def select_on_workload_level(self):
         print("select_on_workload_level")
         selected_knobs = {}
-        for i in range(0, len(self.candidate_knobs), 30):
+        for i in tqdm(range(0, len(self.candidate_knobs), 30)):
             candidates = self.candidate_knobs[i:i + 30]
             prompt = textwrap.dedent(f"""
                 You are an experienced DBA and your will determine which knobs are worth tuning. You only tune knobs that have a significant impact on DBMS performance and the target DBMS is {self.db}. Which knobs are important heavily depends on the workload type because different workloads result in different performance bottleneck.Given the workload type, analyze and identify the important knobs that significantly impact database performance when such workload is deployed.  Given the following candidate knobs, score the importance for each knob between 0 and 1, with a higher value indicating that it is more likey to impact {self.db} performance significantly. 
@@ -86,9 +88,10 @@ class KnobSelection(GPT):
                 }}
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
-            response = self.get_GPT_response_json(prompt, json_format=False)
-            json_result = self.extract_json_from_text(response)
-            print(json_result)
+            # response = self.get_GPT_response_json(prompt, json_format=False)
+            # json_result = self.extract_json_from_text(response)
+            json_result = self.get_json_result_from_GPT(prompt)
+            # print(json_result)
             selected_knobs.update(json_result)
         print(selected_knobs)
         return selected_knobs
@@ -130,7 +133,7 @@ class KnobSelection(GPT):
         for i, query in enumerate(query_list):
             query_plan, __ = self.dbms.get_sql_result(f"EXPLAIN {query}")
             print(f"### PLAIN: {query_plan}")
-            for j in range(0, len(self.candidate_knobs), 30):
+            for j in tqdm(range(0, len(self.candidate_knobs), 30)):
                 candidates = self.candidate_knobs[i:i + 30]
                 prompt = textwrap.dedent(f"""
                     You are an experienced DBA and your will determine which knobs are worth tuning. You only tune knobs that have a significant impact on DBMS performance and the target DBMS is {self.db}. Which knobs are important heavily depends on the query plan because different query plans result in different performance bottlenecks.Given SQL and its QUERY PLAN from 'EXPLAIN', analyze and suggest which knobs should be tuned to improve the performance of this SQL.  Given the following candidate knobs, score the importance for each knob between 0 and 1, with a higher value indicating that it is more likey to impact {self.db} performance significantly. 
@@ -144,12 +147,23 @@ class KnobSelection(GPT):
                     }}
                     If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                     """)
-                response = self.get_GPT_response_json(prompt, json_format=False)
-                json_result = self.extract_json_from_text(response)
-                print(json_result)
+                # response = self.get_GPT_response_json(prompt, json_format=False)
+                # json_result = self.extract_json_from_text(response)
+                json_result = self.get_json_result_from_GPT(prompt)
+                # print(json_result)
                 selected_knobs.update(json_result)
         print(selected_knobs)
         return selected_knobs
+
+    def get_json_result_from_GPT(self, prompt, n=3):
+        if n == 0:
+            raise ValueError("Finish 3 trails. Invalid response from GPT.")
+        response = self.get_GPT_response_json(prompt, json_format=False)
+        json_result = self.extract_json_from_text(response)
+        if json_result is None:
+            print("Error: Invalid response from GPT. Try again...")
+            return self.get_json_result_from_GPT(prompt, n-1)
+        return json_result
 
     def select_interdependent_all_knobs(self):
         if os.path.exists(self.target_knobs_dir):
@@ -162,6 +176,7 @@ class KnobSelection(GPT):
 
         all_keys = set(system_knobs).union(workload_knobs, query_knobs)
         selected_knobs = {key: system_knobs.get(key, 0) + workload_knobs.get(key, 0) + query_knobs.get(key, 0) for key in all_keys}
+        # selected_knobs = {key: system_knobs.get(key, 0) + workload_knobs.get(key, 0) + query_knobs.get(key, 0) for key in all_keys if key in self.candidate_knobs}
 
         top_50_items = sorted(selected_knobs.items(), key=lambda item: item[1], reverse=True)[:50]
         selected_knobs = [key for key, value in top_50_items]
@@ -188,12 +203,14 @@ class KnobSelection(GPT):
         If no knobs are interdependent, just fill "knob_list" with "None". 
         """
         )
-        response = self.get_GPT_response_json(prompt, json_format=False)
-        json_result = self.extract_json_from_text(response)
+        # response = self.get_GPT_response_json(prompt, json_format=False)
+        # json_result = self.extract_json_from_text(response)
+        json_result = self.get_json_result_from_GPT(prompt)
         if json_result.get("knob_list") != 'None':
             selected_knobs = list(selected_knobs) + json_result["knob_list"]
         else:
             selected_knobs = list(selected_knobs)
+        # selected_knobs = [knob for knob in selected_knobs if knob in self.candidate_knobs]  # ensure knob is in system views
         selected_knobs = list(set(selected_knobs))
         with open(self.target_knobs_dir, 'w') as file:
             for line in selected_knobs:
