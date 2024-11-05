@@ -62,7 +62,7 @@ if __name__ == '__main__':
     model = "deepseek-chat"
     knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
     knob_selection.select_interdependent_all_knobs()
-
+    dbms._disconnect()
 
     # prepare tuning lake and structured knowledge
     target_knobs_path = f"./knowledge_collection/{args.db}/target_knobs.txt"

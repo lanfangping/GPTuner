@@ -33,7 +33,7 @@ class DefaultSpace:
         self.skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/normal"
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
-            self.dbms.copy_db(f"{self.test}_template", self.test)
+            self.dbms.copy_db(target_db=f"{self.test}_template", source_db="benchbase")
         self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
         self.log_file = f"./optimization_results/{self.dbms.name}/log/{self.seed}_log.txt"
