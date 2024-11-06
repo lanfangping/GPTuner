@@ -80,6 +80,7 @@ class BenchbaseRunner:
 
     def get_throughput(self):
         summary_file = self.get_latest_summary_file()
+        throughput = -1
         try:
             with open(summary_file, 'r') as file:
                 data = json.load(file)
@@ -93,6 +94,7 @@ class BenchbaseRunner:
 
     def get_latency(self):
         summary_file = self.get_latest_summary_file()
+        average_latency = -1
         try:
             with open(summary_file, 'r') as file:
                 data = json.load(file)
