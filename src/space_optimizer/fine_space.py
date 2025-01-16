@@ -16,17 +16,22 @@ from ConfigSpace import (
     Configuration,
     EqualsCondition,
 )
+from collections import defaultdict
 
 class FineSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, seed, enhanced, coarse_folder_name):
+        super().__init__(dbms, test, timeout, target_knobs_path, seed, enhanced)
         self.factors = [0, 0.25, 0.5]
         self.define_search_space()
-        self.coarse_path = f"./optimization_results/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
-
-
+        # self.define_enhanced_search_space()
+        self.coarse_path = f"./{coarse_folder_name}/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
+        
     def define_search_space(self):
+        """
+        pre-selected parameters and well-reduced search space according to suggested values and suggested min/max
+        if enhanced is True, self.target_knobs is a collection of parameters in good starting points.
+        """
         for knob in self.target_knobs:
             info = self.dbms.knob_info[knob]
             if info is None:
@@ -224,3 +229,165 @@ class FineSpace(DefaultSpace):
                     continue
                 knob = self.get_default_space(knob, info)
                 self.search_space.add_hyperparameter(knob)
+
+
+    def define_enhanced_search_space(self):
+        """
+        enhanced by feeding good starting configurations 
+        but the search space is default 
+        """
+        # how to be guided by coarse-grained tuning
+        with open(self.enhanced_starting_path, "r") as json_file:
+            enhanced_starting_data = json.load(json_file)
+
+        knob_value_range = defaultdict(list)
+        for _id, data in enhanced_starting_data.items():
+            config = data['config']
+            if config == 'default settings':
+                continue
+            
+            for knob, value in config.items():
+                if knob not in self.dbms.knob_info.keys():
+                    print(f'{knob} is not by the DBMS under specific version')
+                    continue
+
+                info = self.dbms.knob_info[knob]
+                vartype = info['vartype']
+                if vartype == 'string':
+                    continue
+
+                unit = info["unit"]
+                if unit:
+                    value = self._transfer_unit(value)
+                    value = self._type_transfer(vartype, value)
+
+                if value not in knob_value_range[knob]:
+                    knob_value_range[knob].append(value)
+        
+        # print("knob_value_range", knob_value_range)
+        # exit()
+
+        for knob, values in knob_value_range.items():
+            print(f"Defining fine search space for knob: {knob}")
+            info = self.dbms.knob_info[knob]
+            knob_type = info["vartype"] 
+            if knob_type == "enum" or knob_type == "bool":
+                knob = self.get_default_space(knob, info)
+                self.search_space.add_hyperparameter(knob)
+                continue
+            
+            boot_value = info["reset_val"]
+            unit = info["unit"]
+            min_value = info["min_val"]
+            max_value = info["max_val"]
+            print("min_value", min_value)
+            print("max_value", max_value)
+            suggested_values = values
+            print("values", values)
+
+            # Since the upper bound of some knob in mysql is too big, use GPT's offered upperbound for mysql
+            if isinstance(self.dbms, MysqlDBMS):
+                if max_value >= sys.maxsize / 10:  
+                    max_path = "./knowledge_collection/mysql/structured_knowledge/max"
+                    with open(os.path.join(max_path, knob+".txt"), 'r') as file:
+                        upperbound = file.read()
+                    if upperbound != 'null':
+                        upperbound = self._type_transfer(knob_type, upperbound)
+                        max_value = self._type_transfer(knob_type, max_value)
+                        if int(upperbound) < max_value:
+                            max_value = upperbound
+
+            # unit transformation
+            if unit is not None:
+                unit = self._transfer_unit(unit)
+                suggested_values = [(self._transfer_unit(value) / unit) for value in suggested_values]
+            
+            # type transformation
+            try:
+                suggested_values = [self._type_transfer(knob_type, value) for value in suggested_values]
+                min_value = self._type_transfer(knob_type, min_value)
+                max_value = self._type_transfer(knob_type, max_value)
+                boot_value = self._type_transfer(knob_type, boot_value)
+            except:
+
+                def match_num(value):
+                    pattern = r"(\d+)"
+                    match = re.match(pattern, value)
+                    if match:
+                        return match.group(1)
+                    else:
+                        return ""
+
+                pattern = r"(\d+)"
+                suggested_values = [self._type_transfer(knob_type, re.match(pattern, value).group(1)) for value in suggested_values if re.match(pattern, value) is not None]
+                min_value = self._type_transfer(knob_type, match_num(min_value))
+                max_value = self._type_transfer(knob_type, match_num(max_value))
+                boot_value = self._type_transfer(knob_type, match_num(boot_value))
+                
+            # the search space of fine-grained stage should be superset of that of coarse stage
+
+            print("values after transferring", suggested_values)
+            coarse_sequence = []
+            if boot_value > sys.maxsize / 10:
+                boot_value = sys.maxsize / 10
+
+
+            min_value = min(min_value, boot_value)
+            max_value = max(max_value, boot_value)
+            # scale up and down the suggested value
+            for value in suggested_values:
+                for factor in self.factors:
+                    # explore_up = value + factor * (max_value - value)
+                    # explore_down = value + factor * (min_value - value)
+                    explore_up = value + factor * (value + 1)
+                    explore_down = value + factor * (min_value - value)
+                    # print("explore_up", explore_up)
+                    # print("explore_down", explore_down)
+                    # print("sys.maxsize / 10", sys.maxsize / 10)
+                    # print("explore_up < sys.maxsize / 10?", explore_up < sys.maxsize / 10)
+                    if explore_up < sys.maxsize / 10 and explore_down < explore_up:
+                        coarse_sequence.append(explore_up)
+                        coarse_sequence.append(explore_down)
+            # print("coarse_sequence after exploring up and down:", coarse_sequence)
+            if max_value > sys.maxsize / 10:
+                max_value = sys.maxsize / 10
+            
+            if min_value > sys.maxsize / 10:
+                min_value = sys.maxsize / 10
+
+            coarse_sequence = [value for value in coarse_sequence if value < sys.maxsize / 10]
+            
+            if knob_type == "integer":  
+                coarse_sequence = [int(value) for value in coarse_sequence]
+                min_value = min(min_value, min(coarse_sequence))
+                max_value = max(max_value, max(coarse_sequence))
+                normal_para = UniformIntegerHyperparameter(
+                    knob, 
+                    int(min_value), 
+                    int(max_value),
+                    default_value = int(boot_value),
+                )
+                # print(normal_para)
+                self.search_space.add_hyperparameter(normal_para)
+                
+            elif knob_type == "real":
+                coarse_sequence = [float(value) for value in coarse_sequence]
+                min_value = min(min_value, min(coarse_sequence))
+                max_value = max(max_value, max(coarse_sequence))
+                normal_para = UniformFloatHyperparameter(
+                    knob,
+                    float(min_value),
+                    float(max_value),
+                    default_value = float(boot_value),
+                )
+                # print(normal_para)
+                self.search_space.add_hyperparameter(normal_para)
+            else:
+                info = self.dbms.knob_info[knob]
+                if info is None:
+                    continue
+                knob = self.get_default_space(knob, info)
+                # print(knob)
+                self.search_space.add_hyperparameter(knob)
+
+    

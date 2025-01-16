@@ -16,7 +16,8 @@ class CoarseSpace(DefaultSpace):
     def __init__(self, dbms, test, timeout, target_knobs_path, seed):
         super().__init__(dbms, test, timeout, target_knobs_path, seed)
         self.factors = [0, 0.25, 0.5]
-        self.define_search_space()
+        # self.define_search_space()
+        self.define_search_space_default()
 
 
     def define_search_space(self):

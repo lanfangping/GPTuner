@@ -37,6 +37,7 @@ if __name__ == '__main__':
     parser.add_argument("test", type=str) # workload type
     parser.add_argument("timeout", type=int)
     parser.add_argument("-seed", type=int, default=1)
+    parser.add_argument("-enhanced", type=bool, default=False)
     args = parser.parse_args()
     print(f'Input arguments: {args}')
     time.sleep(2)
@@ -71,18 +72,18 @@ if __name__ == '__main__':
         target_knobs = [line.strip() for line in lines]
 
 
-    # write your api_base and api_key
-    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
-    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
-    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)
+    # # write your api_base and api_key
+    # knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
+    # knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
+    # knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)
 
-    for i, knob in enumerate(target_knobs):
-        print(f"{i}th, total {len(target_knobs)} knobs")
-        try: 
-            process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
-        except KeyError as e:
-            print(f"{e}")
-            continue
+    # for i, knob in enumerate(target_knobs):
+    #     print(f"{i}th, total {len(target_knobs)} knobs")
+    #     try: 
+    #         process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
+    #     except KeyError as e:
+    #         print(f"{e}")
+    #         continue
 
     # for i in range(1, 6):
     #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
@@ -105,35 +106,56 @@ if __name__ == '__main__':
         raise ValueError("Illegal dbms!")
     
     # store the optimization results
-    folder_path = "../optimization_results/"
+    folder_name="optimization_results_enhancedstarting_wellsearchspace"
+    folder_path = f"../{folder_name}/"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)  
 
-    gptuner_coarse = CoarseStage(
-        dbms=dbms, 
-        target_knobs_path=target_knobs_path, 
-        test=args.test,  # workload type
-        timeout=args.timeout, 
-        seed=args.seed,
-    )
+    if not args.enhanced:
+        print("Press any key to initialize coarse stage... ")
+        # input()
+        gptuner_coarse = CoarseStage(
+            dbms=dbms, 
+            target_knobs_path=target_knobs_path, 
+            test=args.test,  # workload type
+            timeout=args.timeout, 
+            seed=args.seed,
+        )
+        print("Initializing coarse stage done...")
+        print("Press any key to coarse stage optimization... ")
+        # input()
 
-    gptuner_coarse.optimize(
-        name = f"../optimization_results/{args.db}/coarse/", 
-        trials_number=30, 
-        initial_config_number=10)
-    time.sleep(20)
+        
+        gptuner_coarse.optimize(
+            name = f"../{folder_name}/{args.db}/coarse/", 
+            trials_number=30, 
+            initial_config_number=10)
+        time.sleep(20)
+        print("coarse stage optimization done...")
+        print("Press any key to initialize fine stage... ")
+        # input()
 
-    
     gptuner_fine = FineStage(
         dbms=dbms, 
         target_knobs_path=target_knobs_path, 
         test=args.test, 
         timeout=args.timeout, 
-        seed=args.seed
+        seed=args.seed,
+        enhanced=args.enhanced,
+        coarse_folder_name=folder_name
     )
+    print("Initializing fine stage done...")
+    print("Press any key to fine stage optimization... ")
+    # input()
 
-    gptuner_fine.optimize(
-        name = f"../optimization_results/{args.db}/fine/",
-        trials_number=110 # history trials + new tirals
-    )   
+    if not args.enhanced:
+        gptuner_fine.optimize(
+            name = f"../{folder_name}/{args.db}/fine/",
+            trials_number=110 # history trials + new tirals
+        )   
+    else:
+        gptuner_fine.optimize_enhanced_starting(
+            name = f"../{folder_name}/{args.db}/fine/",
+            trials_number=110 # history trials + new tirals
+        )
 
