@@ -15,34 +15,66 @@ class GPT:
         self.cur_money = 0
 
     def get_GPT_response_json(self, prompt, json_format=True): # This function returns the GPT response, which can be specified to return json or string format
-        client = OpenAI(api_key=self.api_key, base_url = self.api_base)
-        if json_format: # json
-            response = client.chat.completions.create(
-                messages=[
-                    {"role": "system", "content": "You should output JSON."},
-                    {'role':'user', 'content':prompt}],
-                model=self.model, 
-                response_format={"type": "json_object"}, 
-                temperature=0.5,
-            )
-            # print(response)
-            ans = response.choices[0].message.content
-            completion = json.loads(ans)  # Convert to json object
-            
-        else: # string
-            response = client.chat.completions.create(
-                messages=[
-                    {'role':'user', 'content':prompt}],
-                model=self.model, 
-                temperature=1,     
-            )
-            completion = response.choices[0].message.content
+        if self.model == 'deepseek-chat':
+            if json_format:
+                # Please install OpenAI SDK first: `pip3 install openai`
+                client = OpenAI(api_key=self.api_key, base_url=self.api_base)
+                response = client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant"},
+                        {"role": "user", "content": prompt},
+                    ],
+                    stream=False,
+                    response_format={"type": "json_object"}, 
+                    temperature=0.5,
+                )
+                ans = response.choices[0].message.content
+                completion = json.loads(ans)  # Convert to json object
+            else:
+                # Please install OpenAI SDK first: `pip3 install openai`
+                client = OpenAI(api_key=self.api_key, base_url=self.api_base)
+                response = client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "user", "content": prompt},
+                    ],
+                    stream=False,
+                    temperature=1,
+                )
+                completion = response.choices[0].message.content
+        else:        
+            client = OpenAI(api_key=self.api_key, base_url = self.api_base)
+            if json_format: # json
+                response = client.chat.completions.create(
+                    messages=[
+                        {"role": "system", "content": "You should output JSON."},
+                        {'role':'user', 'content':prompt}],
+                    model=self.model, 
+                    response_format={"type": "json_object"}, 
+                    temperature=0.5,
+                )
+                # print(response)
+                ans = response.choices[0].message.content
+                completion = json.loads(ans)  # Convert to json object
+                
+            else: # string
+                response = client.chat.completions.create(
+                    messages=[
+                        {'role':'user', 'content':prompt}],
+                    model=self.model, 
+                    temperature=1,     
+                )
+                completion = response.choices[0].message.content
         return completion
     
     def calc_token(self, in_text, out_text=""):
+        if isinstance(in_text, dict):
+            in_text = json.dumps(in_text)
+        
         if isinstance(out_text, dict):
             out_text = json.dumps(out_text)
-
+            
         if self.model == 'deepseek-chat':
             chat_tokenizer_dir = "./src/knowledge_handler/deepseek_v2_tokenizer"
             enc =  transformers.AutoTokenizer.from_pretrained( 

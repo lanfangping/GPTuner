@@ -1,0 +1,1092 @@
+[INFO ] 2025-01-20 18:42:09,196 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:                       TPCC {com.oltpbenchmark.benchmarks.tpcc.TPCCBenchmark}
+Configuration:                   config/postgres/sample_tpcc_config.xml
+Type:                            POSTGRES
+Driver:                          org.postgresql.Driver
+URL:                             jdbc:postgresql://localhost:5432/benchbase?sslmode=disable&ApplicationName=tpcc&reWriteBatchedInserts=true
+Isolation:                       TRANSACTION_SERIALIZABLE
+Batch Size:                      128
+Scale Factor:                    20.0
+Terminals:                       10
+New Connection Per Txn:          false
+Reconnect on Connection Failure: true
+
+[INFO ] 2025-01-20 18:42:09,197 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2025-01-20 18:42:09,561 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 10 virtual terminals...
+[INFO ] 2025-01-20 18:42:09,725 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the TPCC Benchmark with 1 Phase...
+[INFO ] 2025-01-20 18:42:09,736 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=TPCC] [Serial=false] [Time=60] [WarmupTime=0] [Rate=10000.0] [Arrival=REGULAR] [Ratios=[45.0, 43.0, 4.0, 4.0, 4.0]] [ActiveWorkers=10]
+[INFO ] 2025-01-20 18:42:09,737 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:09,805 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:09,808 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:09,808 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:09,807 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:09,807 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:09,807 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:09,806 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:09,808 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:09,820 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:09,821 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:09,821 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:09,821 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,839 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,840 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,841 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,841 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,842 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,842 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,843 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,843 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,844 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:10,845 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,845 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:10,845 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,846 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,846 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,850 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,850 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:10,861 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:10,861 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:12,881 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,882 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:12,882 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,882 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,882 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,882 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:12,883 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:12,883 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:12,883 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,883 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,884 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,884 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:12,885 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:12,885 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:12,909 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,910 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:12,910 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,910 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,910 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:12,910 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,910 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:12,910 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:12,911 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:12,911 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,911 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:12,912 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,912 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:12,912 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:12,916 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,917 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:12,921 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,921 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:12,926 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:12,926 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,940 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:13,940 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,941 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:13,941 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,941 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:13,941 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,942 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,942 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,942 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,943 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,943 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:13,943 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,944 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,944 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,961 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,962 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:13,963 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:13,963 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:15,979 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:15,980 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:15,979 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:15,980 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:15,980 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:15,980 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:15,980 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:15,982 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:15,981 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:15,981 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:15,981 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:15,983 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:15,996 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:15,996 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:16,002 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:16,002 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,002 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:16,002 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:16,013 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,013 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,014 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,015 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,015 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,015 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,020 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,021 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,025 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,026 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,026 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,027 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,039 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:16,039 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,040 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:16,040 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:16,046 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:16,046 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,043 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,044 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,053 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,054 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,054 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,055 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,056 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,056 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,057 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,058 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,065 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,066 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,066 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,066 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,078 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,078 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:17,091 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:17,091 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:18,090 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:18,090 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:18,090 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:18,091 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:18,119 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:18,119 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:19,078 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:19,079 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,079 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:19,079 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:19,079 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,080 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:19,108 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:19,108 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:19,108 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,109 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:19,109 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,109 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:19,110 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:19,109 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:19,129 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,129 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:19,153 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:19,153 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,153 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:19,153 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:19,163 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:19,164 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,138 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:20,138 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:20,138 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,138 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:20,138 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:20,139 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,140 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,141 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:20,168 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:20,168 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:20,168 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,168 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:20,168 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:20,169 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,169 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,170 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,187 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,187 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,190 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,191 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,192 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,192 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:20,215 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:20,215 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:21,205 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:21,205 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:21,213 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:21,214 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:21,218 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:21,218 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:21,253 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:21,253 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:22,167 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,168 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:22,168 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,168 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:22,188 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,189 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:22,189 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,189 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:22,199 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,199 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:22,220 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,220 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:22,225 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,225 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:22,227 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,227 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:22,262 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:22,262 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,215 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,215 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,229 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,229 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,248 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,249 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:23,253 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,254 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:23,254 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,254 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:23,260 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,260 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,263 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,264 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,280 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,281 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,281 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,282 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:23,285 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,285 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,286 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,286 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,291 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,291 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:23,309 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:23,309 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:24,290 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:24,291 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:24,318 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:24,319 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:24,324 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:24,324 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:24,335 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:24,335 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:24,345 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:24,345 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:25,249 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,249 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:25,263 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,264 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:25,286 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,287 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:25,287 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,287 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:25,318 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,318 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:25,323 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,323 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:25,343 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,343 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:25,354 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,354 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:25,372 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:25,372 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,303 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,303 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,321 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,322 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,326 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,327 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,353 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,353 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,354 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,354 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:26,368 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,368 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,381 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,381 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:26,382 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,382 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:26,407 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:26,407 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:27,358 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,358 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:27,395 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,395 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:27,409 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,410 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:27,415 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,415 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:27,421 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,422 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:27,430 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,430 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:27,440 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:27,441 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:28,342 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,342 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:28,367 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,367 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:28,393 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,394 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:28,394 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,394 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:28,396 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,396 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:28,401 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,401 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:28,441 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,441 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:28,458 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,458 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:28,470 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:28,471 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,367 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,367 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:29,373 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,373 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,405 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,405 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,409 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,409 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,412 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,412 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,424 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,424 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:29,441 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,441 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,462 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:29,462 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,462 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:29,462 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:29,495 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:29,495 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:30,395 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,395 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:30,478 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,478 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:30,491 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,491 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:30,497 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,497 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:30,512 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,512 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:30,516 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,516 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:30,517 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:30,517 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:31,436 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,436 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:31,437 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,437 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:31,437 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,438 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:31,462 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,462 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:31,479 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,479 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:31,483 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,483 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:31,492 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,493 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:31,533 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,533 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:31,540 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,541 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:31,554 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:31,555 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:32,416 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,417 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:32,455 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,455 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:32,487 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,488 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:32,511 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,511 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:32,511 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,511 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:32,518 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,518 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:32,538 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,538 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:32,541 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,541 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:32,555 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:32,555 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:32,555 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:32,555 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:33,489 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,489 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:33,583 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,584 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:33,588 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:33,588 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,588 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:33,588 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:33,589 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,589 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:33,596 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,596 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:33,609 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,609 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:33,611 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:33,611 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:34,532 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,532 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:34,541 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,541 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:34,551 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,551 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:34,578 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,579 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:34,602 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,602 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:34,636 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,636 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:34,643 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:34,643 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,521 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,522 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:35,554 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,555 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,560 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,561 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,606 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,606 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,623 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:35,623 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,623 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:35,623 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:35,625 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,626 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,636 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,637 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:35,644 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,644 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,644 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,644 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,671 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,671 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:35,690 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:35,690 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:36,594 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:36,595 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:36,657 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:36,658 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:36,666 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:36,666 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:36,668 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:36,668 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:36,680 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:36,680 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:36,710 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:36,711 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:37,587 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,588 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:37,616 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,616 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:37,628 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,628 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:37,645 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,645 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:37,647 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,647 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:37,681 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,681 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:37,707 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:37,707 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,707 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:37,707 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:37,740 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:37,740 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,617 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,618 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:38,655 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,655 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,662 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,662 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,682 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,683 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,696 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,696 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,713 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,714 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,714 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,714 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,743 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,743 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:38,784 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,784 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:38,785 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:38,785 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:39,679 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,679 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:39,693 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,693 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:39,723 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:39,723 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,724 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:39,724 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:39,730 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,731 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:39,758 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,758 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:39,761 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,761 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:39,816 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:39,816 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:40,754 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:40,754 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:40,761 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:40,761 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:40,779 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:40,779 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:40,786 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:40,786 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:40,806 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:40,806 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:40,833 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:40,833 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,706 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,706 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:41,721 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,721 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:41,747 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,747 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,753 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,753 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:41,754 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,754 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,791 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,791 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,798 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,798 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:41,806 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,806 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,824 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,824 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,840 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,840 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:41,867 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,867 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:41,870 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:41,870 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,777 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,778 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,781 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,782 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:42,788 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,788 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,807 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,808 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:42,809 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,809 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,810 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,811 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,855 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,855 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,860 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,860 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:42,894 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:42,895 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:43,829 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:43,829 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:43,846 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:43,846 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:43,875 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:43,875 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:43,891 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:43,891 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:43,902 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:43,902 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:43,933 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:43,933 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,812 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,812 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:44,817 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,817 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:44,837 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,837 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,845 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,846 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,846 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,847 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:44,869 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,869 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,889 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,890 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:44,899 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,899 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,918 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,918 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,931 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,931 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:44,962 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,962 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:44,968 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:44,968 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:45,851 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,852 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:45,871 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,871 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:45,888 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,888 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:45,889 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,889 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:45,910 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,910 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:45,926 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,926 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:45,952 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,952 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:45,954 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:45,954 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,006 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,006 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,909 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,909 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,912 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,913 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,918 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,918 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,931 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,932 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:46,958 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,958 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,973 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,973 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:46,981 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,982 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:46,983 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:46,983 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:47,016 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:47,016 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:47,025 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:47,025 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:47,986 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:47,986 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:47,986 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:47,987 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:47,995 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:47,995 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:48,009 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:48,010 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:48,052 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:48,053 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:48,947 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:48,947 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:48,947 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:48,947 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:48,947 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[INFO ] 2025-01-20 18:42:48,947 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:48,973 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:48,974 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:48,980 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:48,981 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:48,994 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:48,994 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:49,024 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:49,024 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:49,041 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:49,042 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:49,051 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:49,051 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:49,057 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:49,058 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:49,076 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:49,076 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:49,996 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:49,996 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,001 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,002 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,027 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,027 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:50,027 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,028 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,028 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,028 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:50,053 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,053 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,064 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,064 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,094 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,094 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:50,095 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,096 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,098 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,098 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:50,129 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:50,129 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:51,064 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:51,064 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:51,073 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:51,073 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:51,098 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:51,098 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:51,098 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:51,098 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:51,165 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:51,166 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:52,024 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,024 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:52,033 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,033 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:52,053 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,054 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:52,063 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,063 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:52,064 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,064 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:52,098 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,098 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:52,119 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,119 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:52,128 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,128 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:52,129 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,129 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:52,153 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,153 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:52,161 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:52,161 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,087 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,088 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,094 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,094 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,111 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,111 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:53,126 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,126 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,126 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,126 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:53,141 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,141 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,147 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,147 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,183 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,184 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,199 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,200 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:53,200 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,200 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:53,227 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:53,227 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:54,156 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:54,156 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:54,172 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:54,172 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:54,179 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:54,180 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:54,194 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:54,194 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:54,223 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:54,224 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:54,254 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:54,254 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:55,117 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,117 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:55,136 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,137 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:55,153 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,153 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:55,154 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,155 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:55,169 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,169 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:55,173 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,173 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:55,224 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,224 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:55,237 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,237 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:55,268 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:55,268 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,196 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[WARN ] 2025-01-20 18:42:56,197 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,197 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[INFO ] 2025-01-20 18:42:56,197 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,202 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,202 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:56,204 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,204 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,211 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,211 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,234 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,235 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,276 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,276 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,289 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,289 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:56,308 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,308 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:56,326 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:56,326 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:57,231 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:57,231 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:57,256 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:57,256 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:57,257 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:57,257 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:57,297 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:57,297 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:57,299 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:57,299 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:57,348 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:57,348 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:58,226 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,226 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:58,228 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,228 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:58,241 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,241 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:58,259 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,259 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:58,267 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,267 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:58,267 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,268 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:58,328 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,328 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:58,345 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,346 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:58,393 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:58,393 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,275 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,276 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:59,293 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,294 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:59,294 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,294 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,295 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,295 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,297 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,298 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,320 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,320 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:42:59,337 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,337 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,338 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,338 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,346 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,346 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,385 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,386 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:42:59,408 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:42:59,408 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:00,342 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,343 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:00,365 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,365 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:00,371 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,372 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:00,376 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,376 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:00,382 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,382 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:00,402 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,402 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:00,406 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:00,406 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:01,325 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,325 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:01,325 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,325 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:01,349 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,349 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:01,365 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,365 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:01,397 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,397 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:01,402 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,402 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:01,422 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,422 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:01,431 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,431 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:01,452 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:01,452 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:02,364 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,364 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:02,385 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,385 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:02,387 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,387 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:02,388 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,388 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:02,405 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,405 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:02,415 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,415 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:02,425 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,425 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:02,449 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,449 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:02,475 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:02,475 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:03,429 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,429 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:03,437 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,438 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:03,438 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,438 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:03,450 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,451 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:03,451 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,451 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:03,466 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,466 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:03,468 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,468 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:03,484 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,484 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:03,497 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:03,497 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,404 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,404 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:04,407 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,407 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:04,434 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,435 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,435 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,435 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,489 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,489 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,499 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,499 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,509 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,509 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,518 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,518 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:04,529 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:04,529 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:05,463 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,464 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:05,469 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,470 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:05,484 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,484 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:05,484 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,484 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:05,517 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,518 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:05,523 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,524 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:05,527 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:05,528 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,508 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,508 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,509 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,510 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:06,530 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,530 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,538 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,538 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:06,544 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,544 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:06,545 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,545 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,559 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,560 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,561 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,561 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:06,571 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,571 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,577 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,577 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:06,598 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:06,598 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:07,488 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,488 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:07,521 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,522 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:07,550 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,550 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:07,561 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,561 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:07,584 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,584 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:07,597 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,597 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:07,606 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,607 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:07,633 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:07,633 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:08,544 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,544 [TPCCWorker<004>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:08,556 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,557 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:08,581 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,581 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:08,593 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,593 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:08,595 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,595 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:08,600 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,600 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:08,612 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,613 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:08,621 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:08,621 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,589 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,590 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:09,612 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,613 [TPCCWorker<007>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,629 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,630 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:09,630 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,630 [TPCCWorker<006>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,642 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,642 [TPCCWorker<005>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,654 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,654 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:09,654 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,654 [TPCCWorker<002>]  com.oltpbenchmark.api.Worker doWork - Backing off 2 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,658 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,659 [TPCCWorker<001>]  com.oltpbenchmark.api.Worker doWork - (Re)connecting to database.
+[WARN ] 2025-01-20 18:43:09,663 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,663 [TPCCWorker<008>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,689 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,689 [TPCCWorker<000>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[WARN ] 2025-01-20 18:43:09,710 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:09,710 [TPCCWorker<009>]  com.oltpbenchmark.api.Worker doWork - Backing off 1 seconds before reconnecting.
+[INFO ] 2025-01-20 18:43:09,738 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mTERMINATE[0;0m :: Waiting for all terminals to finish ..
+[WARN ] 2025-01-20 18:43:10,619 [TPCCWorker<003>]  com.oltpbenchmark.api.Worker doWork - Connection error detected.
+[INFO ] 2025-01-20 18:43:11,666 [Thread-10]  com.oltpbenchmark.ThreadBench run - Starting WatchDogThread
+[INFO ] 2025-01-20 18:43:11,675 [main]  com.oltpbenchmark.DBWorkload runWorkload - ======================================================================
+[INFO ] 2025-01-20 18:43:11,675 [main]  com.oltpbenchmark.DBWorkload runWorkload - Rate limited reqs/s: Results(state=EXIT, nanoSeconds=60000059742, measuredRequests=13496) = 224.93310936743634 requests/sec (throughput), 221.48311280259793 requests/sec (goodput)
+[INFO ] 2025-01-20 18:43:11,728 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output Raw data into file: tpcc_2025-01-20_18-43-11.raw.csv
+[INFO ] 2025-01-20 18:43:11,851 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output samples into file: tpcc_2025-01-20_18-43-11.samples.csv
+[INFO ] 2025-01-20 18:43:11,859 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output summary data into file: tpcc_2025-01-20_18-43-11.summary.json
+[INFO ] 2025-01-20 18:43:11,865 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS parameters into file: tpcc_2025-01-20_18-43-11.params.json
+[INFO ] 2025-01-20 18:43:11,869 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output DBMS metrics into file: tpcc_2025-01-20_18-43-11.metrics.json
+[INFO ] 2025-01-20 18:43:11,873 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output benchmark config into file: tpcc_2025-01-20_18-43-11.config.xml
+[INFO ] 2025-01-20 18:43:11,899 [main]  com.oltpbenchmark.DBWorkload writeOutputs - Output results into file: tpcc_2025-01-20_18-43-11.results.csv with window size 5
+[INFO ] 2025-01-20 18:43:11,915 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================
+[INFO ] 2025-01-20 18:43:11,915 [main]  com.oltpbenchmark.DBWorkload writeHistograms - Workload Histograms:
+
+[0;1mCompleted Transactions:[0;0m
+com.oltpbenchmark.benchmarks.tpcc.procedures.NewOrder/01                         [5933] ********************************************************************************
+com.oltpbenchmark.benchmarks.tpcc.procedures.Payment/02                          [5774] *****************************************************************************
+com.oltpbenchmark.benchmarks.tpcc.procedures.OrderStatus/03                      [ 533] *******
+com.oltpbenchmark.benchmarks.tpcc.procedures.Delivery/04                         [ 497] ******
+com.oltpbenchmark.benchmarks.tpcc.procedures.StockLevel/05                       [ 552] *******
+
+[0;1mAborted Transactions:[0;0m
+com.oltpbenchmark.benchmarks.tpcc.procedures.NewOrder/01                         [  65] ********************************************************************************
+
+[0;1mRejected Transactions (Server Retry):[0;0m
+<EMPTY>
+
+[0;1mRejected Transactions (Retry Different):[0;0m
+com.oltpbenchmark.benchmarks.tpcc.procedures.NewOrder/01                         [ 367] ********************************************************************************
+com.oltpbenchmark.benchmarks.tpcc.procedures.Payment/02                          [  45] *********
+com.oltpbenchmark.benchmarks.tpcc.procedures.Delivery/04                         [ 105] **********************
+
+[0;1mUnexpected SQL Errors:[0;0m
+<EMPTY>
+
+[0;1mUnknown Status Transactions:[0;0m
+<EMPTY>
+
+
+[INFO ] 2025-01-20 18:43:11,915 [main]  com.oltpbenchmark.DBWorkload writeHistograms - ======================================================================

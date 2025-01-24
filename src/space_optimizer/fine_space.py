@@ -20,12 +20,27 @@ from collections import defaultdict
 
 class FineSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed, enhanced, coarse_folder_name):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed, enhanced)
+    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, fine, coarse_folder_name):
+        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, coarse_folder_name)
         self.factors = [0, 0.25, 0.5]
-        self.define_search_space()
-        # self.define_enhanced_search_space()
-        self.coarse_path = f"./{coarse_folder_name}/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
+        if enhanced:
+            if fine.lower() == 'knowledge':
+                self.define_search_space() # if enhanced, then selected knobs from startings
+            elif fine.lower() == 'default':
+                self.define_enhancedstartings_with_enhancedspace() # enhanced startings + enhanced space + selected knobs from startings
+            else:
+                log.error(f"invalid arg 'fine' {fine}")
+        else:
+            if fine.lower() == 'knowledge':
+                self.define_search_space() # if enhanced, then pre-select knobs
+            elif fine.lower() == 'default':
+                self.define_search_space_default() # no knowledge + default space + pre-select knobs
+            else:
+                log.error(f"invalid arg 'fine' {fine}")
+                exit()
+        # print(self.search_space)
+        log.info(f"Defined search space: {self.search_space}")
+        self.coarse_path = f"./experiments_results/{coarse_folder_name}/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
         
     def define_search_space(self):
         """
@@ -230,11 +245,11 @@ class FineSpace(DefaultSpace):
                 knob = self.get_default_space(knob, info)
                 self.search_space.add_hyperparameter(knob)
 
-
-    def define_enhanced_search_space(self):
+    def define_enhancedstartings_with_enhancedspace(self):
         """
         enhanced by feeding good starting configurations 
-        but the search space is default 
+        but the search space is enhanced by good starting configurations
+            treat the values in starting configuration as suggested values, then explore up and down.
         """
         # how to be guided by coarse-grained tuning
         with open(self.enhanced_starting_path, "r") as json_file:

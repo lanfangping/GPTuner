@@ -13,16 +13,19 @@ from ConfigSpace import (
 
 class CoarseSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, coarse, folder_name):
+        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, folder_name)
         self.factors = [0, 0.25, 0.5]
-        # self.define_search_space()
-        self.define_search_space_default()
+        if coarse.lower() == 'knowledge':
+            self.define_search_space()
+        elif coarse.lower() == 'default':
+            self.define_search_space_default()
 
+        log.info(f"Defined search space: {self.search_space}")
 
     def define_search_space(self):
         for knob in self.target_knobs:
-            print(knob)
+            # print(knob)
             info = self.dbms.knob_info[knob]
             if info is None:
                 self.target_knobs.remove(knob) # this knob is not by the DBMS under specific version

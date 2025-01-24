@@ -15,6 +15,9 @@ from knowledge_handler.knowledge_transformation import KGTrans
 from space_optimizer.knob_selection import KnobSelection
 from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env.
+from utils import logger, misc
+from datetime import datetime
+# import logging
 
 def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
     try:
@@ -30,20 +33,58 @@ def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
         time.sleep(wait_time)
         return process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)  # Retry recursively after waiting
 
+# # Derive output folder from script name
+# script_name = os.path.splitext(os.path.basename(__file__))[0]
+# output_folder = f"output/{script_name}"
+# os.makedirs(output_folder, exist_ok=True)
+
+# # Configure logging
+# log_file = os.path.join(output_folder, "log.txt")
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format="%(asctime)s - %(levelname)s - %(message)s",
+#     handlers=[
+#         logging.StreamHandler(),  # Print to console
+#         logging.FileHandler(log_file)  # Write to log file
+#     ]
+# )
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("db", type=str)
-    parser.add_argument("test", type=str) # workload type
-    parser.add_argument("timeout", type=int)
-    parser.add_argument("-seed", type=int, default=1)
-    parser.add_argument("-enhanced", type=bool, default=False)
+    parser.add_argument("--db", type=str, default='postgres')
+    parser.add_argument("--test", type=str, default='tpcc') # workload type
+    parser.add_argument("--timeout", type=int, default=180)
+    parser.add_argument("--seed", type=int, default=1)
+    parser.add_argument("--enhanced", action='store_true')
+    parser.add_argument("--coarse", type=str, default='knowledge')
+    parser.add_argument("--fine", type=str, default='knowledge')
+    parser.add_argument("--config", type=str, default='') # config file
     args = parser.parse_args()
-    print(f'Input arguments: {args}')
+    misc.over_write_args_from_file(args, args.config)
+
+    # store the optimization results
+    # Derive output folder from script name
+    script_name = args.config.split('.')[0].split('/')[-1]
+    # folder_name="optimization_results_enhancedstarting_wellsearchspace"
+    current_time = datetime.now().strftime("%Y%m%d%H%M")
+    folder_name = f'{script_name}_{current_time}'
+    folder_path = f"./experiments_results/{folder_name}/"
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path) 
+        os.makedirs(f"{folder_path}temp_results/")
+        os.makedirs(f"{folder_path}{args.db}/")  
+        os.makedirs(f"{folder_path}{args.db}/log/") 
+
+    logger_level = "INFO"
+    log = logger.get_logger(script_name, folder_path, logger_level)
+    
+    log.info(f'Input arguments: {args}')
+    log.info(f'Results stored path: {folder_path}')
     time.sleep(2)
+
     config = ConfigParser()
-
-
+    
     if args.db == 'postgres':
         config_path = "./configs/postgres.ini"
         config.read(config_path)
@@ -105,35 +146,26 @@ if __name__ == '__main__':
     else:
         raise ValueError("Illegal dbms!")
     
-    # store the optimization results
-    folder_name="optimization_results_enhancedstarting_wellsearchspace"
-    folder_path = f"../{folder_name}/"
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)  
+     
 
     if not args.enhanced:
-        print("Press any key to initialize coarse stage... ")
-        # input()
         gptuner_coarse = CoarseStage(
             dbms=dbms, 
             target_knobs_path=target_knobs_path, 
             test=args.test,  # workload type
             timeout=args.timeout, 
             seed=args.seed,
+            enhanced=args.enhanced,
+            coarse=args.coarse,
+            log=log,
+            folder_name=folder_name
         )
-        print("Initializing coarse stage done...")
-        print("Press any key to coarse stage optimization... ")
-        # input()
-
         
         gptuner_coarse.optimize(
-            name = f"../{folder_name}/{args.db}/coarse/", 
+            name = f"../experiments_results/{folder_name}/{args.db}/coarse/", 
             trials_number=30, 
             initial_config_number=10)
         time.sleep(20)
-        print("coarse stage optimization done...")
-        print("Press any key to initialize fine stage... ")
-        # input()
 
     gptuner_fine = FineStage(
         dbms=dbms, 
@@ -142,20 +174,26 @@ if __name__ == '__main__':
         timeout=args.timeout, 
         seed=args.seed,
         enhanced=args.enhanced,
-        coarse_folder_name=folder_name
+        fine=args.fine,
+        coarse_folder_name=folder_name,
+        log=log
     )
-    print("Initializing fine stage done...")
-    print("Press any key to fine stage optimization... ")
-    # input()
 
     if not args.enhanced:
         gptuner_fine.optimize(
-            name = f"../{folder_name}/{args.db}/fine/",
+            name = f"../experiments_results/{folder_name}/{args.db}/fine/",
             trials_number=110 # history trials + new tirals
         )   
     else:
-        gptuner_fine.optimize_enhanced_starting(
-            name = f"../{folder_name}/{args.db}/fine/",
-            trials_number=110 # history trials + new tirals
-        )
+        if args.fine.lower() == 'knowledge':
+            gptuner_fine.optimize_enhanced_starting_wellsearchspace(
+                name = f"../experiments_results/{folder_name}/{args.db}/fine/",
+                trials_number=110 # history trials + new tirals
+            )
+        elif args.fine.lower() == 'default':
+            gptuner_fine.optimize_enhanced_starting(
+                name = f"../experiments_results/{folder_name}/{args.db}/fine/",
+                trials_number=110 # history trials + new tirals
+            )
+
 

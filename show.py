@@ -1,7 +1,8 @@
 import json
 import matplotlib.pyplot as plt
 
-file_path = './optimization_results_enhanced_starting3/postgres/fine/100/runhistory.json' # tpcc sf20, t10
+folder_name = "experiments_results/enhanced_fineK_202501201632"
+file_path = f'./{folder_name}/postgres/fine/100/runhistory.json' # tpcc sf20, t10
 
 performance = []
 with open(file_path, 'r') as f:
@@ -35,4 +36,4 @@ plt.ylabel('Throughput')
 plt.title('Throughput with Past Best and Actual Values')
 plt.legend()
 plt.grid(True)
-plt.savefig(f'./optimization_results_enhanced_starting3/figure_tpcc_fine_sf20_t10.png')
+plt.savefig(f'./{folder_name}/figure_tpcc_fine_sf20_t10.png')
