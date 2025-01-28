@@ -1,0 +1,10 @@
+To create a comprehensive suggestion, let's analyze and combine the information step by step:
+
+1. **Manual Suggestion**: This is the highest-priority suggestion. It explains that the `autovacuum_freeze_max_age` parameter specifies the maximum age (in transactions, default is 200 million) that a table's `pg_class.relfrozenxid` field can reach before an automatic VACUUM is triggered to prevent transaction ID wraparound. It also notes that this parameter can only be set at server start.
+
+2. **Web Suggestion**: This is not provided (`None`), so we can ignore it.
+
+3. **GPT Suggestion**: This is the lowest-priority suggestion. It recommends setting the `autovacuum_freeze_max_age` value based on transaction volume and table size, typically between **100 million to 200 million transactions**, ensuring it is lower than the maximum transaction ID limit to prevent wraparound while balancing vacuum frequency and performance overhead. However, this suggestion does not mention the constraint that the parameter can only be set at server start, which is critical information provided by the manual suggestion.
+
+### Comprehensive Suggestion:
+The `autovacuum_freeze_max_age` parameter specifies the maximum age, in transactions (default is 200 million), that a table's `pg_class.relfrozenxid` field can reach before an automatic VACUUM operation is initiated to prevent transaction ID wraparound. This parameter can only be set at server start. When configuring this value, consider your transaction volume and table size, typically keeping it between **100 million to 200 million transactions**, to balance vacuum frequency and performance overhead while ensuring it remains below the maximum transaction ID limit.

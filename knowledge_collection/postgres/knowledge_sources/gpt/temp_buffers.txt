@@ -1,0 +1,1 @@
+Set the `temp_buffers` knob in PostgreSQL based on the expected size of temporary tables; for example, start with 64MB (default) and increase it (e.g., 128MB, 256MB, or higher) if queries involving large temporary tables or sorts exceed available memory, but avoid setting it too high to prevent unnecessary memory consumption.

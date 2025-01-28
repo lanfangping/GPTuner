@@ -1,0 +1,1 @@
+Set the `autovacuum_freeze_max_age` value based on your transaction volume and table size, typically between **100 million to 200 million transactions** (default is 200 million), ensuring it is lower than the maximum transaction ID limit (2 billion) to prevent transaction ID wraparound while balancing vacuum frequency and performance overhead.

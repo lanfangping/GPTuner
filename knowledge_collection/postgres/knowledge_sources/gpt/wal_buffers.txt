@@ -1,0 +1,1 @@
+Set the `wal_buffers` knob in PostgreSQL to a value of at least 16MB (or 1/32 of `shared_buffers`, whichever is larger) to ensure efficient WAL (Write-Ahead Logging) performance, with a maximum typically not exceeding 64MB unless under heavy write workloads.

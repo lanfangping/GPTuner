@@ -1,0 +1,1 @@
+To set the `autovacuum_vacuum_scale_factor` in PostgreSQL, adjust it based on the table's update frequency and size: for tables with high update activity, start with a lower value like **0.01** (1%) to trigger vacuums more frequently, while for larger, less frequently updated tables, a higher value like **0.2** (20%) may suffice, balancing vacuum overhead and table maintenance.

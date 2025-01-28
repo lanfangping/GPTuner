@@ -1,0 +1,1 @@
+Set the `autovacuum_max_workers` value based on the number of CPU cores available and the workload: typically, start with 3-5 workers for systems with 4-8 cores, and increase up to 8-10 workers for larger systems with 16+ cores, ensuring it does not exceed 50-75% of total CPU capacity to avoid contention.

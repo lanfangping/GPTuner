@@ -1,0 +1,1 @@
+Set the `effective_io_concurrency` knob in PostgreSQL based on the number of concurrent I/O operations your storage subsystem can handle: for SSDs, start with a value of 200-300; for HDDs, use 2-4; and for RAID arrays, multiply the number of drives by 2-4, ensuring the total does not exceed 1000 (the maximum allowed value). Adjust incrementally while monitoring performance.

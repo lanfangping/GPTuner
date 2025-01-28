@@ -1,0 +1,1 @@
+Set the `max_parallel_workers` knob in PostgreSQL to a value equal to or less than the number of CPU cores available (e.g., 4 for a 4-core system), ensuring it aligns with the workload and does not exceed `max_worker_processes`, typically starting with 2-4 workers for moderate workloads and scaling up based on performance testing.

@@ -1,0 +1,1 @@
+Set the `backend_flush_after` knob in PostgreSQL based on your workload and hardware: for write-heavy workloads, use a value between **128 kB and 1 MB** to balance I/O and latency, while for read-heavy or mixed workloads, start with **64 kB** and adjust incrementally based on performance testing.

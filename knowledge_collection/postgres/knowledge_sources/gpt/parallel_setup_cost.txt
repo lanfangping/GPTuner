@@ -1,0 +1,1 @@
+Set the `parallel_setup_cost` knob in PostgreSQL to a value between 100 and 1000 (default is 1000) to balance the overhead of parallel query setup against the benefits of parallelism, lowering it if parallel queries are underutilized or raising it if parallel execution overhead outweighs performance gains.

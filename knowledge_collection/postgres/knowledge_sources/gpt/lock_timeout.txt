@@ -1,0 +1,1 @@
+Set the `lock_timeout` value based on the expected duration of lock contention in your workload; for example, start with a default of 1-2 seconds for OLTP systems, increase to 5-10 seconds for mixed workloads, or set it higher (e.g., 30-60 seconds) for long-running analytical queries, while ensuring it doesn't exceed the maximum acceptable wait time for your application.

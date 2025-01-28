@@ -1,0 +1,10 @@
+To create a comprehensive suggestion, we will prioritize the information from the `manual_suggestion` first, followed by the `web_suggestion`, and finally the `gpt_suggestion`. We will integrate the details while resolving any contradictions based on priority.
+
+### Comprehensive Suggestion:
+The `max_parallel_workers_per_gather` parameter controls the maximum number of workers that can be started by a single Gather or Gather Merge node, with a default value of 2. This setting draws from the pool established by `max_worker_processes` and is limited by `max_parallel_workers`. However, the requested number of workers may not always be available at runtime, which can lead to inefficiencies. Additionally, enabling parallel queries can significantly increase resource utilization. 
+
+For high-throughput OLTP systems, it is generally advisable to keep this value low (1 or 2 at most) to avoid overloading the system. For analytical or data warehousing (DW) systems, you can increase the value, but it should always be set to a fraction of the total CPU cores. Be cautious when raising this value, as it interacts with other settings like `work_mem`, which should also be reviewed accordingly. 
+
+When determining the value, consider the number of CPU cores and workload characteristics. For moderate workloads on systems with 8-16 cores, start with 2-4 workers. For highly parallelizable queries, you can increase it up to half the total CPU cores (e.g., 8 on a 16-core system), but ensure it balances with other parallel settings to avoid resource contention. 
+
+In summary, set `max_parallel_workers_per_gather` thoughtfully, considering system resources, workload type, and interactions with other parameters, while prioritizing stability and efficiency.

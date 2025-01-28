@@ -1,0 +1,1 @@
+Set the `hash_mem_multiplier` knob in PostgreSQL by multiplying the `work_mem` value by a factor (default is 2.0) to allocate additional memory for hash-based operations, ensuring it balances performance and memory usage; for example, if `work_mem` is 64MB, a `hash_mem_multiplier` of 2.0 allocates 128MB for hash operations. Adjust based on workload and available system memory.

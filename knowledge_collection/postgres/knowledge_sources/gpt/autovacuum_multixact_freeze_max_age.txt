@@ -1,0 +1,1 @@
+Set the `autovacuum_multixact_freeze_max_age` value based on the expected workload and multixact usage, typically between **100 million (100,000,000)** and **1 billion (1,000,000,000)**, ensuring it is lower than `autovacuum_freeze_max_age` (default 200 million) to prevent transaction ID wraparound while balancing vacuum frequency and performance impact.

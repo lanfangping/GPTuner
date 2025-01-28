@@ -1,0 +1,1 @@
+Set the `checkpoint_timeout` knob in PostgreSQL based on your workload and recovery requirements, typically between **5 minutes (300 seconds)** for frequent checkpoints to reduce recovery time and **30 minutes (1800 seconds)** for less frequent checkpoints to improve write performance, balancing I/O overhead and crash recovery duration.

@@ -1,0 +1,1 @@
+Set the `enable_indexscan` knob to `on` (default) to allow PostgreSQL to use index scans, which is generally beneficial for queries with selective conditions (e.g., when filtering on a column with high cardinality), but set it to `off` if sequential scans are preferred for large tables or when index usage is inefficient (e.g., for full-table scans or low-selectivity queries).

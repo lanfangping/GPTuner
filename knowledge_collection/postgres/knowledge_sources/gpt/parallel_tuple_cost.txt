@@ -1,0 +1,1 @@
+To set the value for the `parallel_tuple_cost` knob in PostgreSQL, start with the default value of `0.1` and adjust it based on your workload: decrease it (e.g., to `0.01` or lower) if parallel queries are underutilized, or increase it (e.g., to `0.2` or higher) if the planner is overusing parallelism, balancing the trade-off between query speed and resource usage.

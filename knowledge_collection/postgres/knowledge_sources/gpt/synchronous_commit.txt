@@ -1,0 +1,1 @@
+Set the `synchronous_commit` knob in PostgreSQL to `off` for improved write performance (e.g., 10-20% faster) in non-critical workloads, or to `on` (default) for guaranteed durability, ensuring transactions are written to disk before acknowledgment, which is critical for data integrity but may reduce performance by 30-50% in high-write scenarios.

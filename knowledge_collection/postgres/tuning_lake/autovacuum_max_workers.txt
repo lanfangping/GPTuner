@@ -1,0 +1,16 @@
+Let's break this down step by step:
+
+1. **Priority Analysis**:  
+   - The `manual_suggestion` has the highest priority, followed by `web_suggestion` (which is `None` in this case), and then `gpt_suggestion`.  
+   - Since `web_suggestion` is `None`, we only need to consider `manual_suggestion` and `gpt_suggestion`.  
+
+2. **Contradictory Information**:  
+   - The `manual_suggestion` states that the `autovacuum_max_workers` parameter can only be adjusted at server startup and provides the default value (3).  
+   - The `gpt_suggestion` provides a detailed recommendation for setting the value based on CPU cores and workload but does not mention the restriction about adjusting it only at server startup.  
+
+3. **Combining Information**:  
+   - The `manual_suggestion` takes precedence due to its higher priority, so we retain its key points: the parameter can only be adjusted at server startup, and the default value is 3.  
+   - From the `gpt_suggestion`, we can incorporate the recommendation for setting the value based on CPU cores and workload, but we must ensure it aligns with the restriction mentioned in the `manual_suggestion`.  
+
+4. **Final Comprehensive Suggestion**:  
+   The `autovacuum_max_workers` parameter sets the limit for the number of autovacuum processes that can run simultaneously. This parameter can only be adjusted at server startup, with the default value being 3. For optimal performance, consider setting this value based on the number of CPU cores and workload: start with 3-5 workers for systems with 4-8 cores, and increase up to 8-10 workers for larger systems with 16+ cores, ensuring it does not exceed 50-75% of total CPU capacity to avoid contention. Always restart the server after making adjustments to this parameter.

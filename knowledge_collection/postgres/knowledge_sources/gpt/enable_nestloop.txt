@@ -1,0 +1,1 @@
+Set the `enable_nestloop` knob to `on` (default) to allow nested loop joins, which are efficient for small datasets or indexed joins, but consider setting it to `off` if queries involve large tables without indexes, as it can reduce performance overhead by forcing the optimizer to choose hash or merge joins instead.

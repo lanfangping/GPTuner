@@ -1,0 +1,1 @@
+To set the `work_mem` knob in PostgreSQL, allocate 4-16 MB per operation (e.g., sort or hash) per connection, ensuring the total memory usage (calculated as `work_mem * max_connections * concurrent operations`) does not exceed available system memory, with typical values ranging from 64 MB to 1 GB depending on workload and system resources.

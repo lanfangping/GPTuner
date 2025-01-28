@@ -1,0 +1,1 @@
+Set the `enable_parallel_append` knob in PostgreSQL to `on` (default) to allow parallel execution of append plans, typically beneficial for queries involving UNION ALL or partitioned tables, but set it to `off` if the overhead of parallel execution outweighs the benefits, especially for small datasets or low-core systems.

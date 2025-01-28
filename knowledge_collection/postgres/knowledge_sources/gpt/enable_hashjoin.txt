@@ -1,0 +1,1 @@
+Set the `enable_hashjoin` knob in PostgreSQL to `on` (default) to allow the query planner to use hash joins, which are efficient for large tables with equality conditions, but set it to `off` if nested loop or merge joins are preferred, especially when working with small datasets or when hash joins cause performance degradation due to high memory usage.

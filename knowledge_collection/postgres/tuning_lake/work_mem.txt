@@ -1,0 +1,7 @@
+To set the `work_mem` parameter in PostgreSQL effectively, consider the following comprehensive suggestion:  
+
+The `work_mem` knob determines the maximum memory allocated per operation (e.g., sort or hash) for a single query before writing to temporary disk files. The default value is 4MB, which is generally too small for modern systems. A good starting point is 16MB, but this should be adjusted based on your workload and system resources. For OLTP queries with minimal sorting or joins, values in the low MB range may suffice, while OLAP-style queries with fewer concurrent operations may require values in the GB range.  
+
+When configuring `work_mem`, ensure the total memory usage (calculated as `work_mem * max_connections * concurrent operations`) does not exceed available system memory. A reasonable estimate is to allocate 1-5% of total system RAM for `work_mem`. Be cautious of setting the value too high, as it can destabilize node throughput when handling many concurrent operations. Conversely, setting it too low can force the engine to use disk instead of memory, degrading performance.  
+
+In summary, start with 16MB as a baseline, adjust based on query complexity and system resources, and ensure the total memory usage remains within system limits to maintain stability and performance.

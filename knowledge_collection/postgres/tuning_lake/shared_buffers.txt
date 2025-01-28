@@ -1,0 +1,8 @@
+To create a comprehensive suggestion, we will prioritize the information from the three suggestions in the order of `manual_suggestion`, `web_suggestion`, and `gpt_suggestion`. We will combine the key points while resolving any contradictions by favoring the higher-priority suggestion.
+
+### Comprehensive Suggestion:
+The `shared_buffers` parameter in PostgreSQL controls the amount of memory used by the database server for shared memory buffers. By default, it is set to **128MB**, but this can be adjusted for better performance. For systems with **1GB or more of RAM**, it is recommended to set `shared_buffers` to **25% of the system's total RAM**, ensuring it does not exceed **40%** to avoid memory contention with the operating system and other processes. For systems with **less than 1GB of RAM**, a smaller percentage should be used. 
+
+If your system has hundreds of GBs of RAM, consider enabling **huge pages** to optimize memory usage. Additionally, ensure that the `shared_buffers` setting aligns with the OS kernel parameters `shmmax` and `shmall`. For non-dedicated servers, adjust the parameter carefully, as each PostgreSQL instance will reserve its own memory allocations. Finally, while the suggested starting point is 25% of RAM (e.g., **4GB for a system with 16GB RAM**), it is advisable to perform benchmarks to fine-tune this parameter based on your specific workload and system configuration. 
+
+This comprehensive suggestion encapsulates the key points from all three sources, prioritizing the `manual_suggestion` and resolving any contradictions accordingly.

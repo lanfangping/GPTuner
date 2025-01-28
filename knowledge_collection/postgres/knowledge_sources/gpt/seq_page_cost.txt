@@ -1,0 +1,1 @@
+To set the value for the `seq_page_cost` knob in PostgreSQL, consider lowering it from the default value of `1.0` to a value between `0.5` and `0.8` if your workload involves frequent sequential scans and your storage system (e.g., SSDs) has faster read performance than traditional HDDs, as this encourages the optimizer to favor sequential scans over index scans when appropriate.

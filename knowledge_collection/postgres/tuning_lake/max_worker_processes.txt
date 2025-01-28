@@ -1,0 +1,17 @@
+To create a comprehensive suggestion based on the provided JSON, we will prioritize the information in the order of `manual_suggestion`, `web_suggestion`, and `gpt_suggestion`. Here's the step-by-step reasoning:
+
+1. **Manual Suggestion (Highest Priority):**
+   - The `max_worker_processes` parameter sets the maximum number of background processes the system can support.
+   - It can only be set at server start and has a default value of 8.
+   - On a standby server, it should be the same or higher than on the master server to allow queries.
+
+2. **Web Suggestion (Medium Priority):**
+   - A simple approach is to set `max_worker_processes` to 75% to 90% of the number of CPU cores, especially for systems with a high core count.
+   - A more detailed approach involves calculating the sum of all worker parameters.
+
+3. **GPT Suggestion (Lowest Priority):**
+   - Set `max_worker_processes` based on the number of CPU cores, typically equal to the number of cores (e.g., 8 for an 8-core system).
+   - Ensure the value aligns with the workload and does not exceed the system's memory capacity, as each worker process consumes additional resources.
+
+### Comprehensive Suggestion:
+The `max_worker_processes` parameter in PostgreSQL determines the maximum number of background processes the system can support and must be set at server start, with a default value of 8. For optimal performance, set this value to be the same or higher on a standby server as on the master server to ensure queries can be processed efficiently. A practical approach is to set it to 75% to 90% of the number of CPU cores, particularly for systems with a high core count, while ensuring it aligns with your workload and does not exceed the system's memory capacity. This balance helps avoid resource contention and ensures smooth operation.
