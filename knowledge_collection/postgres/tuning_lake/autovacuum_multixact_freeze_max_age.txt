@@ -1,0 +1,1 @@
+Suggestion: Set the 'autovacuum_multixact_freeze_max_age' parameter to specify the maximum age, in multixacts, that a table's pg_class.relminmxid field can reach—up to 400 million multixacts—before an automatic VACUUM operation is initiated. This parameter helps prevent multixact ID wraparound within the table and can only be adjusted at server start.
