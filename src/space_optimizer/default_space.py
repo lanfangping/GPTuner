@@ -19,14 +19,14 @@ from ConfigSpace import (
 
 class DefaultSpace:
     """ Base template of GPTuner"""
-    def __init__(self, dbms, test, timeout, target_knobs_path,seed=1):
+    def __init__(self, dbms, test, timeout, target_knobs_path,seed=1,folder='optimization_results'):
         self.dbms = dbms
         self.seed = seed if seed is not None else 1
         self.test = test # workload type
         self.timeout = timeout
         self.target_knobs_path = target_knobs_path
         self.round = 0
-        self.summary_path = "./optimization_results/temp_results"
+        self.summary_path = f"./{folder}/temp_results"
         self.benchmark_copy_db = ['tpcc', 'twitter', "sibench", "voter", "tatp", "smallbank", "seats"]   # Some benchmark will insert or delete data, Need to be rewrite each time.
         self.benchmark_latency = ['tpch']
         self.search_space = ConfigurationSpace()
@@ -36,7 +36,7 @@ class DefaultSpace:
             self.dbms.copy_db(target_db=f"{self.test}_template", source_db="benchbase")
         self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
-        self.log_file = f"./optimization_results/{self.dbms.name}/log/{self.seed}_log.txt"
+        self.log_file = f"./{folder}/{self.dbms.name}/log/{self.seed}_log.txt"
         self.init_log_file()
         self.prev_end = 0
 

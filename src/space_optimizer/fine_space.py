@@ -19,11 +19,11 @@ from ConfigSpace import (
 
 class FineSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, seed, folder):
+        super().__init__(dbms, test, timeout, target_knobs_path, seed, folder)
         self.factors = [0, 0.25, 0.5]
         self.define_search_space()
-        self.coarse_path = f"./optimization_results/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
+        self.coarse_path = f"./{folder}/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
 
 
     def define_search_space(self):

@@ -1,8 +1,10 @@
 from openai import OpenAI, APIError
+import os
 import re
 import json
 import tiktoken
 import transformers
+from datetime import datetime
 
 class GPT:
     def __init__(self, api_base, api_key, model="gpt-4o-mini"):
@@ -37,9 +39,14 @@ class GPT:
                 temperature=1,     
             )
             completion = response.choices[0].message.content
+
+        self.calc_money(prompt, completion)
         return completion
     
     def calc_token(self, in_text, out_text=""):
+        if isinstance(in_text, dict):
+            in_text = json.dumps(in_text)
+
         if isinstance(out_text, dict):
             out_text = json.dumps(out_text)
 
@@ -55,15 +62,26 @@ class GPT:
 
     def calc_money(self, in_text, out_text):
         """money for gpt4"""
+        save_path = 'optimization_results_tpch_sf1_t1_gpt4/token_usage.txt'
+        if os.path.exists(save_path):
+            record = open(save_path, 'a')
+        else:
+            record = open(save_path, 'w')
+            record.write("current_time total_tokens in_tokens out_tokens\n")
+
+        in_token = self.calc_token(in_text)
+        out_token = self.calc_token(out_text)
+        current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+        record.write(f"{current_time} {in_token+out_token} {in_token} {out_token}\n")
         if self.model == "gpt-4":
-            return (self.calc_token(in_text) * 0.03 + self.calc_token(out_text) * 0.06) / 1000
+            return (in_token * 0.03 + out_token * 0.06) / 1000
         elif self.model == "gpt-3.5-turbo":
-            return (self.calc_token(in_text) * 0.0015 + self.calc_token(out_text) * 0.002) / 1000
+            return (in_token * 0.0015 + out_token * 0.002) / 1000
         elif self.model == "gpt-4-1106-preview" or self.model == "gpt-4-1106-vision-preview":
-            return (self.calc_token(in_text) * 0.01 + self.calc_token(out_text) * 0.03) / 1000
+            return (in_token * 0.01 + out_token * 0.03) / 1000
         elif self.model == 'deepseek-chat':
             # input text: 0.14/1M, output text: 0.28/1M
-            return (self.calc_token(in_text) * 0.14 + self.calc_token(out_text) * 0.28) / 1000000
+            return (in_token * 0.14 + out_token * 0.28) / 1000000
         else:
             return 0 
 
