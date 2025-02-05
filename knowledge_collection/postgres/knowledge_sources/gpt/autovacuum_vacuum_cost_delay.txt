@@ -1,1 +1,1 @@
-Set the 'autovacuum_vacuum_cost_delay' value in Postgres to a lower number if I/O is less of a concern, commonly within 2ms to 20ms, but it can be adjusted up to 100ms or set to 0 for no delay, ensuring to balance between minimizing the impact on performance and maintaining the efficiency of autovacuum operations.
+Set the `autovacuum_vacuum_cost_delay` value to a range between 10ms and 20ms to balance between vacuuming performance and database load, with lower values (e.g., 10ms) for high-throughput systems and higher values (e.g., 20ms) for less critical workloads.

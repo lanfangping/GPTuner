@@ -1,1 +1,1 @@
-Set the 'checkpoint_timeout' value in PostgreSQL between 5 minutes (300 seconds) and 1 hour (3600 seconds) to balance between minimizing data loss in case of a crash and reducing the frequency of disk write operations.
+Set the `checkpoint_timeout` value in PostgreSQL to balance between 5 minutes (300 seconds) and 30 minutes (1800 seconds), depending on the trade-off between checkpoint frequency and I/O load, with a typical recommended range of 10 to 15 minutes (600 to 900 seconds).

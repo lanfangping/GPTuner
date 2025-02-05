@@ -1,0 +1,1 @@
+Set the `fsync` knob in PostgreSQL to `off` for high-throughput, latency-sensitive workloads, but be cautious as it reduces durability; alternatively, set it to `on` (default) for ensuring data integrity, typically with a trade-off in performance, where the recommended `fsync` interval is around 100-200ms for a balance between durability and performance.

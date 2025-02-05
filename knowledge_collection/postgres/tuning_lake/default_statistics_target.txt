@@ -1,1 +1,3 @@
-To optimally configure the 'default_statistics_target' knob in PostgreSQL, set it at a starting value of 100, as this is the default setting and aids in improving the planner's estimate quality. Gradually increase the value, potentially up to 1000, and monitor the query performance closely. Be aware that higher values provide more detailed statistics, enhancing planning accuracy, but this could also result in longer analysis time. Adjust the setting to find a balance that promotes both effective execution efficiency and acceptable planning time.
+### Comprehensive Suggestion:
+
+Adjust the `default_statistics_target` knob to improve the quality of the planner's estimates, which can be particularly beneficial for large tables. Medium-sized systems typically perform well with values around 200, while larger systems may need to increase this value to 500 or 1000. Be mindful of the trade-off between improved estimation quality and the increased time required for analysis.

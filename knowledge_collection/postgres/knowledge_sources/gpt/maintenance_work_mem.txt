@@ -1,1 +1,1 @@
-Set the 'maintenance_work_mem' value in PostgreSQL based on the size of your database and maintenance tasks, typically ranging from 64MB to several GBs, but it should not exceed 10% of system RAM to avoid impacting overall server performance.
+Set `maintenance_work_mem` to 25% of the total RAM for typical workloads, but no more than 2GB to avoid excessive memory usage during maintenance operations, especially on systems with less than 8GB of RAM.

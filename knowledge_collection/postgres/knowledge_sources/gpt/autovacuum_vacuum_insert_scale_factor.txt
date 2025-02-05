@@ -1,1 +1,1 @@
-Set the 'autovacuum_vacuum_insert_scale_factor' in PostgreSQL typically between 0.05 to 0.2; the specific value depends on the insert rate, with lower values causing more frequent autovacuum runs, which can be useful in high-insert environments to prevent table bloat and ensure performance efficiency.
+Set the `autovacuum_vacuum_insert_scale_factor` to a value between 0.01 and 0.2, depending on the insert rate and table size, with lower values (e.g., 0.05) for high-insert workloads and larger tables, and higher values (e.g., 0.2) for lower insert rates and smaller tables.

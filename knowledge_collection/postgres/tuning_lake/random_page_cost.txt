@@ -1,1 +1,0 @@
-Set the 'random_page_cost' value in PostgreSQL to accurately represent the cost of non-sequentially fetched disk pages. Adjust this setting based on factors such as the cache rate, the relative size of your database to server memory, and the type of storage used. This tuning will help optimize the query planner’s assessment of index scans involving random disk page reads.

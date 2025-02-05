@@ -1,1 +1,3 @@
-Enable the 'enable_partitionwise_join' knob to allow the query planner to perform partitionwise joins, which efficiently joins partitioned tables by corresponding partitions when all partition keys are included in the join conditions, share the same data type, and have aligned sets of child partitions. Be mindful that this feature is disabled by default due to its high demand on CPU and memory resources during the planning process.
+**Comprehensive Suggestion:**
+
+The `enable_partitionwise_join` knob should be toggled to allow the query planner to perform partitionwise joins between partitioned tables with matching partition keys of the same data type. This feature is beneficial for optimizing query performance, but it defaults to off due to the potential increase in CPU and memory usage during the planning phase.

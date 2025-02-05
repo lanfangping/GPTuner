@@ -1,1 +1,1 @@
-To optimally set the 'max_wal_size' in PostgreSQL, adjust the value based on your workload's intensity and database writing volume; typically, a value between 1GB and 8GB is suggested, though you may need to increase this in high write-intensive environments.
+Set the `max_wal_size` to a value that is typically between 1GB and 2GB per active database, but adjust it higher (e.g., 4GB to 8GB) if frequent large transactions or high write activity is expected, ensuring it does not exceed the available disk space.

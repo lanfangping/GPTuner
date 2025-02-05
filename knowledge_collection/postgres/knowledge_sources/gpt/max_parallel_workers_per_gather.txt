@@ -1,1 +1,1 @@
-Set the PostgreSQL 'max_parallel_workers_per_gather' value based on your system's CPU cores, typically not exceeding half of the available cores; for example, on an 8-core system, a recommended value could be up to 4.
+Set the value for 'max_parallel_workers_per_gather' in PostgreSQL based on the number of CPU cores available, typically between 2 and 4 times the number of cores, but not exceeding the total number of parallel workers configured with 'max_parallel_workers'.

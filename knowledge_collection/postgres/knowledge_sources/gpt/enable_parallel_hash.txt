@@ -1,1 +1,0 @@
-Set the 'enable_parallel_hash' knob in PostgreSQL to 'on' to allow the query planner to consider parallel hash joins, which is particularly beneficial for joining large tables and can be effectively used when the number of worker processes (controlled by 'max_parallel_workers_per_gather') is set to a value greater than 1.

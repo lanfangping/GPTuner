@@ -1,1 +1,1 @@
-Set the 'autovacuum_naptime' in PostgreSQL to a value between 10 seconds and several minutes, ensuring it's low enough for frequent checks on tables with rapid updates, but not so low that it impacts overall database performance.
+Set the `autovacuum_naptime` value to balance between frequent vacuuming (e.g., 1-5 minutes) for high-activity databases to prevent bloat, and less frequent intervals (e.g., 10-20 minutes) for lower-activity databases to reduce overhead.

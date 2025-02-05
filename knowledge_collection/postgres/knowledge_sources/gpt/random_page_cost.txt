@@ -1,1 +1,0 @@
-Set the 'random_page_cost' value in PostgreSQL based on the speed of your storage system; lower it closer to 1.0 if using fast SSDs (typically between 1.1 to 2.0), or increase it up to 4.0 for slower, traditional spinning HDDs, to optimize the query planner's cost assessments for index scans involving random disk page reads.

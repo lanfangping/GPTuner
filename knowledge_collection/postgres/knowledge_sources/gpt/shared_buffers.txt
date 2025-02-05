@@ -1,1 +1,1 @@
-For setting the 'shared_buffers' knob in PostgreSQL, it is typically recommended to allocate around 25% of the total RAM of the system, ensuring it does not exceed 8GB on systems with a large amount of RAM, as diminishing returns are observed beyond that threshold.
+Set the 'shared_buffers' value to 25% of the total RAM for a typical PostgreSQL installation, but for systems with more than 32GB of RAM, consider setting it to 15-25% of the total RAM, with a maximum recommended value of 8-16GB.

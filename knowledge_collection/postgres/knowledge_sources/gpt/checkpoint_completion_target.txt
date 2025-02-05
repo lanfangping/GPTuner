@@ -1,1 +1,1 @@
-Set the 'checkpoint_completion_target' value in PostgreSQL between 0.5 and 0.9, typically around 0.7 to 0.9, to balance between write performance and recovery time, allowing more time for background processes to spread the I/O load more evenly.
+Set the `checkpoint_completion_target` value to 0.9, which means checkpoints should complete within 90% of the checkpoint interval, allowing for smoother I/O and reduced checkpoint spikes.

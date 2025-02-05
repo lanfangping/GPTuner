@@ -1,1 +1,3 @@
-To effectively manage PostgreSQL's operation and avoid transaction ID wraparound, the parameter 'autovacuum_freeze_max_age' should be set to define the maximum transaction age, in transactions, allowable before an automatic VACUUM is initiated. This setting is crucial for the health of your database and can only be configured at server start.
+**Comprehensive Suggestion:**
+
+The `autovacuum_freeze_max_age` parameter specifies the maximum age, in transactions, that a table's `pg_class.relfrozenxid` field can reach before a VACUUM operation is automatically initiated to prevent transaction ID wraparound within the table. This parameter is crucial for maintaining database integrity and can only be set at server start.

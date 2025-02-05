@@ -1,1 +1,11 @@
-The 'synchronous_commit' knob allows you to control the behavior of transaction commits with regard to writing WAL records to disk before signaling success. You can configure it to various settings including: 'on' which is the default and waits for the WAL records to be written to both local disk and confirmed at standbys; 'remote_apply' where the commit waits until the standby has applied the changes; 'remote_write' that waits for the standby to write the changes; 'local' which only waits for the local disk write; and 'off', where there is no wait, potentially risking up to three times the wal_writer_delay of data loss in the event of a crash. This setting provides a balance between performance and durability.
+**Comprehensive Suggestion:**
+
+The `synchronous_commit` parameter in PostgreSQL controls the behavior of transaction commit, determining whether it waits for Write-Ahead Log (WAL) records to be written to disk before reporting success. The available options include:
+
+- **'on'**: Waits for both local disk write and standby replication.
+- **'remote_apply'**: Waits for the standby server to apply the changes.
+- **'remote_write'**: Waits for the standby server to write the changes to disk.
+- **'local'**: Waits only for the local disk write.
+- **'off'**: Does not wait for any disk writes, which can risk up to three times the `wal_writer_delay` of data loss in the event of a crash.
+
+This setting is crucial for balancing performance and durability, allowing administrators to tailor the commit behavior to their specific needs and replication setup.

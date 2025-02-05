@@ -1,1 +1,0 @@
-To optimize the 'enable_mergejoin' knob in PostgreSQL, set its value to 'on' (or 'true') to allow the use of the merge join strategy by the planner when beneficial; however, consider setting it to 'off' (or 'false') to prevent merge joins if they are consistently less efficient for your workload, especially in scenarios involving large data sets or indexes.

@@ -1,1 +1,1 @@
-Set the 'wal_level' in PostgreSQL to 'minimal', 'replica', or 'logical', depending on whether you need no replication with minimal logging, full logging plus support for read replicas, or full logging with additional support for logical decoding, respectively, to support various levels of data recovery and replication demands.
+Set the `wal_level` to `replica` for basic streaming replication and point-in-time recovery, or to `logical` for logical replication, with a recommended minimum of 16MB for `wal_segment_size` to ensure efficient WAL archiving and recovery.

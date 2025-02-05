@@ -1,1 +1,1 @@
-Set the 'autovacuum_vacuum_threshold' value for PostgreSQL based on your data change rate; a common starting point is 50, but adjust higher for tables with frequent updates or inserts to minimize performance impacts due to frequent vacuuming.
+Set the `autovacuum_vacuum_threshold` to a value that balances between preventing excessive vacuuming (e.g., 50-100) and ensuring timely cleanup of dead tuples (e.g., 250-500), considering the table's update/delete activity and the system's I/O capacity.

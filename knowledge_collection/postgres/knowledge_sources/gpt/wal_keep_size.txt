@@ -1,1 +1,0 @@
-To set the `wal_keep_size` in PostgreSQL, consider the amount and frequency of data changes, and the time for WAL (Write-Ahead Logging) transmission to replicas; typically setting it to a value enough to store at least a few hours of WAL records, starting from around 500MB to several GB depending on the specific workload and replication lag tolerance.
