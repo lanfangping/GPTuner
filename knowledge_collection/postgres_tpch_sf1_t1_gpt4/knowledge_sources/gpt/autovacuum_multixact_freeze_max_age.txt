@@ -1,0 +1,1 @@
+For the `autovacuum_multixact_freeze_max_age` knob in PostgreSQL, set the value below the hard limit of 4,000,000,000, with typical recommendations often suggesting a proactive setting around 200,000,000 to avoid autovacuum failing to keep up with multixact ID wraparound, ensuring multixact age does not exceed this threshold to prevent data loss risks.

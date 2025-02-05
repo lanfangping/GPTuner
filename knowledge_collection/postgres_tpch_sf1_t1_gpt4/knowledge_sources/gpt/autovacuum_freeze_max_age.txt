@@ -1,0 +1,1 @@
+For optimal performance, set the 'autovacuum_freeze_max_age' in PostgreSQL to a value significantly lower than the hard limit of 2 billion transactions, commonly between 200 million and 500 million transactions, to ensure routine vacuuming before reaching the point where aggressive vacuuming is mandatory to avoid transaction wraparound issues.

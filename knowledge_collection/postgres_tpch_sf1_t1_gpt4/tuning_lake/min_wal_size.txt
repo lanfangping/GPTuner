@@ -1,0 +1,1 @@
+To optimally configure the 'min_wal_size' setting in PostgreSQL, set the value initially at the default of 80MB to handle spikes in WAL usage, such as during large batch jobs. You may adjust this value upwards based on your system's workload, transactional volume, and database size, potentially up to 2-4GB for heavy workloads, ensuring efficient WAL file handling and recycling.

@@ -1,0 +1,1 @@
+Suggestion: Adjust the 'autovacuum_work_mem' setting to specify the maximum memory that each autovacuum worker process can use. By default, it is set to -1 kilobytes, which means it will use the value of 'maintenance_work_mem'. Note that this setting only affects autovacuum worker processes and does not impact the behavior of VACUUM when it is run in other contexts.
