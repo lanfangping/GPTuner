@@ -59,6 +59,9 @@ if __name__ == '__main__':
     parser.add_argument("--enhanced", action='store_true')
     parser.add_argument("--coarse", type=str, default='knowledge')
     parser.add_argument("--fine", type=str, default='knowledge')
+    parser.add_argument("--mode", type=str, default='past_best')
+    parser.add_argument("--enhanced_starting_path", type=str, default='../DBtuningDataset/historical_best_config/historical_best_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json')
+    parser.add_argument("--enhanced_strategy", type=str, default='suggest_values')
     parser.add_argument("--config", type=str, default='') # config file
     args = parser.parse_args()
     misc.over_write_args_from_file(args, args.config)
@@ -102,8 +105,8 @@ if __name__ == '__main__':
     api_key=os.environ.get("DEEPSEEK_API_KEY")
     api_base = os.environ.get("DEEPSEEK_API_BASE")
     model = "deepseek-chat"
-    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
-    knob_selection.select_interdependent_all_knobs()
+    # knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
+    # knob_selection.select_interdependent_all_knobs()
     dbms._disconnect()
 
     # prepare tuning lake and structured knowledge
@@ -156,6 +159,7 @@ if __name__ == '__main__':
             timeout=args.timeout, 
             seed=args.seed,
             enhanced=args.enhanced,
+            enhanced_starting_path=args.enhanced_starting_path,
             coarse=args.coarse,
             log=log,
             folder_name=folder_name
@@ -174,6 +178,8 @@ if __name__ == '__main__':
         timeout=args.timeout, 
         seed=args.seed,
         enhanced=args.enhanced,
+        enhanced_starting_path=args.enhanced_starting_path,
+        enhanced_strategy=args.enhanced_strategy,
         fine=args.fine,
         coarse_folder_name=folder_name,
         log=log

@@ -11,14 +11,15 @@ from ConfigSpace import (
     UniformFloatHyperparameter,
     CategoricalHyperparameter,
     Configuration,
+    Constant
 )
 import os
 
 
 class FineStage(FineSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, fine, coarse_folder_name):
-        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, fine, coarse_folder_name)
+    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, enhanced_starting_path, enhanced_strategy, fine, coarse_folder_name):
+        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, enhanced_starting_path, enhanced_strategy, fine, coarse_folder_name)
 
     def optimize(self, name, trials_number):
         scenario = Scenario(
@@ -121,7 +122,9 @@ class FineStage(FineSpace):
                 
                 hp = self.search_space[key]
                 print(f'{key}:{value} - {hp.is_legal(value)}')
-                if isinstance(hp, CategoricalHyperparameter):
+                if isinstance(hp, Constant):
+                    transfer_config_value_dict[key] = hp.value
+                elif isinstance(hp, CategoricalHyperparameter):
                     transfer_config_value_dict[key] = str(value)
                 elif isinstance(hp, UniformIntegerHyperparameter):
                     sys_unit = self.dbms.knob_info[key]["unit"]
@@ -144,17 +147,22 @@ class FineStage(FineSpace):
                         transfer_config_value_dict[key] = float(value)
                 else:   
                     sys_unit = self.dbms.knob_info[key]["unit"]
-                    value = self._transfer_unit_involved(value, sys_unit)
+                    if sys_unit:
+                        value = self._transfer_unit_involved(value, sys_unit)
                     transfer_config_value_dict[key] = value
                 print("value after transfer", value)
 
-            print(transfer_config_value_dict)
-            print(self.target_knobs)
+            uncovered_knobs = list(set(self.target_knobs).difference(set(config_value_dict.keys())))
+            print("\n")
+            for knob in uncovered_knobs:
+                print("uncovered knob:", knob)            
+                hp = self.search_space[knob]
+                transfer_config_value_dict[knob] = hp.default_value
+
             config = Configuration(self.search_space, transfer_config_value_dict)
             configs.insert(0, config) # assume the original costs is ascending order
             config_costs.insert(0, -performance)
         
-        print("config_costs", config_costs)
         for _id, config in enumerate(configs):
             smac.runhistory.add(config, config_costs[_id], seed=self.seed)
 
@@ -206,6 +214,7 @@ class FineStage(FineSpace):
             # make type transformation from coarse to fine 
             transfer_config_value_dict = {}
             for key, value in config_value_dict.items():
+                print("\n", key, value)
                 if key not in self.dbms.knob_info.keys() or "vartype" not in self.dbms.knob_info[key] or self.dbms.knob_info[key]["vartype"] == "string":
                     continue
 
@@ -221,19 +230,23 @@ class FineStage(FineSpace):
                 if file_name in os.listdir(special_skill_path):
                     with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
                         special_skill = json.load(json_file)
+                    # print("special_skill", special_skill)
                     special = special_skill["special_knob"]
                     if special is True:
                         if f'special_{key}' in self.search_space.get_hyperparameter_names():
                             hp = self.search_space[f'special_{key}']
                             sys_unit = self.dbms.knob_info[key]["unit"]
-                            value = self._transfer_unit_involved(value, sys_unit)
-                            print(hp, hp.value)
+                            if sys_unit is not None:
+                                value = self._transfer_unit_involved(value, sys_unit)
+                            # print(hp, hp.value)
                             if value == hp.value:
                                 transfer_config_value_dict[f'control_{key}'] = str(1)
                             else:
                                 transfer_config_value_dict[f'control_{key}'] = str(0)
                             # print(transfer_config_value_dict)
                             # input()
+                # input()
+                # print(key)
                 hp = self.search_space[key]
                 print(f'{key}:{value} - {hp.is_legal(value)}')
                 if isinstance(hp, CategoricalHyperparameter):
@@ -262,14 +275,36 @@ class FineStage(FineSpace):
                     value = self._transfer_unit_involved(value, sys_unit)
                     transfer_config_value_dict[key] = value
                 print("value after transfer", value)
+                # input()
+            # print(transfer_config_value_dict)
+            # print(self.target_knobs)
+            
+            uncovered_knobs = list(set(self.target_knobs).difference(set(config_value_dict.keys())))
+            print("\n")
+            for knob in uncovered_knobs:
+                print("uncovered knob:", knob)
+                # set special control parameter for knobs
+                file_name = f"{knob}.json"
+                
+                # check if this knob is special knob
+                if file_name in os.listdir(special_skill_path):
+                    with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
+                        special_skill = json.load(json_file)
+                    if knob == 'synchronous_commit' or knob == 'autovacuum' or knob == 'wal_level':
+                        print("special_skill", special_skill)
+                    special = special_skill["special_knob"]
+                    if special is True:
+                        transfer_config_value_dict[f'control_{knob}'] = str(0)
+                        print(transfer_config_value_dict[f'control_{knob}'])
 
-            print(transfer_config_value_dict)
-            print(self.target_knobs)
+                hp = self.search_space[knob]
+                transfer_config_value_dict[knob] = hp.default_value
+
             config = Configuration(self.search_space, transfer_config_value_dict)
             configs.insert(0, config) # assume the original costs is ascending order
             config_costs.insert(0, -performance)
         
-        print("config_costs", config_costs)
+        # print("config_costs", config_costs)
         for _id, config in enumerate(configs):
             smac.runhistory.add(config, config_costs[_id], seed=self.seed)
 

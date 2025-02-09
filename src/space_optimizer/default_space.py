@@ -20,14 +20,17 @@ from ConfigSpace import (
 
 class DefaultSpace:
     """ Base template of GPTuner"""
-    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed=1, enhanced=False, folder_name='optimization_results'):
+    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed=1, enhanced=False, enhanced_starting_path='"../DBtuningDataset/historical_best_config/historical_best_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json"', folder_name='optimization_results'):
         self.dbms = dbms
         self.seed = seed if seed is not None else 1
         self.test = test # workload type
         self.timeout = timeout
         self.target_knobs_path = target_knobs_path
-        self.enhanced_starting_path = f"../DBtuningDataset/historical_best_config/historical_best_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json"
-        # self.enhanced_starting_path = f"../DBtuningDataset/historical_ordered_config/historical_ordered_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json"
+        self.enhanced_starting_path = enhanced_starting_path
+        # if mode=='past_best':
+        #     self.enhanced_starting_path = f"../DBtuningDataset/historical_best_config/historical_best_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json"
+        # elif mode == 'all_ordered':
+        #     self.enhanced_starting_path = f"../DBtuningDataset/historical_ordered_config/historical_ordered_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json"
         self.round = 0
         self.summary_path = f"./experiments_results/{folder_name}/temp_results"
         self.benchmark_copy_db = ['tpcc', 'twitter', "sibench", "voter", "tatp", "smallbank", "seats"]   # Some benchmark will insert or delete data, Need to be rewrite each time.
@@ -36,6 +39,8 @@ class DefaultSpace:
         self.skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/normal"
         self.logger = log
         self.target_knobs = self.knob_select(enhanced)
+        self.logger.info(f"the number of knobs: {len(self.target_knobs)}")
+        self.logger.info(f"target knobs: {self.target_knobs}")
         if self.test in self.benchmark_copy_db:
             self.dbms.copy_db(target_db=f"{self.test}_template", source_db="benchbase")
         # self.penalty = 0

@@ -13,8 +13,8 @@ from ConfigSpace import (
 
 class CoarseSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, coarse, folder_name):
-        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, folder_name)
+    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, enhanced_starting_path, coarse, folder_name):
+        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, enhanced_starting_path=enhanced_starting_path, folder_name=folder_name)
         self.factors = [0, 0.25, 0.5]
         if coarse.lower() == 'knowledge':
             self.define_search_space()

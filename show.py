@@ -1,7 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 
-folder_name = "experiments_results/enhanced_fineK_202501201632"
+folder_name = "experiments_results/enhanced_fineD_modeAO_strategyR_202502072253"
 file_path = f'./{folder_name}/postgres/fine/100/runhistory.json' # tpcc sf20, t10
 
 performance = []

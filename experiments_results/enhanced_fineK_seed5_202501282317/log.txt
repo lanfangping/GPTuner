@@ -1,0 +1,128 @@
+[2025-01-28 23:17:58,883 INFO] Input arguments: Namespace(db='postgres', test='tpcc', timeout=180, seed=5, enhanced=True, coarse='', fine='knowledge', config='src/exp_configs/postgres/sf20_t10_seeds/enhanced_fineK_seed5.yml')
+[2025-01-28 23:17:58,883 INFO] Results stored path: ./experiments_results/enhanced_fineK_seed5_202501282317/
+[2025-01-28 23:18:00,923 INFO] knob selected by enhanced good startings
+[2025-01-28 23:18:29,999 INFO] Defined search space: Configuration space object:
+  Hyperparameters:
+    archive_mode, Type: Categorical, Choices: {always, on, off}, Default: off
+    archive_timeout, Type: UniformInteger, Range: [0, 1073741823], Default: 0
+    array_nulls, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.1
+    autovacuum_max_workers, Type: UniformInteger, Range: [3, 5], Default: 3
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    backslash_quote, Type: Categorical, Choices: {safe_encoding, on, off}, Default: safe_encoding
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [100, 1000], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [0.0, 10.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    client_min_messages, Type: Categorical, Choices: {debug5, debug4, debug3, debug2, debug1, log, notice, warning, error}, Default: notice
+    constraint_exclusion, Type: Categorical, Choices: {partition, on, off}, Default: partition
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 0.005
+    cpu_operator_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 0.0025
+    cpu_tuple_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 0.01
+    deadlock_timeout, Type: UniformInteger, Range: [1, 2147483647], Default: 1000
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [524288, 2712500], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    escape_string_warning, Type: Categorical, Choices: {on, off}, Default: on
+    exit_on_error, Type: Categorical, Choices: {on, off}, Default: off
+    from_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    geqo, Type: Categorical, Choices: {on, off}, Default: on
+    geqo_effort, Type: UniformInteger, Range: [1, 10], Default: 5
+    geqo_generations, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    geqo_pool_size, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    geqo_seed, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.0
+    geqo_selection_bias, Type: UniformFloat, Range: [1.5, 2.0], Default: 2.0
+    geqo_threshold, Type: UniformInteger, Range: [2, 2147483647], Default: 12
+    hot_standby, Type: Categorical, Choices: {on, off}, Default: on
+    hot_standby_feedback, Type: Categorical, Choices: {on, off}, Default: off
+    join_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    lo_compat_privileges, Type: Categorical, Choices: {on, off}, Default: off
+    log_autovacuum_min_duration, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    log_checkpoints, Type: Categorical, Choices: {on, off}, Default: off
+    log_connections, Type: Categorical, Choices: {on, off}, Default: off
+    log_disconnections, Type: Categorical, Choices: {on, off}, Default: off
+    log_duration, Type: Categorical, Choices: {on, off}, Default: off
+    log_file_mode, Type: UniformInteger, Range: [0, 511], Default: 384
+    log_lock_waits, Type: Categorical, Choices: {on, off}, Default: off
+    log_min_duration_statement, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    log_min_error_statement, Type: Categorical, Choices: {debug5, debug4, debug3, debug2, debug1, info, notice, warning, error, log, fatal, panic}, Default: error
+    log_min_messages, Type: Categorical, Choices: {debug5, debug4, debug3, debug2, debug1, info, notice, warning, error, log, fatal, panic}, Default: warning
+    log_rotation_age, Type: UniformInteger, Range: [0, 35791394], Default: 1440
+    log_rotation_size, Type: UniformInteger, Range: [0, 2097151], Default: 10240
+    log_statement, Type: Categorical, Choices: {none, ddl, mod, all}, Default: all
+    log_temp_files, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    log_truncate_on_rotation, Type: Categorical, Choices: {on, off}, Default: off
+    logging_collector, Type: Categorical, Choices: {on, off}, Default: on
+    maintenance_work_mem, Type: UniformInteger, Range: [1024, 6312500], Default: 65536
+    max_locks_per_transaction, Type: UniformInteger, Range: [10, 2147483647], Default: 64
+    max_logical_replication_workers, Type: UniformInteger, Range: [0, 262143], Default: 4
+    max_parallel_maintenance_workers, Type: UniformInteger, Range: [0, 1024], Default: 2
+    max_parallel_workers, Type: UniformInteger, Range: [0, 1024], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 48], Default: 2
+    max_pred_locks_per_page, Type: UniformInteger, Range: [0, 2147483647], Default: 2
+    max_pred_locks_per_relation, Type: UniformInteger, Range: [-2147483648, 2147483647], Default: -2
+    max_pred_locks_per_transaction, Type: UniformInteger, Range: [10, 2147483647], Default: 64
+    max_standby_archive_delay, Type: UniformInteger, Range: [-1, 2147483647], Default: 30000
+    max_standby_streaming_delay, Type: UniformInteger, Range: [-1, 2147483647], Default: 30000
+    max_sync_workers_per_subscription, Type: UniformInteger, Range: [0, 262143], Default: 2
+    max_wal_senders, Type: UniformInteger, Range: [0, 262143], Default: 10
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [8, 10], Default: 8
+    min_parallel_index_scan_size, Type: UniformInteger, Range: [0, 715827882], Default: 64
+    min_parallel_table_scan_size, Type: UniformInteger, Range: [0, 715827882], Default: 1024
+    min_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 80
+    parallel_setup_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 1000.0
+    parallel_tuple_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 0.1
+    quote_all_identifiers, Type: Categorical, Choices: {on, off}, Default: off
+    random_page_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 4.0
+    restart_after_crash, Type: Categorical, Choices: {on, off}, Default: on
+    seq_page_cost, Type: UniformFloat, Range: [0.0, 1.79769e+308], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16, 1550000], Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: -1
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    standard_conforming_strings, Type: Categorical, Choices: {on, off}, Default: on
+    synchronize_seqscans, Type: Categorical, Choices: {on, off}, Default: on
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: UniformInteger, Range: [100, 1073741823], Default: 1024
+    track_activities, Type: Categorical, Choices: {on, off}, Default: on
+    track_activity_query_size, Type: UniformInteger, Range: [100, 1048576], Default: 1024
+    track_counts, Type: Categorical, Choices: {on, off}, Default: on
+    track_functions, Type: Categorical, Choices: {none, pl, all}, Default: none
+    track_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    transform_null_equals, Type: Categorical, Choices: {on, off}, Default: off
+    update_process_title, Type: Categorical, Choices: {on, off}, Default: on
+    wal_buffers, Type: UniformInteger, Range: [4, 262143], Default: 512
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    wal_receiver_status_interval, Type: UniformInteger, Range: [0, 2147483], Default: 10
+    wal_receiver_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 60000
+    wal_retrieve_retry_interval, Type: UniformInteger, Range: [1, 2147483647], Default: 5000
+    wal_sender_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 60000
+    work_mem, Type: UniformInteger, Range: [64, 1550000], Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    wal_buffers | control_wal_buffers == '0'
+

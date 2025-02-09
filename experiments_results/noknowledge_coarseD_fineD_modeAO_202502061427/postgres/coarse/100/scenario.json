@@ -1,0 +1,424 @@
+{
+    "name": "../experiments_results/noknowledge_coarseD_fineD_modeAO_202502061427/postgres/coarse/",
+    "deterministic": true,
+    "objectives": "cost",
+    "crash_cost": Infinity,
+    "termination_cost_threshold": Infinity,
+    "walltime_limit": Infinity,
+    "cputime_limit": Infinity,
+    "trial_walltime_limit": null,
+    "trial_memory_limit": null,
+    "n_trials": 30,
+    "use_default_config": true,
+    "instances": null,
+    "instance_features": null,
+    "min_budget": null,
+    "max_budget": null,
+    "seed": 100,
+    "n_workers": 1,
+    "_meta": {
+        "facade": {
+            "name": "HyperparameterOptimizationFacade"
+        },
+        "runner": {
+            "name": "TargetFunctionRunner",
+            "code": "b't\\x00\\xa0\\x00\\xa1\\x00}\\x03|\\x00\\xa0\\x01|\\x01|\\x02\\xa1\\x02}\\x04t\\x00\\xa0\\x00\\xa1\\x00}\\x05|\\x00\\xa0\\x02|\\x03|\\x05\\xa1\\x02\\x01\\x00|\\x04S\\x00'"
+        },
+        "model": {
+            "name": "RandomForest",
+            "types": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                0,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                5,
+                4,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2,
+                3,
+                0
+            ],
+            "bounds": [
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    5,
+                    NaN
+                ],
+                [
+                    4,
+                    NaN
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    0,
+                    1.0
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    3,
+                    NaN
+                ],
+                [
+                    0,
+                    1.0
+                ]
+            ],
+            "pca_components": 7,
+            "n_trees": 10,
+            "n_points_per_tree": -1,
+            "ratio_features": 1.0,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_depth": 1048576,
+            "eps_purity": 1e-08,
+            "max_nodes": 1048576,
+            "bootstrapping": true
+        },
+        "acquisition_maximizer": {
+            "name": "LocalAndSortedRandomSearch",
+            "acquisition_function": {
+                "name": "EI",
+                "xi": 0.0,
+                "log": true
+            },
+            "challengers": 10000,
+            "seed": 100,
+            "random_search": {
+                "name": "RandomSearch",
+                "acquisition_function": {
+                    "name": "EI",
+                    "xi": 0.0,
+                    "log": true
+                },
+                "challengers": 5000,
+                "seed": 100
+            },
+            "local_search": {
+                "name": "LocalSearch",
+                "acquisition_function": {
+                    "name": "EI",
+                    "xi": 0.0,
+                    "log": true
+                },
+                "challengers": 5000,
+                "seed": 100,
+                "max_steps": null,
+                "n_steps_plateau_walk": 10,
+                "vectorization_min_obtain": 2,
+                "vectorization_max_obtain": 64
+            }
+        },
+        "acquisition_function": {
+            "name": "EI",
+            "xi": 0.0,
+            "log": true
+        },
+        "intensifier": {
+            "name": "Intensifier",
+            "max_incumbents": 10,
+            "seed": 100
+        },
+        "initial_design": {
+            "name": "LatinHypercubeInitialDesign",
+            "n_configs": 10,
+            "n_configs_per_hyperparameter": 10,
+            "additional_configs": [
+                {
+                    "autovacuum": "on",
+                    "autovacuum_analyze_scale_factor": 0.1,
+                    "autovacuum_freeze_max_age": 200000000,
+                    "autovacuum_max_workers": 3,
+                    "autovacuum_multixact_freeze_max_age": 400000000,
+                    "autovacuum_naptime": 60,
+                    "autovacuum_vacuum_cost_delay": 2.0,
+                    "autovacuum_vacuum_cost_limit": -1,
+                    "autovacuum_vacuum_insert_scale_factor": 0.2,
+                    "autovacuum_vacuum_insert_threshold": 1000,
+                    "autovacuum_vacuum_scale_factor": 0.2,
+                    "autovacuum_vacuum_threshold": 50,
+                    "autovacuum_work_mem": -1,
+                    "bgwriter_flush_after": 64,
+                    "bgwriter_lru_maxpages": 100,
+                    "bgwriter_lru_multiplier": 2.0,
+                    "checkpoint_completion_target": 0.9,
+                    "checkpoint_timeout": 300,
+                    "default_statistics_target": 100,
+                    "effective_cache_size": 524288,
+                    "effective_io_concurrency": 1,
+                    "enable_indexonlyscan": "on",
+                    "enable_indexscan": "on",
+                    "enable_nestloop": "on",
+                    "enable_partition_pruning": "on",
+                    "enable_partitionwise_join": "off",
+                    "enable_seqscan": "on",
+                    "enable_sort": "on",
+                    "fsync": "on",
+                    "full_page_writes": "on",
+                    "hash_mem_multiplier": 1.0,
+                    "jit": "on",
+                    "lock_timeout": 0,
+                    "maintenance_work_mem": 65536,
+                    "max_connections": 100,
+                    "max_parallel_workers_per_gather": 2,
+                    "max_wal_size": 1024,
+                    "max_worker_processes": 8,
+                    "shared_buffers": 16384,
+                    "statement_timeout": 0,
+                    "synchronous_commit": "on",
+                    "transaction_isolation": "read committed",
+                    "vacuum_cost_delay": 0.0,
+                    "vacuum_cost_limit": 200,
+                    "vacuum_freeze_min_age": 50000000,
+                    "vacuum_multixact_freeze_min_age": 5000000,
+                    "wal_buffers": 512,
+                    "wal_compression": "off",
+                    "wal_level": "replica",
+                    "work_mem": 4096
+                }
+            ],
+            "seed": 100
+        },
+        "random_design": {
+            "name": "ProbabilityRandomDesign",
+            "seed": 0,
+            "probability": 0.2
+        },
+        "runhistory_encoder": {
+            "name": "RunHistoryLogScaledEncoder",
+            "considered_states": [
+                1,
+                2,
+                4
+            ],
+            "lower_budget_states": [],
+            "scale_percentage": 5,
+            "seed": 100
+        },
+        "multi_objective_algorithm": null,
+        "config_selector": {
+            "name": "ConfigSelector",
+            "retrain_after": 8,
+            "retries": 16,
+            "min_trials": 1
+        },
+        "version": "2.0.2"
+    },
+    "output_directory": "smac3_output/../experiments_results/noknowledge_coarseD_fineD_modeAO_202502061427/postgres/coarse/100"
+}

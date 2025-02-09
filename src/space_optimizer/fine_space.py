@@ -20,14 +20,17 @@ from collections import defaultdict
 
 class FineSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, fine, coarse_folder_name):
-        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, coarse_folder_name)
+    def __init__(self, dbms, test, timeout, target_knobs_path, log, seed, enhanced, enhanced_starting_path, enhanced_strategy, fine, coarse_folder_name):
+        super().__init__(dbms, test, timeout, target_knobs_path, log, seed, enhanced, enhanced_starting_path, coarse_folder_name)
         self.factors = [0, 0.25, 0.5]
         if enhanced:
             if fine.lower() == 'knowledge':
                 self.define_search_space() # if enhanced, then selected knobs from startings
             elif fine.lower() == 'default':
-                self.define_enhancedstartings_with_enhancedspace() # enhanced startings + enhanced space + selected knobs from startings
+                if enhanced_strategy == 'suggest_values':
+                    self.define_enhancedstartings_with_enhancedspace() # enhanced startings + enhanced space(treat as suggest values) + selected knobs from startings 
+                elif enhanced_strategy == 'search_range':
+                    self.define_enhancedstartings_with_enhancedspace2() # enhanced startings + enhanced space(treat as search range) + selected knobs from startings 
             else:
                 log.error(f"invalid arg 'fine' {fine}")
         else:
@@ -53,18 +56,41 @@ class FineSpace(DefaultSpace):
                 self.target_knobs.remove(knob) # this knob is not by the DBMS under specific version
                 continue
 
+            print(f"Defining fine search space for knob: {knob}")
+            file_name = f"{knob}.json"
             knob_type = info["vartype"] 
             if knob_type == "enum" or knob_type == "bool":
-                knob = self.get_default_space(knob, info)
-                self.search_space.add_hyperparameter(knob)
+                
+                normal_para = self.get_default_space(knob, info)
+                if file_name in os.listdir(special_skill_path):
+                    with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
+                        special_skill = json.load(json_file)
+                    special = special_skill["special_knob"]
+                    if special is True:
+                        control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 
+                        if type(special_value) is list:
+                            # special_para = OrdinalHyperparameter(f"special_{knob}", [int(value) for value in special_value])
+                            special_para = CategoricalHyperparameter(f"special_{knob}", [str(value) for value in special_value])
+                        else:
+                            special_para = Constant(f"special_{knob}", int(special_value))
+                        
+                        self.search_space.add_hyperparameters([control_para, normal_para, special_para])
+                        
+                        normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
+                        special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
+                        print("Defining control knob:", f"control_{knob}")
+                        print("Defining special knob:", f"special_{knob}\n")
+                        self.search_space.add_conditions([normal_cond, special_cond])
+                    else:
+                        self.search_space.add_hyperparameter(normal_para)
+                else:
+                    self.search_space.add_hyperparameter(normal_para)
                 continue
             
-            file_name = f"{knob}.json"
             if file_name in os.listdir(self.skill_path):
                 with open(os.path.join(self.skill_path, file_name), 'r') as json_file:
                     data = json.load(json_file)
                 
-                print(f"Defining fine search space for knob: {knob}")
                 suggested_values = data["suggested_values"]
                 boot_value = info["reset_val"]
                 unit = info["unit"]
@@ -198,18 +224,20 @@ class FineSpace(DefaultSpace):
                     )
 
                     if special:
+                        
                         control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 
                         if type(special_value) is list:
                             # special_para = OrdinalHyperparameter(f"special_{knob}", [int(value) for value in special_value])
                             special_para = CategoricalHyperparameter(f"special_{knob}", [str(value) for value in special_value])
                         else:
                             special_para = Constant(f"special_{knob}", int(special_value))
-
+                        
                         self.search_space.add_hyperparameters([control_para, normal_para, special_para])
                         
                         normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
                         special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
-                        
+                        print("Defining control knob:", f"control_{knob}")
+                        print("Defining special knob:", f"special_{knob}\n")
                         self.search_space.add_conditions([normal_cond, special_cond])
                     else:
                         self.search_space.add_hyperparameter(normal_para)
@@ -235,6 +263,8 @@ class FineSpace(DefaultSpace):
                         normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
                         special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
                         
+                        print("Defining control knob:", f"control_{knob}")
+                        print("Defining special knob:", f"special_{knob}\n")
                         self.search_space.add_conditions([normal_cond, special_cond])
                     else:
                         self.search_space.add_hyperparameter(normal_para)
@@ -346,7 +376,6 @@ class FineSpace(DefaultSpace):
             if boot_value > sys.maxsize / 10:
                 boot_value = sys.maxsize / 10
 
-
             min_value = min(min_value, boot_value)
             max_value = max(max_value, boot_value)
             # scale up and down the suggested value
@@ -404,5 +433,181 @@ class FineSpace(DefaultSpace):
                 knob = self.get_default_space(knob, info)
                 # print(knob)
                 self.search_space.add_hyperparameter(knob)
+
+    def define_enhancedstartings_with_enhancedspace2(self):
+        """
+        enhanced by feeding good starting configurations 
+        but the search space is enhanced by good starting configurations
+            use the knobs as pre-selected knobs
+            use the min and max of values as search space
+        """
+        # how to be guided by coarse-grained tuning
+        with open(self.enhanced_starting_path, "r") as json_file:
+            enhanced_starting_data = json.load(json_file)
+
+        knob_value_range = defaultdict(list)
+        for _id, data in enhanced_starting_data.items():
+            config = data['config']
+            if config == 'default settings':
+                continue
+            
+            for knob, value in config.items():
+                if knob not in self.dbms.knob_info.keys():
+                    print(f'{knob} is not by the DBMS under specific version')
+                    continue
+
+                info = self.dbms.knob_info[knob]
+                vartype = info['vartype']
+                if vartype == 'string':
+                    continue
+
+                unit = info["unit"]
+                if unit:
+                    value = self._transfer_unit(value)
+                    value = self._type_transfer(vartype, value)
+
+                knob_value_range[knob].append(value)
+
+        for knob, values in knob_value_range.items():
+            print(f"Defining fine search space for knob: {knob} [{values}]")
+            info = self.dbms.knob_info[knob]
+            knob_type = info["vartype"] 
+            distinct_values = list(set(values))  # reduce redundant values
+            if len(distinct_values) == 1: # the knob's values did not changes among good configurations, treat as constant
+                if knob_type == "enum" or knob_type == "bool":
+                    knob = self.get_default_space(knob, info)
+                    self.search_space.add_hyperparameter(knob)
+                    continue
+                elif  knob_type == "integer":
+                    const_para = Constant(knob, int(distinct_values[0]))
+                    # value = int(distinct_values[0])
+                    # boot_value = info["reset_val"]
+                    # suggested_min = value - 0.1 * value # explore down 10%
+                    # suggested_max += value + 0.1 * value # explore up 10%
+                    # normal_para = UniformIntegerHyperparameter(
+                    #     knob, 
+                    #     int(suggested_min), 
+                    #     int(suggested_max),
+                    #     # default_value = int(boot_value),
+                    # )
+                    self.search_space.add_hyperparameter(const_para)
+                else:
+                    const_para = Constant(knob, float(distinct_values[0]))
+                    # value = float(distinct_values[0])
+                    # boot_value = info["reset_val"]
+                    # suggested_min = value - 0.1 * value # explore down 10%
+                    # suggested_max += value + 0.1 * value # explore up 10%
+                    # normal_para = UniformFloatHyperparameter(
+                    #     knob, 
+                    #     float(suggested_min), 
+                    #     float(suggested_max),
+                    #     # default_value = float(boot_value),
+                    # )
+                    self.search_space.add_hyperparameter(const_para)
+            else:
+                if knob_type == "enum" or knob_type == "bool":
+                    knob = self.get_default_space(knob, info)
+                    self.search_space.add_hyperparameter(knob)
+                    continue
+            
+                boot_value = info["reset_val"]
+                unit = info["unit"]
+                min_value = info["min_val"]
+                max_value = info["max_val"]
+                print("min_value", min_value)
+                print("max_value", max_value)
+                suggested_values = values
+                print("values", values)
+
+                # Since the upper bound of some knob in mysql is too big, use GPT's offered upperbound for mysql
+                if isinstance(self.dbms, MysqlDBMS):
+                    if max_value >= sys.maxsize / 10:  
+                        max_path = "./knowledge_collection/mysql/structured_knowledge/max"
+                        with open(os.path.join(max_path, knob+".txt"), 'r') as file:
+                            upperbound = file.read()
+                        if upperbound != 'null':
+                            upperbound = self._type_transfer(knob_type, upperbound)
+                            max_value = self._type_transfer(knob_type, max_value)
+                            if int(upperbound) < max_value:
+                                max_value = upperbound
+
+                # unit transformation
+                if unit is not None:
+                    unit = self._transfer_unit(unit)
+                    suggested_values = [(self._transfer_unit(value) / unit) for value in suggested_values]
+                
+                # type transformation
+                try:
+                    suggested_values = [self._type_transfer(knob_type, value) for value in suggested_values]
+                    min_value = self._type_transfer(knob_type, min_value)
+                    max_value = self._type_transfer(knob_type, max_value)
+                    boot_value = self._type_transfer(knob_type, boot_value)
+                except:
+
+                    def match_num(value):
+                        pattern = r"(\d+)"
+                        match = re.match(pattern, value)
+                        if match:
+                            return match.group(1)
+                        else:
+                            return ""
+
+                    pattern = r"(\d+)"
+                    suggested_values = [self._type_transfer(knob_type, re.match(pattern, value).group(1)) for value in suggested_values if re.match(pattern, value) is not None]
+                    min_value = self._type_transfer(knob_type, match_num(min_value))
+                    max_value = self._type_transfer(knob_type, match_num(max_value))
+                    boot_value = self._type_transfer(knob_type, match_num(boot_value))
+                    
+                # the search space of fine-grained stage should be superset of that of coarse stage
+                print("values after transferring", suggested_values)
+
+                suggested_min = min(suggested_values)
+                suggested_min -= 0.1 * suggested_min # explore down 10%
+                suggested_max = max(suggested_values)
+                suggested_max += 0.1 * suggested_max # explore up 10%
+
+                if boot_value > sys.maxsize / 10:
+                    boot_value = sys.maxsize / 10
+
+                min_value = min(min_value, boot_value)
+                max_value = max(max_value, boot_value)
+
+                # print("coarse_sequence after exploring up and down:", coarse_sequence)
+                if max_value > sys.maxsize / 10:
+                    max_value = sys.maxsize / 10
+                
+                if min_value > sys.maxsize / 10:
+                    min_value = sys.maxsize / 10
+                
+                if knob_type == "integer":  
+                    min_value = min(min_value, suggested_min)
+                    max_value = max(max_value, suggested_max)
+                    normal_para = UniformIntegerHyperparameter(
+                        knob, 
+                        int(min_value), 
+                        int(max_value),
+                        default_value = int(boot_value),
+                    )
+                    # print(normal_para)
+                    self.search_space.add_hyperparameter(normal_para)
+                    
+                elif knob_type == "real":
+                    min_value = min(min_value, suggested_min)
+                    max_value = max(max_value, suggested_max)
+                    normal_para = UniformFloatHyperparameter(
+                        knob,
+                        float(min_value),
+                        float(max_value),
+                        default_value = float(boot_value),
+                    )
+                    # print(normal_para)
+                    self.search_space.add_hyperparameter(normal_para)
+                else:
+                    info = self.dbms.knob_info[knob]
+                    if info is None:
+                        continue
+                    knob = self.get_default_space(knob, info)
+                    # print(knob)
+                    self.search_space.add_hyperparameter(knob)
 
     

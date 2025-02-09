@@ -1,0 +1,728 @@
+{
+  "hyperparameters": [
+    {
+      "name": "archive_mode",
+      "type": "categorical",
+      "choices": [
+        "always",
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "archive_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "array_nulls",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_analyze_scale_factor",
+      "type": "constant",
+      "value": 0.02
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 262143,
+      "default": 3,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_scale_factor",
+      "type": "constant",
+      "value": 0.05
+    },
+    {
+      "name": "backslash_quote",
+      "type": "categorical",
+      "choices": [
+        "safe_encoding",
+        "on",
+        "off"
+      ],
+      "default": "safe_encoding",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_lru_maxpages",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "bgwriter_lru_multiplier",
+      "type": "constant",
+      "value": 2.0
+    },
+    {
+      "name": "checkpoint_completion_target",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 1.067,
+      "default": 0.9,
+      "q": null
+    },
+    {
+      "name": "client_min_messages",
+      "type": "categorical",
+      "choices": [
+        "debug5",
+        "debug4",
+        "debug3",
+        "debug2",
+        "debug1",
+        "log",
+        "notice",
+        "warning",
+        "error"
+      ],
+      "default": "notice",
+      "weights": null
+    },
+    {
+      "name": "constraint_exclusion",
+      "type": "categorical",
+      "choices": [
+        "partition",
+        "on",
+        "off"
+      ],
+      "default": "partition",
+      "weights": null
+    },
+    {
+      "name": "cpu_index_tuple_cost",
+      "type": "constant",
+      "value": 0.005
+    },
+    {
+      "name": "cpu_operator_cost",
+      "type": "constant",
+      "value": 0.0025
+    },
+    {
+      "name": "cpu_tuple_cost",
+      "type": "constant",
+      "value": 0.01
+    },
+    {
+      "name": "deadlock_timeout",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 2147483647,
+      "default": 524288,
+      "q": null
+    },
+    {
+      "name": "effective_io_concurrency",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1000,
+      "default": 1,
+      "q": null
+    },
+    {
+      "name": "escape_string_warning",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "exit_on_error",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "from_collapse_limit",
+      "type": "constant",
+      "value": 20
+    },
+    {
+      "name": "geqo",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "geqo_effort",
+      "type": "constant",
+      "value": 5
+    },
+    {
+      "name": "geqo_generations",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "geqo_pool_size",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "geqo_seed",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "geqo_selection_bias",
+      "type": "constant",
+      "value": 2.0
+    },
+    {
+      "name": "geqo_threshold",
+      "type": "constant",
+      "value": 12
+    },
+    {
+      "name": "hot_standby",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "hot_standby_feedback",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "join_collapse_limit",
+      "type": "constant",
+      "value": 20
+    },
+    {
+      "name": "lo_compat_privileges",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_autovacuum_min_duration",
+      "type": "constant",
+      "value": 250
+    },
+    {
+      "name": "log_checkpoints",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_connections",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_disconnections",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_duration",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_file_mode",
+      "type": "constant",
+      "value": 600
+    },
+    {
+      "name": "log_lock_waits",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_min_duration_statement",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "log_min_error_statement",
+      "type": "categorical",
+      "choices": [
+        "debug5",
+        "debug4",
+        "debug3",
+        "debug2",
+        "debug1",
+        "info",
+        "notice",
+        "warning",
+        "error",
+        "log",
+        "fatal",
+        "panic"
+      ],
+      "default": "error",
+      "weights": null
+    },
+    {
+      "name": "log_min_messages",
+      "type": "categorical",
+      "choices": [
+        "debug5",
+        "debug4",
+        "debug3",
+        "debug2",
+        "debug1",
+        "info",
+        "notice",
+        "warning",
+        "error",
+        "log",
+        "fatal",
+        "panic"
+      ],
+      "default": "warning",
+      "weights": null
+    },
+    {
+      "name": "log_rotation_age",
+      "type": "constant",
+      "value": 86400000
+    },
+    {
+      "name": "log_rotation_size",
+      "type": "constant",
+      "value": 10000000
+    },
+    {
+      "name": "log_statement",
+      "type": "categorical",
+      "choices": [
+        "none",
+        "ddl",
+        "mod",
+        "all"
+      ],
+      "default": "all",
+      "weights": null
+    },
+    {
+      "name": "log_temp_files",
+      "type": "constant",
+      "value": 1024
+    },
+    {
+      "name": "log_truncate_on_rotation",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "logging_collector",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1024,
+      "upper": 2147483647,
+      "default": 65536,
+      "q": null
+    },
+    {
+      "name": "max_locks_per_transaction",
+      "type": "constant",
+      "value": 64
+    },
+    {
+      "name": "max_logical_replication_workers",
+      "type": "constant",
+      "value": 4
+    },
+    {
+      "name": "max_parallel_maintenance_workers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1024,
+      "default": 2,
+      "q": null
+    },
+    {
+      "name": "max_parallel_workers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1024,
+      "default": 8,
+      "q": null
+    },
+    {
+      "name": "max_parallel_workers_per_gather",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1024,
+      "default": 2,
+      "q": null
+    },
+    {
+      "name": "max_pred_locks_per_page",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "max_pred_locks_per_relation",
+      "type": "constant",
+      "value": -2
+    },
+    {
+      "name": "max_pred_locks_per_transaction",
+      "type": "constant",
+      "value": 64
+    },
+    {
+      "name": "max_standby_archive_delay",
+      "type": "constant",
+      "value": 30000
+    },
+    {
+      "name": "max_standby_streaming_delay",
+      "type": "constant",
+      "value": 30000
+    },
+    {
+      "name": "max_sync_workers_per_subscription",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "max_wal_senders",
+      "type": "constant",
+      "value": 10
+    },
+    {
+      "name": "max_wal_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 2147483647,
+      "default": 1024,
+      "q": null
+    },
+    {
+      "name": "max_worker_processes",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 262143,
+      "default": 8,
+      "q": null
+    },
+    {
+      "name": "min_parallel_index_scan_size",
+      "type": "constant",
+      "value": 512000
+    },
+    {
+      "name": "min_parallel_table_scan_size",
+      "type": "constant",
+      "value": 8000000
+    },
+    {
+      "name": "min_wal_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 2147483647,
+      "default": 80,
+      "q": null
+    },
+    {
+      "name": "parallel_setup_cost",
+      "type": "constant",
+      "value": 1000.0
+    },
+    {
+      "name": "parallel_tuple_cost",
+      "type": "constant",
+      "value": 0.1
+    },
+    {
+      "name": "quote_all_identifiers",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "random_page_cost",
+      "type": "constant",
+      "value": 4.0
+    },
+    {
+      "name": "restart_after_crash",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "seq_page_cost",
+      "type": "constant",
+      "value": 1.0
+    },
+    {
+      "name": "shared_buffers",
+      "type": "constant",
+      "value": 8000000000
+    },
+    {
+      "name": "standard_conforming_strings",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "synchronize_seqscans",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "temp_buffers",
+      "type": "constant",
+      "value": 1000000000
+    },
+    {
+      "name": "track_activities",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_activity_query_size",
+      "type": "constant",
+      "value": 2048
+    },
+    {
+      "name": "track_counts",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_functions",
+      "type": "categorical",
+      "choices": [
+        "none",
+        "pl",
+        "all"
+      ],
+      "default": "none",
+      "weights": null
+    },
+    {
+      "name": "track_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "transform_null_equals",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "update_process_title",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "wal_buffers",
+      "type": "constant",
+      "value": 16000000
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "wal_receiver_status_interval",
+      "type": "constant",
+      "value": 10000
+    },
+    {
+      "name": "wal_receiver_timeout",
+      "type": "constant",
+      "value": 60000
+    },
+    {
+      "name": "wal_retrieve_retry_interval",
+      "type": "constant",
+      "value": 5000
+    },
+    {
+      "name": "wal_sender_timeout",
+      "type": "constant",
+      "value": 60000
+    },
+    {
+      "name": "work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 64,
+      "upper": 2147483647,
+      "default": 4096,
+      "q": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}
