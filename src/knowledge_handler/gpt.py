@@ -1,7 +1,10 @@
 from openai import OpenAI, APIError
 import os
 import re
+import sys
 import json
+import time
+import random
 import tiktoken
 import transformers
 from datetime import datetime
@@ -16,31 +19,45 @@ class GPT:
         self.cur_token = 0
         self.cur_money = 0
 
-    def get_GPT_response_json(self, prompt, json_format=True): # This function returns the GPT response, which can be specified to return json or string format
-        client = OpenAI(api_key=self.api_key, base_url = self.api_base)
-        if json_format: # json
-            response = client.chat.completions.create(
-                messages=[
-                    {"role": "system", "content": "You should output JSON."},
-                    {'role':'user', 'content':prompt}],
-                model=self.model, 
-                response_format={"type": "json_object"}, 
-                temperature=0.5,
-            )
-            # print(response)
-            ans = response.choices[0].message.content
-            completion = json.loads(ans)  # Convert to json object
-            
-        else: # string
-            response = client.chat.completions.create(
-                messages=[
-                    {'role':'user', 'content':prompt}],
-                model=self.model, 
-                temperature=1,     
-            )
-            completion = response.choices[0].message.content
+    def get_GPT_response_json(self, prompt, json_format=True, n=3): # This function returns the GPT response, which can be specified to return json or string format
+        if n <= 0:
+            print("Call API failure.")
+            exit()
 
-        self.calc_money(prompt, completion)
+        client = OpenAI(api_key=self.api_key, base_url = self.api_base)
+        try:
+            if json_format: # json
+                response = client.chat.completions.create(
+                    messages=[
+                        {"role": "system", "content": "You should output JSON."},
+                        {'role':'user', 'content':prompt}],
+                    model=self.model, 
+                    response_format={"type": "json_object"}, 
+                    temperature=0.5,
+                )
+                # print(response)
+                ans = response.choices[0].message.content
+                completion = json.loads(ans)  # Convert to json object
+                
+            else: # string
+                response = client.chat.completions.create(
+                    messages=[
+                        {'role':'user', 'content':prompt}],
+                    model=self.model, 
+                    temperature=1,     
+                )
+                completion = response.choices[0].message.content
+
+            self.calc_money(prompt, completion)
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"Exception Type: {exc_type.__name__}")
+            print(f"Exception Message: {str(e)}")
+            print(f"Occurred at Line: {exc_tb.tb_lineno}")
+            print("Sleeping...")
+            time.sleep(random.randint(30, 40))
+            print("retry.")
+            return self.get_GPT_response_json(prompt, json_format, n-1)
         return completion
     
     def calc_token(self, in_text, out_text=""):
