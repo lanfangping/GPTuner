@@ -1,0 +1,1 @@
+For the 'geqo_generations' knob in PostgreSQL, set the value based on the number of relations in your query; typically, a higher value (default is 0, which means it will be internally set to 100 times the number of tables in the gene pool) can provide better query plans but may increase planning time, especially beneficial for complex queries involving numerous tables.

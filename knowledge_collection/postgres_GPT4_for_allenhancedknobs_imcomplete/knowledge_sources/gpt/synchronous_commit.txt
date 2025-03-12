@@ -1,0 +1,1 @@
+Set the 'synchronous_commit' knob in PostgreSQL to 'on' for ensuring transaction durability with performance impact, or to 'off' to improve write performance at the risk of losing the last few transactions in case of a crash; you can also set it to 'local' to wait only for local flush, or 'remote_write' to wait for remote writes but not commit.

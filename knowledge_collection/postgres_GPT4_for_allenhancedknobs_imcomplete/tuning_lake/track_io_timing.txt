@@ -1,0 +1,1 @@
+Suggestion: Enable the 'track_io_timing' knob to monitor the timing of database I/O calls. By default, this feature is turned off to prevent overhead from frequent system time checks. The timing data collected can be accessed in pg_stat_database, sql-explain's BUFFERS option, and pg_stat_statements. Note that only superusers have the privileges to alter this setting.

@@ -1,0 +1,1 @@
+For the 'geqo_threshold' knob in PostgreSQL, it is recommended to set the value based on the number of tables in a join; generally, you should set this threshold to a value greater than the default of 12 if complex queries involve many tables, as this controls when the genetic query optimizer (GEQO) is triggered to optimize planning for queries involving numerous table joins.

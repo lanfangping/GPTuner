@@ -1,0 +1,1 @@
+The 'constraint_exclusion' setting in PostgreSQL controls the query planner's use of table constraints for optimizing queries, with three settings: 'on' for all tables, 'off' for no tables, and 'partition' (the default) for inheritance child tables and UNION ALL subqueries, where it avoids scanning tables contradicted by CHECK constraints to enhance performance.

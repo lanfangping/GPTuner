@@ -1,0 +1,1 @@
+To optimally set the 'autovacuum' knob in Postgres, enable it by default (`autovacuum = on`), adjust the `autovacuum_vacuum_scale_factor` between 0.2 and 0.4 depending on the update/delete rate, and consider lowering `autovacuum_vacuum_threshold` to a value like 50 for busier databases to prompt more frequent vacuuming.

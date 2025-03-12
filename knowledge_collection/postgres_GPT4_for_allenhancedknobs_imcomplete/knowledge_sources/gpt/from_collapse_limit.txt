@@ -1,0 +1,1 @@
+The 'from_collapse_limit' knob in PostgreSQL should typically be set to a value based on the expected depth of joins in your queries; for example, it might be set to 8 for more complex queries involving multiple tables, to limit planning time while avoiding too simplistic of a plan.

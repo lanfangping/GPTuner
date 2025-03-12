@@ -1,0 +1,1 @@
+For the `parallel_tuple_cost` knob in Postgres, set its value lower than the default of 0.1 if using solid-state drives (SSDs) or a fast I/O subsystem, as lower costs encourage more parallelism, but increase it if observing excessive CPU usage or suboptimal parallel query performance.
