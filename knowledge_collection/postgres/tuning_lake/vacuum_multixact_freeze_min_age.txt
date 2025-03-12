@@ -1,3 +1,0 @@
-### Comprehensive Suggestion:
-
-The `vacuum_multixact_freeze_min_age` parameter in the VACUUM command determines the cutoff age, defaulting at 5 million multixacts, for replacing multixact IDs with a newer ID during a table scan. This value is effectively limited to half of the `autovacuum_multixact_freeze_max_age` to prevent excessively frequent forced autovacuums.

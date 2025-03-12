@@ -1,0 +1,1 @@
+Set the `synchronize_seqscans` knob in PostgreSQL to `on` (default) to allow parallel sequential scans to synchronize their progress, improving performance for workloads with large table scans, or set it to `off` if you observe contention or performance degradation due to synchronization overhead, especially in high-concurrency environments.

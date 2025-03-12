@@ -1,0 +1,1 @@
+To set the `log_destination` knob in PostgreSQL, specify one or more of the following values: `stderr` (default, logs to standard error), `csvlog` (logs to CSV files), or `syslog` (logs to syslog), ensuring proper file permissions and configurations for `csvlog` (e.g., `logging_collector = on`) and `syslog` (e.g., `syslog_facility = 'LOCAL0'` and `syslog_ident = 'postgres'`).

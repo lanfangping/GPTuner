@@ -1,0 +1,1 @@
+The `transform_null_equals` knob, when enabled (default is off), treats `expr = NULL` as `expr IS NULL`, returning `true` if `expr` is null and `false` otherwise, which deviates from the SQL-standard behavior of always returning `null` for `expr = NULL`. This option is primarily useful for compatibility with Microsoft Access queries but has minimal impact on normal applications.

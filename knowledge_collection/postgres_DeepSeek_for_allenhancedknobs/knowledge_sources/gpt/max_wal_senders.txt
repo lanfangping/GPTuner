@@ -1,0 +1,1 @@
+Set the `max_wal_senders` value in PostgreSQL to the number of concurrent replication clients (e.g., streaming replicas or backup tools like pg_basebackup) you expect to connect, plus a small buffer (e.g., 2-5 extra connections); for example, if you have 3 replicas, set it to 5-8 to allow for additional connections or future scaling.

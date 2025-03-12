@@ -1,0 +1,6 @@
+To summarize the three suggestions into a single comprehensive suggestion, we prioritize the information as follows: the `manual_suggestion` takes precedence over the `gpt_suggestion`, and the `web_suggestion` is not provided. Here's the consolidated suggestion:
+
+**Suggestion:**  
+Enable the `log_truncate_on_rotation` parameter in PostgreSQL to overwrite existing log files with the same name during time-based rotation (e.g., 24 hourly files cyclically overwritten for a 24-hour log retention or 7 daily files for a 7-day retention). This ensures logs do not accumulate excessively. Note that this setting does not apply during server startup or size-based rotation. Choose this option based on your storage capacity and retention needs, as it helps manage log file sizes effectively while maintaining a defined retention period.  
+
+This summary incorporates the key details from the `manual_suggestion` and the `gpt_suggestion`, ensuring clarity and consistency.

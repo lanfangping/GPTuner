@@ -1,0 +1,1 @@
+To set the `min_wal_size` knob in PostgreSQL, allocate a value between **80MB** (default) and **1GB**, ensuring it is large enough to avoid frequent WAL segment recycling but small enough to prevent excessive disk usage; a common recommendation is **1GB** for high-write workloads or **10% of `max_wal_size`** (default 1GB, so ~100MB) for balanced systems.

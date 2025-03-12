@@ -1,0 +1,9 @@
+To summarize the three suggestions into a single comprehensive suggestion, we will prioritize the information as follows: `manual_suggestion` takes precedence over `web_suggestion` and `gpt_suggestion`. Since `web_suggestion` is `None`, we will focus on combining `manual_suggestion` and `gpt_suggestion`.
+
+### Step-by-Step Summary:
+1. **Priority Handling**: The `manual_suggestion` provides the most authoritative information, so we will retain its details about the `max_pred_locks_per_transaction` knob, including its purpose, calculation, and the fact that it can only be set at server start.
+2. **Additional Context**: From the `gpt_suggestion`, we will incorporate the practical guidance on setting the value based on workload needs, such as increasing it (e.g., to 128 or 256) if encountering "out of predicate locks" errors during high-concurrency workloads or complex queries.
+3. **Contradictions**: There are no direct contradictions between the two suggestions, so we can combine them seamlessly.
+
+### Final Comprehensive Suggestion:
+The `max_pred_locks_per_transaction` knob in PostgreSQL controls the average number of object locks per transaction, calculated as `max_pred_locks_per_transaction * (max_connections + max_prepared_transactions)`. It has a default value of 64 and can only be set at server start. To optimize performance, set this value based on the expected number of predicate locks per transaction. Start with the default value, but consider increasing it (e.g., to 128 or 256) if you encounter "out of predicate locks" errors during high-concurrency workloads or complex queries involving row-level locking.

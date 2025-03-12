@@ -1,0 +1,9 @@
+To summarize the provided JSON format into a single comprehensive suggestion, we can focus on the `gpt_suggestion` since it is the only one with actionable information, and the `web_suggestion` and `manual_suggestion` are both `None`. Here's the consolidated suggestion:
+
+**Suggestion:**  
+For the 'DATABASE' knob in PostgreSQL, configure the settings based on the size of your dataset and workload:  
+- For **small databases**, use the default settings.  
+- For **medium databases**, increase `shared_buffers` to 25% of your system's RAM and set `work_mem` to a range of 64MB-256MB.  
+- For **large databases**, allocate 40-50% of RAM to `shared_buffers`, adjust `work_mem` to 256MB-1GB, and fine-tune `maintenance_work_mem` and `checkpoint_timeout` as needed.  
+
+This approach ensures optimal performance tailored to the scale of your database operations.

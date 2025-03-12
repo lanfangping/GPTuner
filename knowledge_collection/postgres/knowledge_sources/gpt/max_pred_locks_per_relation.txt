@@ -1,0 +1,1 @@
+Set the value of `max_pred_locks_per_relation` based on the number of concurrent transactions and the size of your relations, typically starting with a default of 64 (or 128 for larger workloads), and increase it incrementally (e.g., to 256 or 512) if you encounter "out of predicate locks" errors during high-concurrency operations involving large tables.

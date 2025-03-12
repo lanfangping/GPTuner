@@ -1,0 +1,1 @@
+Set the `temp_buffers` knob in PostgreSQL based on the expected size of temporary tables used in queries, typically starting with a default of **8MB**, but increasing it (e.g., to **64MB** or higher) if queries frequently use large temporary tables or if you encounter performance issues due to excessive disk I/O for temp files.

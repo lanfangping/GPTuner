@@ -1,0 +1,1 @@
+To set the `random_page_cost` knob in PostgreSQL, adjust it based on your storage type: use a value around **1.0** for SSDs (since random access is nearly as fast as sequential access), **1.5** for high-performance NVMe SSDs, or **4.0** for traditional HDDs (default), reflecting the slower random access speeds; fine-tune further based on your workload and storage performance.

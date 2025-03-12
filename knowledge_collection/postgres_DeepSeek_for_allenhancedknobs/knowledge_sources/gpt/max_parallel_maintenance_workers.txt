@@ -1,0 +1,1 @@
+Set the value of `max_parallel_maintenance_workers` in PostgreSQL based on the number of CPU cores available: for systems with 4 or fewer cores, set it to 1-2; for 4-8 cores, use 2-4; and for systems with more than 8 cores, set it to 4-8, ensuring it does not exceed the total number of cores minus 1 to avoid overloading the system.

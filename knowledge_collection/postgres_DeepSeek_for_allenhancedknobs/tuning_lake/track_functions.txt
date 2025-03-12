@@ -1,0 +1,9 @@
+To summarize the three suggestions into a single comprehensive suggestion, we will prioritize the information as follows: `manual_suggestion` (highest priority), `web_suggestion` (middle priority, but it is `None` in this case), and `gpt_suggestion` (lowest priority). Since there is no contradictory information, we will combine the details from the `manual_suggestion` and `gpt_suggestion` to create a unified suggestion.
+
+### Comprehensive Suggestion:
+The `track_functions` knob in PostgreSQL enables the tracking of function call counts and time usage, which is useful for query optimization or debugging. It offers three options:  
+- `all`: Tracks all functions, including SQL and C language functions.  
+- `pl`: Tracks only procedural-language functions.  
+- `none`: Disables function tracking (this is the default setting).  
+
+Note that this setting can only be changed by superusers, and simple SQL-language functions inlined into the calling query are not tracked. Choose the appropriate value (`all`, `pl`, or `none`) based on your need for detailed statistics.

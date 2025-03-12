@@ -1,0 +1,1 @@
+Set the `join_collapse_limit` knob in PostgreSQL to a value between 8 and 20 (default is 8) to balance query planning time and optimization; increase it if complex queries with many joins are not being optimized effectively, but avoid setting it too high (e.g., > 20) to prevent excessive planning overhead.

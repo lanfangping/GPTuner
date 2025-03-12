@@ -1,0 +1,1 @@
+Set the `wal_retrieve_retry_interval` knob in PostgreSQL to a value between **100ms and 500ms** to balance recovery performance and resource usage, with **200ms** being a common default for moderate workloads, but adjust higher (e.g., **500ms**) for high-latency environments or lower (e.g., **100ms**) for faster recovery in low-latency setups.

@@ -1,0 +1,1 @@
+Set the `max_locks_per_transaction` knob in PostgreSQL based on the expected number of concurrent transactions and locked objects, typically starting with a default of 64 and increasing it (e.g., to 128 or 256) if you encounter "out of shared memory" errors due to high lock usage in complex workloads.

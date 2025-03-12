@@ -1,0 +1,1 @@
+Set the `log_lock_waits` knob in PostgreSQL to `on` (or `1`) to log lock waits exceeding the `deadlock_timeout` (default is 1 second), helping diagnose contention issues; adjust `deadlock_timeout` (e.g., to 2 seconds) if longer waits are expected or to reduce log noise.

@@ -1,0 +1,1 @@
+Set `cpu_tuple_cost` in PostgreSQL based on your workload: for OLTP systems, a typical value is **0.01** (default), while for OLAP or read-heavy workloads, consider lowering it to **0.005** to prioritize sequential scans, or increase it to **0.02** for write-heavy workloads to discourage large sequential scans. Always test and adjust based on query performance.

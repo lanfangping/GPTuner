@@ -1,0 +1,9 @@
+To create a comprehensive suggestion by combining the three provided suggestions, we will prioritize the information as follows: `manual_suggestion` (highest priority), `web_suggestion` (middle priority, but it is `None` in this case), and `gpt_suggestion` (lowest priority). Since there is no contradictory information, we will merge the details from the `manual_suggestion` and `gpt_suggestion` into a single cohesive suggestion.
+
+### Comprehensive Suggestion:
+The `constraint_exclusion` parameter in PostgreSQL controls the query planner's use of table constraints to optimize queries. It has three settings:  
+- **`partition` (default):** Enables constraint exclusion only for partitioned tables, inheritance child tables, and UNION ALL subqueries. This is the recommended setting for most workloads involving partitioned tables, as it avoids unnecessary scans (e.g., skipping `child1000` when querying `key = 2400` in an inheritance tree).  
+- **`on`:** Examines constraints for all tables, which can add noticeable planning overhead.  
+- **`off`:** Disables constraint exclusion entirely, meaning the planner will never examine constraints.  
+
+For most workloads, especially those involving partitioned tables, the default setting of `partition` is recommended to balance query optimization and planning efficiency.

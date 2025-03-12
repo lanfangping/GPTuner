@@ -1,0 +1,26 @@
+To summarize the three suggestions into a single comprehensive suggestion, we will prioritize the information as follows: `manual_suggestion` takes precedence over `web_suggestion` and `gpt_suggestion`. Since `web_suggestion` is `None`, we will focus on integrating the `manual_suggestion` and `gpt_suggestion`. Here's the step-by-step reasoning:
+
+1. **Priority Handling**: The `manual_suggestion` provides the most authoritative information, so it will form the core of the summary. The `gpt_suggestion` will be used to supplement details where it does not contradict the `manual_suggestion`.
+
+2. **Key Points from `manual_suggestion`**:
+   - The `restart_after_crash` knob is enabled by default in PostgreSQL.
+   - It ensures automatic reinitialization after a backend crash to maximize database availability.
+   - It can be disabled (set to `off`) in specific scenarios, such as clusterware integration, to allow external control over crash recovery.
+
+3. **Key Points from `gpt_suggestion`**:
+   - Setting `restart_after_crash` to `on` (default) allows the server to recover within seconds to minutes after a crash, minimizing downtime.
+   - Setting it to `off` is an option if manual intervention is preferred.
+
+4. **Integration**:
+   - The `manual_suggestion` already covers the default behavior and the option to disable the knob for external control, so the `gpt_suggestion` adds minimal new information.
+   - The `gpt_suggestion` emphasizes the recovery time (seconds to minutes), which complements the `manual_suggestion` but does not contradict it.
+
+5. **Final Comprehensive Suggestion**:
+   - The `restart_after_crash` knob in PostgreSQL is enabled by default, ensuring automatic reinitialization after a backend crash to maximize database availability and minimize downtime, with recovery typically occurring within seconds to minutes. However, it can be disabled (set to `off`) in specific scenarios, such as clusterware integration, to allow external control over crash recovery.
+
+**Final Answer**:
+```json
+{
+  "suggestion": "The `restart_after_crash` knob in PostgreSQL is enabled by default, ensuring automatic reinitialization after a backend crash to maximize database availability and minimize downtime, with recovery typically occurring within seconds to minutes. However, it can be disabled (set to `off`) in specific scenarios, such as clusterware integration, to allow external control over crash recovery."
+}
+```

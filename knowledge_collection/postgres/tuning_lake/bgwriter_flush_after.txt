@@ -1,3 +1,0 @@
-**Comprehensive Suggestion:**
-
-The `bgwriter_flush_after` knob in PostgreSQL is designed to control when the OS forces writes to the underlying storage based on the amount of data written by the background writer. By default, this value is set to 512kB on Linux and 0 elsewhere, which means that on Linux, the OS will attempt to issue writes when more than 512kB of data has been written, potentially reducing transaction latency. However, setting this value too high may degrade performance in some cases. The `bgwriter_flush_after` can be disabled by setting it to 0, or adjusted to a specific amount of data. This configuration can only be modified in the `postgresql.conf` file or via the server command line.

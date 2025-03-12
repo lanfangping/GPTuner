@@ -1,0 +1,1 @@
+Set the `hot_standby_feedback` knob in PostgreSQL to `on` if you want the standby server to provide feedback to the primary about queries that might lead to vacuum cleanup issues, but be cautious as this can increase bloat on the primary; typically, this is recommended when replication lag is minimal (e.g., under 1 second) and the workload involves frequent updates or deletes.

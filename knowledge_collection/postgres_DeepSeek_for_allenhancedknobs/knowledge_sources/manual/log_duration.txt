@@ -1,0 +1,1 @@
+The `log_duration` knob logs the duration of every completed statement, with durations for Parse, Bind, and Execute steps logged independently for extended query protocol clients; it logs all durations without query text unless `log_min_duration_statement` is set to a positive value, in which case query text is included only for statements exceeding that threshold (e.g., 100ms).

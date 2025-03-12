@@ -1,0 +1,17 @@
+To create a comprehensive suggestion, we will prioritize the information from the `manual_suggestion` (highest priority), followed by the `web_suggestion`, and finally the `gpt_suggestion` (lowest priority). We will also resolve any contradictions by keeping the higher-priority information.
+
+### Step-by-Step Summary:
+1. **From `manual_suggestion`**:  
+   - The `track_activity_query_size` knob reserves memory to store the text of the current command for each active session.  
+   - It defaults to 1024 bytes.  
+   - It can only be set at server start.  
+
+2. **From `web_suggestion`**:  
+   - If you track query performance, you may want to increase the value to log up to 8KB of query text.  
+
+3. **From `gpt_suggestion`**:  
+   - Set the `track_activity_query_size` to a value that accommodates the longest query expected in your workload, typically between 1024 and 4096 bytes.  
+   - Increase it if queries exceed the default size to avoid truncation in activity monitoring.  
+
+### Comprehensive Suggestion:
+The `track_activity_query_size` knob in PostgreSQL reserves memory to store the text of the current command for each active session, defaulting to 1024 bytes. This setting can only be configured at server start. If you track query performance, consider increasing this value to log up to 8KB of query text, ensuring it accommodates the longest query expected in your workload. Adjusting this value helps avoid truncation in activity monitoring, particularly if your queries exceed the default size.

@@ -1,0 +1,10 @@
+To create a comprehensive suggestion, we will prioritize the information from the `manual_suggestion` first, followed by the `gpt_suggestion`, and ignore the `web_suggestion` as it is `None`. Here's the step-by-step reasoning:
+
+1. **Manual Suggestion**: This provides a clear explanation of what the `max_pred_locks_per_relation` parameter controls. It states that it limits the number of pages or tuples of a single relation that can be predicate-locked before the lock is promoted to cover the entire relation. It also explains the meaning of positive and negative values for this parameter.
+
+2. **GPT Suggestion**: This provides practical advice on setting the value of `max_pred_locks_per_relation`. It suggests starting with a default value (64 or 128 for larger workloads) and increasing it incrementally (e.g., to 256 or 512) if "out of predicate locks" errors occur during high-concurrency operations involving large tables.
+
+3. **Web Suggestion**: This is `None`, so it does not contribute any information.
+
+### Comprehensive Suggestion:
+The `max_pred_locks_per_relation` parameter controls the limit of pages or tuples of a single relation that can be predicate-locked before the lock is promoted to cover the entire relation. Positive values indicate an absolute limit, while negative values represent the division of `max_pred_locks_per_transaction` by the absolute value of this setting. To configure this parameter, start with a default value of 64 (or 128 for larger workloads) and monitor for "out of predicate locks" errors during high-concurrency operations involving large tables. If such errors occur, incrementally increase the value (e.g., to 256 or 512) to accommodate your workload. This approach ensures efficient predicate locking while avoiding performance bottlenecks.

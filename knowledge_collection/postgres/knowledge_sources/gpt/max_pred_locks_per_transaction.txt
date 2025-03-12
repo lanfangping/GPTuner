@@ -1,0 +1,1 @@
+Set the `max_pred_locks_per_transaction` knob in PostgreSQL based on the expected number of predicate locks per transaction, typically starting with the default value of 64, and increase it (e.g., to 128 or 256) if you encounter "out of predicate locks" errors during high-concurrency workloads or complex queries involving row-level locking.

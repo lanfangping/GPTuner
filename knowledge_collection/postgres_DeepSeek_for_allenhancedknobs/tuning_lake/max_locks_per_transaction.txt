@@ -1,0 +1,12 @@
+To create a comprehensive suggestion based on the provided JSON, we will prioritize the information from the `manual_suggestion` (highest priority), followed by the `gpt_suggestion` (lower priority), and ignore the `web_suggestion` as it is `None`. Here's the step-by-step reasoning:
+
+1. **Priority Handling**: The `manual_suggestion` provides detailed information about the `max_locks_per_transaction` knob, including its purpose, calculation, default value, and specific considerations for standby servers. This information is retained as it has the highest priority.
+
+2. **Incorporating `gpt_suggestion`**: The `gpt_suggestion` adds practical advice on setting the `max_locks_per_transaction` value, such as starting with the default of 64 and increasing it (e.g., to 128 or 256) if encountering "out of shared memory" errors due to high lock usage in complex workloads. This aligns with the `manual_suggestion` and complements it with actionable steps.
+
+3. **Contradictions**: There are no direct contradictions between the `manual_suggestion` and `gpt_suggestion`. The `manual_suggestion` provides foundational knowledge, while the `gpt_suggestion` offers practical guidance.
+
+### Comprehensive Suggestion:
+The `max_locks_per_transaction` knob in PostgreSQL controls the average number of object locks per transaction, calculated as `max_locks_per_transaction * (max_connections + max_prepared_transactions)`. It has a default value of 64 and can only be set at server start. This setting does not limit the number of rows that can be locked but may need to be increased for queries involving many tables. On a standby server, it must be set to the same or higher value than on the master server. 
+
+For optimal performance, start with the default value of 64 and monitor your workload. If you encounter "out of shared memory" errors due to high lock usage in complex workloads, consider increasing the value (e.g., to 128 or 256) based on the expected number of concurrent transactions and locked objects. This adjustment ensures sufficient shared memory for locks while maintaining system stability.

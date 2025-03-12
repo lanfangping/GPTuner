@@ -1,0 +1,16 @@
+To create a comprehensive suggestion, we will prioritize the information from the `manual_suggestion`, followed by the `web_suggestion`, and finally the `gpt_suggestion`. Here's the step-by-step reasoning:
+
+1. **Manual Suggestion (Highest Priority):**
+   - The `max_parallel_workers` knob sets the limit for parallel operation workers in the system, with a default value of 8.
+   - Changes to this value should be accompanied by adjustments to `max_parallel_maintenance_workers` and `max_parallel_workers_per_gather`.
+   - Any value exceeding `max_worker_processes` will be ineffective.
+
+2. **Web Suggestion (Medium Priority):**
+   - Adjust `max_parallel_workers` accordingly to `max_parallel_workers_per_gather` (which is limited by this parameter).
+
+3. **GPT Suggestion (Lowest Priority):**
+   - Set `max_parallel_workers` to a value equal to or slightly less than the number of CPU cores available (e.g., 8 for an 8-core system).
+   - Ensure it aligns with `max_worker_processes` and does not exceed the total system capacity for parallel query execution.
+
+### Comprehensive Suggestion:
+The `max_parallel_workers` knob in PostgreSQL sets the limit for parallel operation workers in the system, with a default value of 8. When adjusting this parameter, ensure it aligns with `max_worker_processes`, as any value exceeding this limit will be ineffective. Additionally, changes to `max_parallel_workers` should be accompanied by adjustments to `max_parallel_maintenance_workers` and `max_parallel_workers_per_gather`. It is recommended to set `max_parallel_workers` to a value equal to or slightly less than the number of CPU cores available (e.g., 8 for an 8-core system), ensuring it does not exceed the total system capacity for parallel query execution. This adjustment should also consider the limitations imposed by `max_parallel_workers_per_gather`.

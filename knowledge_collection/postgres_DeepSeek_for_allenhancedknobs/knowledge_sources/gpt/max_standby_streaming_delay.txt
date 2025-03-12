@@ -1,0 +1,1 @@
+To set the `max_standby_streaming_delay` knob in PostgreSQL, adjust it based on your replication tolerance for delay: for minimal delay, set it to `-1` (no delay), for moderate tolerance, use `30s` (30 seconds), and for higher tolerance, set it to `5min` (5 minutes) or more, depending on your application's acceptable lag.
