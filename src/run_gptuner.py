@@ -3,6 +3,7 @@ import argparse
 import time
 import os
 import openai
+import json
 import concurrent.futures
 from knowledge_handler.knowledge_update import KGUpdate
 # from dbms.postgres import PgDBMS
@@ -60,7 +61,7 @@ if __name__ == '__main__':
     parser.add_argument("--coarse", type=str, default='knowledge')
     parser.add_argument("--fine", type=str, default='knowledge')
     parser.add_argument("--mode", type=str, default='past_best')
-    parser.add_argument("--enhanced_starting_path", type=str, default='../DBtuningDataset/historical_best_config/historical_best_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json')
+    parser.add_argument("--enhanced_starting_path", type=str, default='./enhanced_configurations/tpcc_sf20_t10/historical_best_config/historical_best_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202412032307.json')
     parser.add_argument("--enhanced_strategy", type=str, default='suggest_values')
     parser.add_argument("--config", type=str, default='') # config file
     args = parser.parse_args()
@@ -105,18 +106,32 @@ if __name__ == '__main__':
     api_key=os.environ.get("DEEPSEEK_API_KEY")
     api_base = os.environ.get("DEEPSEEK_API_BASE")
     model = "deepseek-chat"
+    # api_key=os.environ.get("OPENAI_API_KEY")
+    # api_base = os.environ.get("OPENAI_API_BASE")
+    # model = os.environ.get("OPENAI_MODEL")
     # knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
     # knob_selection.select_interdependent_all_knobs()
     dbms._disconnect()
 
     # prepare tuning lake and structured knowledge
     target_knobs_path = f"./knowledge_collection/{args.db}/target_knobs.txt"
-    with open(target_knobs_path, 'r') as file:
-        lines = file.readlines()
-        target_knobs = [line.strip() for line in lines]
+    # with open(target_knobs_path, 'r') as file:
+    #     lines = file.readlines()
+    #     target_knobs = [line.strip() for line in lines]
+    target_knobs = []
+    enhanced_starting_data = json.load(open(args.enhanced_starting_path, 'r'))
+    for _id, data in enhanced_starting_data.items():
+        cfg = data['config']
+        if cfg == 'default settings':
+            continue
+        
+        for knob, value in cfg.items():
+            if knob not in target_knobs:
+                target_knobs.append(knob)
+    with open(target_knobs_path, 'w') as f:
+        f.write('\n'.join(target_knobs))
 
-
-    # # write your api_base and api_key
+    # write your api_base and api_key
     # knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
     # knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
     # knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)

@@ -55,36 +55,42 @@ class FineSpace(DefaultSpace):
             if info is None:
                 self.target_knobs.remove(knob) # this knob is not by the DBMS under specific version
                 continue
-
             print(f"Defining fine search space for knob: {knob}")
             file_name = f"{knob}.json"
+
+            special = False
+            special_value = None
+            special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
+            if file_name in os.listdir(special_skill_path):
+                with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
+                    special_skill = json.load(json_file)
+                    special_knob = special_skill["special_knob"]
+                    # print(f"{special_knob}, type: {type(special_knob)}")
+                    if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                        special = True
+                        special_value = special_skill["special_value"]
+                            
             knob_type = info["vartype"] 
             if knob_type == "enum" or knob_type == "bool":
-                
                 normal_para = self.get_default_space(knob, info)
-                if file_name in os.listdir(special_skill_path):
-                    with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
-                        special_skill = json.load(json_file)
-                    special = special_skill["special_knob"]
-                    if special is True:
-                        control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 
-                        if type(special_value) is list:
-                            # special_para = OrdinalHyperparameter(f"special_{knob}", [int(value) for value in special_value])
-                            special_para = CategoricalHyperparameter(f"special_{knob}", [str(value) for value in special_value])
-                        else:
-                            special_para = Constant(f"special_{knob}", int(special_value))
-                        
-                        self.search_space.add_hyperparameters([control_para, normal_para, special_para])
-                        
-                        normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
-                        special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
-                        print("Defining control knob:", f"control_{knob}")
-                        print("Defining special knob:", f"special_{knob}\n")
-                        self.search_space.add_conditions([normal_cond, special_cond])
+                if special is True:
+                    control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 
+                    if type(special_value) is list:
+                        # special_para = OrdinalHyperparameter(f"special_{knob}", [int(value) for value in special_value])
+                        special_para = CategoricalHyperparameter(f"special_{knob}", [str(value) for value in special_value])
                     else:
-                        self.search_space.add_hyperparameter(normal_para)
+                        special_para = Constant(f"special_{knob}", str(special_value))
+                    
+                    self.search_space.add_hyperparameters([control_para, normal_para, special_para])
+                    
+                    normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
+                    special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
+                    # print("Defining control knob:", f"control_{knob}")
+                    # print("Defining special knob:", f"special_{knob}\n")
+                    self.search_space.add_conditions([normal_cond, special_cond])
                 else:
                     self.search_space.add_hyperparameter(normal_para)
+
                 continue
             
             if file_name in os.listdir(self.skill_path):
@@ -106,7 +112,7 @@ class FineSpace(DefaultSpace):
                 if max_value is None:
                     max_value = info["max_val"]
                     max_from_sys = True
-
+                
                 if not min_from_sys:
                     if unit:
                         unit = self._transfer_unit(unit)
@@ -203,14 +209,14 @@ class FineSpace(DefaultSpace):
 
                 coarse_sequence = [value for value in coarse_sequence if value < sys.maxsize / 10]
                 
-                special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
+                # special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
                 # check if this knob is special knob
-                if file_name in os.listdir(special_skill_path):
-                    with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
-                        special_skill = json.load(json_file)
-                    special = special_skill["special_knob"]
-                    if special is True:
-                        special_value = special_skill["special_value"]
+                # if file_name in os.listdir(special_skill_path):
+                #     with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
+                #         special_skill = json.load(json_file)
+                #     special = special_skill["special_knob"]
+                #     if special is True:
+                #         special_value = special_skill["special_value"]
                 
                 if knob_type == "integer":  
                     coarse_sequence = [int(value) for value in coarse_sequence]
@@ -223,8 +229,10 @@ class FineSpace(DefaultSpace):
                         default_value = int(boot_value),
                     )
 
+                    # special = special_skill["special_knob"]
                     if special:
-                        
+                        # special_value = special_skill["special_value"]
+                        # print(special_value)
                         control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 
                         if type(special_value) is list:
                             # special_para = OrdinalHyperparameter(f"special_{knob}", [int(value) for value in special_value])
@@ -236,8 +244,8 @@ class FineSpace(DefaultSpace):
                         
                         normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
                         special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
-                        print("Defining control knob:", f"control_{knob}")
-                        print("Defining special knob:", f"special_{knob}\n")
+                        # print("Defining control knob:", f"control_{knob}")
+                        # print("Defining special knob:", f"special_{knob}\n")
                         self.search_space.add_conditions([normal_cond, special_cond])
                     else:
                         self.search_space.add_hyperparameter(normal_para)
@@ -252,7 +260,9 @@ class FineSpace(DefaultSpace):
                         float(max_value),
                         default_value = float(boot_value),
                     )
+                    # special = special_skill["special_knob"]
                     if special:
+                        # special_value = special_skill["special_value"]
                         control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 
                         if type(special_value) is list:
                             special_para = CategoricalHyperparameter(f"special_{knob}", [str(value) for value in special_value])
@@ -263,8 +273,8 @@ class FineSpace(DefaultSpace):
                         normal_cond = EqualsCondition(self.search_space[knob], self.search_space[f"control_{knob}"], "0")
                         special_cond = EqualsCondition(self.search_space[f"special_{knob}"], self.search_space[f"control_{knob}"], "1")
                         
-                        print("Defining control knob:", f"control_{knob}")
-                        print("Defining special knob:", f"special_{knob}\n")
+                        # print("Defining control knob:", f"control_{knob}")
+                        # print("Defining special knob:", f"special_{knob}\n")
                         self.search_space.add_conditions([normal_cond, special_cond])
                     else:
                         self.search_space.add_hyperparameter(normal_para)

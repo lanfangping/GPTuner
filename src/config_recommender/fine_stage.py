@@ -11,8 +11,9 @@ from ConfigSpace import (
     UniformFloatHyperparameter,
     CategoricalHyperparameter,
     Configuration,
-    Constant
+    Constant,
 )
+from ConfigSpace.util import deactivate_inactive_hyperparameters
 import os
 
 
@@ -121,7 +122,7 @@ class FineStage(FineSpace):
                     continue
                 
                 hp = self.search_space[key]
-                print(f'{key}:{value} - {hp.is_legal(value)}')
+                # print(f'{key}:{value} - {hp.is_legal(value)}')
                 if isinstance(hp, Constant):
                     transfer_config_value_dict[key] = hp.value
                 elif isinstance(hp, CategoricalHyperparameter):
@@ -203,7 +204,9 @@ class FineStage(FineSpace):
 
         configs = []
         config_costs = []
+        i = 0
         for _id, data in enhanced_starting_data.items():
+            
             config_value_dict = data['config']
             if config_value_dict == 'default settings':
                 contain_default_settings = True
@@ -214,7 +217,7 @@ class FineStage(FineSpace):
             # make type transformation from coarse to fine 
             transfer_config_value_dict = {}
             for key, value in config_value_dict.items():
-                print("\n", key, value)
+                # print("\n", key, value)
                 if key not in self.dbms.knob_info.keys() or "vartype" not in self.dbms.knob_info[key] or self.dbms.knob_info[key]["vartype"] == "string":
                     continue
 
@@ -226,29 +229,40 @@ class FineStage(FineSpace):
                 file_name = f"{key}.json"
                 
                 # check if this knob is special knob
-                
+                special = False
+                special_value = None
+                special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
                 if file_name in os.listdir(special_skill_path):
                     with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
                         special_skill = json.load(json_file)
-                    # print("special_skill", special_skill)
-                    special = special_skill["special_knob"]
-                    if special is True:
-                        if f'special_{key}' in self.search_space.get_hyperparameter_names():
-                            hp = self.search_space[f'special_{key}']
-                            sys_unit = self.dbms.knob_info[key]["unit"]
-                            if sys_unit is not None:
-                                value = self._transfer_unit_involved(value, sys_unit)
-                            # print(hp, hp.value)
-                            if value == hp.value:
-                                transfer_config_value_dict[f'control_{key}'] = str(1)
-                            else:
-                                transfer_config_value_dict[f'control_{key}'] = str(0)
-                            # print(transfer_config_value_dict)
+                        special_knob = special_skill["special_knob"]
+                        # print(f"{special_knob}, type: {type(special_knob)}")
+                        if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                            special = True
+                            special_value = special_skill["special_value"]
+
+                if special is True:
+                    if f'special_{key}' in self.search_space.get_hyperparameter_names():
+                        hp = self.search_space[f'special_{key}']
+                        sys_unit = self.dbms.knob_info[key]["unit"]
+                        if sys_unit is not None:
+                            value = self._transfer_unit_involved(value, sys_unit)
+                        # print(value, hp.value)
+                        # print(value == hp.value)
+                        if value == hp.value:
+                            transfer_config_value_dict[f'control_{key}'] = str(1)
+                            transfer_config_value_dict[f'special_{key}'] = hp.value
+                        else:
+                            transfer_config_value_dict[f'control_{key}'] = str(0)
+                        
+                        # if key == 'wal_receiver_status_interval':
+                        #     print(transfer_config_value_dict)
+                        #     exit()
                             # input()
                 # input()
                 # print(key)
                 hp = self.search_space[key]
-                print(f'{key}:{value} - {hp.is_legal(value)}')
+                # print(f'{key}:{value} - {hp.is_legal(value)}')
                 if isinstance(hp, CategoricalHyperparameter):
                     transfer_config_value_dict[key] = str(value)
                 elif isinstance(hp, UniformIntegerHyperparameter):
@@ -260,7 +274,7 @@ class FineStage(FineSpace):
                         transfer_config_value_dict[key] = hp.lower
                     else:
                         transfer_config_value_dict[key] = int(value) 
-
+                    
                 elif isinstance(hp, UniformFloatHyperparameter):
                     sys_unit = self.dbms.knob_info[key]["unit"]
                     value = self._transfer_unit_involved(value, sys_unit)
@@ -274,7 +288,14 @@ class FineStage(FineSpace):
                     sys_unit = self.dbms.knob_info[key]["unit"]
                     value = self._transfer_unit_involved(value, sys_unit)
                     transfer_config_value_dict[key] = value
-                print("value after transfer", value)
+                
+                # if key == 'wal_receiver_status_interval':
+                #     print(transfer_config_value_dict)
+                    # exit()
+                # print("value after transfer", value)
+
+                # if key == 'geqo_threshold':
+                #     exit()
                 # input()
             # print(transfer_config_value_dict)
             # print(self.target_knobs)
@@ -287,20 +308,33 @@ class FineStage(FineSpace):
                 file_name = f"{knob}.json"
                 
                 # check if this knob is special knob
+                special = False
                 if file_name in os.listdir(special_skill_path):
                     with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
                         special_skill = json.load(json_file)
-                    if knob == 'synchronous_commit' or knob == 'autovacuum' or knob == 'wal_level':
-                        print("special_skill", special_skill)
-                    special = special_skill["special_knob"]
-                    if special is True:
+
+                    special_knob = special_skill["special_knob"]
+                    if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                        special = True
+
+                    if special:
                         transfer_config_value_dict[f'control_{knob}'] = str(0)
-                        print(transfer_config_value_dict[f'control_{knob}'])
+                        # print(transfer_config_value_dict[f'control_{knob}'])
 
                 hp = self.search_space[knob]
                 transfer_config_value_dict[knob] = hp.default_value
 
-            config = Configuration(self.search_space, transfer_config_value_dict)
+            # hp_wal = self.search_space['wal_receiver_status_interval']
+            # print(hp_wal)
+            # print(self.search_space.get('wal_receiver_status_interval'))
+            # print(self.search_space['wal_receiver_status_interval'].value)
+            print(transfer_config_value_dict)
+            print(f"{i}th config\n")
+            i += 1
+            config = deactivate_inactive_hyperparameters(transfer_config_value_dict, self.search_space)
+            # config = Configuration(self.search_space, transfer_config_value_dict)
+            print(config)
+            print(config.get('wal_receiver_status_interval'))
             configs.insert(0, config) # assume the original costs is ascending order
             config_costs.insert(0, -performance)
         
