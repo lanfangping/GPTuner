@@ -329,12 +329,12 @@ class FineStage(FineSpace):
             # print(self.search_space.get('wal_receiver_status_interval'))
             # print(self.search_space['wal_receiver_status_interval'].value)
             print(transfer_config_value_dict)
-            print(f"{i}th config\n")
+            # print(f"{i}th config\n")
             i += 1
             config = deactivate_inactive_hyperparameters(transfer_config_value_dict, self.search_space)
             # config = Configuration(self.search_space, transfer_config_value_dict)
-            print(config)
-            print(config.get('wal_receiver_status_interval'))
+            # print(config)
+            # print(config.get('wal_receiver_status_interval'))
             configs.insert(0, config) # assume the original costs is ascending order
             config_costs.insert(0, -performance)
         

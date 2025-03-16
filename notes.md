@@ -8,5 +8,8 @@ PYTHONPATH=src python src/run_gptuner.py --config src/exp_configs/postgres/sf20_
 PYTHONPATH=src python src/run_gptuner.py --config src/exp_configs/postgres/sf20_t10/enhanced_fineK_modeAO.yml
 PYTHONPATH=src python src/run_gptuner.py --config src/exp_configs/postgres/sf20_t10/enhanced_fineK_modeAO_recollectK.yml
 
+PYTHONPATH=src python src/run_gptuner.py --config src/exp_configs/postgres/sf20_t10/enhanced_fineK_modeAO_top1.yml
+PYTHONPATH=src python src/run_gptuner.py --config src/exp_configs/postgres/sf20_t10/enhanced_fineK_modeAO_top1_gpt4o.yml
+
 PYTHONPATH=src python src/run.py
 ```
