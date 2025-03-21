@@ -1,3 +1,0 @@
-**Comprehensive Suggestion:**
-
-Set the `maintenance_work_mem` parameter to a value that optimizes performance for maintenance operations such as VACUUM, CREATE INDEX, and ALTER TABLE ADD FOREIGN KEY. The default value is 64MB, but it can be increased to improve performance, especially on systems with large RAM resources and frequent write operations. However, it should not be set too high, as it may allocate up to `autovacuum_max_workers` times this memory when autovacuum runs, potentially leading to excessive memory usage. For typical workloads, consider setting `maintenance_work_mem` to 25% of the total RAM, but no more than 2GB, particularly on systems with less than 8GB of RAM. This balance ensures faster maintenance tasks without causing memory issues.

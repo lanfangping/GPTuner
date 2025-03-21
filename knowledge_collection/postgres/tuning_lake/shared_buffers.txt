@@ -1,3 +1,0 @@
-### Comprehensive Suggestion:
-
-Set the 'shared_buffers' value to 25% of the total RAM for a typical PostgreSQL installation. This configuration is generally recommended for servers with 1GB or more of RAM, but it should not exceed 40% of the system memory. For systems with more than 32GB of RAM, consider setting 'shared_buffers' to a range between 15-25% of the total RAM. Additionally, for servers with hundreds of GBs of RAM, consider setting up huge pages to optimize memory usage. Adjust the configuration accordingly for non-dedicated servers, ensuring that each Postgres instance reserves its own memory allocations. This setting is directly related to the OS kernel parameters `shmmax` and `shmall`.

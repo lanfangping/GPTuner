@@ -1,3 +1,0 @@
-**Comprehensive Suggestion:**
-
-The `autovacuum_vacuum_insert_scale_factor` parameter determines a fraction of the table size that is added to the `autovacuum_vacuum_insert_threshold` to decide when to trigger a VACUUM. This setting can be configured in the `postgresql.conf` file or via the server command line, and it can be overridden for individual tables. The value should be adjusted based on the insert rate and table size, with lower values recommended for high-insert workloads and larger tables, and higher values for lower insert rates and smaller tables.

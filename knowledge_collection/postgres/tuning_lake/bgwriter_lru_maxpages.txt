@@ -1,3 +1,0 @@
-**Comprehensive Suggestion:**
-
-The `bgwriter_lru_maxpages` parameter, which controls the maximum number of buffers that can be written by the background writer in each round, should be set based on the average number of dirty pages generated per checkpoint, typically within the range of 200-1000. This setting helps balance between reducing I/O load and maintaining checkpoint performance. While the option to disable background writing is available, it is recommended to increase this value on busy databases to further enhance the activity of the background writer. This parameter can only be configured in the `postgresql.conf` file or via the server command line.

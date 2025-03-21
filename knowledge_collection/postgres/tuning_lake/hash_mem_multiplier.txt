@@ -1,3 +1,0 @@
-**Comprehensive Suggestion:**
-
-The `hash_mem_multiplier` knob is used to determine the maximum memory that hash-based operations can utilize by multiplying the `work_mem` value by `hash_mem_multiplier`, with a default value of 1.0. For optimal performance in mixed workloads, it is recommended to increase this multiplier to a range between 1.5 to 2.0. In environments where `work_mem` exceeds 40MB, particularly those experiencing regular memory pressure issues, the multiplier can be further increased to a range of 2.0 to 8.0.
