@@ -4,6 +4,7 @@ import time
 import os
 import openai
 import concurrent.futures
+from datetime import datetime
 from knowledge_handler.knowledge_update import KGUpdate
 # from dbms.postgres import PgDBMS
 from dbms.postgres_docker import PgDBMS
@@ -57,9 +58,9 @@ if __name__ == '__main__':
 
     # Select target knobs, write your api_base and api_key
     dbms._connect("benchbase")
-    api_key=os.environ.get("DEEPSEEK_API_KEY")
-    api_base = os.environ.get("DEEPSEEK_API_BASE")
-    model = "deepseek-chat"
+    api_key=os.environ.get("OPENAI_API_KEY")
+    api_base = os.environ.get("OPENAI_API_BASE")
+    model = os.environ.get("OPENAI_MODEL")
     knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
     knob_selection.select_interdependent_all_knobs()
     dbms._disconnect()
@@ -105,9 +106,13 @@ if __name__ == '__main__':
         raise ValueError("Illegal dbms!")
     
     # store the optimization results
-    folder_path = "../optimization_results/"
+    current_time = datetime.now().strftime("%Y%m%d%H%M")
+    folder = f"optimization_results/run_{current_time}"
+    folder_path = f"../{folder}"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)  
+        os.makedirs(os.path.join(folder_path, 'temp_results'))
+        os.makedirs(os.path.join(folder_path, 'log'))
 
     gptuner_coarse = CoarseStage(
         dbms=dbms, 
@@ -115,10 +120,11 @@ if __name__ == '__main__':
         test=args.test,  # workload type
         timeout=args.timeout, 
         seed=args.seed,
+        folder=folder   
     )
 
     gptuner_coarse.optimize(
-        name = f"../optimization_results/{args.db}/coarse/", 
+        name = f"../{folder}/{args.db}/coarse/", 
         trials_number=30, 
         initial_config_number=10)
     time.sleep(20)
@@ -129,11 +135,12 @@ if __name__ == '__main__':
         target_knobs_path=target_knobs_path, 
         test=args.test, 
         timeout=args.timeout, 
-        seed=args.seed
+        seed=args.seed,
+        folder=folder
     )
 
     gptuner_fine.optimize(
-        name = f"../optimization_results/{args.db}/fine/",
+        name = f"../{folder}/{args.db}/fine/",
         trials_number=110 # history trials + new tirals
     )   
 
