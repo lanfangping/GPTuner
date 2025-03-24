@@ -1,0 +1,809 @@
+{
+  "hyperparameters": [
+    {
+      "name": "autovacuum",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "2",
+        "3",
+        "4"
+      ],
+      "default": "3",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_multixact_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "400000000",
+        "500005000",
+        "750002500",
+        "1250000000",
+        "1500000000"
+      ],
+      "default": "400000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "2.0",
+        "9.5",
+        "14.75",
+        "40.0",
+        "60.0"
+      ],
+      "default": "2.0",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_work_mem",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "262143",
+        "524287",
+        "786431",
+        "1048576"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_flush_after",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "16",
+        "32",
+        "64"
+      ],
+      "default": "64",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_lru_maxpages",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "200",
+        "300",
+        "400",
+        "500"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_completion_target",
+      "type": "categorical",
+      "choices": [
+        "0.6",
+        "0.6499999999999999",
+        "0.75",
+        "0.8",
+        "0.9"
+      ],
+      "default": "0.9",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_timeout",
+      "type": "categorical",
+      "choices": [
+        "300",
+        "600",
+        "750",
+        "1125",
+        "1350"
+      ],
+      "default": "300",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_lock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_freeze_table_age",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "deadlock_timeout",
+      "type": "categorical",
+      "choices": [
+        "50",
+        "75",
+        "325",
+        "550",
+        "1000"
+      ],
+      "default": "1000",
+      "weights": null
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "125",
+        "150",
+        "187",
+        "250",
+        "375",
+        "500",
+        "750",
+        "2650",
+        "2687",
+        "2875",
+        "3250",
+        "5100",
+        "5125",
+        "5250",
+        "5500"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "categorical",
+      "choices": [
+        "524288",
+        "1230894",
+        "1584197",
+        "1715269",
+        "2179687",
+        "2310759",
+        "2421875",
+        "2906250"
+      ],
+      "default": "524288",
+      "weights": null
+    },
+    {
+      "name": "effective_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "50",
+        "100"
+      ],
+      "default": "1",
+      "weights": null
+    },
+    {
+      "name": "enable_bitmapscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashjoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexonlyscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partition_pruning",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "fsync",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "full_page_writes",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "hot_standby",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "in_hot_standby",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "log_lock_waits",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "max_connections",
+      "type": "categorical",
+      "choices": [
+        "12",
+        "18",
+        "100",
+        "65553",
+        "131083"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "max_wal_size",
+      "type": "categorical",
+      "choices": [
+        "1001",
+        "1024",
+        "1500",
+        "2001",
+        "2500",
+        "3000",
+        "4000"
+      ],
+      "default": "1024",
+      "weights": null
+    },
+    {
+      "name": "random_page_cost",
+      "type": "categorical",
+      "choices": [
+        "1.15",
+        "1.175",
+        "1.9",
+        "2.5999999999999996",
+        "4.0"
+      ],
+      "default": "4.0",
+      "weights": null
+    },
+    {
+      "name": "seq_page_cost",
+      "type": "categorical",
+      "choices": [
+        "0.1",
+        "0.3",
+        "0.325",
+        "0.4",
+        "0.55",
+        "0.625",
+        "0.75",
+        "1.0"
+      ],
+      "default": "1.0",
+      "weights": null
+    },
+    {
+      "name": "shared_buffers",
+      "type": "categorical",
+      "choices": [
+        "16384",
+        "484383",
+        "726566",
+        "1114062",
+        "1259375"
+      ],
+      "default": "16384",
+      "weights": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "temp_buffers",
+      "type": "categorical",
+      "choices": [
+        "550",
+        "775",
+        "1006",
+        "1012",
+        "1024"
+      ],
+      "default": "1024",
+      "weights": null
+    },
+    {
+      "name": "track_activities",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_counts",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "track_wal_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "transaction_isolation",
+      "type": "categorical",
+      "choices": [
+        "serializable",
+        "repeatable read",
+        "read committed",
+        "read uncommitted"
+      ],
+      "default": "read committed",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0.0",
+        "10.0",
+        "15.0",
+        "40.0",
+        "60.0"
+      ],
+      "default": "0.0",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "200",
+        "1000",
+        "1500",
+        "4000",
+        "6000"
+      ],
+      "default": "200",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_page_dirty",
+      "type": "categorical",
+      "choices": [
+        "20",
+        "40",
+        "60",
+        "80",
+        "100"
+      ],
+      "default": "20",
+      "weights": null
+    },
+    {
+      "name": "wal_buffers",
+      "type": "categorical",
+      "choices": [
+        "512",
+        "1002",
+        "1501",
+        "2002",
+        "2500",
+        "3000",
+        "3001",
+        "4000"
+      ],
+      "default": "512",
+      "weights": null
+    },
+    {
+      "name": "wal_compression",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "2500",
+        "5000",
+        "7500",
+        "10000"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "wal_sync_method",
+      "type": "categorical",
+      "choices": [
+        "fsync",
+        "fdatasync",
+        "open_sync",
+        "open_datasync"
+      ],
+      "default": "fdatasync",
+      "weights": null
+    },
+    {
+      "name": "work_mem",
+      "type": "categorical",
+      "choices": [
+        "2080",
+        "3088",
+        "4096",
+        "8224",
+        "12304",
+        "1940572",
+        "1949788",
+        "3877048",
+        "3883192"
+      ],
+      "default": "4096",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "200000000",
+        "400000000",
+        "600000000",
+        "800000000",
+        "1000000000"
+      ],
+      "default": "200000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "999",
+        "1499",
+        "3500",
+        "3999",
+        "5000",
+        "5999",
+        "8000"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "lock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "50",
+        "75",
+        "250",
+        "375",
+        "1325",
+        "1625",
+        "2500",
+        "2550",
+        "2750",
+        "3750",
+        "5000"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "124",
+        "187",
+        "15187",
+        "30125"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "special_autovacuum_freeze_max_age",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_autovacuum_vacuum_cost_limit",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_lock_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "0"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "special_statement_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_vacuum_freeze_table_age",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "2500",
+        "3750",
+        "5000",
+        "7500",
+        "536874661",
+        "536878411",
+        "1073744323",
+        "1073746823"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "vacuum_freeze_table_age",
+      "type": "categorical",
+      "choices": [
+        "75",
+        "112",
+        "150000000",
+        "500000112",
+        "1000000075"
+      ],
+      "default": "150000000",
+      "weights": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "autovacuum_freeze_max_age",
+      "parent": "control_autovacuum_freeze_max_age",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_freeze_max_age",
+      "parent": "control_autovacuum_freeze_max_age",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "lock_timeout",
+      "parent": "control_lock_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_lock_timeout",
+      "parent": "control_lock_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_freeze_table_age",
+      "parent": "control_vacuum_freeze_table_age",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_freeze_table_age",
+      "parent": "control_vacuum_freeze_table_age",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}

@@ -1,0 +1,1 @@
+To optimize the 'autovacuum' setting in PostgreSQL, it is generally recommended to set `autovacuum_vacuum_cost_delay` to around 20 milliseconds, `autovacuum_max_workers` to 3-5 based on the size of your workloads, and ensure that `autovacuum_naptime` is set to 1 minute to allow frequent checks for tables needing vacuuming.

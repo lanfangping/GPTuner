@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To configure the 'effective_cache_size' in PostgreSQL, it is essential to understand that this setting influences the planner's assumption about the available disk cache for a query, impacting decisions on index versus sequential scans. A recommended practice is to set it to approximately 50-75% of the total available RAM on the server, factoring in the memory usage of the operating system and other applications. Alternatively, you can calculate it with the formula: system RAM - (shared_buffers + work_mem * max_connections * 2) * 1.1, adjusting for lower values if the server is not solely dedicated to PostgreSQL."
+}
+```

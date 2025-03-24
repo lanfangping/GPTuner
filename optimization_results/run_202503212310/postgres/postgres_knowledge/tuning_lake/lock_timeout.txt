@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "Set the `lock_timeout` value in PostgreSQL to define a time limit in milliseconds for aborting statements that exceed the specified duration while trying to acquire locks on database objects. This timeout is applied separately to each lock acquisition attempt and is distinct from `statement_timeout`. A recommended duration is between `100ms` to `5000ms` (5 seconds). You can set the value using the command `SET lock_timeout = '500ms';` for an immediate session change, or adjust the `postgresql.conf` file for a server-wide configuration."
+}
+```

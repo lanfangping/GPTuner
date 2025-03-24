@@ -10,12 +10,13 @@ import transformers
 from datetime import datetime
 
 class GPT:
-    def __init__(self, api_base, api_key, model="gpt-4o-mini"):
+    def __init__(self, api_base, api_key, model="gpt-4o-mini", folder='optimization_results'):
         self.api_base = api_base
         self.api_key = api_key
         self.model = model
         self.money = 0
         self.token = 0
+        self.folder = folder
         self.cur_token = 0
         self.cur_money = 0
 
@@ -73,9 +74,18 @@ class GPT:
                     chat_tokenizer_dir, trust_remote_code=True
                     )
         else:
-            enc = tiktoken.encoding_for_model(self.model)
+            if self.model == 'gpt-4o-mini':
+                try:
+                    enc = tiktoken.encoding_for_model(self.model)
+                except KeyError:
+                    enc = tiktoken.get_encoding("cl100k_base")
+            else:
+                enc = tiktoken.encoding_for_model(self.model)
             # enc = tiktoken.get_encoding("o200k_base")
-        return len(enc.encode(out_text+in_text))
+        count = len(enc.encode(out_text+in_text))
+        with open(os.path.join(self.folder, 'token.txt'), 'a') as f:
+            f.write(f"{count}\n")
+        return count
 
     def calc_money(self, in_text, out_text):
         """money for gpt4"""

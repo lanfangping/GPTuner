@@ -1,0 +1,1 @@
+To enable partition pruning in PostgreSQL, set the parameter `enable_partition_pruning` to `on` in the `postgresql.conf` file or via an SQL command with `SET enable_partition_pruning = ON;`, which allows the query planner to skip scanning partitions that do not contain relevant data, optimizing performance, especially in queries involving partitioned tables.

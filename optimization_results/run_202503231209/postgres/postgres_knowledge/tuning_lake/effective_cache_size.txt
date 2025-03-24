@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To configure the `effective_cache_size` in PostgreSQL, set it based on the planner's assumption of the disk cache size available for a single query, which influences the decision to use index or sequential scans. A good approach is to calculate it as approximately 50-75% of the total system RAM, or use the formula: system RAM - (shared_buffers + work_mem * max_connections * 2) * 1.1. This should take into account both PostgreSQL's shared buffers and the kernel's disk cache for data files, optimizing performance without affecting the allocated shared memory."
+}
+```

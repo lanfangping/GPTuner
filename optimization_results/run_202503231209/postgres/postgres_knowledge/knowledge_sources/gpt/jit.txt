@@ -1,0 +1,1 @@
+To set the 'jit' (Just-In-Time compilation) knob in PostgreSQL, configure the `jit` parameter to `on` for enabling JIT, or `off` to disable it, while for optimal performance on workloads that benefit from JIT, set it to `on` and consider adjusting `jit_inline_limit` to around 1000 and `jit_tuple_avg_size` to 32 to optimize for typical workloads.

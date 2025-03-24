@@ -9,8 +9,8 @@ from config_recommender.workload_runner import BenchbaseRunner
 from tqdm import tqdm
 
 class KnobSelection(GPT):
-    def __init__(self, api_base, api_key, db, dbms, benchmark, model=GPT.__init__.__defaults__[0]):
-        super().__init__(api_base, api_key, model=model)
+    def __init__(self, api_base, api_key, db, dbms, benchmark, model=GPT.__init__.__defaults__[0], folder='optimization_results'):
+        super().__init__(api_base, api_key, model=model, folder=folder)
         self.db = db
         self.dbms = dbms
         self.benchmark = benchmark

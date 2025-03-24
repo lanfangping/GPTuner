@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "For optimal performance, manually set the `wal_buffers` parameter in PostgreSQL to a value that suits your system's workload. The default setting is -1, which equals approximately 3% of shared_buffers, but can be manually configured, with values less than 32kB treated as 32kB. In high write load environments, a setting of 16MB is recommended, while systems with heavy transactions may benefit from increasing this to 32MB or more to mitigate the risk of WAL bottlenecks."
+}
+```

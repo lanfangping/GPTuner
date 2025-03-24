@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To configure the `checkpoint_flush_after` parameter in PostgreSQL, set it to 64 (512kB) as a recommended starting point. This setting aims to optimize the balance between performance and data durability during checkpoints by prompting the OS to write to storage when a specified amount of data (measured in blocks, typically 8kB) has been written. Note that the default value is 256kB on Linux and 0 elsewhere, and while this configuration can help reduce transaction latency, it may impact performance in some scenarios."
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To adjust the `random_page_cost` parameter in PostgreSQL, consider the storage technology you are using. For traditional spinning disk drives, a value of 4.0 is recommended, while for solid-state drives (SSDs), a value between 1.1 and 2.0 is more suitable, with a specific suggestion of 1.2 if your disk technology has a random access profile similar to that of SSDs. This setting influences the planner's estimate of the cost of non-sequentially fetched disk pages, and should reflect the actual cost of random storage reads based on factors like cache rate and database size relative to server memory."
+}
+```

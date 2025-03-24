@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize PostgreSQL performance, configure the 'bgwriter_flush_after' parameter to approximately 256kB. This setting forces the OS to write dirty buffers to disk after the specified amount of data has been written by the background writer. While it can help reduce transaction latency, monitor system performance and disk characteristics, as this may lead to performance degradation in certain cases. The value must be adjusted based on system requirements and can be set in the postgresql.conf file or via the server command line."
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To set the `max_locks_per_transaction` value in PostgreSQL, start with the default value of 64, which controls the average number of object locks per transaction, calculated as max_locks_per_transaction * (max_connections + max_prepared_transactions). This setting can only be determined at server start and should be increased if you anticipate many simultaneous locks or are managing complex queries that involve many tables. Additionally, on a standby server, this value must be set to the same or higher than the value on the master server."
+}
+```

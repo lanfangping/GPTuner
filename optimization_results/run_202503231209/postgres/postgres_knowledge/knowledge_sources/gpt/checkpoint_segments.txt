@@ -1,0 +1,1 @@
+To set the `checkpoint_segments` parameter in PostgreSQL, a good starting point is to configure it to a value between 32 and 128 segments, increasing it further (e.g., to 256 or 512) for high-write workloads, while ensuring that your disk space can accommodate the resulting WAL (Write-Ahead Logging) files.

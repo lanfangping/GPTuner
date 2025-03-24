@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To configure the 'work_mem' setting in PostgreSQL, start with a baseline value of 16384 kB, which is recommended for many applications. Monitor your query performance and memory usage, as the optimal value can vary significantly based on the workload. For OLTP queries with lower complexity, a value in the low MBs may suffice, while OLAP-style queries with fewer concurrent connections can accommodate values in the GB range. Be mindful that the effective memory usage may be much higher than work_mem due to concurrent operations, so it's beneficial to estimate potential total memory consumption by multiplying by max_connections and a small factor (N). Always adjust the value according to the total available memory and the number of concurrent connections for optimal performance."
+}
+```

@@ -1,0 +1,1 @@
+To set the `autovacuum_max_workers` value in PostgreSQL, you should typically configure it to be between 1 and 5, depending on the size of your workload and the number of databases; a good starting point is to set it to the number of CPU cores divided by 2 (e.g., if you have 8 cores, set it to 4) while ensuring the total does not exceed the maximum allowed setting of 20.

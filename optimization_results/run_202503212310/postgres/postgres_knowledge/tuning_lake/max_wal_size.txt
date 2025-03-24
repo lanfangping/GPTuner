@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize PostgreSQL's `max_wal_size`, configure it between 2MB to 4GB based on your workload and available storage, ensuring it is sufficiently increased to around 2GB or 4GB if experiencing frequent checkpointing. This setting controls the maximum size of the Write-Ahead Log (WAL) during automatic checkpoints, which can be exceeded under heavy load. Increasing this value can prevent checkpoints from being triggered by disk space constraints but may extend recovery time after a crash."
+}
+```

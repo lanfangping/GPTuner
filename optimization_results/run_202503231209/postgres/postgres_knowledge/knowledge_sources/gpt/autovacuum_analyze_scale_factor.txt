@@ -1,0 +1,1 @@
+To optimize the `autovacuum_analyze_scale_factor` in PostgreSQL, set it to a value between 0.1 and 0.5 (the default is 0.1), depending on your workload; for example, if your table has 1 million rows, setting it to 0.2 would trigger an auto-analyze after approximately 200,000 rows have changed.

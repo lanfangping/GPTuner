@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To set the `vacuum_freeze_table_age` in PostgreSQL, it is important to utilize the default value of 150 million transactions, while noting that this setting triggers an aggressive vacuum scan when the table's `pg_class.relfrozenxid` reaches the specified age. It is also crucial to optimize performance by ensuring that the effective value remains within 95% of `autovacuum_freeze_max_age`, which helps prevent transaction ID wraparound and minimizes excessive locking for healthy database performance."
+}
+```

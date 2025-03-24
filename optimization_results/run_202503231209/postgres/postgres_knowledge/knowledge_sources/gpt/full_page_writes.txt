@@ -1,0 +1,1 @@
+To set the `full_page_writes` parameter in PostgreSQL, you should use the following command based on your requirements: `ALTER SYSTEM SET full_page_writes TO 'on';` (recommended for crash safety) or `ALTER SYSTEM SET full_page_writes TO 'off';` (to reduce WAL size, but at the risk of data loss during a crash), and then reload the configuration using `SELECT pg_reload_conf();`.

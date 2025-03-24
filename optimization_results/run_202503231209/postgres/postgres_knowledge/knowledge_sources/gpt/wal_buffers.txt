@@ -1,0 +1,1 @@
+To set the `wal_buffers` parameter in PostgreSQL, start with a default value of 16 MB and adjust it to approximately 1/8th of your shared memory (`shared_buffers`), or up to a maximum of 16 MB in versions before PostgreSQL 9.5, while monitoring performance and throughput, particularly in systems with heavy write operations.

@@ -1,0 +1,1 @@
+For optimal performance, set the `wal_buffers` parameter in PostgreSQL to 16MB (the default is usually 16KB) for systems with high write loads, and consider increasing it to 32MB or more on systems with heavy transactions or substantial write operations to reduce the risk of WAL (Write Ahead Log) bottlenecks.

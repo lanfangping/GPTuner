@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To effectively manage the `autovacuum_vacuum_cost_limit` in PostgreSQL, start with the default value of -1, which allows the use of the regular `vacuum_cost_limit`. A recommended starting point for optimal performance is 2000 for small databases, with the possibility of increasing it up to 8000 for larger databases, ensuring that the total cost of autovacuum operations does not surpass the configured `vacuum_cost_limit`. This setting can only be adjusted in the postgresql.conf file or via the server command line, and may be overridden for specific tables through altering storage parameters."
+}
+```

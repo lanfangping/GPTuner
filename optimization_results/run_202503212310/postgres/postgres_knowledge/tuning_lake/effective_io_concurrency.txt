@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the 'effective_io_concurrency' parameter in PostgreSQL, set it to a value that reflects the capabilities of your I/O subsystem. This parameter determines the number of concurrent disk I/O operations during bitmap heap scans and is influenced by the type of storage (e.g., SSDs), the database workload, and the operating system's support for posix_fadvise. A practical starting point is a value of 1, which can then be adjusted typically to between 2 and 200 for SSDs, based on the number of concurrent read operations your storage system can handle efficiently."
+}
+```

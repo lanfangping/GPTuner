@@ -1,0 +1,3 @@
+{
+  "suggestion": "To optimize performance and ensure data safety in PostgreSQL, it is recommended to configure the `wal_sync_method` to `fdatasync`, which provides a good balance for most workloads. This parameter controls the method used for forcing WAL updates to disk, with available options being open_datasync, fdatasync, fsync, fsync_writethrough, and open_sync; on Linux, the default is usually `fdatasync`. You should set this in the `postgresql.conf` file as `wal_sync_method = 'fdatasync'` for optimal performance and crash safety."
+}

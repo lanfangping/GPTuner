@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the `autovacuum_analyze_scale_factor` in PostgreSQL, adjust the parameter, which determines if an ANALYZE should be triggered by adding a fraction of the table size to the autovacuum_analyze_threshold. Set it to a value between 0.1 and 0.5 based on your workload; for instance, if your table has 1 million rows, using a value of 0.2 will initiate an auto-analyze after approximately 200,000 rows have changed. This adjustment can be made in the postgresql.conf file or through the server command line."
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To configure the PostgreSQL `synchronous_commit` setting, you can choose from several options to balance transaction durability and system performance: 'on' (default, waits for WAL records to be written to both local disk and standby replication), 'remote_apply' (waits for standby to apply changes), 'remote_write' (waits for standby to write changes for improved data safety), 'local' (waits only for local disk), or 'off' (no wait, which risks data loss up to three times the wal_writer_delay in case of a crash). Adjust this setting according to your system's requirements for durability or performance."
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize performance in PostgreSQL, consider adjusting the 'wal_compression' parameter. It is off by default and can only be changed by superusers. Enabling it compresses full page images written to the Write Ahead Log (WAL), reducing WAL volume while potentially preventing data corruption. However, this may increase CPU usage due to the compression and decompression process. If you decide to disable WAL compression for high-write workloads, monitor your system's CPU overhead and adjust settings like 'shared_buffers' to about 25% of total RAM and 'work_mem' between '4MB' and '16MB' based on workload requirements for optimal results."
+}
+```

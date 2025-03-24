@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "The 'checkpoint_timeout' setting in PostgreSQL, which determines the maximum time between automatic WAL checkpoints, is typically configured between 300 seconds and 1800 seconds, with a common recommendation of around 900 seconds. Raising this parameter can improve I/O usage by reducing the frequency of checkpoints, which helps smooth out I/O spikes when paired with appropriate tuning of 'checkpoint_completion_target' and background writer activity. However, it is important to note that higher values may lead to increased recovery time in the event of a database crash."
+}
+```

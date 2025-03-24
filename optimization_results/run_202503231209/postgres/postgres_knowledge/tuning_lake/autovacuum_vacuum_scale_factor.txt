@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the performance of PostgreSQL, it is recommended to adjust the 'autovacuum_vacuum_scale_factor' parameter, which determines when a VACUUM should be triggered by adding a fraction of the table size to the autovacuum_vacuum_threshold. This parameter can be set in the postgresql.conf file or via the server command line, and can be overridden on a per-table basis. For tables with high update or delete activity, setting it between 0.1 and 0.5 is advisable, with 0.1 suggested for frequent autovacuuming."
+}
+```

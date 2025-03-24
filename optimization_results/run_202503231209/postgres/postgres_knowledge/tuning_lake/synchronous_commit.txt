@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize performance with the 'synchronous_commit' parameter in PostgreSQL, you have several options. Setting it to 'on' (default) ensures maximum durability by waiting for WAL records to be written to local disk and replication before reporting success. For less critical applications, 'off' can be used for the lowest latency, although it risks losing up to three times the wal_writer_delay of data in the event of a crash. Alternatively, 'remote_apply' commits transactions immediately on the primary but waits for acknowledgment from replicas, offering a balance between performance and data safety."
+}
+```

@@ -1,0 +1,1 @@
+To set the value for the `autovacuum_freeze_max_age` knob in PostgreSQL, configure it to a value between 200 million (200,000,000) to 1 billion (1,000,000,000) transactions, with a recommended starting point of 200 million for smaller databases, and consider increasing it for larger databases while monitoring the vacuum process to avoid transaction ID wraparound issues.

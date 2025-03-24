@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To configure the 'max_connections' parameter in PostgreSQL, first understand that this parameter sets the limit for concurrent connections, usually defaulted at 100. Adjust this value during server startup, ensuring it is equal to or higher than the master server's value on a standby server. For optimal performance, if you are using connection pooling, set 'max_connections' to a low multiple (2-5x) of the number of server cores or based on the minimum number of concurrent users in session mode. If you're not using connection pooling, calculate the value based on the expected number of concurrent users, typically using the formula: (number of expected users x 1.5) + 10, while considering your system's available resources and workload."
+}
+```

@@ -1,0 +1,19 @@
+[INFO ] 2025-03-22 10:59:25,818 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:                       TPCC {com.oltpbenchmark.benchmarks.tpcc.TPCCBenchmark}
+Configuration:                   config/postgres/sample_tpcc_config.xml
+Type:                            POSTGRES
+Driver:                          org.postgresql.Driver
+URL:                             jdbc:postgresql://localhost:5432/benchbase?sslmode=disable&ApplicationName=tpcc&reWriteBatchedInserts=true
+Isolation:                       TRANSACTION_SERIALIZABLE
+Batch Size:                      128
+Scale Factor:                    20.0
+Terminals:                       10
+New Connection Per Txn:          false
+Reconnect on Connection Failure: true
+
+[INFO ] 2025-03-22 10:59:25,819 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2025-03-22 10:59:26,114 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 10 virtual terminals...
+[INFO ] 2025-03-22 10:59:26,283 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the TPCC Benchmark with 1 Phase...
+[INFO ] 2025-03-22 10:59:26,295 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=TPCC] [Serial=false] [Time=60] [WarmupTime=0] [Rate=10000.0] [Arrival=REGULAR] [Ratios=[45.0, 43.0, 4.0, 4.0, 4.0]] [ActiveWorkers=10]
+[INFO ] 2025-03-22 10:59:26,296 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.

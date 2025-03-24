@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To set the `work_mem` parameter in PostgreSQL, start with a value of 4096 kB per connection for light workloads, and consider raising it to 16384 kB or more for complex queries, while ensuring the total memory used does not surpass 25% of your available RAM to prevent swapping. Inspect memory usage during query execution, as an inadequate `work_mem` can lead to performance degradation due to reliance on disk, whereas a value that is too large may destabilize throughput during high concurrency. For OLTP queries, lower values may suffice, but for OLAP-style queries with fewer concurrent operations, higher allocations may be appropriate. Ultimately, estimate the total memory consumed by multiplying `work_mem` by max_connections and a small factor, adjusting based on observed performance."
+}
+```

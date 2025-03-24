@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "Set the `max_connections` parameter in PostgreSQL to a value that meets the concurrency needs of your application while considering your system’s resources. This value should be equal to or higher than that of the master server on a standby server. If using connection pooling, consider setting this parameter as a low multiple (2-5x) of the number of CPU cores to optimize performance; otherwise, base it on the expected number of concurrent users. For initial configuration, starting with a value of 100 and adjusting according to your workload is advisable, ensuring that the total does not exceed your system’s RAM availability."
+}
+```

@@ -1,0 +1,1 @@
+To set the 'autovacuum_multixact_freeze_max_age' parameter in PostgreSQL, configure it to a value between 50 million (50000000) and 200 million (200000000) to ensure that multi-transaction ID freezes occur before the multixact IDs wrap around, with a common recommended setting of 150 million (150000000) for optimal performance in heavily updated databases.

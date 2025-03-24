@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To ensure data integrity in PostgreSQL, you should enable the `full_page_writes` parameter by using the command `ALTER SYSTEM SET full_page_writes TO 'on';`. This setting writes the entire content of each disk page to the Write-Ahead Log (WAL) during the first modification after a checkpoint, which enhances crash safety. However, be aware that enabling this feature increases the amount of data written to the WAL. If you opt to disable it by setting it to 'off', it could speed up normal operations but poses a risk of data corruption in case of a crash. After making any changes, remember to reload the configuration using `SELECT pg_reload_conf();`."
+}
+```

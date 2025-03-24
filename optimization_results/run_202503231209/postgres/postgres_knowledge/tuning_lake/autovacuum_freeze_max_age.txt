@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To manage the autovacuum process effectively in PostgreSQL, set the 'autovacuum_freeze_max_age' parameter to accommodate your workload, typically configuring it to 1 billion (1,000,000,000) for large databases. This parameter dictates the maximum age, in transactions, that a table's pg_class.relfrozenxid field can reach before triggering an automatic VACUUM operation to prevent transaction ID wraparound. Note that this parameter can only be set at server start."
+}
+```

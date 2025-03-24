@@ -7,8 +7,8 @@ from knowledge_handler.gpt import GPT
 from knowledge_handler.knowledge_transformation import KGTrans
 
 class KGUpdate(GPT):
-    def __init__(self, api_base, api_key, db="postgres", model=GPT.__init__.__defaults__[0]):
-        super().__init__(api_base, api_key, model=model)
+    def __init__(self, api_base, api_key, db="postgres", model=GPT.__init__.__defaults__[0], folder='optimization_results'):
+        super().__init__(api_base, api_key, model=model, folder=folder)
         self.db = db
         self.knob_num = 0
         self._define_path()

@@ -1,0 +1,1 @@
+The `autovacuum_vacuum_insert_threshold` parameter in PostgreSQL should be set to a value that is proportionate to the number of inserted tuples, typically a good starting point is around 100,000 (100k), which means that autovacuum will trigger when there have been 100,000 INSERT operations since the last vacuum.

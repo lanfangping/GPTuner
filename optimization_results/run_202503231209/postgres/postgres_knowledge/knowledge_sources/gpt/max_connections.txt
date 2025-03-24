@@ -1,0 +1,1 @@
+To set the `max_connections` parameter in PostgreSQL, start with a value of 100 and adjust based on your workload, allowing for approximately 10-20 connections per active user, ensuring that the total value does not exceed your system’s RAM availability, ideally keeping it around `(total memory in bytes / (work_mem + maintenance_work_mem + 50000))`, to avoid memory issues.

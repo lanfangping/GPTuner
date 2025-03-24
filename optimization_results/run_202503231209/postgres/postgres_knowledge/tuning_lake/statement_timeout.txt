@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To manage the `statement_timeout` in PostgreSQL, you can set it using the SQL command `SET statement_timeout = '5000ms';` for a 5-second timeout, or configure it in the `postgresql.conf` file with `statement_timeout = '30000ms';` for a 30-second timeout, according to your application requirements. This setting will abort any SQL statement that exceeds the specified time limit, which is measured in milliseconds, and is applied separately to each statement in multi-statement queries (PostgreSQL 13+). Additionally, if `log_min_error_statement` is configured to ERROR or lower, the timeout can also be logged."
+}
+```

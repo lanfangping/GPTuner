@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "Configure the `max_wal_senders` parameter in PostgreSQL to specify the maximum number of concurrent connections from standby servers or streaming base backup clients. The default value is 10, and it should be set slightly higher than the maximum number of expected clients to allow for immediate reconnection in case of abrupt disconnections. Additionally, ensure that the `wal_level` is set to 'replica' or higher, and note that this parameter can only be set at server start."
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the performance of PostgreSQL, set the `max_wal_size` parameter starting at around 2GB for small to medium databases, and consider increasing it to 4GB or more for larger databases, unless there are disk space constraints. This setting helps control the maximum size of the Write-Ahead Log (WAL) during automatic checkpoints, allowing it to exceed the default soft limit of 1GB under high load conditions. However, keep in mind that increasing this value may extend recovery time after a database crash."
+}
+```

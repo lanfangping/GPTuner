@@ -38,6 +38,7 @@ if __name__ == '__main__':
     parser.add_argument("test", type=str) # workload type
     parser.add_argument("timeout", type=int)
     parser.add_argument("-seed", type=int, default=1)
+    parser.add_argument("-kw", type=int, default=1)
     args = parser.parse_args()
     print(f'Input arguments: {args}')
     time.sleep(2)
@@ -55,43 +56,42 @@ if __name__ == '__main__':
     else:
         raise ValueError("Illegal dbms!")
 
-
-    # Select target knobs, write your api_base and api_key
-    dbms._connect("benchbase")
-    api_key=os.environ.get("OPENAI_API_KEY")
-    api_base = os.environ.get("OPENAI_API_BASE")
-    model = os.environ.get("OPENAI_MODEL")
-    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
-    knob_selection.select_interdependent_all_knobs()
-    dbms._disconnect()
-
-    # prepare tuning lake and structured knowledge
     target_knobs_path = f"./knowledge_collection/{args.db}/target_knobs.txt"
-    with open(target_knobs_path, 'r') as file:
-        lines = file.readlines()
-        target_knobs = [line.strip() for line in lines]
+    # Select target knobs, write your api_base and api_key
+    if args.kw == 1 or args.kw == '1':
+        dbms._connect("benchbase")
+        api_key=os.environ.get("OPENAI_API_KEY")
+        api_base = os.environ.get("OPENAI_API_BASE")
+        model = os.environ.get("OPENAI_MODEL")
+        knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, api_base=api_base, api_key=api_key, model=model)
+        knob_selection.select_interdependent_all_knobs()
+        dbms._disconnect()
 
+        # prepare tuning lake and structured knowledge
+        with open(target_knobs_path, 'r') as file:
+            lines = file.readlines()
+            target_knobs = [line.strip() for line in lines]
 
-    # write your api_base and api_key
-    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
-    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
-    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)
+        # write your api_base and api_key
+        knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=model)
+        knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=model)
+        knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=model)
 
-    for i, knob in enumerate(target_knobs):
-        print(f"{i}th, total {len(target_knobs)} knobs")
-        try: 
-            process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
-        except KeyError as e:
-            print(f"{e}")
-            continue
+        for i, knob in enumerate(target_knobs):
+            print(f"{i}th, total {len(target_knobs)} knobs")
+            try: 
+                process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
+            except KeyError as e:
+                print(f"{e}")
+                continue
 
-    # for i in range(1, 6):
-    #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    #         futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
-    #         for future in concurrent.futures.as_completed(futures):
-    #             print(future.result())
-    #     print(f"Update {i} completed")
-    #     print("===============================\n")
+        # for i in range(1, 6):
+        #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        #         futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
+        #         for future in concurrent.futures.as_completed(futures):
+        #             print(future.result())
+        #     print(f"Update {i} completed")
+        #     print("===============================\n")
 
 
     if args.db == 'postgres':
@@ -106,13 +106,14 @@ if __name__ == '__main__':
         raise ValueError("Illegal dbms!")
     
     # store the optimization results
-    current_time = datetime.now().strftime("%Y%m%d%H%M")
+    # current_time = datetime.now().strftime("%Y%m%d%H%M")
+    current_time = 202503231209
     folder = f"optimization_results/run_{current_time}"
-    folder_path = f"../{folder}"
+    folder_path = f"./{folder}"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)  
         os.makedirs(os.path.join(folder_path, 'temp_results'))
-        os.makedirs(os.path.join(folder_path, 'log'))
+        os.makedirs(os.path.join(folder_path, f'{args.db}', 'log'))
 
     gptuner_coarse = CoarseStage(
         dbms=dbms, 

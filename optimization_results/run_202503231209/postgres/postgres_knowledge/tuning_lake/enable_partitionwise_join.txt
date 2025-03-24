@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the performance of partitioned tables in PostgreSQL, enable the `enable_partitionwise_join` knob by executing the SQL command `SET enable_partitionwise_join = on;` or by adding `enable_partitionwise_join = on` to the `postgresql.conf` file and restarting the server. This setting is crucial when dealing with large partitions and complex queries, as it allows the query planner to utilize partitionwise joins for partitioned tables. Note that this feature is disabled by default due to its potential for higher CPU and memory usage during planning and requires matching partition keys of the same data type."
+}
+```

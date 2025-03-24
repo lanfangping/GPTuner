@@ -1,0 +1,3 @@
+{
+  "suggestion": "To optimize the 'temp_buffers' setting in PostgreSQL, adjust the configuration to a maximum of 8MB for each database session, as this is the default value. Consider increasing this value if your system handles high temporary table usage, taking into account the workload and available memory. Each increase in 'temp_buffers' incurs a cost of around 64 bytes plus an additional 8192 bytes if a buffer is utilized. Changes to 'temp_buffers' can be made within sessions before the first use of temporary tables."
+}

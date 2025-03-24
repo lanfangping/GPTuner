@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the 'temp_buffers' setting in PostgreSQL, start with the default value of 8MB (8192 bytes) and adjust it upward in increments of 8192 bytes based on your workload and available memory. This setting controls the maximum memory used for temporary buffers in each database session, which are essential for temporary tables. Each increase in 'temp_buffers' costs approximately 64 bytes, in addition to 8192 bytes per buffer used. Monitor performance closely to avoid overcommitting system memory."
+}
+```

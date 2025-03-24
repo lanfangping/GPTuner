@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To effectively manage transaction ID wraparound in PostgreSQL, configure the `autovacuum_freeze_max_age` knob, which specifies the maximum transaction age a table can reach before an automatic VACUUM operation is triggered. Set this value between 200,000,000 and 1,000,000,000 transactions, starting at 200,000,000 for smaller databases and adjusting upward for larger ones based on monitoring of the vacuum process. Note that this parameter can only be set at server start."
+}
+```

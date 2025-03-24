@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To set the `deadlock_timeout` in PostgreSQL, configure it to balance responsiveness with system performance by setting it to around 100ms. This setting determines the duration to wait on a lock before checking for a deadlock condition, and it ideally should exceed typical transaction time to increase the chances of a lock being released before a deadlock check. The default is set at one second (1s), and increasing this value may reduce unnecessary deadlock checks but could delay reporting of actual deadlock errors, while also determining the wait time before logging messages about lock waits if 'log_lock_waits' is enabled."
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "To optimize the `effective_io_concurrency` parameter in PostgreSQL, set the value to 1 for SSDs or 2-4 for traditional HDDs. This parameter controls the number of concurrent disk I/O operations, primarily influencing bitmap heap scans. Adjust the value based on your system's I/O capabilities, considering the type of storage, the database workload, and the operating system's support for the posix_fadvise function, and perform tests to determine the optimal settings for performance improvements."
+}
+```

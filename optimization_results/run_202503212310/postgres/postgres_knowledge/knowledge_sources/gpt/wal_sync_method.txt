@@ -1,0 +1,1 @@
+To set the `wal_sync_method` in PostgreSQL, you can use the value `fdatasync` for a good balance between performance and data safety, or `open_sync` for maximum safety, while `fsync` is the default option providing standard durability; typically, `fdatasync` is recommended for most workloads with a setting of `wal_sync_method = 'fdatasync'` in the `postgresql.conf` file.

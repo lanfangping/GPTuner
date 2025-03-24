@@ -1,0 +1,5 @@
+```json
+{
+  "suggestion": "Set the `autovacuum_multixact_freeze_max_age` parameter in PostgreSQL to a value that balances performance and transaction ID wraparound risk. It is recommended to set this value to around 1,000,000,000 for larger databases to ensure effective multixact pruning, as this parameter determines the maximum age in multixacts before an automatic VACUUM operation is triggered. Note that this setting can only be adjusted at server start."
+}
+```
