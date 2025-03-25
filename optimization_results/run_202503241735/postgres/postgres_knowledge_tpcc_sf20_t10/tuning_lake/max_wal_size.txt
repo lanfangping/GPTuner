@@ -1,0 +1,3 @@
+### Comprehensive Suggestion:
+
+Increase the 'max_wal_size' knob in PostgreSQL to extend the time required for automatic checkpoints, ensuring they are typically triggered by timeout rather than disk space constraints. This adjustment is particularly beneficial under heavy load or when the wal_keep_size setting is high, as it allows the Write-Ahead Log (WAL) to grow beyond its default soft limit of 1 GB, thereby optimizing crash recovery times.

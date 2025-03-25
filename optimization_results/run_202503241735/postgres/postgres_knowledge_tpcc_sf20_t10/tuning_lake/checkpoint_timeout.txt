@@ -1,0 +1,3 @@
+**Comprehensive Suggestion:**
+
+Set the `checkpoint_timeout` value in PostgreSQL to a higher value, such as 15 minutes, to balance between checkpoint frequency and I/O load. This adjustment can help smooth out I/O spikes and improve overall I/O usage, although it may increase recovery time after a database crash. Consider tuning other related parameters like `checkpoint_completion_target` and bgwriter activity to mitigate potential I/O spikes.
