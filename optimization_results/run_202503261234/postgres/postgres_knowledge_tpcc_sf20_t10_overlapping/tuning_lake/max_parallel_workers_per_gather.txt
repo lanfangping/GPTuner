@@ -1,0 +1,3 @@
+**Comprehensive Suggestion:**
+
+Set the value for 'max_parallel_workers_per_gather' in PostgreSQL based on the number of CPU cores available, typically between 2 and 4 times the number of cores, but not exceeding the total number of parallel workers configured with 'max_parallel_workers'. For high throughput OLTP systems, it is advisable to keep the value low, often at 1 or 2 at most, to avoid excessive resource utilization. For analytical/DW systems, consider raising the value to a fraction of the available cores. The default value is 2, and the actual number of workers may not always be available at runtime, potentially leading to inefficiencies. Always monitor resource utilization to ensure optimal performance.

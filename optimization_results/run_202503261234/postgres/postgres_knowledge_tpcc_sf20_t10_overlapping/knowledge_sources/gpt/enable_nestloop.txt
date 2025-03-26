@@ -1,0 +1,1 @@
+Set the `enable_nestloop` knob to `on` (default) for general use, but consider setting it to `off` if you have a large number of rows (e.g., over 100,000) and complex joins, as it may improve performance by favoring hash joins over nested loop joins.

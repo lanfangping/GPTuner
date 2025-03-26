@@ -1,0 +1,320 @@
+{
+  "hyperparameters": [
+    {
+      "name": "checkpoint_completion_target",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 1.0,
+      "default": 0.9,
+      "q": null
+    },
+    {
+      "name": "control_autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_work_mem",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_effective_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_workers_per_gather",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_buffers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 10000,
+      "default": 100,
+      "q": null
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 524288,
+      "upper": 2712500,
+      "default": 524288,
+      "q": null
+    },
+    {
+      "name": "enable_nestloop",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1024,
+      "upper": 6312500,
+      "default": 65536,
+      "q": null
+    },
+    {
+      "name": "max_connections",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 262143,
+      "default": 100,
+      "q": null
+    },
+    {
+      "name": "max_wal_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 2147483647,
+      "default": 1024,
+      "q": null
+    },
+    {
+      "name": "shared_buffers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 16,
+      "upper": 1550000,
+      "default": 16384,
+      "q": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 64,
+      "upper": 1550000,
+      "default": 4096,
+      "q": null
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 3,
+      "upper": 5,
+      "default": 3,
+      "q": null
+    },
+    {
+      "name": "autovacuum_work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 2147483647,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "effective_io_concurrency",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1000,
+      "default": 1,
+      "q": null
+    },
+    {
+      "name": "max_parallel_workers_per_gather",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 48,
+      "default": 2,
+      "q": null
+    },
+    {
+      "name": "special_autovacuum_max_workers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_autovacuum_work_mem",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_effective_io_concurrency",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_parallel_workers_per_gather",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_statement_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_wal_buffers",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "statement_timeout",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 2147483647,
+      "default": 0,
+      "q": null
+    },
+    {
+      "name": "wal_buffers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 4,
+      "upper": 262143,
+      "default": 512,
+      "q": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "autovacuum_max_workers",
+      "parent": "control_autovacuum_max_workers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_max_workers",
+      "parent": "control_autovacuum_max_workers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_work_mem",
+      "parent": "control_autovacuum_work_mem",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_work_mem",
+      "parent": "control_autovacuum_work_mem",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "effective_io_concurrency",
+      "parent": "control_effective_io_concurrency",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_effective_io_concurrency",
+      "parent": "control_effective_io_concurrency",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_buffers",
+      "parent": "control_wal_buffers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_buffers",
+      "parent": "control_wal_buffers",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}
