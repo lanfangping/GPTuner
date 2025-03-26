@@ -1,0 +1,395 @@
+{
+  "hyperparameters": [
+    {
+      "name": "bgwriter_lru_multiplier",
+      "type": "categorical",
+      "choices": [
+        "2.0"
+      ],
+      "default": "2.0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_bgwriter_lru_maxpages",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_workers_per_gather",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_worker_processes",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_freeze_min_age",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_multixact_freeze_min_age",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "enable_indexonlyscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_seqscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_sort",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "hash_mem_multiplier",
+      "type": "categorical",
+      "choices": [
+        "1.0",
+        "2.75",
+        "4.5",
+        "6.25",
+        "8.0"
+      ],
+      "default": "1.0",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "categorical",
+      "choices": [
+        "65536",
+        "3875512",
+        "4875000",
+        "5812756",
+        "6312500"
+      ],
+      "default": "65536",
+      "weights": null
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "-1"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_lru_maxpages",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "325",
+        "550",
+        "775",
+        "1000"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "max_parallel_workers_per_gather",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "2",
+        "12",
+        "13",
+        "18",
+        "24",
+        "25",
+        "30",
+        "36"
+      ],
+      "default": "2",
+      "weights": null
+    },
+    {
+      "name": "max_worker_processes",
+      "type": "categorical",
+      "choices": [
+        "8",
+        "9",
+        "10"
+      ],
+      "default": "8",
+      "weights": null
+    },
+    {
+      "name": "special_autovacuum_vacuum_cost_limit",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_bgwriter_lru_maxpages",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_max_parallel_workers_per_gather",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_worker_processes",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_vacuum_cost_delay",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "special_vacuum_cost_limit",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_vacuum_freeze_min_age",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_vacuum_multixact_freeze_min_age",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0.0",
+        "0.25",
+        "0.375",
+        "0.4",
+        "0.6000000000000001",
+        "0.625",
+        "0.75",
+        "0.8500000000000001",
+        "0.9"
+      ],
+      "default": "0.0",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "200"
+      ],
+      "default": "200",
+      "weights": null
+    },
+    {
+      "name": "vacuum_freeze_min_age",
+      "type": "categorical",
+      "choices": [
+        "50000000"
+      ],
+      "default": "50000000",
+      "weights": null
+    },
+    {
+      "name": "vacuum_multixact_freeze_min_age",
+      "type": "categorical",
+      "choices": [
+        "5000000"
+      ],
+      "default": "5000000",
+      "weights": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "bgwriter_lru_maxpages",
+      "parent": "control_bgwriter_lru_maxpages",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_bgwriter_lru_maxpages",
+      "parent": "control_bgwriter_lru_maxpages",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_worker_processes",
+      "parent": "control_max_worker_processes",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_worker_processes",
+      "parent": "control_max_worker_processes",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_vacuum_cost_delay",
+      "parent": "control_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_cost_delay",
+      "parent": "control_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_cost_limit",
+      "parent": "control_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_cost_limit",
+      "parent": "control_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_freeze_min_age",
+      "parent": "control_vacuum_freeze_min_age",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_freeze_min_age",
+      "parent": "control_vacuum_freeze_min_age",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_multixact_freeze_min_age",
+      "parent": "control_vacuum_multixact_freeze_min_age",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_multixact_freeze_min_age",
+      "parent": "control_vacuum_multixact_freeze_min_age",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}

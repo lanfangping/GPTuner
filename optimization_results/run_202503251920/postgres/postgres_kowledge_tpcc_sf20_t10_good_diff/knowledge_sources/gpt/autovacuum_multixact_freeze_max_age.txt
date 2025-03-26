@@ -1,0 +1,1 @@
+Set the `autovacuum_multixact_freeze_max_age` value to a number significantly higher than the default (200 million) but lower than the transaction ID wraparound threshold (2 billion) to ensure timely vacuuming without causing excessive I/O.
