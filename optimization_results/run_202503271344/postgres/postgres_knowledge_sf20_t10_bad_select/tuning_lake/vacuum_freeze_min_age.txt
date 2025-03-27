@@ -1,0 +1,3 @@
+### Comprehensive Suggestion:
+
+The `vacuum_freeze_min_age` knob determines the minimum age at which VACUUM will freeze row versions in a table. By default, this is set to 50 million transactions, but it is effectively limited to half the value of `autovacuum_freeze_max_age` to ensure that the intervals between forced autovacuums are not unreasonably short. This configuration helps maintain optimal performance and prevent excessive resource usage by balancing the frequency of vacuum operations with the age of row versions.

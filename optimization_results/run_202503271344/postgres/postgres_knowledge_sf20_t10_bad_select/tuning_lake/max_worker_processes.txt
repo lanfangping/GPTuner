@@ -1,0 +1,3 @@
+### Comprehensive Suggestion:
+
+The 'max_worker_processes' parameter should be set to the same or higher value on a standby server as on the master server to ensure it can support the same number of background processes. This setting can only be adjusted at server start and should ideally be configured to 75% to 90% of the number of cores, particularly for systems with high core counts, to optimize performance and resource utilization.
