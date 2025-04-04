@@ -1,1 +1,1 @@
-The 'vacuum_cost_delay' in Postgres can be set to a value between 0 to 100 milliseconds, which determines the delay between vacuuming operations to reduce system load, with a default value of 0, meaning no delay.
+Set the `vacuum_cost_delay` value to a small number, typically between 0 and 20 milliseconds, to balance the trade-off between I/O performance and CPU usage during vacuum operations, with higher values reducing I/O impact but increasing vacuum duration.

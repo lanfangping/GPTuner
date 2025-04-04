@@ -1,1 +1,1 @@
-Set the value for 'autovacuum_vacuum_insert_threshold' in postgres by determining the number of tuples inserted into a table since the last vacuum, with the default value being 1000.
+Set the `autovacuum_vacuum_insert_threshold` value based on the average number of inserted rows per table, typically between 1000 and 10000, to balance autovacuum overhead and preventing transaction ID wraparound.

@@ -1,1 +1,1 @@
-The 'vacuum_cost_limit' in PostgreSQL is a parameter that sets the cost limit for the vacuum operation, which can be set between 1 and 10000, but the recommended value is typically 200, which means the system will pause the vacuum operation when the accumulated cost reaches this limit to avoid overloading the system.
+Set the `vacuum_cost_limit` to a value between 100 and 1000, typically around 200 for low-concurrency environments or up to 500 for high-concurrency systems, ensuring it balances between vacuum efficiency and system performance.

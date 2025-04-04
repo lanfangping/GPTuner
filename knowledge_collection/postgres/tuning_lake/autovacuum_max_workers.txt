@@ -1,1 +1,3 @@
-Suggestion: The 'autovacuum_max_workers' knob in Postgres sets the limit for autovacuum processes that can run simultaneously. The default setting is three, and this parameter can only be adjusted at server startup. While it's often suggested to set this based on the number of CPU cores in your system, typically to the number of cores minus one, it's important to consider your specific system requirements and constraints.
+### Comprehensive Suggestion:
+
+The 'autovacuum_max_workers' parameter sets the limit for the number of autovacuum processes that can run simultaneously. The default setting is three, and this parameter can only be adjusted at server startup. The value should be configured based on the number of CPU cores and the workload, typically ranging from 3 to 5 workers for systems with 4 to 8 cores. For more intensive workloads or systems with more cores, the number of workers can be adjusted higher.

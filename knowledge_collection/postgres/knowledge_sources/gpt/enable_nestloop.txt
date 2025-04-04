@@ -1,1 +1,1 @@
-The 'enable_nestloop' knob in Postgres can be set to either 'on' or 'off', where 'on' enables the nested-loop join method and 'off' disables it, and the default value is 'on'.
+Set the `enable_nestloop` knob to `on` (default) for general use, but consider setting it to `off` if you have a large number of rows (e.g., over 100,000) and complex joins, as it may improve performance by favoring hash joins over nested loop joins.

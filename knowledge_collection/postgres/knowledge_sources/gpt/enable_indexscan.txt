@@ -1,1 +1,1 @@
-The 'enable_indexscan' knob in Postgres can be set to either 'on' or 'off', with 'on' enabling the system to use an index scan if it deems it more efficient, and 'off' disabling this option, forcing the system to use a sequential scan instead.
+To set the `enable_indexscan` knob in PostgreSQL, set it to `on` (enabled) for scenarios where index scans are beneficial, typically when the query selects less than 10-20% of the total rows, and to `off` (disabled) when the query selects a larger portion of the data, as full scans may be more efficient.

@@ -1,1 +1,3 @@
-The 'effective_io_concurrency' knob in PostgreSQL should be set to a value that matches the number of concurrent disk I/O operations your storage system can perform. This setting primarily affects bitmap heap scans and its optimal value is dependent on the type of storage used, the database workload, and the operating system's support for the posix_fadvise function. For instance, SSDs are often set around 100-200 and traditional HDDs around 1-10.
+### Comprehensive Suggestion:
+
+The `effective_io_concurrency` knob in PostgreSQL should be configured based on the type of storage used, the database workload, and the operating system's support for the `posix_fadvise` function. This setting determines the number of concurrent disk I/O operations that can be executed simultaneously, which is particularly relevant for bitmap heap scans. Optimizing this value is crucial for achieving efficient I/O performance in PostgreSQL.

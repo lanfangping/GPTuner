@@ -1,1 +1,3 @@
-I suggest adjusting the 'autovacuum_work_mem' knob which determines the maximum memory each autovacuum worker process can utilize. If left at its default value, the 'maintenance_work_mem' value will be used. However, please note that this setting does not influence the behavior of VACUUM when it is run in different contexts.
+**Comprehensive Suggestion:**
+
+The `autovacuum_work_mem` parameter in PostgreSQL specifies the maximum memory that each autovacuum worker process can use. By default, it is set to a value that causes the setting of `maintenance_work_mem` to be used instead. This setting does not influence the behavior of the `VACUUM` command when executed in contexts other than autovacuum.

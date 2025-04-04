@@ -1,1 +1,1 @@
-The 'autovacuum_vacuum_insert_scale_factor' in Postgres is set as a fraction of the total number of tuples in a table, with the default value being 0.2, meaning autovacuum will be triggered when a table has had approximately 20% of its total rows inserted or updated since the last vacuum.
+Set the `autovacuum_vacuum_insert_scale_factor` to a value between 0.01 and 0.2, depending on the insert rate and table size, with lower values (e.g., 0.05) for high-insert workloads and larger tables, and higher values (e.g., 0.2) for lower insert rates and smaller tables.

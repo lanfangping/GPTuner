@@ -1,1 +1,3 @@
-Based on the provided suggestions, it is recommended to set the 'autovacuum_freeze_max_age' in postgres at server start. This knob specifies the maximum age, in transactions, that a table's pg_class.relfrozenxid field can reach before a VACUUM operation is automatically initiated. This is to prevent transaction ID wraparound within the table. However, ensure that the value does not exceed 200,000,000 to avoid potential issues.
+**Comprehensive Suggestion:**
+
+The `autovacuum_freeze_max_age` parameter specifies the maximum age, in transactions, that a table's `pg_class.relfrozenxid` field can reach before a VACUUM operation is automatically initiated to prevent transaction ID wraparound within the table. This parameter is crucial for maintaining database integrity and can only be set at server start.

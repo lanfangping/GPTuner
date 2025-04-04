@@ -1,1 +1,1 @@
-The 'autovacuum_multixact_freeze_max_age' knob in Postgres should be set to a value less than 1 billion, but more than 'multixact_freeze_min_age', which is typically around 400 million, to ensure the autovacuum process is triggered to prevent XID wraparound issues.
+Set the `autovacuum_multixact_freeze_max_age` value to a number significantly higher than the default (200 million) but lower than the transaction ID wraparound threshold (2 billion) to ensure timely vacuuming without causing excessive I/O.

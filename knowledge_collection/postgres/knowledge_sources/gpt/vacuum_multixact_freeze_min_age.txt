@@ -1,1 +1,1 @@
-The 'vacuum_multixact_freeze_min_age' knob in postgres can be set to a specific value that determines the minimum age (in multixacts) a table must reach before an autovacuum process will consider freezing its tuples, with the default value being 500,000 multixacts.
+Set the `vacuum_multixact_freeze_min_age` value to a fraction (e.g., 10-20%) of the `autovacuum_freeze_max_age` to balance transaction ID wraparound protection with the performance impact of freezing.

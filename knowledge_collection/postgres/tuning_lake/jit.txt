@@ -1,1 +1,3 @@
-The 'jit' knob in PostgreSQL allows the use of Just-In-Time compilation, which is enabled by default. This can be set by modifying the 'jit' configuration parameter in the postgresql.conf file or by using the SET command in an SQL query. However, you may want to disable it for OLTP systems with simple queries.
+### Comprehensive Suggestion:
+
+The 'jit' knob in PostgreSQL, which is enabled by default, allows the use of Just-In-Time (JIT) compilation for query execution. This feature can significantly improve performance, particularly for complex queries, but it is recommended to monitor CPU and memory usage as JIT can consume additional resources. It is typically recommended for systems with at least 4GB of RAM and modern CPUs. For OLTP systems with simple queries, you may want to consider disabling JIT to optimize resource usage.
