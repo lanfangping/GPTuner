@@ -1,0 +1,70 @@
+[2025-03-16 18:56:16,471 INFO] Input arguments: Namespace(db='postgres', test='tpcc', timeout=180, seed=100, enhanced=True, coarse='', fine='knowledge', mode='past_best', enhanced_starting_path='./enhanced_configurations/tpcc_sf20_t10/historical_best_config/historical_ordered_top1_tpcc_sf20_t10_newflow_newimp_SR10_M8_Binary_IS1_TP8_IN0__202503152018.json', enhanced_strategy='suggest_values', knobs='preselect', config='src/exp_configs/postgres/sf20_t10/enhanced_fineK_modeAO_top1_gpt4o.yml')
+[2025-03-16 18:56:16,471 INFO] Results stored path: ./experiments_results/enhanced_fineK_modeAO_top1_gpt4o_202503161856/
+[2025-03-16 18:56:18,519 INFO] knob selected by enhanced good startings
+[2025-03-16 18:56:18,520 INFO] the number of knobs: 37
+[2025-03-16 18:56:18,520 INFO] target knobs: ['max_connections', 'shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_cache_size', 'checkpoint_completion_target', 'wal_buffers', 'default_statistics_target', 'synchronous_commit', 'temp_buffers', 'autovacuum_work_mem', 'max_parallel_workers', 'max_parallel_workers_per_gather', 'parallel_setup_cost', 'parallel_tuple_cost', 'cpu_tuple_cost', 'cpu_index_tuple_cost', 'effective_io_concurrency', 'random_page_cost', 'seq_page_cost', 'wal_sender_timeout', 'wal_receiver_timeout', 'log_min_duration_statement', 'log_statement', 'track_io_timing', 'max_wal_size', 'min_wal_size', 'autovacuum_max_workers', 'idle_in_transaction_session_timeout', 'statement_timeout', 'enable_nestloop', 'enable_hashjoin', 'enable_mergejoin', 'from_collapse_limit', 'join_collapse_limit', 'log_connections', 'log_disconnections']
+[2025-03-16 18:58:31,068 INFO] Defined search space: Configuration space object:
+  Hyperparameters:
+    autovacuum_max_workers, Type: UniformInteger, Range: [1, 8], Default: 3
+    autovacuum_work_mem, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.5, 0.9], Default: 0.9
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_log_min_duration_statement, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_log_statement, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_synchronous_commit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.005
+    cpu_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.01
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [1, 16], Default: 1
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_mergejoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    from_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    idle_in_transaction_session_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    join_collapse_limit, Type: UniformInteger, Range: [8, 20], Default: 8
+    log_connections, Type: Categorical, Choices: {on, off}, Default: off
+    log_disconnections, Type: Categorical, Choices: {on, off}, Default: off
+    log_min_duration_statement, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    log_statement, Type: Categorical, Choices: {none, ddl, mod, all}, Default: all
+    maintenance_work_mem, Type: UniformInteger, Range: [1024, 1000000], Default: 65536
+    max_connections, Type: UniformInteger, Range: [70, 200], Default: 100
+    max_parallel_workers, Type: UniformInteger, Range: [0, 1024], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 9], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [1006, 2147483647], Default: 1024
+    min_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 80
+    parallel_setup_cost, Type: UniformFloat, Range: [100.0, 1000.0], Default: 1000.0
+    parallel_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.1
+    random_page_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16, 1550000], Default: 16384
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_log_min_duration_statement, Type: Constant, Value: -1
+    special_log_statement, Type: Constant, Value: none
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_synchronous_commit, Type: Constant, Value: off
+    special_wal_buffers, Type: Constant, Value: -1
+    statement_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: UniformInteger, Range: [100, 1073741823], Default: 1024
+    track_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    wal_buffers, Type: UniformInteger, Range: [8, 8000], Default: 512
+    wal_receiver_timeout, Type: UniformInteger, Range: [30000, 180000], Default: 60000
+    wal_sender_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 60000
+    work_mem, Type: UniformInteger, Range: [64, 15500000], Default: 4096
+  Conditions:
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    log_min_duration_statement | control_log_min_duration_statement == '0'
+    log_statement | control_log_statement == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_log_min_duration_statement | control_log_min_duration_statement == '1'
+    special_log_statement | control_log_statement == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_synchronous_commit | control_synchronous_commit == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    synchronous_commit | control_synchronous_commit == '0'
+    wal_buffers | control_wal_buffers == '0'
+
