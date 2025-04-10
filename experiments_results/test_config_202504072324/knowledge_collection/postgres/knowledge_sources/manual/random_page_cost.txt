@@ -1,0 +1,1 @@
+The `random_page_cost` parameter, defaulting to 4.0, estimates the cost of non-sequential disk page fetches, modeling random access as 40x slower than sequential (assuming 90% cache hits), but can be adjusted (e.g., lowered to 1.1 for SSDs or raised for uncached workloads) to influence the planner's preference for index scans.

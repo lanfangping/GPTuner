@@ -3,21 +3,24 @@ import os
 import textwrap
 from typing import Literal
 from knowledge_handler.utils import get_hardware_info, get_disk_type
+from utils.logger import MyLogger
 from knowledge_handler.gpt import GPT
 from knowledge_handler.knowledge_transformation import KGTrans
 
 class KGUpdate(GPT):
-    def __init__(self, api_base, api_key, db="postgres", model=GPT.__init__.__defaults__[0]):
+    def __init__(self, api_base, api_key, knowledge_path, db="postgres", model=GPT.__init__.__defaults__[0]):
         super().__init__(api_base, api_key, model=model)
         self.db = db
         self.knob_num = 0
+        self.log= MyLogger("knob_update", knowledge_path, 'INFO').logger
+        self.knob_path = knowledge_path # f"./knowledge_collection/{self.db}"
         self._define_path()
 
     def _define_path(self):
         # Method to set up necessary paths for files
-        self.skill_json_path = f"./knowledge_collection/{self.db}/structured_knowledge/normal/"
-        self.summary_path = f"./knowledge_collection/{self.db}/tuning_lake"
-        self.update_path = f"./knowledge_collection/{self.db}/knob_info/knob_update.json"
+        self.skill_json_path = os.path.join(self.knob_path, "structured_knowledge/normal") # f"./knowledge_collection/{self.db}/structured_knowledge/normal/"
+        self.summary_path = os.path.join(self.knob_path, "tuning_lake") # f"./knowledge_collection/{self.db}/tuning_lake"
+        self.update_path =  os.path.join(self.knob_path, "knob_info/knob_update.json") # f"./knowledge_collection/{self.db}/knob_info/knob_update.json"
 
     def read_json_values(self):
         if not os.path.exists(self.update_path) or os.path.getsize(self.update_path) == 0:
@@ -59,6 +62,11 @@ class KGUpdate(GPT):
     def pipeline(self, knob):
         if knob not in self.read_json_values():
             result = self.filter_knob(knob)
+            n = 3
+            while "result" not in result.keys() and n > 0:
+                self.log.warning(f"Invalid response from filter_knob, re-prompt {n}")
+                result = self.filter_knob(knob)
+                n -= 1
             if result["result"] is False:
                 return False
         
@@ -73,12 +81,17 @@ class KGUpdate(GPT):
             with open(self.update_path, 'w') as file:
                 json.dump(new_data, file, indent=4)
 
+        if os.path.exists(os.path.join(self.skill_json_path, knob+".json")) and os.path.getsize(os.path.join(self.skill_json_path, knob+".json")) != 0:
+            self.log.info(f"Already finished to update structured knowledge for {knob}, skip.")
+            return False
+
         new_structure = self.update_knowledge(knob)
         if new_structure is False:
             return False 
         with open(os.path.join(self.skill_json_path, knob+".json"), 'w') as file:
             json.dump(new_structure, file)
         print(f"Finished to update structured knowledge for {knob}")
+        self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
         return new_structure
 
     # offline
@@ -107,7 +120,9 @@ class KGUpdate(GPT):
         }}
         """    
         )
+        self.log.info(f"filter_knob - prompt - {knob}: {prompt}")
         response = self.get_GPT_response_json(prompt)
+        self.log.info(f"filter_knob - response - {knob}: {response}")
         self.token += self.calc_token(prompt, response)
         self.money += self.calc_money(prompt, response)
         print(json.dumps(response, indent=4))
@@ -147,8 +162,9 @@ class KGUpdate(GPT):
 
             """    
         )
-
+        self.log.info(f"filter_knowledge - prompt - {knob}: {prompt}")
         response = self.get_GPT_response_json(prompt)
+        self.log.info(f"filter_knowledge - response - {knob}: {response}")
         self.token += self.calc_token(prompt, response)
         self.money += self.calc_money(prompt, response)
         print(json.dumps(response, indent=4))

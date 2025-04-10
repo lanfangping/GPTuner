@@ -1,0 +1,1 @@
+To set `max_worker_processes` in PostgreSQL, a common guideline is to allocate **1 worker per CPU core** (e.g., 8 for an 8-core server), but adjust based on workload—for parallel query-heavy systems, consider **1.5–2× cores** (e.g., 12–16 for 8 cores), while ensuring it does not exceed `max_parallel_workers` (default: 8) or available RAM (each worker consumes ~5–10MB).

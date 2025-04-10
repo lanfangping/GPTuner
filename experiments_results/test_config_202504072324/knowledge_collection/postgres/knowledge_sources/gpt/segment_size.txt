@@ -1,0 +1,1 @@
+To set the `segment_size` knob in PostgreSQL, typically configure it to **1GB** (the default in most versions) for optimal performance with large shared buffers, but adjust it to **a multiple of your system's I/O block size** (e.g., **8KB–1MB**) if fine-tuning for specific workloads or storage hardware.

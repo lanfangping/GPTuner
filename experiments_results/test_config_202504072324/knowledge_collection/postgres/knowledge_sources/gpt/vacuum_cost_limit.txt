@@ -1,0 +1,1 @@
+To set the `vacuum_cost_limit` in PostgreSQL, a common starting point is **200-2000** (default is 200), where higher values allow more aggressive vacuuming; adjust based on system load and I/O capacity, balancing with `vacuum_cost_delay` (e.g., 2ms delay with a limit of 1000) to avoid overwhelming disk I/O.

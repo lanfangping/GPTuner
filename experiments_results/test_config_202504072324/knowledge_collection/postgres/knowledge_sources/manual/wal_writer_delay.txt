@@ -1,0 +1,1 @@
+The `wal_writer_delay` parameter controls how often the WAL writer flushes WAL to disk, defaulting to **200 milliseconds**, with the writer sleeping for this duration unless interrupted by an async commit; note that delays may round up to **10-millisecond** increments on some systems.

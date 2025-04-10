@@ -1,0 +1,1 @@
+To set the `vacuum_cost_delay` in PostgreSQL, a typical starting value is **2ms** (e.g., `vacuum_cost_delay = '2ms'`), but adjust it higher (e.g., **5–10ms**) if vacuuming impacts performance too aggressively, or lower (e.g., **0–1ms**) for faster cleanup when system load allows. Balance with `vacuum_cost_limit` (default **200**) to control I/O throttling.

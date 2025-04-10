@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_cost_delay`, start with the default value of `2ms` and adjust lower (e.g., `0ms` for aggressive vacuuming on high-I/O systems) or higher (e.g., `10ms–50ms` for shared/resource-constrained environments) based on I/O capacity and workload, ensuring it balances vacuum progress with system performance.  
+
+*(Note: The default was `20ms` in PostgreSQL ≤ 12 but reduced to `2ms` in PostgreSQL 13+ to improve autovacuum efficiency.)*

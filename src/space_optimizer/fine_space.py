@@ -18,11 +18,13 @@ from ConfigSpace import (
 
 class FineSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
+        super().__init__(dbms, test, timeout, target_knobs_path, results_folder, seed)
         self.factors = [0, 0.25, 0.5]
+        self.special_skill_path = special_skill_path
         self.define_search_space()
-        self.coarse_path = f"./optimization_results/{self.dbms.name}/coarse/{self.seed}/runhistory.json"
+        log.info("Fine Configuration Space:", self.search_space)
+        self.coarse_path = os.path.join(results_folder, f"{self.dbms.name}/coarse/{self.seed}/runhistory.json") 
 
 
     def define_search_space(self):
@@ -156,25 +158,36 @@ class FineSpace(DefaultSpace):
 
                 coarse_sequence = [value for value in coarse_sequence if value < sys.maxsize / 10]
                 
-                special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
+                # special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
                 # check if this knob is special knob
-                if file_name in os.listdir(special_skill_path):
-                    with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
+                special = False
+                special_value = None
+                if file_name in os.listdir(self.special_skill_path):
+                    with open(os.path.join(self.special_skill_path, file_name), 'r') as json_file:
                         special_skill = json.load(json_file)
-                    special = special_skill["special_knob"]
-                    if special is True:
-                        special_value = special_skill["special_value"]
+                        special_knob = special_skill["special_knob"]
+                        if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                            special = True
+                            special_value = special_skill["special_value"]
+                        # if special is True:
+                        #     special_value = special_skill["special_value"]
                 
                 if knob_type == "integer":  
                     coarse_sequence = [int(value) for value in coarse_sequence]
                     min_value = min(min_value, min(coarse_sequence))
                     max_value = max(max_value, max(coarse_sequence))
-                    normal_para = UniformIntegerHyperparameter(
-                        knob, 
-                        int(min_value), 
-                        int(max_value),
-                        default_value = int(boot_value),
-                    )
+                    if min_value == max_value: # the parameter has the equal min_value and max_value
+                        normal_para = Constant(knob, int(max_value))
+                    elif min_value > max_value:
+                        print(f"error: min_value is lager than max_value: {min_value} > {max_value}, skip")
+                        continue
+                    else:   
+                        normal_para = UniformIntegerHyperparameter(
+                            knob, 
+                            int(min_value), 
+                            int(max_value),
+                            default_value = int(boot_value),
+                        )
 
                     if special:
                         control_para = CategoricalHyperparameter(f"control_{knob}", ["0", "1"], default_value="0") 

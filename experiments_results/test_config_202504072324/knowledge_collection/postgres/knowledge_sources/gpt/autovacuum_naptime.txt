@@ -1,0 +1,3 @@
+To set `autovacuum_naptime` in PostgreSQL, adjust it based on workload frequency—typically **1–5 seconds** for high-activity systems (e.g., `autovacuum_naptime = 1s`) or **10–30 seconds** for lighter loads (e.g., `autovacuum_naptime = 15s`), balancing between timely maintenance and resource overhead.  
+
+*(Context: This controls the delay between autovacuum worker checks; shorter values increase responsiveness but may add CPU load.)*

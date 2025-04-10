@@ -1,0 +1,1 @@
+The `wal_sender_timeout` knob terminates inactive replication connections after a specified duration (default 60 seconds, or 60000 ms if set without units), with zero disabling the timeout, allowing flexible failure detection—lower values (e.g., 10s) for low-latency standbys and higher values (e.g., 120s) for remote, high-latency standbys.

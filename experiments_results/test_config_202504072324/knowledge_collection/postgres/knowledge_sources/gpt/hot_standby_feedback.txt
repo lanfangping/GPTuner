@@ -1,0 +1,1 @@
+To set the `hot_standby_feedback` knob in PostgreSQL, enable it (`on`) to prevent query conflicts on standby servers by allowing feedback to the primary, typically with a `max_standby_streaming_delay` of 30s (default) or higher (e.g., 300s) if long-running queries are expected, but monitor replication lag to avoid bloat on the primary.

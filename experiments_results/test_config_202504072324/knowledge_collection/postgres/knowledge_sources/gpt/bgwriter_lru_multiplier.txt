@@ -1,0 +1,1 @@
+To set `bgwriter_lru_multiplier`, a common starting point is **2.0**, but adjust it based on workload: increase it (e.g., to **3.0–4.0**) if checkpoints cause high I/O spikes, or decrease it (e.g., to **1.0–1.5**) if background writer activity is excessive, while monitoring checkpoint performance and buffer cache efficiency.

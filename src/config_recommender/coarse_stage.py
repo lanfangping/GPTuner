@@ -3,11 +3,10 @@ from smac import HyperparameterOptimizationFacade, Scenario, initial_design
 
 class CoarseStage(CoarseSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
+        super().__init__(dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log)
 
     def optimize(self, name, trials_number, initial_config_number):
-        print(self.seed)
         scenario = Scenario(
             configspace=self.search_space,
             name=name,

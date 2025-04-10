@@ -1,0 +1,1 @@
+To set `autovacuum_vacuum_threshold`, configure it to a value like **50** (default) or higher (e.g., **100–200**) based on table activity—lower values trigger vacuums more aggressively for frequently updated tables, while higher values reduce overhead for stable tables. Adjust alongside `autovacuum_vacuum_scale_factor` (e.g., **0.2**) for granular control.

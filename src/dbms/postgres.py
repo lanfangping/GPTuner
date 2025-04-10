@@ -3,12 +3,14 @@ import psycopg2
 import os
 import time
 import json
+from utils.logger import MyLogger
 
 class PgDBMS(DBMSTemplate):
     """ Instantiate DBMSTemplate to support PostgreSQL DBMS """
-    def __init__(self, db, user, password, restart_cmd, recover_script, knob_info_path):
+    def __init__(self, db, user, password, restart_cmd, recover_script, knob_info_path, log_path):
         super().__init__(db, user, password, restart_cmd, recover_script, knob_info_path)
         self.name = "postgres"
+        self.log = MyLogger("PgDBMS", log_path, 'INFO').logger
     
     def _connect(self, db=None):
         """ Establish connection to database, return success flag """
@@ -112,7 +114,7 @@ class PgDBMS(DBMSTemplate):
             cursor.close()
             return True
         except Exception as e:
-            print(f"Failed to execute {sql} to update dbms for error: {e}")
+            self.log.error(f"Failed to execute \"{sql}\" to update dbms for error: {e}")
             return False 
 
     def set_knob(self, knob, knob_value):

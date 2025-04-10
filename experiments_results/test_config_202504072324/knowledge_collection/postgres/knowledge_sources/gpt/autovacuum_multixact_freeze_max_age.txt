@@ -1,0 +1,3 @@
+To set `autovacuum_multixact_freeze_max_age`, choose a value between **100 million (100,000,000)** and **200 million (200,000,000)** (default: 400 million) to balance transaction ID (MultiXact) wraparound prevention with autovacuum frequency—lower values trigger more frequent freezes but reduce the risk of wraparound failures. Adjust based on workload intensity and cluster size, ensuring it remains below `multixact_freeze_max_age` (typically 2 billion).  
+
+*(Note: The default is conservative; lowering it trades maintenance overhead for safety.)*

@@ -1,0 +1,3 @@
+For the PostgreSQL knob `xmloption`, set it to `content` (default) to treat XML values as document fragments or to `document` (numeric value 0 for `content` and 1 for `document` in some internal representations) to enforce full XML document validation, depending on whether your application requires strict XML compliance.  
+
+(Note: While `xmloption` itself doesn't use numeric values directly in configurations, some systems may map `content` to `0` and `document` to `1` internally.)

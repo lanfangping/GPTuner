@@ -1,0 +1,1 @@
+The `synchronous_standby_names` parameter specifies a list of standby servers (e.g., `FIRST 3 (s1, s2, s3, s4)` or `ANY 3 (s1, s2, s3, s4)`) that support synchronous replication, where transactions wait for commits until either the top `num_sync` priority standbys (default 1) or any `num_sync` standbys confirm WAL receipt, ensuring high availability and data protection.

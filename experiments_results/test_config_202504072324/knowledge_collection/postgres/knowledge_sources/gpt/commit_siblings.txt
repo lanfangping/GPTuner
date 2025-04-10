@@ -1,0 +1,1 @@
+To set the `commit_siblings` knob in PostgreSQL, adjust it based on the expected number of concurrent committing transactions: a typical starting value is `5` (default), but increase it (e.g., to `10`–`20`) if the system has many concurrent commits to reduce contention, or decrease it (e.g., to `1`–`3`) for low-concurrency workloads to prioritize individual transaction speed.

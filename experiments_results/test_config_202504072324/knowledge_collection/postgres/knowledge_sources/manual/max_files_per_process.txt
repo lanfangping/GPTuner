@@ -1,0 +1,1 @@
+The 'max_files_per_process' knob limits the number of simultaneously open files per server subprocess (default: 1000) and should be reduced if encountering "Too many open files" errors, particularly on BSD systems where kernel limits may not enforce safe per-process restrictions.

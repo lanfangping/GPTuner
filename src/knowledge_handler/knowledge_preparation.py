@@ -3,37 +3,41 @@ import textwrap
 import json
 import os
 import time
+from utils.logger import MyLogger
 from knowledge_handler.gpt import GPT
 
 class KGPre(GPT):
-    def __init__(self, api_base, api_key, db="postgres", model=GPT.__init__.__defaults__[0]):
+    def __init__(self, api_base, api_key, knowledge_path, db="postgres", model=GPT.__init__.__defaults__[0]):
         super().__init__(api_base, api_key, model=model)
         self.db = db
-        self.knob_path = f"./knowledge_collection/{self.db}"
+        self.knob_path = knowledge_path # f"./knowledge_collection/{self.db}"
         self.knob_num = 0
         self.total_time = 0
+        self.log= MyLogger("knob_preparation", knowledge_path, 'INFO').logger
         self.cur_time = time.time()
         self._define_path()
 
     def _define_path(self):
-        self.knob_info_path = f"./knowledge_collection/{self.db}/knob_info/system_view.json"
-        self.gpt_path = f"./knowledge_collection/{self.db}/knowledge_sources/gpt"
-        self.web_path = f"./knowledge_collection/{self.db}/knowledge_sources/web"
-        self.manual_path = f"./knowledge_collection/{self.db}/knowledge_sources/manual"
-        self.summary_path = f"./knowledge_collection/{self.db}/tuning_lake"
-        self.official_path = f"./knowledge_collection/{self.db}/knob_info/official_document.json"
+        self.knob_info_path = os.path.join(self.knob_path, "knob_info/system_view.json") # f"./knowledge_collection/{self.db}/knob_info/system_view.json"
+        self.gpt_path = os.path.join(self.knob_path, "knowledge_sources/gpt") # f"./knowledge_collection/{self.db}/knowledge_sources/gpt"
+        self.web_path = os.path.join(self.knob_path, "knowledge_sources/web") # f"./knowledge_collection/{self.db}/knowledge_sources/web"
+        self.manual_path = os.path.join(self.knob_path, "knowledge_sources/manual") # f"./knowledge_collection/{self.db}/knowledge_sources/manual"
+        self.summary_path = os.path.join(self.knob_path, "tuning_lake") # f"./knowledge_collection/{self.db}/tuning_lake"
+        self.official_path = os.path.join(self.knob_path, "knob_info/official_document.json") # f"./knowledge_collection/{self.db}/knob_info/official_document.json"
 
     def get_suggestions_from_gpt(self, knob_name):
         suggestions_prompt = textwrap.dedent(f"""
             There are many useful manuals to guide the knob tuning process. For knob '{knob_name}' in {self.db}, summerize the way to set the value for it in a sentence. This sentence should be associated with concrete numbers as more detailed information if needed.
         """)
-        suggestions = self.get_GPT_response_json(suggestions_prompt)
+        self.log.info(f"get_suggestions_from_gpt - prompt - {knob_name}: {suggestions_prompt}")
+        suggestions = self.get_GPT_response_json(suggestions_prompt, json_format=False)
+        self.log.info(f"get_suggestions_from_gpt - response - {knob_name}: {suggestions}")
         self.token += self.calc_token(suggestions_prompt, suggestions)
         self.money += self.calc_money(suggestions_prompt, suggestions)
         return suggestions
     
     def get_suggestions_from_manual(self, knob_name):
-        if  not os.path.exists(f"./knowledge_collection/{self.db}/knob_info/official_document.json"):
+        if  not os.path.exists( self.official_path):
             return None
 
         with open(self.official_path, 'r') as json_file:
@@ -50,7 +54,9 @@ class KGPre(GPT):
                 {description}
                 SENTECNCE:
             """)
-            answer = self.get_GPT_response_json(summerize_prompt)
+            self.log.info(f"get_suggestions_from_manual - prompt - {knob_name}: {summerize_prompt}")
+            answer = self.get_GPT_response_json(summerize_prompt, json_format=False)
+            self.log.info(f"get_suggestions_from_manual - response - {knob_name}: {answer}")
             self.token += self.calc_token(summerize_prompt, answer)
             self.money += self.calc_money(summerize_prompt, answer)
             return answer
@@ -65,13 +71,14 @@ class KGPre(GPT):
             print(f"Preparing knowledge from gpt for knob: {knob_name}")
             gpt_suggestions = self.get_suggestions_from_gpt(knob_name)
             with open(os.path.join(knowledge_path, "gpt", file_name), "w") as file:
-                file.write(gpt_suggestions)
+                file.write(str(gpt_suggestions))
         if file_name not in os.listdir(os.path.join(knowledge_path, "manual")):
             print(f"Preparing knowledge from manual for knob: {knob_name}")
             manual_suggestions = self.get_suggestions_from_manual(knob_name)
+            
             if manual_suggestions:
                 with open(os.path.join(knowledge_path, "manual", file_name), "w") as file:
-                    file.write(manual_suggestions)
+                    file.write(str(manual_suggestions))
 
     def prune_suggestion(self, official_doc, gpt_suggestion, web_suggestion):
         prompt = textwrap.dedent(f"""
@@ -94,8 +101,10 @@ class KGPre(GPT):
                 "web_suggestion": null   // if there is a contradiction, remove the contradictory part, else return the corresponding original suggestion.
             }}
     """    
-    )
+    )   
+        self.log.info(f"prune_suggestion - prompt: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"prune_suggestion - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -114,7 +123,9 @@ class KGPre(GPT):
             }}
         """    
         )
+        self.log.info(f"prune_contradiction - prompt: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"prune_contradiction - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -142,7 +153,9 @@ class KGPre(GPT):
                 }}
             """    
             )
+        self.log.info(f"prune_default - prompt: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"prune_default - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -154,7 +167,9 @@ class KGPre(GPT):
         {suggestions_json}
         """    
         )
+        self.log.info(f"greedy_summarize - prompt: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"greedy_summarize - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -166,7 +181,9 @@ class KGPre(GPT):
         Summary:{summary}
         """    
         )
+        self.log.info(f"check_summary - prompt: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"check_summary - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -179,7 +196,9 @@ class KGPre(GPT):
             IMPROPER SUMMARY SUGGESTION: {summary}
         """    
         )
+        self.log.info(f"revise_summarize - prompt: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"revise_summarize - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -191,52 +210,58 @@ class KGPre(GPT):
         with open(self.knob_info_path) as json_file:
             knob_info = json.load(json_file)
 
-        summary_files = os.listdir(self.summary_path)
-        print(f"begin to prepare the tuning pool for {knob}")
-        self.prepare_knowledge(knob)
-        gpt_suggestion, web_suggestion, manual_suggestion = None, None, None
-        try:
-            with open(os.path.join(self.gpt_path, knob+".txt"), 'r') as file:
-                gpt_suggestion = file.read()
-        except:
-            pass
+        if knob not in knob_info.keys():
+            self.log.warning(f"'{knob}' is not in {self.db}.")
+            print(f"Skip to prepare the tuning pool for {knob}...")
+        else:
+            summary_files = os.listdir(self.summary_path)
+            print(f"begin to prepare the tuning pool for {knob}")
+            self.prepare_knowledge(knob)
+            gpt_suggestion, web_suggestion, manual_suggestion = None, None, None
+            try:
+                with open(os.path.join(self.gpt_path, knob+".txt"), 'r') as file:
+                    gpt_suggestion = file.read()
+            except:
+                pass
 
-        try:
-            with open(os.path.join(self.web_path, knob+".txt"), 'r') as file:
-                web_suggestion = file.readline()
-        except:
-            pass
+            try:
+                with open(os.path.join(self.web_path, knob+".txt"), 'r') as file:
+                    web_suggestion = file.readline()
+            except:
+                pass
 
-        try:
-            with open(os.path.join(self.manual_path, knob+".txt"), 'r') as file:
-                manual_suggestion = file.readline()
-        except:
-            manual_suggestion 
-            pass
+            try:
+                with open(os.path.join(self.manual_path, knob+".txt"), 'r') as file:
+                    manual_suggestion = file.readline()
+            except:
+                manual_suggestion 
+                pass
 
-        if knob + ".txt" not in summary_files:
-            sources_json = self.prune_suggestion(knob_info[knob], gpt_suggestion, web_suggestion)
-            sources_json["manual_suggestion"] = manual_suggestion
-            sources_json = self.prune_contradiction(sources_json)
-            sources_json = self.prune_default(knob_info[knob], sources_json)
-            sources_json = sources_json
-            summary = self.greedy_summarize(sources_json)
-            print(f"SUMMARY:{summary}")
-            check = self.check_summary(summary, sources_json)
-            i = 1  # 防止死循环
-            while check=="No":
-                summary = self.revise_summarize(sources_json, summary)
+            if knob + ".txt" not in summary_files:
+                sources_json = self.prune_suggestion(knob_info[knob], gpt_suggestion, web_suggestion)
+                sources_json["manual_suggestion"] = manual_suggestion
+                sources_json = self.prune_contradiction(sources_json)
+                sources_json = self.prune_default(knob_info[knob], sources_json)
+                sources_json = sources_json
+                summary = self.greedy_summarize(sources_json)
+                print(f"SUMMARY:{summary}")
                 check = self.check_summary(summary, sources_json)
-                print(f"RESUMMARY:{summary}")
-                i += 1
-                if i >= 3:
-                    break
-            with open(os.path.join(self.summary_path, knob+".txt"), 'w') as file:
-                file.write(summary)
+                i = 1  # 防止死循环
+                while check=="No":
+                    summary = self.revise_summarize(sources_json, summary)
+                    check = self.check_summary(summary, sources_json)
+                    print(f"RESUMMARY:{summary}")
+                    i += 1
+                    if i >= 3:
+                        break
+                with open(os.path.join(self.summary_path, knob+".txt"), 'w') as file:
+                    file.write(summary)
 
-        self.cur_time = time.time() - self.cur_time
-        self.total_time = self.total_time + self.cur_time
-        self.knob_num += 1
-        print(f"Finished to prepare knowledge source for {knob}")
-        print(f"accumulated token:{self.token}, accumulated money:{self.money}, accumulated time: {self.total_time}, accumulated knob num: {self.knob_num}")
-        print(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
+            self.cur_time = time.time() - self.cur_time
+            self.total_time = self.total_time + self.cur_time
+            self.knob_num += 1
+            print(f"Finished to prepare knowledge source for {knob}")
+            # print(f"accumulated token:{self.token}, accumulated money:{self.money}, accumulated time: {self.total_time}, accumulated knob num: {self.knob_num}")
+            # print(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
+            self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}, accumulated time: {self.total_time}, accumulated knob num: {self.knob_num}")
+            self.log.info(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")

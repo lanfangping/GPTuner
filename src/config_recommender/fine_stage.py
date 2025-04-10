@@ -14,8 +14,8 @@ from ConfigSpace import (
 
 class FineStage(FineSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
+        super().__init__(dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log)
 
     def optimize(self, name, trials_number):
         scenario = Scenario(

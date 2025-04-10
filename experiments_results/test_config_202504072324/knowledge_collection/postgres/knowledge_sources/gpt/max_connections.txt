@@ -1,0 +1,3 @@
+To set `max_connections` in PostgreSQL, a common rule is to allocate **100 connections as a baseline**, then add **5-20 connections per CPU core** (e.g., 200–300 for a 16-core server), but adjust based on workload (e.g., **500–1000+ for high-concurrency OLTP**, while keeping shared buffers (`shared_buffers` ~25% of RAM) and `work_mem` in check to avoid OOM. Monitor with `pg_stat_activity` and tune if idle connections or contention occur.  
+
+*(Example: For a 32GB RAM, 8-core system, start with `max_connections=200` and scale as needed.)*

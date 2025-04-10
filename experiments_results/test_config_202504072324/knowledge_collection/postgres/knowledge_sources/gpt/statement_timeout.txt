@@ -1,0 +1,3 @@
+To set the `statement_timeout` in PostgreSQL, choose a value based on your workload: for OLTP systems, use **30s-5m** to prevent long-running queries; for analytics, set **10m-1h** or disable it (`0`); adjust higher (e.g., **1h-24h**) for batch jobs or backups, but ensure it aligns with your maintenance windows and connection pool timeouts.  
+
+*(Example: `SET statement_timeout = '5min';` in a session or `ALTER DATABASE db_name SET statement_timeout = '1h';` for persistent configuration.)*

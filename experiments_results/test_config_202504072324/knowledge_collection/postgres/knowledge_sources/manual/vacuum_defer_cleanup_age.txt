@@ -1,0 +1,3 @@
+The `vacuum_defer_cleanup_age` parameter specifies the number of transactions (default: 0) by which VACUUM and HOT updates delay cleaning up dead row versions, allowing standby queries more time to complete, though the exact grace time depends on the primary's write transaction volume.  
+
+(Note: The sentence retains key details—default value (0), purpose (defer cleanup), and dependency on transaction volume—while being concise.)

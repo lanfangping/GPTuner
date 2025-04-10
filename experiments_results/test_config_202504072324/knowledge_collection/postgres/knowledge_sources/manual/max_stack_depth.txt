@@ -1,0 +1,1 @@
+The `max_stack_depth` knob sets the maximum safe execution stack depth, defaulting to 2MB (a conservative value), but should ideally be configured to the kernel's stack size limit (e.g., from `ulimit -s`) minus a 1MB safety margin to prevent crashes in recursive routines.

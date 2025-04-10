@@ -5,23 +5,25 @@ import os
 import random
 from collections import Counter
 import time
+from utils.logger import MyLogger
 from knowledge_handler.gpt import GPT
 
 class KGTrans(GPT):
-    def __init__(self, api_base, api_key, db="postgres", model=GPT.__init__.__defaults__[0]):
+    def __init__(self, api_base, api_key, knowledge_path, db="postgres", model=GPT.__init__.__defaults__[0]):
         super().__init__(api_base, api_key, model=model)
         self.db = db
-        self.knob_path = f"./knowledge_collection/{self.db}"
+        self.knob_path = knowledge_path # f"./knowledge_collection/{self.db}"
         self.knob_num = 0
         self.total_time = 0
         self.cur_time = time.time()
+        self.log= MyLogger("knob_transformation", knowledge_path, 'INFO').logger
         self._define_path()
 
     def _define_path(self):
         self.knob_info_path = os.path.join(self.knob_path, "knob_info/system_view.json")
         self.summary_path = os.path.join(self.knob_path, "tuning_lake")
         self.skill_json_path = os.path.join(self.knob_path, "structured_knowledge/normal/")    
-        self.max_path = os.path.join(self.knob_path, "structured_knowledge/max/")
+        self.max_path = os.path.join(self.knob_path, "structured_knowledge/max/")  # mysql max 
         self.official_path = os.path.join(self.knob_path, "/knob_info/official_document.json")
         self.special_path = os.path.join(self.knob_path, "structured_knowledge/special/")
 
@@ -47,7 +49,6 @@ class KGTrans(GPT):
             except:
                 print(f"The tuning pool of {knob} is empty, generate the tuning pool first.")
                 raise 
-        
         
         prompt = textwrap.dedent(f"""
             Suppose you are an experienced DBA, and you are required to tune a knob of {self.db}.
@@ -91,9 +92,10 @@ class KGTrans(GPT):
             Let us think step by step and finally provide me with the result in JSON format. If no related information is provided in suggestions, just keep the result values at their default.
 
                 """)
-
+        self.log.info(f"get_skill - prompt - {knob}: {prompt}")
         answer = self.get_GPT_response_json(prompt)
         answer.update({"cpu":cpu_cores, "ram":ram_size, "disk_size":disk_size, "disk_type":disk_type})
+        self.log.info(f"get_skill - response - {knob}: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         return answer
@@ -197,8 +199,9 @@ class KGTrans(GPT):
                 "special_value: {{value}}           // fill 'value' with its special value if it is a special knob
             }}
         """)
-
+        self.log.info(f"classify_special_knob - prompt - {knob_name}: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"classify_special_knob - response - {knob_name}: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         print(f"prepare special skill for {knob_name}")
@@ -236,8 +239,9 @@ class KGTrans(GPT):
 
             Now think step by step and give me the suggested upper bound. The answer should either be a number or null. Just return the answer, do not provide other information.
         """)
-        
+        self.log.info(f"mysql_provide_max - prompt - {knob}: {prompt}")
         answer = self.get_GPT_response_json(prompt)
+        self.log.info(f"mysql_provide_max - response - {knob}: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         with open(os.path.join(self.max_path, knob+".txt"), 'w') as file:
@@ -260,6 +264,8 @@ class KGTrans(GPT):
         self.total_time = self.total_time + self.cur_time
         self.knob_num += 1
         print(f"Finished to prepare structured knowledge for {knob}")
-        print(f"total token:{self.token}, total money:{self.money}, total time: {self.total_time}, knob num: {self.knob_num}")
-        print(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
+        # print(f"total token:{self.token}, total money:{self.money}, total time: {self.total_time}, knob num: {self.knob_num}")
+        # print(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
+        self.log.info(f"total token:{self.token}, total money:{self.money}, total time: {self.total_time}, knob num: {self.knob_num}")
+        self.log.info(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
         

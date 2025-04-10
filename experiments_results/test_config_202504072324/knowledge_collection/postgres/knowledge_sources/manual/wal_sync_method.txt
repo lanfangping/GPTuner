@@ -1,0 +1,1 @@
+The `wal_sync_method` knob controls how WAL updates are forced to disk, with options like `fdatasync` (Linux/FreeBSD default), `fsync`, `fsync_writethrough`, `open_datasync`, and `open_sync`, where the choice impacts crash safety and performance, though the default may not be optimal for all systems.

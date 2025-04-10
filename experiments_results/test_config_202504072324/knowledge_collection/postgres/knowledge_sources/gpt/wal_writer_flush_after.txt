@@ -1,0 +1,1 @@
+To set the `wal_writer_flush_after` knob in PostgreSQL, adjust it based on your workload and hardware: for light workloads or latency-sensitive systems, use a smaller value (e.g., `128kB` to `1MB`), while for write-heavy systems with high throughput, increase it (e.g., `2MB` to `8MB`) to reduce flush frequency and improve performance, balancing durability and I/O overhead.

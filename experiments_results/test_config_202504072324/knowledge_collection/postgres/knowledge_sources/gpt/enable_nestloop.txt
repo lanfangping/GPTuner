@@ -1,0 +1,1 @@
+To set the `enable_nestloop` knob in PostgreSQL, disable it (`SET enable_nestloop = off;`) for large joins or complex queries where nested loop performance is poor (e.g., tables with >10,000 rows), but leave it enabled (`on`, the default) for small, indexed lookups (e.g., OLTP workloads with <1,000 rows). Benchmark with `EXPLAIN ANALYZE` to validate the impact.

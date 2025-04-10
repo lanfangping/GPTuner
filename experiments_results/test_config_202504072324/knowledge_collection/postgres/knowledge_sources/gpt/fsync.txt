@@ -1,0 +1,3 @@
+To set the `fsync` knob in PostgreSQL, disable it (`fsync = off`) for bulk data loading or benchmarks where performance is critical and data loss is acceptable, but keep it enabled (`fsync = on`, the default) for production environments to ensure data durability.  
+
+*(Note: Disabling `fsync` can improve performance by 2x or more but risks corruption on power loss or crashes.)*

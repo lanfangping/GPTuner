@@ -1,0 +1,3 @@
+For the PostgreSQL knob `checkpoint_completion_target`, set it to **0.9** (default) to allow checkpoints to complete 90% of the way between checkpoints, balancing I/O load and recovery time, but adjust lower (e.g., **0.5–0.7**) if write-heavy workloads cause performance spikes, or higher (up to **0.99**) if recovery speed is prioritized and I/O bandwidth is sufficient.  
+
+*(Note: Values must be between 0.0 and 1.0.)*

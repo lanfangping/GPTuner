@@ -1,0 +1,1 @@
+The `autovacuum` knob, enabled by default (set to `on`), controls the autovacuum launcher daemon but requires `track_counts` (also default `on`) to function, though it can be disabled per-table; however, autovacuum processes still run if needed to prevent transaction ID wraparound (e.g., when exceeding 2 billion transactions).

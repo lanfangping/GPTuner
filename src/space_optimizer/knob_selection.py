@@ -4,11 +4,12 @@ import json
 import pandas as pd
 from configparser import ConfigParser
 import threading
+from utils.logger import MyLogger
 from knowledge_handler.gpt import GPT
 from config_recommender.workload_runner import BenchbaseRunner
 
 class KnobSelection(GPT):
-    def __init__(self, api_base, api_key, db, dbms, benchmark, model=GPT.__init__.__defaults__[0]):
+    def __init__(self, api_base, api_key, db, dbms, benchmark, knowledge_path, model=GPT.__init__.__defaults__[0]):
         super().__init__(api_base, api_key, model=model)
         self.db = db
         self.dbms = dbms
@@ -18,8 +19,10 @@ class KnobSelection(GPT):
             self.workload = "OLAP"
         else:
             self.workload = "OLTP"
-        self.system_view_dir = f"./knowledge_collection/{self.db}/candidate_knobs.txt"
-        self.target_knobs_dir = f"./knowledge_collection/{self.db}/target_knobs.txt"
+        self.log= MyLogger("knob_selection", knowledge_path, 'INFO').logger
+        self.knowledge_path = knowledge_path
+        self.system_view_dir = os.path.join(knowledge_path, f"knowledge_collection/{self.db}/knob_info/system_view.json") 
+        self.target_knobs_dir = os.path.join(knowledge_path, f"knowledge_collection/{self.db}/target_knobs.txt")
         if os.path.exists(self.target_knobs_dir):
             print(f"Knobs already selected for {self.db}")
         else:
@@ -39,7 +42,6 @@ class KnobSelection(GPT):
             return all_files
 
     def select_on_system_level(self):
-        print("select_on_system_level")
         selected_knobs = {}
         for i in range(0, len(self.candidate_knobs), 30):
             candidates = self.candidate_knobs[i:i + 30]
@@ -53,16 +55,17 @@ class KnobSelection(GPT):
                 }}
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
-            
+            self.log.info(f"select_on_system_level - {i}th prompt: {prompt}")
             json_result = self.get_GPT_response_json(prompt, json_format=True)
-            print(json_result)
+            self.log.info(f"select_on_system_level - {i}th response: {json_result}")
+            self.token += self.calc_token(prompt, json_result)
+            self.money += self.calc_money(prompt, json_result)
             selected_knobs.update(json_result)
 
         print(selected_knobs)
         return selected_knobs
 
     def select_on_workload_level(self):
-        print("select_on_workload_level")
         selected_knobs = {}
         for i in range(0, len(self.candidate_knobs), 30):
             candidates = self.candidate_knobs[i:i + 30]
@@ -77,9 +80,11 @@ class KnobSelection(GPT):
                 }}
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
-                
+            self.log.info(f"select_on_workload_level - {i}th prompt: {prompt}")
             json_result = self.get_GPT_response_json(prompt, json_format=True)
-            print(json_result)
+            self.log.info(f"select_on_workload_level - {i}th response: {json_result}")
+            self.token += self.calc_token(prompt, json_result)
+            self.money += self.calc_money(prompt, json_result)
             selected_knobs.update(json_result)
         print(selected_knobs)
         return selected_knobs
@@ -99,10 +104,8 @@ class KnobSelection(GPT):
         return query_list
 
     def select_on_query_level(self):
-        print("select_on_query_level")
-
         if self.benchmark == 'tpch':
-            target_path = "./optimization_results/temp_results"
+            target_path = os.path.join(self.knowledge_path,  "temp_results")
             print(f"--- Restore the dbms to default configuration ---")
             self.dbms.reset_config()
             self.dbms.reconfigure()
@@ -135,16 +138,18 @@ class KnobSelection(GPT):
                     }}
                     If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                     """)
-                    
+                self.log.info(f"select_on_query_level - {j}th query, {i}th prompt: {prompt}")
                 json_result = self.get_GPT_response_json(prompt, json_format=True)
-                print(json_result)
+                self.log.info(f"select_on_query_level - {j}th query, {i}th response: {json_result}")
+                self.token += self.calc_token(prompt, json_result)
+                self.money += self.calc_money(prompt, json_result)
                 selected_knobs.update(json_result)
         print(selected_knobs)
         return selected_knobs
 
     def select_interdependent_all_knobs(self):
         if os.path.exists(self.target_knobs_dir):
-            print(f"Knobs already selected for {self.db}")
+            self.log.info(f"Knobs already selected for {self.db}")
             return None
 
         system_knobs = self.select_on_system_level()
@@ -179,8 +184,11 @@ class KnobSelection(GPT):
         If no knobs are interdependent, just fill "knob_list" with "None". 
         """
         )
-        
+        self.log.info(f"select_interdependent_all_knobs - prompt: {prompt}")
         json_result = self.get_GPT_response_json(prompt, json_format=True)
+        self.log.info(f"select_interdependent_all_knobs - response: {json_result}")
+        self.token += self.calc_token(prompt, json_result)
+        self.money += self.calc_money(prompt, json_result)
         if json_result.get("knob_list") != 'None':
             selected_knobs = list(selected_knobs) + json_result["knob_list"]
         else:
@@ -189,6 +197,6 @@ class KnobSelection(GPT):
         with open(self.target_knobs_dir, 'w') as file:
             for line in selected_knobs:
                 file.write(line + "\n")
-                
+        self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
         return selected_knobs
         

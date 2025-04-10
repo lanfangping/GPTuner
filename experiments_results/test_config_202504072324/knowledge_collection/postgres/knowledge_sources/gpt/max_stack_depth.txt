@@ -1,0 +1,1 @@
+To set `max_stack_depth` in PostgreSQL, allocate **2MB to 4MB** (default is 2MB) based on your system's available stack size, ensuring it's **smaller than the OS stack limit** (typically 8MB on Linux) to prevent crashes, while allowing sufficient depth for complex queries or recursive operations.

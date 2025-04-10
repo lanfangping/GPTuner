@@ -1,0 +1,3 @@
+To set the `log_checkpoints` knob in PostgreSQL, enable it by setting `log_checkpoints = on` (default is `off`) to log checkpoint details like timing (e.g., "checkpoint complete: wrote 123 buffers (0.8%) in 0.12s"), ensuring it’s active for performance tuning or debugging.  
+
+*(Note: No numeric value is assigned to `log_checkpoints`—it’s a boolean (`on`/`off`). The logged metrics (e.g., buffer counts or durations) are outputs, not settings.)*

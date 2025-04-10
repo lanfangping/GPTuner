@@ -1,0 +1,3 @@
+To set the `bgwriter_flush_after` knob in PostgreSQL, adjust it based on your system's workload: for light workloads, use a low value (e.g., `64`–`128` kB), for moderate workloads, try `256`–`512` kB, and for heavy write-intensive systems, increase it to `1`–`2` MB (or higher) to reduce I/O stalls while balancing background writer overhead.  
+
+*(Note: The exact value depends on your hardware and workload; monitor performance to fine-tune.)*

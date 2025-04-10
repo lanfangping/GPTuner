@@ -1,0 +1,3 @@
+To set the `wal_receiver_timeout` in PostgreSQL, adjust it based on your network latency and replication requirements—typically **30s to 60s** for LAN environments or **1m to 5m** for high-latency WAN connections—to balance between timely failure detection and avoiding unnecessary timeouts.  
+
+*(Example: `wal_receiver_timeout = 60s` for stable LANs or `wal_receiver_timeout = 300s` for WANs.)*

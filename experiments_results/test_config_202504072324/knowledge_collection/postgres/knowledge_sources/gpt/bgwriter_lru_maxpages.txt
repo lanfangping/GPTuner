@@ -1,0 +1,1 @@
+To set `bgwriter_lru_maxpages` in PostgreSQL, adjust it to **100–1000 pages per cycle** (default 100), balancing between I/O overhead (higher values) and checkpoint spikes (lower values), typically starting at **2–4% of shared_buffers** (e.g., 400–800 pages for 8GB shared_buffers with 8KB pages). Monitor `pg_stat_bgwriter` for efficiency.

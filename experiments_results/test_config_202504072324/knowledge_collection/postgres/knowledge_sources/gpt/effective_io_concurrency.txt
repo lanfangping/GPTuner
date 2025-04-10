@@ -1,0 +1,3 @@
+To set `effective_io_concurrency` in PostgreSQL, use a value between **2 and 8** for HDDs (or **32-64** for SSDs/NVMe drives), scaling proportionally to the number of disks (e.g., **1 per disk for HDDs** or **~8-16 per disk for SSDs**), but never exceed the system’s I/O subsystem capacity (e.g., **AWS EBS typically caps at 32**). Default is **1** (disabled).  
+
+*(Adjust based on workload parallelism and storage type, benchmarking for optimal performance.)*

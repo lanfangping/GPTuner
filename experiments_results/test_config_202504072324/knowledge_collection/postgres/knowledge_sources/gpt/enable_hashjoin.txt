@@ -1,0 +1,1 @@
+To set the `enable_hashjoin` knob in PostgreSQL, typically enable it (`on` or `true`) for optimal performance when joining large tables with sufficient memory (e.g., `work_mem ≥ 4MB`), but disable it (`off` or `false`) if nested loop or merge joins are preferred for small datasets or indexed joins. Adjust based on query plans and testing.

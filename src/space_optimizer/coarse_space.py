@@ -13,11 +13,12 @@ from ConfigSpace import (
 
 class CoarseSpace(DefaultSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, seed):
-        super().__init__(dbms, test, timeout, target_knobs_path, seed)
+    def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
+        super().__init__(dbms, test, timeout, target_knobs_path, results_folder, seed)
         self.factors = [0, 0.25, 0.5]
+        self.special_skill_path = special_skill_path
         self.define_search_space()
-
+        log.info("Coarse Configuration Space:", self.search_space)
 
     def define_search_space(self):
         for knob in self.target_knobs:
@@ -138,14 +139,17 @@ class CoarseSpace(DefaultSpace):
                         sequence.append(max_value)
                 sequence.append(boot_value)
           
-                special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
+                # special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
                 # check if this knob is special knob
-                if file_name in os.listdir(special_skill_path):
-                    with open(os.path.join(special_skill_path, file_name), 'r') as json_file:
+                special = False
+                special_value = None
+                if file_name in os.listdir(self.special_skill_path):
+                    with open(os.path.join(self.special_skill_path, file_name), 'r') as json_file:
                         special_skill = json.load(json_file)
-                    special = special_skill["special_knob"]
-                    if special is True:
-                        special_value = special_skill["special_value"]
+                        special_knob = special_skill["special_knob"]
+                        if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                            special = True
+                            special_value = special_skill["special_value"]
 
                 if knob_type == "integer":  
                     sequence = [int(value) for value in sequence]

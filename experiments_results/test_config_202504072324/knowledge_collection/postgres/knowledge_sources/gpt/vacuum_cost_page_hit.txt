@@ -1,0 +1,1 @@
+To set `vacuum_cost_page_hit` in PostgreSQL, a typical value is **1** (default), but if you want to reduce the impact of vacuum on buffer cache hits, you can increase it to **2-10**, balancing with other cost-based vacuum delay parameters (`vacuum_cost_page_miss`, `vacuum_cost_limit`) to avoid overly aggressive throttling.

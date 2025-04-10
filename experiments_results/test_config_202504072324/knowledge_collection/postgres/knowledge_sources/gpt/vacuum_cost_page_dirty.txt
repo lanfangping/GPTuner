@@ -1,0 +1,3 @@
+To set `vacuum_cost_page_dirty` in PostgreSQL, adjust it between **20-500** (default: 20), where higher values reduce I/O overhead by deferring writes of dirtied pages during vacuuming, but balance with `vacuum_cost_delay` to avoid excessive slowdown—e.g., **200-300** for HDDs or **20-100** for SSDs if aggressive cleaning is needed.  
+
+*(Context: This cost parameter assigns a penalty to vacuum for dirtying a shared buffer, influencing how often vacuum pauses to throttle I/O.)*

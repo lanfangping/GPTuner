@@ -1,0 +1,1 @@
+The 'commit_delay' knob in PostgreSQL introduces a delay (default: 0 microseconds, configurable in microseconds) before initiating a WAL flush, allowing group commits if at least 'commit_siblings' transactions are active, improving throughput under high load but increasing latency by up to the delay duration.

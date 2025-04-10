@@ -19,24 +19,25 @@ from ConfigSpace import (
 
 class DefaultSpace:
     """ Base template of GPTuner"""
-    def __init__(self, dbms, test, timeout, target_knobs_path,seed=1):
+    def __init__(self, dbms, test, timeout, target_knobs_path, results_folder, seed=1):
         self.dbms = dbms
         self.seed = seed if seed is not None else 1
         self.test = test
         self.timeout = timeout
         self.target_knobs_path = target_knobs_path
         self.round = 0
-        self.summary_path = "./optimization_results/temp_results"
+        self.summary_path = os.path.join(results_folder, 'temp_results') # "./optimization_results/temp_results"
         self.benchmark_copy_db = ['tpcc', 'twitter', "sibench", "voter", "tatp", "smallbank", "seats"]   # Some benchmark will insert or delete data, Need to be rewrite each time.
         self.benchmark_latency = ['tpch']
         self.search_space = ConfigurationSpace()
-        self.skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/normal"
+        self.skill_path = os.path.join(results_folder, f"knowledge_collection/{self.dbms.name}/structured_knowledge/normal")
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
             self.dbms.create_template(self.test)
-        self.penalty = self.get_default_result()
+        self.penalty = 0
+        # self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
-        self.log_file = f"./optimization_results/{self.dbms.name}/log/{self.seed}_log.txt"
+        self.log_file = os.path.join(results_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
         self.init_log_file()
         self.prev_end = 0
 
@@ -100,7 +101,7 @@ class DefaultSpace:
         candidate_knobs = [line.strip() for line in lines]
         target_knobs = []
         for knob in candidate_knobs:
-            if "vartype" not in self.dbms.knob_info[knob] or self.dbms.knob_info[knob]["vartype"] == "string":
+            if knob not in self.dbms.knob_info.keys() or "vartype" not in self.dbms.knob_info[knob] or self.dbms.knob_info[knob]["vartype"] == "string":
                 continue
             else:
                 target_knobs.append(knob)

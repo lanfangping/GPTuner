@@ -1,0 +1,3 @@
+To set `autovacuum_max_workers`, allocate **1 worker per CPU core (up to 5-8 workers total)** for systems with high write loads, ensuring it doesn’t exceed `max_worker_processes` (e.g., **3-5 workers for moderate workloads** on 4+ cores). Adjust higher (e.g., **6-8**) for large databases with many tables needing frequent vacuuming, but avoid starving other processes.  
+
+*(Example: On an 8-core server with heavy writes, set `autovacuum_max_workers = 5`.)*

@@ -1,0 +1,3 @@
+To set the `track_activity_query_size` knob in PostgreSQL, allocate **1024–4096 bytes per query** (default: 1024), increasing it if long queries are truncated (e.g., to **2048** or **4096** for complex workloads), but avoid excessive values to conserve shared memory.  
+
+*(Adjust based on typical query length and available memory.)*

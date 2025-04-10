@@ -1,0 +1,3 @@
+To set the `vacuum_defer_cleanup_age` knob in PostgreSQL, a common recommendation is to use a value like `1000000` (1 million transactions) to delay cleanup of dead rows by this many transactions, helping standby servers avoid conflicts with long-running queries, but adjust based on workload and replication lag tolerance.  
+
+*(Note: The exact value depends on your transaction rate and replication requirements—higher values increase standby query consistency but also storage usage.)*

@@ -1,0 +1,1 @@
+To set the `checkpoint_flush_after` knob in PostgreSQL, adjust it based on your storage latency: for fast SSDs (e.g., <1ms latency), use **0** (disabled) or a small value like **256kB**; for slower HDDs (e.g., >5ms latency), use **1MB–8MB** to group writes and reduce stalls, balancing throughput and responsiveness.

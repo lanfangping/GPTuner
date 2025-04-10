@@ -1,0 +1,1 @@
+To set the `track_io_timing` knob in PostgreSQL, enable it (`on`) if you need detailed I/O timing statistics for performance analysis (typically adding <1% overhead), or disable it (`off`) for minimal overhead when not needed. For example: `ALTER SYSTEM SET track_io_timing = on;` followed by a reload (`SELECT pg_reload_conf();`).

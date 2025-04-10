@@ -1,0 +1,3 @@
+To set the `track_wal_io_timing` knob in PostgreSQL, enable it (`on`) for detailed WAL I/O timing statistics (useful for performance tuning but adds ~1–2µs overhead per I/O operation) or disable it (`off`) to minimize overhead when not needed. Default is typically `off`.  
+
+*(Note: The exact overhead depends on the system's timing granularity.)*

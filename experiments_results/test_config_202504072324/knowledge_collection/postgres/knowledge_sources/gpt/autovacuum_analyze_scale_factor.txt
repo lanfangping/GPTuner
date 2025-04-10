@@ -1,0 +1,1 @@
+To set `autovacuum_analyze_scale_factor`, a typical starting value is **0.1** (10% of table changes trigger ANALYZE), but for large tables (e.g., >1GB), consider lowering it to **0.05** (5%) or **0.01** (1%) to ensure more frequent statistics updates without overloading the system. Adjust based on query plan accuracy and monitoring.

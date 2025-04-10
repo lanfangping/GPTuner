@@ -1,0 +1,1 @@
+The knob 'checkpoint_flush_after' forces the OS to write checkpoint data to storage after accumulating 256kB (default on Linux, 0 elsewhere) of dirty data, reducing fsync stalls, with a valid range between 0 (disabled) and 2MB, scaling proportionally if BLCKSZ is not 8kB.
