@@ -14,6 +14,7 @@ from ConfigSpace import (
     UniformIntegerHyperparameter,
     UniformFloatHyperparameter,
     CategoricalHyperparameter,
+    Constant,
 )
 
 
@@ -34,8 +35,8 @@ class DefaultSpace:
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
             self.dbms.create_template(self.test)
-        self.penalty = 0
-        # self.penalty = self.get_default_result()
+        # self.penalty = 0
+        self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
         self.log_file = os.path.join(results_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
         self.init_log_file()
@@ -121,12 +122,15 @@ class DefaultSpace:
                     default_value = int(int(boot_value) / 1000)
                 )
             else:
-                knob = UniformIntegerHyperparameter(
-                    knob_name,
-                    int(min_value),
-                    int(max_value),
-                    default_value = int(boot_value),
-                )
+                if min_value == max_value: # the parameter has the equal min_value and max_value
+                    knob = Constant(knob, int(max_value))
+                else:
+                    knob = UniformIntegerHyperparameter(
+                        knob_name,
+                        int(min_value),
+                        int(max_value),
+                        default_value = int(boot_value),
+                    )
         elif knob_type == "real":
             knob = UniformFloatHyperparameter(
                 knob_name,

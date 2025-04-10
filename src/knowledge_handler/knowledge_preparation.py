@@ -255,7 +255,7 @@ class KGPre(GPT):
                     if i >= 3:
                         break
                 with open(os.path.join(self.summary_path, knob+".txt"), 'w') as file:
-                    file.write(summary)
+                    file.write(f"{summary}")
 
             self.cur_time = time.time() - self.cur_time
             self.total_time = self.total_time + self.cur_time

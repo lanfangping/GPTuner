@@ -88,8 +88,8 @@ if __name__ == '__main__':
     # Derive output folder from script name
     script_name = args.config.split('.')[0].split('/')[-1]
     current_time = datetime.now().strftime("%Y%m%d%H%M")
-    # folder_name = f'{script_name}_{current_time}'
-    folder_name = "test_config_202504072324"
+    folder_name = f'{script_name}_{current_time}'
+    # folder_name = "deepseek-v3-overall_202504101244"
     folder_path = f"./experiments_results/{folder_name}"
     setattr(args, 'result_path', folder_path)
     make_folders(folder_path=folder_path, args=args)
@@ -146,32 +146,22 @@ if __name__ == '__main__':
                 log.warning(f"'{knob}' is not in {args.db}")
                 
     
-    # knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
-    # knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
-    # knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+    for i, knob in enumerate(target_knobs):
+        print(f"{i}th, total {len(target_knobs)} knobs")
+        try: 
+            process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
+        except KeyError as e:
+            log.error(f"Error for process knob '{knob}': {e}")
+            continue
     # for i in range(1, 6):
     #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
     #         futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
     #         for future in concurrent.futures.as_completed(futures):
     #             print(future.result())
     #     print(f"Update {i} completed")
-
-    # if args.db == 'postgres':
-    #     # config_path = "./configs/postgres.ini"
-    #     # config.read(config_path)
-    #     # dbms = PgDBMS.from_file(config)
-    #     dbms = PgDBMS(db=args.database, user=args.user, password=args.password, restart_cmd=args.restart_cmd, recover_script=args.recover_script, knob_info_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knob_info/system_view.json"))
-    # elif args.db == 'mysql':
-    #     config_path = "./configs/mysql.ini"
-    #     config.read(config_path)
-    #     dbms = MysqlDBMS.from_file(config)
-    # else:
-    #     raise ValueError("Illegal dbms!")
-    
-    # store the optimization results
-    # folder_path = "../optimization_results/"
-    # if not os.path.exists(folder_path):
-    #     os.makedirs(folder_path)  
 
     special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
     gptuner_coarse = CoarseStage(
@@ -193,19 +183,19 @@ if __name__ == '__main__':
     time.sleep(2)
 
     
-    # gptuner_fine = FineStage(
-    #     dbms=dbms, 
-    #     target_knobs_path=target_knobs_path, 
-    #     test=args.test, 
-    #     timeout=args.timeout, 
-    #     seed=args.seed,
-    #     special_skill_path=special_skill_path,
-    #     log=log,
-    #     results_folder = folder_path 
-    # )
+    gptuner_fine = FineStage(
+        dbms=dbms, 
+        target_knobs_path=target_knobs_path, 
+        test=args.test, 
+        timeout=args.timeout, 
+        seed=args.seed,
+        special_skill_path=special_skill_path,
+        log=log,
+        results_folder = folder_path 
+    )
 
-    # gptuner_fine.optimize(
-    #     name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
-    #     trials_number=110 # history trials + new tirals
-    # )   
+    gptuner_fine.optimize(
+        name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
+        trials_number=110 # history trials + new tirals
+    )   
 
