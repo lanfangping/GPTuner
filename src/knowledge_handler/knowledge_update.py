@@ -68,6 +68,7 @@ class KGUpdate(GPT):
                 result = self.filter_knob(knob)
                 n -= 1
             if result["result"] is False:
+                self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
                 return False
         
             # acquire new data
@@ -83,10 +84,12 @@ class KGUpdate(GPT):
 
         if os.path.exists(os.path.join(self.skill_json_path, knob+".json")) and os.path.getsize(os.path.join(self.skill_json_path, knob+".json")) != 0:
             self.log.info(f"Already finished to update structured knowledge for {knob}, skip.")
+            self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
             return False
 
         new_structure = self.update_knowledge(knob)
         if new_structure is False:
+            self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
             return False 
         with open(os.path.join(self.skill_json_path, knob+".json"), 'w') as file:
             json.dump(new_structure, file)
