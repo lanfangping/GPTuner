@@ -1,0 +1,1 @@
+To set `max_parallel_workers_per_gather` in PostgreSQL, a common rule is to use **2–4 workers per CPU core** (e.g., 4–16 workers on a 4-core system), but ensure the total (`max_worker_processes`) allows for other parallel operations, and test with workloads to avoid diminishing returns (e.g., start with 2–4 and scale up if queries benefit).

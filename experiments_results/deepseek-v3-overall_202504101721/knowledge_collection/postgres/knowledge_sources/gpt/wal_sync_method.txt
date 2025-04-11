@@ -1,0 +1,1 @@
+For the `wal_sync_method` knob in PostgreSQL, set the value based on your OS and hardware: use `fdatasync` (default, safe), `fsync_writethrough` (for battery-backed write cache), or `open_sync`/`open_datasync` (faster but riskier on crashes), benchmarking with concrete numbers like `fsync` latency (e.g., <5ms for HDDs, <1ms for SSDs) to ensure durability-performance balance.

@@ -1,0 +1,8 @@
+To set the `synchronous_commit` knob in PostgreSQL, choose:  
+- **`on`** (default, safest, ensures durability with every commit),  
+- **`off`** (risky, delays durability for performance),  
+- **`remote_apply`** (waits for standby confirmation),  
+- **`remote_write`** (waits for standby OS write), or  
+- **`local`** (only local disk write).  
+
+For example, set `off` for bulk loads (e.g., 10–100x faster) or `remote_apply` for HA (1–2 standby confirmations). Adjust based on RPO/RTO needs.

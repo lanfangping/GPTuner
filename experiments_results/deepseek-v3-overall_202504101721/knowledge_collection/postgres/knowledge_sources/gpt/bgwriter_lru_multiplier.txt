@@ -1,0 +1,1 @@
+To set `bgwriter_lru_multiplier` in PostgreSQL, adjust it between **2.0** (default, moderate writeback) and **4.0–8.0** (aggressive writeback for high-write workloads), monitoring checkpoint and I/O load to avoid excessive disk contention. Lower values (e.g., **1.0–2.0**) may suit read-heavy systems.

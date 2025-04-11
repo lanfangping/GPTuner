@@ -1,0 +1,1 @@
+The `wal_buffers` knob controls the amount of shared memory for unwritten WAL data, defaulting to 1/32nd of `shared_buffers` (min 64kB, max 16MB), with a floor of 32kB if manually set lower, and values without units treated as 8kB blocks; setting it to a few MB can improve write performance under high commit loads.

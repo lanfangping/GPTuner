@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_cost_limit`, a common recommendation is to increase it from the default **200** to **1000–2000** (or higher if needed) to allow autovacuum to work more aggressively, balancing with `autovacuum_vacuum_cost_delay` (e.g., **2ms**) to avoid overwhelming I/O, while monitoring system load and adjusting based on vacuum performance and disk latency.  
+
+*(Note: Exact values depend on workload and hardware; some setups may use values like **2000–8000** for high-performance SSDs.)*

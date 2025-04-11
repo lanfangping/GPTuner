@@ -1,0 +1,3 @@
+To set the `enable_indexonlyscan` knob in PostgreSQL, enable it (`on`) for queries that benefit from index-only scans (typically reducing I/O by 50-90% for suitable workloads) or disable it (`off`) if sequential scans are more efficient, often when the visibility map is poorly maintained or indexes cover less than ~70% of the accessed columns.  
+
+*(Note: The exact performance gain depends on data distribution and query patterns; benchmark with `EXPLAIN ANALYZE` to validate.)*

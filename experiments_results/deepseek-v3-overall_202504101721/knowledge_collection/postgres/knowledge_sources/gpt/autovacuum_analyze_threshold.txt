@@ -1,0 +1,1 @@
+To set `autovacuum_analyze_threshold`, adjust it based on table activity: use the default **50** (rows changed) for small tables, increase to **100–500** for moderately active tables, or set higher (e.g., **1000+**) for large, heavily updated tables to reduce analyze frequency while balancing stats accuracy.

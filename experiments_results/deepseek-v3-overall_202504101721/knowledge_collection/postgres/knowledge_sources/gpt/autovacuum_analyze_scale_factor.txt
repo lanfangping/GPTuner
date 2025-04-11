@@ -1,0 +1,2 @@
+To set `autovacuum_analyze_scale_factor` in PostgreSQL, adjust it to a lower value (e.g., **0.01 or 0.05**) to trigger `ANALYZE` more frequently for tables with smaller changes, while balancing against overhead—default is **0.1** (10% of table rows). Combine with `autovacuum_analyze_threshold` (e.g., **50–500 rows**) for finer control. Example:  
+`autovacuum_analyze_scale_factor = 0.01` triggers `ANALYZE` after 1% of a table’s rows change (plus the threshold).

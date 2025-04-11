@@ -1,0 +1,3 @@
+To set `synchronous_standby_names` in PostgreSQL, specify the standby servers (e.g., `'standby1, standby2'`) for synchronous replication, with the number of required sync standbys (e.g., `'2 (standby1, standby2)'` for 2-sync priority or `'ANY 2 (standby1, standby2)'` for 2-sync quorum), ensuring at least 1 sync standby for basic HA or more for stricter durability.  
+
+*(Example: For 1 priority sync standby, use `'standby1'`; for 2 quorum-based sync standbys, use `'ANY 2 (s1, s2, s3)'`.)*

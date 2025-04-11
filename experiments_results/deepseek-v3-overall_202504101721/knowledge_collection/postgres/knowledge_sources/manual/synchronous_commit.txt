@@ -1,0 +1,1 @@
+The `synchronous_commit` knob controls WAL durability guarantees, with modes offering varying levels of safety: `off` (no wait, risking up to 3x `wal_writer_delay` loss), `local`/`on` (wait for local disk flush), `remote_write` (standby OS cache write), `remote_apply` (standby replay complete), or `on` (standby disk flush, default).

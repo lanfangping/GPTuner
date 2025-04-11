@@ -78,6 +78,8 @@ class DefaultSpace:
             'ms': 1,
             's': 1000,
             'min': 60000,
+            'h': 60 * 60000,
+            'hour': 60 * 60000,
             'day': 24 * 60 * 60000,
         }
         return float(number) * unit_to_size[unit]

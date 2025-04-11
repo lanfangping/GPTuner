@@ -1,0 +1,3 @@
+To set the `work_mem` knob in PostgreSQL, allocate **4MB–16MB per operation** (e.g., sorts/hashes) for OLTP workloads, **64MB–256MB** for analytical queries, ensuring the total (`work_mem × max_worker_processes × max_connections`) stays below **25% of system RAM** to avoid OOM errors. Adjust based on query complexity and system resources.  
+
+*(Example: For 32GB RAM and 100 connections, ~8MB per operation keeps total under 8GB.)*

@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_scale_factor`, adjust it based on table churn: use a lower value like **0.01–0.05** (1%–5%) for highly active tables to trigger vacuums more frequently, or the default **0.2** (20%) for stable tables where less frequent vacuums suffice. Monitor table bloat and performance to refine the value.  
+
+*(Example: `ALTER TABLE my_table SET (autovacuum_vacuum_scale_factor = 0.02);` for a 2% threshold.)*

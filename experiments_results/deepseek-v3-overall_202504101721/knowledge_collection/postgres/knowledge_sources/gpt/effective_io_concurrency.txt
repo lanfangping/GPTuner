@@ -1,0 +1,1 @@
+To set `effective_io_concurrency` in PostgreSQL, use a value between **2 and 4** for HDDs (or **8–16** for SSDs/NVMe drives), representing the number of concurrent I/O operations the system can handle, but avoid exceeding **50% of your storage device's queue depth** (e.g., if the queue depth is 32, cap at 16). Adjust based on workload parallelism and benchmark results.

@@ -1,0 +1,1 @@
+To set `checkpoint_flush_after`, a reasonable starting value is **512kB–1MB** (e.g., `8192`–`16384` 8kB pages) on systems with slow storage to reduce I/O stalls, or **disable it (0)** for fast SSDs where the overhead outweighs benefits; adjust based on observed write latency and checkpoint performance.

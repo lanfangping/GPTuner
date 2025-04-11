@@ -1,0 +1,1 @@
+The `max_locks_per_transaction` parameter sets the average number of object locks (e.g., tables) allocated per transaction, defaulting to 64, with the total lock limit calculated as `max_locks_per_transaction * (max_connections + max_prepared_transactions)`, requiring standby servers to match or exceed the master's value to allow queries.

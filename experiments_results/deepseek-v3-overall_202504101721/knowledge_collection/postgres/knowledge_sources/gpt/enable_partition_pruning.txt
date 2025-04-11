@@ -1,0 +1,3 @@
+To set the `enable_partition_pruning` knob in PostgreSQL, enable it (`on` or `true`) for most workloads to improve query performance on partitioned tables (typically yielding 2-10x speedups), but disable it (`off` or `false`) only for debugging or edge cases where pruning causes incorrect results.  
+
+*(Default: `on` in PostgreSQL 11+, `off` in earlier versions.)*

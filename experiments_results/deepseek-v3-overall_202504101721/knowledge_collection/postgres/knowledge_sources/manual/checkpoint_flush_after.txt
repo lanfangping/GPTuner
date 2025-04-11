@@ -1,0 +1,1 @@
+The 'checkpoint_flush_after' knob forces the OS to write checkpoint data to storage after accumulating 256kB (default on Linux, 0 elsewhere) up to a maximum of 2MB, reducing fsync stalls by limiting dirty page cache data, though performance may degrade for workloads between shared_buffers and the OS cache size.

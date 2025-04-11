@@ -1,0 +1,3 @@
+To set `autovacuum_multixact_freeze_max_age`, choose a value between **100 million (100,000,000)** and **200 million (200,000,000)** (default: 400 million) based on your transaction volume, ensuring it is lower than `vacuum_multixact_freeze_table_age` (default: 150 million) to prevent transaction ID wraparound while balancing autovacuum frequency.  
+
+*(Adjust lower for high-write systems to avoid bloat, or higher for read-heavy workloads to reduce maintenance overhead.)*

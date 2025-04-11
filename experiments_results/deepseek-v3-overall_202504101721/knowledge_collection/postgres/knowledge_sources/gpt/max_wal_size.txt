@@ -1,0 +1,3 @@
+To set `max_wal_size` in PostgreSQL, a common rule is to allocate **1GB per 1GB of shared_buffers** (e.g., 16GB if `shared_buffers` is 16GB), with a **minimum of 1GB** and a **maximum of 20GB** (or higher for very large workloads), while ensuring it is at least **twice the size of the largest transaction** in your system to avoid frequent WAL checkpoints.  
+
+*(Example: For `shared_buffers = 8GB`, set `max_wal_size = 8GB`.)*

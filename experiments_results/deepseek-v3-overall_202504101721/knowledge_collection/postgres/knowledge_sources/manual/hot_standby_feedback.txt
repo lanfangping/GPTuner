@@ -1,0 +1,1 @@
+The `hot_standby_feedback` parameter, when enabled (default: off), allows a standby PostgreSQL server to send query execution feedback to the primary every `wal_receiver_status_interval` (default: 10 seconds), preventing query cancels due to cleanup records but potentially causing primary database bloat, especially if `old_snapshot_threshold` is exceeded (default: -1, disabled).

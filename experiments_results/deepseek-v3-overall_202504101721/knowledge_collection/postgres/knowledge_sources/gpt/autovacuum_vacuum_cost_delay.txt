@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_cost_delay`, adjust it based on workload: use **2ms** for aggressive vacuuming (e.g., high-churn OLTP), **10–20ms** for balanced performance (default is **2ms** in PostgreSQL 13+), or **50–100ms** for conservative tuning (minimizing I/O impact). Monitor table bloat and autovacuum runtime to refine.  
+
+*(Note: Pre-13 versions default to **20ms**.)*

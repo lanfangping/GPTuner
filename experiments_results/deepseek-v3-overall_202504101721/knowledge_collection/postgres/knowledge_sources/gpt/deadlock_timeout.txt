@@ -1,0 +1,1 @@
+To set `deadlock_timeout` in PostgreSQL, a common recommendation is **1-2 seconds (1000-2000ms)** for OLTP systems to balance deadlock detection overhead and user experience, but adjust higher (e.g., **5-10s**) for batch workloads or if false positives occur. Always test under realistic load. (Default: **1s**).

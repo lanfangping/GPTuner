@@ -1,0 +1,1 @@
+The `bgwriter_flush_after` knob forces the OS to write dirty data to storage after 512kB (default on Linux, 0 elsewhere) is written by the background writer, with a valid range of 0 (disabled) to 2MB, to reduce checkpoint stalls and transaction latency, though performance may degrade for workloads between shared_buffers and the OS page cache.

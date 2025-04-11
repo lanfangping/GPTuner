@@ -1,0 +1,1 @@
+To set `max_worker_processes` in PostgreSQL, allocate a value equal to the number of CPU cores (e.g., 4 for a 4-core system) plus any additional workers needed for parallel queries or background processes, typically not exceeding 1.5–2x the core count (e.g., 6–8 for 4 cores), while ensuring it aligns with `max_parallel_workers` and `max_parallel_workers_per_gather` settings.

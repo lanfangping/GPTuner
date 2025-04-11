@@ -1,0 +1,3 @@
+To set the `enable_indexscan` knob in PostgreSQL, typically leave it `on` (default) for optimal query performance, but consider setting it `off` for specific queries where sequential scans are faster (e.g., when retrieving >30% of a table's rows or for very small tables). Use `SET enable_indexscan TO off;` in a session or adjust `postgresql.conf` globally. Benchmark with `EXPLAIN ANALYZE` to validate the choice.  
+
+*(Note: The 30% threshold is a common heuristic, but the exact tipping point depends on data distribution, index selectivity, and hardware.)*

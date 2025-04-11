@@ -1,0 +1,1 @@
+To set `bgwriter_flush_after`, adjust it based on your workload and hardware: for light workloads or HDDs, use a lower value like `64` (default) to reduce I/O spikes, while for heavy write workloads or SSDs, increase it to `512` or `1024` to batch writes more aggressively and reduce fsync overhead.

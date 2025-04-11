@@ -1,0 +1,1 @@
+To set the `lock_timeout` knob in PostgreSQL, choose a value based on your workload: for OLTP systems, start with **100ms-300ms** to avoid long waits; for reporting queries, use **1s-10s**; and for maintenance tasks, consider **30s-5min** or disable it (set to `0`), balancing lock contention avoidance with query completion needs.

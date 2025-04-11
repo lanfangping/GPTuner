@@ -1,0 +1,3 @@
+To set the `hot_standby` knob in PostgreSQL, enable it (`on`) for standby servers to allow read-only queries during recovery, typically paired with `max_standby_archive_delay` (e.g., `30s`) and `max_standby_streaming_delay` (e.g., `30s`) to balance query availability and replication consistency. Disable it (`off`) on primary servers.  
+
+(Note: The `hot_standby` parameter is a boolean (`on`/`off`), while the delay values are examples—adjust based on workload tolerance for replication lag.)

@@ -1,0 +1,4 @@
+
+To set the `statement_timeout` in PostgreSQL, determine an appropriate value based on your workload (e.g., 30s for interactive queries, 5-10min for batch jobs, or 0 to disable), then configure it via `SET statement_timeout = '30s'` (session-level) or `ALTER SYSTEM SET statement_timeout = '5min'` (server-wide).  
+
+(Adjust the numbers to match your specific use case, such as `'2h'` for long-running reports or `'1s'` for strict latency control.)
