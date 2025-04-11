@@ -1,0 +1,1 @@
+The 'effective_cache_size' knob in PostgreSQL sets the planner's assumption for available disk cache size for a single query, with a default value of 4GB, and influences the likelihood of using index scans versus sequential scans, while considering both shared buffers and kernel disk cache, and is specified in blocks of typically 8kB.

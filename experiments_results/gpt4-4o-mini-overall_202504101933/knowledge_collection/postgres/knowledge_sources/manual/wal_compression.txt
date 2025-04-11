@@ -1,0 +1,1 @@
+The 'wal_compression' knob in PostgreSQL, which defaults to off and can only be modified by superusers, enables compression of full page images written to the Write Ahead Log (WAL) when 'full_page_writes' is active, potentially reducing WAL volume without heightening unrecoverable data corruption risks, albeit at the expense of additional CPU usage during both logging and replay.

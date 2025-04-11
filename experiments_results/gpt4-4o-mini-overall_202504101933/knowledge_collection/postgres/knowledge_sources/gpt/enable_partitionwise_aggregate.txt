@@ -1,0 +1,1 @@
+To set the `enable_partitionwise_aggregate` parameter in PostgreSQL, you can use the command `SET enable_partitionwise_aggregate TO 'on'` for a specific session, or add `enable_partitionwise_aggregate = on` to your `postgresql.conf` file and restart the server, as this option is typically useful in query plans involving large partitioned tables with aggregate functions.

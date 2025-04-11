@@ -1,0 +1,1 @@
+To set the `autovacuum_freeze_max_age` in PostgreSQL, consider configuring it to a value that is 2 billion transactions (approximately 2,000,000,000), which is the default, but you may want to adjust it to a lower value, such as 1 billion transactions (1,000,000,000), to trigger autovacuum more frequently and reduce the risk of transaction ID wraparound issues.

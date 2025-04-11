@@ -1,0 +1,1 @@
+The 'lock_timeout' setting in PostgreSQL specifies the maximum time (in milliseconds) that a statement can wait to acquire a lock, with a default value of 0 disabling the timeout; it is applied separately to each lock acquisition attempt and should be set to lower than any active 'statement_timeout' to avoid redundancy.

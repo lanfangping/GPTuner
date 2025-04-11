@@ -1,0 +1,1 @@
+To set the 'autovacuum' parameter in PostgreSQL, you can start with the default values and configure it based on your workload, typically setting `autovacuum_vacuum_cost_delay` to 20ms, `autovacuum_vacuum_cost_limit` to 2000, and for heavily updated tables, you might adjust `autovacuum_vacuum_scale_factor` to 0.1 and `autovacuum_vacuum_threshold` to 50 to ensure timely vacuuming.

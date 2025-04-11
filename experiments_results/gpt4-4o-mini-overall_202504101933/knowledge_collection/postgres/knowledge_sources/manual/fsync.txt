@@ -1,0 +1,1 @@
+The 'fsync' knob in PostgreSQL, when enabled, ensures that updates are physically written to disk through fsync() calls, facilitating reliable recovery in case of crashes, but disabling it can improve performance at the risk of unrecoverable data loss, and is only advisable under specific conditions, such as initial database loading or temporary data processing tasks.

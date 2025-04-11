@@ -1,0 +1,1 @@
+The 'track_io_timing' knob enables database I/O call timing, which is off by default due to potential overhead from frequent time queries, and can be assessed for performance impact using the pg_test_timing tool, with relevant I/O timing data available in pg_stat_database and EXPLAIN (with BUFFERS), but only superusers can modify this setting.

@@ -1,0 +1,1 @@
+The 'full_page_writes' knob, which is enabled by default, ensures that the entire content of modified disk pages is written to the Write-Ahead Log (WAL) after a checkpoint to prevent potential data corruption during crashes, but turning it off can speed up operations at the risk of unrecoverable corruption, similar to the implications of disabling fsync.

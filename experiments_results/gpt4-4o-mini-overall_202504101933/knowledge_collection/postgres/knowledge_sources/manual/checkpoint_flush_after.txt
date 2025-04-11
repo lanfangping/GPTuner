@@ -1,0 +1,1 @@
+The 'checkpoint_flush_after' knob controls the forced writeback to storage during checkpoints, with a default of 256kB on Linux (0 elsewhere) and a valid range from 0 to 2MB, potentially reducing transaction latency by minimizing dirty data in the kernel's page cache.
