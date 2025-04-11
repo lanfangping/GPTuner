@@ -1,0 +1,1 @@
+To set the value for the 'wal_sync_method' knob in PostgreSQL, choose a method based on your operating system and storage: use 'fdatasync' for Linux, which is often the default and performs well; on macOS, prefer 'fsync', while 'open_datasync' may be suitable for some Linux systems and modern file systems if performance testing indicates improvements.

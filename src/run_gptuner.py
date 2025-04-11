@@ -52,7 +52,7 @@ def make_folders(folder_path, args):
         os.makedirs(os.path.join(f"{folder_path}", f"{args.db}", "log"))
     
     source_web_folder = "knowledge_collection/postgres/knowledge_sources/web"
-    dest_web_folder = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/web")
+    dest_web_folder = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources")
     source_official_document = "src/utils/official_document.json"
     source_system_view = "knowledge_collection/postgres/knob_info/system_view.json"
     dest_knob_info = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knob_info")

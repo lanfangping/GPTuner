@@ -1,0 +1,1 @@
+The `wal_writer_flush_after` parameter specifies the volume threshold for flushing the WAL writer to disk, with a default setting of 1MB (or approximately 128 WAL blocks, assuming XLOG_BLCKSZ is 8kB), and if set to 0, the WAL data is immediately flushed; it can only be configured in the postgresql.conf file or via the server command line.

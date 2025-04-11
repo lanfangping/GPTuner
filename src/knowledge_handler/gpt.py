@@ -74,13 +74,17 @@ class GPT:
                     chat_tokenizer_dir, trust_remote_code=True
                     )
         else:
-            if self.model == 'gpt-4o-mini':
-                try:
-                    enc = tiktoken.encoding_for_model(self.model)
-                except KeyError:
-                    enc = tiktoken.get_encoding("cl100k_base")
-            else:
+            try:
                 enc = tiktoken.encoding_for_model(self.model)
+            except KeyError:
+                enc = tiktoken.get_encoding("cl100k_base")
+            # if self.model == 'gpt-4o-mini':
+            #     try:
+            #         enc = tiktoken.encoding_for_model(self.model)
+            #     except KeyError:
+            #         enc = tiktoken.get_encoding("cl100k_base")
+            # else:
+            #     enc = tiktoken.encoding_for_model(self.model)
             # enc = tiktoken.encoding_for_model(self.model)
             # enc = tiktoken.get_encoding("o200k_base")
         return len(enc.encode(out_text+in_text))

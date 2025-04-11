@@ -1,0 +1,1 @@
+The 'wal_buffers' knob determines the amount of shared memory allocated for WAL data awaiting disk writing, defaulting to 3% of shared_buffers (1/32nd), with a minimum of 64kB and a maximum of 16MB (one WAL segment), and can be manually set above 32kB to optimize write performance, especially beneficial on busy servers, while auto-tuning generally suffices.

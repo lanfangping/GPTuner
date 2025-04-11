@@ -1,0 +1,1 @@
+The `maintenance_work_mem` specifies the maximum memory used for maintenance operations like VACUUM and CREATE INDEX, defaults to 64MB, and can be set higher for better performance, noting that autovacuum may allocate memory up to the autovacuum_max_workers times this amount, with VACUUM's memory use for dead tuple identifiers capped at 1GB.

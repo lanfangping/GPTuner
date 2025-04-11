@@ -1,0 +1,1 @@
+The value of the 'wal_writer_flush_after' knob in PostgreSQL should be set in relation to your disk I/O and latency requirements, typically starting at around 1MB, which balances performance and durability by determining how much WAL data is buffered before being flushed to disk.

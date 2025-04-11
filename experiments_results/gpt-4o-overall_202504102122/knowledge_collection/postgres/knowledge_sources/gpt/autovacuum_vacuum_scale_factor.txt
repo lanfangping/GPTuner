@@ -1,0 +1,1 @@
+The "autovacuum_vacuum_scale_factor" in PostgreSQL should be set based on the table update frequency and size, typically around 0.1 for frequently updated tables and closer to 0.2 for less active tables, meaning autovacuum will trigger when 10% or 20% of the table has been updated, respectively.

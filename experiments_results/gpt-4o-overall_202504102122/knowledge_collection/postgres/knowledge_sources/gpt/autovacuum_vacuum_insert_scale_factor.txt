@@ -1,0 +1,1 @@
+To set the value for 'autovacuum_vacuum_insert_scale_factor' in PostgreSQL, start with a default value of 0.2 and adjust based on your workload; increase it for workloads with frequent insertions and high table growth to delay autovacuum, or decrease it (e.g., to 0.05) for more aggressive vacuuming of rapidly growing tables.

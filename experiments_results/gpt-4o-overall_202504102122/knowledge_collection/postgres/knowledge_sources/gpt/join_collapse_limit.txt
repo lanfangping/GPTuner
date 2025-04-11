@@ -1,0 +1,1 @@
+The 'join_collapse_limit' in PostgreSQL should be set based on the complexity of your queries: a typical setting is between 8 and 12, with lower numbers used for simpler queries to reduce planning time, and higher numbers (or the maximum value of 2147483647 for no limit) for complex queries to allow the planner to consider more join order possibilities.

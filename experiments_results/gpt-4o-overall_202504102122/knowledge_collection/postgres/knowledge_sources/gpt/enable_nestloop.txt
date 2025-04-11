@@ -1,0 +1,1 @@
+The 'enable_nestloop' knob in PostgreSQL determines whether the query planner should consider using nested loop joins; it is typically set to 'on' for workloads benefiting from nested loops, but can be set to 'off' to prevent their use when they result in performance issues, especially if the number of loop iterations is likely to exceed efficient limits, like tens of thousands.

@@ -1,0 +1,1 @@
+To set the value for 'bgwriter_lru_multiplier' in PostgreSQL, start with the default setting of 2.0, which adjusts the background writer to be more aggressive in writing dirty buffers to disk, and consider increasing it incrementally if you observe that frequently accessed pages are often still dirty when reused, but typically values above 4.0 are rarely necessary or beneficial.

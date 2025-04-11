@@ -1,0 +1,1 @@
+The `seq_page_cost` parameter in PostgreSQL should typically be set to a value reflecting the actual cost of reading a page in a sequential scan, with a default value of 1.0, but it can be adjusted based on the storage type and speed, such as reducing it to 0.5 for fast SSDs or increasing it for slower disks.

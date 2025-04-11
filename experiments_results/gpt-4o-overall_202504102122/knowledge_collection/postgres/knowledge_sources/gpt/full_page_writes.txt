@@ -1,0 +1,1 @@
+For the PostgreSQL knob 'full_page_writes', it should generally be set to "on" to ensure data integrity by writing full pages to WAL during first modifications after a checkpoint; however, it can be turned "off" for performance optimization if you have reliable power failure protection, but be cautious as this may risk data corruption in the event of a crash.

@@ -1,0 +1,1 @@
+The `join_collapse_limit` controls the number of FROM items the planner rewrites JOIN constructs into, with a default value matching `from_collapse_limit`, and setting it to 1 enforces no reordering of explicit JOINs, while values at or above `geqo_threshold` may activate the GEQO planner, potentially leading to non-optimal plans.
