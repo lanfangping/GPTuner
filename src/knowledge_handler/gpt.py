@@ -8,6 +8,10 @@ import random
 import datetime
 import tiktoken
 import transformers
+import torch
+from huggingface_hub import login
+from transformers import LlamaForCausalLM, LlamaTokenizer, AutoModelForCausalLM, AutoTokenizer
+
 
 class GPT:
     def __init__(self, api_base, api_key, model="gpt-4o-mini"):
@@ -145,3 +149,93 @@ class GPT:
                     f.write(f"current_time, total_tokens, out_tokens, in_tokens\n")
                     f.write(f"{current_time}, {total_tokens}, {completion_tokens}, {prompt_tokens}\n")
     
+class LLM:
+    def __init__(self, access_token, model='llama3-8b'):
+        self.money = 0
+        self.token = 0
+        self.cur_token = 0
+        self.cur_money = 0
+        self.model_ids = {
+            'llama3-8b': "meta-llama/Meta-Llama-3-8B-Instruct"
+        }
+        self._load_LLM_model(access_token=access_token, model=model)
+
+
+    def _load_LLM_model(self, access_token, model):
+        login(access_token)
+        model_id = self.model_ids[model.lower()]
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            model_id,
+        )
+        self.llm = AutoModelForCausalLM.from_pretrained(
+            model_id,
+            torch_dtype=torch.float16,
+            device_map={"": 0},
+            attn_implementation="eager"
+        )
+        # Set pad_token to eos_token
+        self.tokenizer.pad_token = self.tokenizer.eos_token
+        self.llm.config.pad_token_id = self.tokenizer.pad_token_id
+    
+    def get_GPT_response_json(self, prompt, json_prompt=True):
+
+        if json_prompt:
+            messages = [
+                {"role": "system", "content": "You should output JSON."},
+                {"role": "user", "content": f"{prompt}"},
+            ]
+            temperature = 0.5
+        else:
+            messages = [
+                {"role": "user", "content": f"{prompt}"},
+            ]
+            temperature = 1
+
+        input_ids = self.tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True,
+            return_tensors="pt",
+            padding=True
+        ).to(self.llm.device)
+
+        attention_mask = (input_ids != self.tokenizer.pad_token_id).long()
+
+        terminators = [
+            self.tokenizer.eos_token_id,
+            self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
+        outputs = self.llm.generate(
+            input_ids,
+            attention_mask=attention_mask,
+            eos_token_id=terminators,
+            temperature=temperature,
+        )
+        response = outputs[0][input_ids.shape[-1]:]
+        self.cur_token = len(response) + len(input_ids)
+        return self.tokenizer.decode(response, skip_special_tokens=True)
+
+    def calc_token(self):
+        return self.cur_token
+
+    def calc_money(self):
+        return 0
+
+    def remove_html_tags(self, text):
+        clean = re.compile('<.*?>')
+        return re.sub(clean, '', text)
+    
+
+if __name__ == '__main__':
+    model = LLM(model='llama3-8b')
+    prompt = """
+What's the differences and similarities between random forest and gradient boosting? 
+{{
+    "differences": "", 
+    "similarities": ""
+}}
+"""
+    response = model.get_GPT_response_json(prompt=prompt, json_prompt=True)
+    print(response)
+
+
