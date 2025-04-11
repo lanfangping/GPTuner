@@ -38,18 +38,21 @@ def make_folders(folder_path, args):
     """
     folder_path: the folder stores the optimization details
     """
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path) 
-        os.makedirs(os.path.join(f"{folder_path}", "temp_results"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knob_info"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/gpt"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/web"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/manual"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special"))
-        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/tuning_lake"))
-        os.makedirs(os.path.join(f"{folder_path}", f"{args.db}")) # optimization results
-        os.makedirs(os.path.join(f"{folder_path}", f"{args.db}", "log"))
+    # if not os.path.exists(folder_path):
+    try:
+        os.makedirs(folder_path, exist_ok=True) 
+        os.makedirs(os.path.join(f"{folder_path}", "temp_results"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knob_info"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/gpt"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/web"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources/manual"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/tuning_lake"), exist_ok=True)
+        os.makedirs(os.path.join(f"{folder_path}", f"{args.db}"), exist_ok=True) # optimization results
+        os.makedirs(os.path.join(f"{folder_path}", f"{args.db}", "log"), exist_ok=True)
+    except Exception as e:
+        print(f"Warning: {e}")
     
     source_web_folder = "knowledge_collection/postgres/knowledge_sources/web"
     dest_web_folder = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources")
@@ -72,6 +75,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument("config", type=str, default='') # config file
+    parser.add_argument("--folder", type=str, default='default')
+    parser.add_argument("--process", type=str, default='whole') # mode: whole, knowledge, optimization
     parser.add_argument("--db", type=str)
     parser.add_argument("--database", type=str)
     parser.add_argument("--test", type=str)
@@ -88,9 +93,12 @@ if __name__ == '__main__':
     # Derive output folder from script name
     script_name = args.config.split('.')[0].split('/')[-1]
     current_time = datetime.now().strftime("%Y%m%d%H%M")
-    folder_name = f'{script_name}_{current_time}'
-    # folder_name = "deepseek-v3-overall_202504101244"
+    if args.folder == 'default':
+        folder_name = f'{script_name}_{current_time}'
+    else:
+        folder_name = args.folder # "deepseek-v3-overall_202504101721"
     folder_path = f"./experiments_results/{folder_name}"
+    
     setattr(args, 'result_path', folder_path)
     make_folders(folder_path=folder_path, args=args)
 
@@ -126,76 +134,82 @@ if __name__ == '__main__':
         api_base = os.environ.get("DEEPSEEK_API_BASE")
         api_key = os.environ.get("DEEPSEEK_API_KEY")
 
-    # Select target knobs, write your api_base and api_key
-    dbms._connect(args.database)
-    knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, knowledge_path=folder_path, api_base=api_base, api_key=api_key, model=args.model)
-    knob_selection.select_interdependent_all_knobs()
-
-    # prepare tuning lake and structured knowledge
     # f"/home/knob/revision/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
-    target_knobs_path = os.path.join(folder_path, "knowledge_collection", f"{args.db}", "target_knobs.txt") 
-    target_knobs = []
-    knob_info = json.load(open(os.path.join(folder_path, f"knowledge_collection/{args.db}/knob_info/system_view.json")))
-    with open(target_knobs_path, 'r') as file:
-        lines = file.readlines()
-        for line in lines:
-            knob = line.strip()
-            if knob in knob_info.keys():
-                target_knobs.append(knob)
-            else:
-                log.warning(f"'{knob}' is not in {args.db}")
-                
-    
-    knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
-    knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
-    knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
-    for i, knob in enumerate(target_knobs):
-        print(f"{i}th, total {len(target_knobs)} knobs")
-        try: 
-            process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
-        except KeyError as e:
-            log.error(f"Error for process knob '{knob}': {e}")
-            continue
-    # for i in range(1, 6):
-    #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    #         futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
-    #         for future in concurrent.futures.as_completed(futures):
-    #             print(future.result())
-    #     print(f"Update {i} completed")
+    target_knobs_path = os.path.join(folder_path, "knowledge_collection", f"{args.db}", "target_knobs.txt")
 
-    special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
-    gptuner_coarse = CoarseStage(
-        dbms=dbms, 
-        target_knobs_path=target_knobs_path, 
-        test=args.test, 
-        timeout=args.timeout, 
-        seed=args.seed,
-        special_skill_path=special_skill_path,
-        log=log,
-        results_folder = folder_path 
-    )
+    if args.process == 'whole' or args.process == 'knowledge':
+        # Select target knobs, write your api_base and api_key
+        dbms._connect(args.database)
+        knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, knowledge_path=folder_path, api_base=api_base, api_key=api_key, model=args.model)
+        knob_selection.select_interdependent_all_knobs()
 
-    gptuner_coarse.optimize(
-        name = os.path.join(f".{folder_path}", f"{args.db}", "coarse"),  # f"../optimization_results/{args.db}/coarse/", 
-        trials_number=30, 
-        initial_config_number=10
+        # prepare tuning lake and structured knowledge
+        target_knobs = []
+        knob_info = json.load(open(os.path.join(folder_path, f"knowledge_collection/{args.db}/knob_info/system_view.json")))
+        with open(target_knobs_path, 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                knob = line.strip()
+                if knob in knob_info.keys():
+                    target_knobs.append(knob)
+                else:
+                    log.warning(f"'{knob}' is not in {args.db}")
+                    
+        
+        knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+        knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+        knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
+        for i, knob in enumerate(target_knobs):
+            print(f"{i}th, total {len(target_knobs)} knobs")
+            try: 
+                process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update)
+            except KeyError as e:
+                log.error(f"Error for process knob '{knob}': {e}")
+                continue
+        # for i in range(1, 6):
+        #     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        #         futures = {executor.submit(process_knob, knob, knowledge_pre, knowledge_trans, knowledge_update): knob for knob in target_knobs}
+        #         for future in concurrent.futures.as_completed(futures):
+        #             print(future.result())
+        #     print(f"Update {i} completed")
+    if args.process == 'optimization' and args.folder == 'default':
+        print('Please specify the knowledge folder using --folder.')
+        exit()
+
+    if args.process == 'whole' or args.process == 'optimization':
+        special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        gptuner_coarse = CoarseStage(
+            dbms=dbms, 
+            target_knobs_path=target_knobs_path, 
+            test=args.test, 
+            timeout=args.timeout, 
+            seed=args.seed,
+            special_skill_path=special_skill_path,
+            log=log,
+            results_folder = folder_path 
         )
-    time.sleep(2)
 
-    
-    gptuner_fine = FineStage(
-        dbms=dbms, 
-        target_knobs_path=target_knobs_path, 
-        test=args.test, 
-        timeout=args.timeout, 
-        seed=args.seed,
-        special_skill_path=special_skill_path,
-        log=log,
-        results_folder = folder_path 
-    )
+        gptuner_coarse.optimize(
+            name = os.path.join(f".{folder_path}", f"{args.db}", "coarse"),  # f"../optimization_results/{args.db}/coarse/", 
+            trials_number=30, 
+            initial_config_number=10
+            )
+        time.sleep(2)
 
-    gptuner_fine.optimize(
-        name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
-        trials_number=110 # history trials + new tirals
-    )   
+        
+        gptuner_fine = FineStage(
+            dbms=dbms, 
+            target_knobs_path=target_knobs_path, 
+            test=args.test, 
+            timeout=args.timeout, 
+            seed=args.seed,
+            special_skill_path=special_skill_path,
+            log=log,
+            results_folder = folder_path 
+        )
+
+        gptuner_fine.optimize(
+            name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
+            trials_number=110 # history trials + new tirals
+        )   
 
