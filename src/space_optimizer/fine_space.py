@@ -23,7 +23,7 @@ class FineSpace(DefaultSpace):
         self.factors = [0, 0.25, 0.5]
         self.special_skill_path = special_skill_path
         self.define_search_space()
-        log.info("Fine Configuration Space:", self.search_space)
+        log.info(f"Fine Configuration Space: {self.search_space}")
         self.coarse_path = os.path.join(results_folder, f"{self.dbms.name}/coarse/{self.seed}/runhistory.json") 
 
 

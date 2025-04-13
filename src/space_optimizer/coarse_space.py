@@ -18,7 +18,7 @@ class CoarseSpace(DefaultSpace):
         self.factors = [0, 0.25, 0.5]
         self.special_skill_path = special_skill_path
         self.define_search_space()
-        log.info("Coarse Configuration Space:", self.search_space)
+        log.info(f"Coarse Configuration Space: {self.search_space}")
 
     def define_search_space(self):
         for knob in self.target_knobs:
