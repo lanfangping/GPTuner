@@ -63,7 +63,7 @@ class FineStage(FineSpace):
                 elif isinstance(hp, UniformFloatHyperparameter):
                     transfer_config_value_dict[key] = float(value)
                 else:
-                    transfer_config_value_dict[key] = value
+                    transfer_config_value_dict[key] = eval(value)
             config = Configuration(self.search_space, transfer_config_value_dict)
             smac.runhistory.add(config, config_cost, seed=self.seed)
         smac.optimize()

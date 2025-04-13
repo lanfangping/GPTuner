@@ -1,0 +1,810 @@
+{
+  "hyperparameters": [
+    {
+      "name": "autovacuum",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "200000000",
+        "500050000",
+        "750025000",
+        "1250000000",
+        "1500000000"
+      ],
+      "default": "200000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_multixact_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "75005000",
+        "112502500",
+        "400000000",
+        "612500000",
+        "1075000000"
+      ],
+      "default": "400000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "999",
+        "1499",
+        "1999",
+        "2500",
+        "2999",
+        "3000",
+        "4000"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_flush_after",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "64",
+        "128"
+      ],
+      "default": "64",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_completion_target",
+      "type": "categorical",
+      "choices": [
+        "0.25",
+        "0.375",
+        "0.625",
+        "0.75",
+        "0.9"
+      ],
+      "default": "0.9",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_flush_after",
+      "type": "categorical",
+      "choices": [
+        "16",
+        "24",
+        "32",
+        "88",
+        "144"
+      ],
+      "default": "32",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_timeout",
+      "type": "categorical",
+      "choices": [
+        "300",
+        "450",
+        "600",
+        "750",
+        "900"
+      ],
+      "default": "300",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_deadlock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_effective_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_lock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_pg_stat_statements.max",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "175",
+        "212",
+        "262",
+        "275"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "categorical",
+      "choices": [
+        "524288",
+        "23578125",
+        "23718750",
+        "35367187",
+        "35578125",
+        "572238099",
+        "572449036",
+        "1097319948",
+        "1097460573"
+      ],
+      "default": "524288",
+      "weights": null
+    },
+    {
+      "name": "enable_bitmapscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashjoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexonlyscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_mergejoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_nestloop",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_parallel_append",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_parallel_hash",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partition_pruning",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partitionwise_aggregate",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "enable_partitionwise_join",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "force_parallel_mode",
+      "type": "categorical",
+      "choices": [
+        "off",
+        "on",
+        "regress"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "fsync",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "full_page_writes",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "jit",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "categorical",
+      "choices": [
+        "50366",
+        "65536",
+        "67902",
+        "70268",
+        "72634",
+        "75000"
+      ],
+      "default": "65536",
+      "weights": null
+    },
+    {
+      "name": "max_connections",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "150",
+        "175",
+        "200"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "max_wal_size",
+      "type": "categorical",
+      "choices": [
+        "2",
+        "1024",
+        "536870913",
+        "1073741824"
+      ],
+      "default": "1024",
+      "weights": null
+    },
+    {
+      "name": "pg_stat_statements.track",
+      "type": "categorical",
+      "choices": [
+        "none",
+        "top",
+        "all"
+      ],
+      "default": "all",
+      "weights": null
+    },
+    {
+      "name": "shared_buffers",
+      "type": "categorical",
+      "choices": [
+        "16384",
+        "7875008",
+        "11812504",
+        "18212500",
+        "20675000"
+      ],
+      "default": "16384",
+      "weights": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "temp_buffers",
+      "type": "categorical",
+      "choices": [
+        "1024",
+        "1050",
+        "1525",
+        "2050",
+        "3025",
+        "268436955",
+        "268438455",
+        "536871911",
+        "536872911"
+      ],
+      "default": "1024",
+      "weights": null
+    },
+    {
+      "name": "track_activities",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_counts",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "track_wal_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "transaction_isolation",
+      "type": "categorical",
+      "choices": [
+        "serializable",
+        "repeatable read",
+        "read committed",
+        "read uncommitted"
+      ],
+      "default": "read committed",
+      "weights": null
+    },
+    {
+      "name": "wal_block_size",
+      "type": "categorical",
+      "choices": [
+        "8192"
+      ],
+      "default": "8192",
+      "weights": null
+    },
+    {
+      "name": "wal_buffers",
+      "type": "categorical",
+      "choices": [
+        "512",
+        "999",
+        "1499",
+        "1999",
+        "2500",
+        "2999",
+        "3000",
+        "4000"
+      ],
+      "default": "512",
+      "weights": null
+    },
+    {
+      "name": "wal_compression",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "128",
+        "256",
+        "384",
+        "512"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "work_mem",
+      "type": "categorical",
+      "choices": [
+        "4096",
+        "8704",
+        "12544",
+        "16384"
+      ],
+      "default": "4096",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "10"
+      ],
+      "default": "3",
+      "weights": null
+    },
+    {
+      "name": "deadlock_timeout",
+      "type": "categorical",
+      "choices": [
+        "1000",
+        "1500",
+        "536872411",
+        "1073742823"
+      ],
+      "default": "1000",
+      "weights": null
+    },
+    {
+      "name": "effective_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "50",
+        "75",
+        "100",
+        "150",
+        "325",
+        "400",
+        "550",
+        "600"
+      ],
+      "default": "1",
+      "weights": null
+    },
+    {
+      "name": "lock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1000",
+        "1500",
+        "3000",
+        "4000"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "124",
+        "187",
+        "499",
+        "749",
+        "536871099",
+        "536871661",
+        "1073741948",
+        "1073742323"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "pg_stat_statements.max",
+      "type": "categorical",
+      "choices": [
+        "2550",
+        "3775",
+        "10000",
+        "268439205",
+        "536873411"
+      ],
+      "default": "10000",
+      "weights": null
+    },
+    {
+      "name": "special_autovacuum_max_workers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_deadlock_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_effective_io_concurrency",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_lock_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "0"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "special_pg_stat_statements.max",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "-1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "2500",
+        "3750",
+        "300000",
+        "450000",
+        "536874661",
+        "537320911",
+        "1073744323",
+        "1074041823"
+      ],
+      "default": "0",
+      "weights": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "autovacuum_max_workers",
+      "parent": "control_autovacuum_max_workers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_max_workers",
+      "parent": "control_autovacuum_max_workers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "deadlock_timeout",
+      "parent": "control_deadlock_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_deadlock_timeout",
+      "parent": "control_deadlock_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "effective_io_concurrency",
+      "parent": "control_effective_io_concurrency",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_effective_io_concurrency",
+      "parent": "control_effective_io_concurrency",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "lock_timeout",
+      "parent": "control_lock_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_lock_timeout",
+      "parent": "control_lock_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "pg_stat_statements.max",
+      "parent": "control_pg_stat_statements.max",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_pg_stat_statements.max",
+      "parent": "control_pg_stat_statements.max",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}
