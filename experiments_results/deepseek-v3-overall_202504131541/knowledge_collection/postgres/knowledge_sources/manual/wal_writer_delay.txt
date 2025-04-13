@@ -1,0 +1,1 @@
+The `wal_writer_delay` parameter specifies the sleep interval (default **200ms**) for the WAL writer between flushes, unless interrupted by an async commit, and enforces a minimum delay of **10ms** due to system resolution, with writes only syncing to disk if either the delay has passed or **wal_writer_flush_after**'s WAL threshold is exceeded.

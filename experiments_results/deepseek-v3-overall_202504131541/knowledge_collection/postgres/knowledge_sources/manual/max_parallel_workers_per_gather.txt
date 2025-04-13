@@ -1,0 +1,1 @@
+The `max_parallel_workers_per_gather` knob sets the maximum number of parallel workers (default: 2, with 0 disabling parallelism) a single Gather/Gather Merge node can use, though actual workers may be fewer due to system limits, and each additional worker can significantly increase resource usage (e.g., 4 workers may consume up to 5x more CPU, memory, and I/O).

@@ -1,0 +1,5 @@
+To set `work_mem` in PostgreSQL, allocate **4MB–16MB per concurrent operation** (e.g., `8MB` for moderate workloads or `16MB` for complex sorts/joins), ensuring total usage (`work_mem × max_worker_processes × max_connections`) stays below **25% of available RAM** to avoid swapping. Adjust higher for analytics or lower for OLTP. Example:  
+```sql
+SET work_mem = '16MB';  -- Per-operation limit
+```  
+Monitor with `EXPLAIN ANALYZE` to validate performance gains.

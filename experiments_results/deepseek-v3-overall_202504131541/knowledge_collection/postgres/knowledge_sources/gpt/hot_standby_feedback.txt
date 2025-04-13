@@ -1,0 +1,3 @@
+To set the `hot_standby_feedback` knob in PostgreSQL, enable it (`on`) to allow standby servers to send feedback to the primary, preventing vacuum from removing dead rows still needed by queries on the standby (recommended for replication setups with high write loads or long-running queries on replicas), or disable it (`off`) to avoid potential table bloat on the primary if standby queries are short-lived or infrequent.  
+
+*(Note: There are no specific numeric values for this boolean parameter—it is either `on` or `off`.)*

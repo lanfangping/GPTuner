@@ -1,0 +1,3 @@
+To set the `wal_writer_flush_after` knob in PostgreSQL, adjust it based on your I/O subsystem: for HDDs, use **1MB (default)** to balance write latency and throughput; for SSDs or high-throughput systems, increase it to **2-8MB** (e.g., `8MB`) to reduce flush frequency and improve performance, but monitor WAL-related latency to avoid excessive delays in crash recovery.  
+
+*(Note: Values like `1MB`, `2MB`, etc., are specified in bytes, e.g., `wal_writer_flush_after = '8MB'` in `postgresql.conf`.)*

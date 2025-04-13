@@ -1,0 +1,1 @@
+To set the `enable_bitmapscan` knob in PostgreSQL, typically enable it (`on`) for queries benefiting from bitmap index scans or disable it (`off`) to force alternative plans, with specific benchmarks suggesting `on` for OLTP workloads (e.g., 95% of cases) and `off` for sequential-heavy workloads (e.g., large scans exceeding 10% of table size). Adjust based on query plan analysis.

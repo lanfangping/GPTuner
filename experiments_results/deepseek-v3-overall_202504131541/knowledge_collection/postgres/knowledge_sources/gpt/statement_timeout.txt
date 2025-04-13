@@ -1,0 +1,2 @@
+
+To set the `statement_timeout` in PostgreSQL, choose a value based on your workload: use **30s-1min** for interactive queries, **5-10min** for batch jobs, or **0 (disabled)** for long-running analytics, adjusting higher (e.g., **1h+**) for specific ETL processes if needed. Always test under realistic loads.

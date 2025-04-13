@@ -1,0 +1,3 @@
+To set the `enable_seqscan` knob in PostgreSQL, disable it (set to `off`) for query optimization when indexed access is preferred, but consider enabling it (set to `on`) if sequential scans are faster for large table scans (e.g., when >30% of rows are fetched) or when indexes are ineffective.  
+
+*(Example: `SET enable_seqscan = off;` for indexed queries, or leave `on` for full-table scans.)*

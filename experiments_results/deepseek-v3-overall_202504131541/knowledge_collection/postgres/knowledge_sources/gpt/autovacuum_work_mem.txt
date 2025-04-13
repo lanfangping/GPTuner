@@ -1,0 +1,3 @@
+To set `autovacuum_work_mem`, allocate a value between **64MB to 1GB** (e.g., `128MB` for moderate workloads or `512MB` for large tables), ensuring it does not exceed available system memory or starve other processes, while balancing with `maintenance_work_mem` if manual vacuums are also used. Adjust based on monitoring autovacuum performance and system resource usage.  
+
+*(Example: `SET autovacuum_work_mem = '128MB';` in `postgresql.conf`)*

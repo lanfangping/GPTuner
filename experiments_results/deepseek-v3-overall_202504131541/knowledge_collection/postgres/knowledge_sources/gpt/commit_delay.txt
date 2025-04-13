@@ -1,0 +1,3 @@
+To set the `commit_delay` knob in PostgreSQL, adjust it based on your system's workload: for high-throughput OLTP systems, start with **10–100 microseconds** (default is 0) and increase incrementally (e.g., by 10µs) while monitoring performance, ensuring it stays below `commit_siblings`-scaled thresholds (e.g., delay = `commit_siblings` × 1µs). Avoid excessive delays (e.g., >1ms) to prevent noticeable transaction latency.  
+
+*(Note: `commit_delay` takes effect only if `commit_siblings` (default: 5) concurrent transactions are active.)*

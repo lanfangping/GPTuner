@@ -1,0 +1,1 @@
+To set the `lock_timeout` in PostgreSQL, a common recommendation is to start with **100ms to 300ms** for interactive applications to avoid long waits, **1s to 5s** for batch jobs to allow moderate contention, or higher (e.g., **10s to 30s**) for critical operations requiring complex locks, adjusting based on observed lock contention and query requirements.

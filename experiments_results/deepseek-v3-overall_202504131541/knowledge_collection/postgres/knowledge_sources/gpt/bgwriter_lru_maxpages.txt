@@ -1,0 +1,4 @@
+
+To set `bgwriter_lru_maxpages`, a good starting point is 100-200 pages (typically 800KB-1.6MB, assuming 8KB pages), adjusted based on write workload and system RAM—higher values (e.g., 500-1000) may suit write-heavy systems, while lower values (e.g., 50-100) conserve I/O bandwidth on read-heavy or memory-constrained systems.  
+
+*(Note: The exact range depends on shared_buffers, checkpoint frequency, and observed bgwriter flush rates—monitor `pg_stat_bgwriter` to fine-tune.)*

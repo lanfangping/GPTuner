@@ -1,0 +1,1 @@
+To set the `wal_writer_delay` knob in PostgreSQL, adjust it based on your workload: for write-heavy systems, use a lower value like **10ms** (default) to reduce WAL flush latency, while for write-light systems, a higher value like **200ms** can reduce overhead, but avoid exceeding **1s** to prevent checkpoint spikes.

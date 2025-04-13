@@ -1,0 +1,1 @@
+To set the `enable_hashagg` knob in PostgreSQL, typically enable it (`on` or `true`) for large aggregations (e.g., >10,000 rows) to leverage hash-based aggregation for better performance, or disable it (`off` or `false`) for small datasets (e.g., <1,000 rows) where sorting may be faster due to lower overhead. Adjust based on query plans and testing.

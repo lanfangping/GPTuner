@@ -1,0 +1,1 @@
+For the PostgreSQL knob `vacuum_cost_delay`, set it to **2–10 milliseconds** (default is 0) to throttle autovacuum I/O and reduce contention, adjusting lower (e.g., 2ms) for SSDs or higher (e.g., 10ms) for HDDs based on workload tolerance.

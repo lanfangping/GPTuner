@@ -1,0 +1,3 @@
+To set the `deadlock_timeout` in PostgreSQL, a typical value is **1s to 3s** (default: **1s**), balancing between avoiding unnecessary delays in deadlock detection and minimizing overhead; for high-contention systems, increase it cautiously (e.g., **5s–10s**) if false deadlock checks impact performance.  
+
+*(Note: Values are milliseconds; adjust based on workload observability.)*

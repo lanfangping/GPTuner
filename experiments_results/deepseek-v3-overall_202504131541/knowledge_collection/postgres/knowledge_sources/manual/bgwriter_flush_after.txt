@@ -1,0 +1,1 @@
+The `bgwriter_flush_after` knob forces the OS to write data to storage after the background writer accumulates more than the specified amount (default: 512kB on Linux, 0 elsewhere; range: 0-2MB, where 0 disables forced writeback), reducing checkpoint stalls but potentially degrading performance for workloads between shared_buffers and the OS page cache.

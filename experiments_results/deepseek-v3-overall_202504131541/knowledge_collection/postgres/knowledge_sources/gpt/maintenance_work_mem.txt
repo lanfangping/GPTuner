@@ -1,0 +1,3 @@
+To set the `maintenance_work_mem` knob in PostgreSQL, allocate approximately **5% of total system RAM** (e.g., **1GB for a 20GB RAM server**), but **keep it below 2GB** unless performing large maintenance tasks (e.g., **VACUUM FULL** or **index creation**), where values up to **4GB–8GB** may be justified for high-memory systems.  
+
+*(Adjust based on workload: smaller values for frequent small operations, larger for bulk operations.)*

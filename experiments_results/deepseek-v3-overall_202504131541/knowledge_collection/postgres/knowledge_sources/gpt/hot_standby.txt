@@ -1,0 +1,3 @@
+To set the `hot_standby` knob in PostgreSQL, enable it (`on`) for standby servers to allow read-only queries during recovery, typically with no performance penalty, while keeping it disabled (`off`) on primary servers where it is irrelevant; no numeric tuning is required as it is a boolean parameter (`on`/`off`).  
+
+*(Note: This assumes PostgreSQL 9.0+, where `hot_standby` is a binary setting; later versions may deprecate it in favor of `recovery_target` or other configurations.)*

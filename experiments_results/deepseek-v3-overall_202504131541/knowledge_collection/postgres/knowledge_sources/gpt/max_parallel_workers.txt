@@ -1,0 +1,1 @@
+To set `max_parallel_workers` in PostgreSQL, a common guideline is to configure it to **50-75% of the total CPU cores** (e.g., 4-6 for an 8-core system), ensuring it does not exceed `max_worker_processes` and leaves resources for other operations. Adjust based on workload parallelism needs and system contention.

@@ -1,0 +1,1 @@
+To set `autovacuum_analyze_threshold`, a good starting point is **50 + (0.1 × table size in tuples)**, meaning the autovacuum analyzer triggers after 50 row inserts/updates/deletes plus 10% of the table's row count (e.g., for a 10,000-row table, the threshold would be 50 + 1,000 = 1,050 changes). Adjust based on workload volatility and monitoring.

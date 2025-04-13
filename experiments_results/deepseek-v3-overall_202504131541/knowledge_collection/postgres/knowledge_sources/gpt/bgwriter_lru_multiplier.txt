@@ -1,0 +1,1 @@
+To set the `bgwriter_lru_multiplier` knob in PostgreSQL, adjust it between **2.0** (default) and **10.0**, increasing it if the background writer isn't keeping up with dirty buffers (e.g., try **4.0-6.0** for high-write workloads) or decreasing it if it's causing unnecessary I/O overhead. Monitor `pg_stat_bgwriter` (e.g., `buffers_clean` vs. `buffers_backend`) to fine-tune.

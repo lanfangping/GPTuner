@@ -1,0 +1,1 @@
+To set the `full_page_writes` knob in PostgreSQL, disable it (`full_page_writes = off`) for a performance boost if your storage system has atomic writes (e.g., battery-backed RAID or ZFS with `sync=always`), but leave it enabled (`full_page_writes = on`, the default) for safety on standard systems to prevent partial-page corruption after crashes.

@@ -1,0 +1,3 @@
+To set `autovacuum_multixact_freeze_max_age`, choose a value between **100 million (100,000,000)** and **200 million (200,000,000)** (default: 400 million) based on your multixact activity, ensuring it is lower than `multixact_freeze_max_age` (default: 400 million) to prevent transaction ID wraparound while balancing autovacuum frequency.  
+
+*(Adjust lower for high multixact churn or smaller clusters, or higher for large clusters with infrequent multixact updates.)*

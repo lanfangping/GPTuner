@@ -1,0 +1,1 @@
+The `hot_standby_feedback` knob, when enabled (default: `off`), allows a standby PostgreSQL server to send feedback to the primary every `wal_receiver_status_interval` (default: 10 seconds) to prevent query cancellations due to cleanup records, but may cause primary database bloat by delaying vacuuming of dead rows.

@@ -1,0 +1,1 @@
+To set `checkpoint_completion_target` in PostgreSQL, typically configure it to **0.7–0.9** (70–90%) to balance I/O load during checkpoints while avoiding prolonged recovery, with **0.9** being common for write-heavy workloads to spread writes smoothly.

@@ -1,0 +1,1 @@
+For the `synchronous_commit` knob in PostgreSQL, set it to `off` (or `local`) for higher performance (accepting potential data loss on crash), `on` (default) for full durability, or `remote_apply`/`remote_write` for synchronous standby replication (with added latency). Use `off` for bulk loads (e.g., 2x faster writes) but `on` for critical transactions.

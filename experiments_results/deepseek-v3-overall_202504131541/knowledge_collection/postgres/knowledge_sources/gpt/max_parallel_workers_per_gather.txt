@@ -1,0 +1,3 @@
+To set `max_parallel_workers_per_gather`, a good starting point is **2–4 workers** for systems with 4–8 CPU cores, scaling up to **half the available CPU cores** (e.g., 8 workers for 16 cores), but ensure it doesn’t exceed `max_worker_processes` and leaves resources for other queries. Adjust based on workload concurrency and monitoring.  
+
+*(Example: For a 16-core server running analytical queries with low concurrency, set to 8; for OLTP with high concurrency, limit to 2–4.)*

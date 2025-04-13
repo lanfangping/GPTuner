@@ -1,0 +1,3 @@
+To set the `fsync` knob in PostgreSQL, typically enable it (`fsync = on`) for data durability (default), but if performance is critical and you can tolerate some data loss (e.g., during crashes), disable it (`fsync = off`)—though this is **not recommended for production**. For specific tuning, consider intermediate options like `synchronous_commit = off` or adjusting `wal_writer_delay` (default: 200ms) instead of disabling `fsync` entirely.  
+
+*(Note: Disabling `fsync` may improve write throughput by 2x or more in benchmarks, but risks corrupting the database on power loss or OS crashes.)*

@@ -1,0 +1,3 @@
+To set the `shared_preload_libraries` knob in PostgreSQL, specify a comma-separated list of required extensions (e.g., `'pg_stat_statements, auto_explain'`), ensuring the total size does not exceed the `shared_buffers` limit (typically 25-40% of available RAM, e.g., 4GB for a 16GB system), and restart the server for changes to take effect.  
+
+*(Adjust extensions and `shared_buffers` proportion based on workload and system resources.)*
