@@ -1,0 +1,1 @@
+The 'checkpoint_flush_after' parameter specifies the amount of data, ranging from 0 to 2MB (default 256kB on Linux and 0 elsewhere), that triggers forced writeback to underlying storage during a checkpoint to limit kernel page cache dirty data, potentially reducing transaction latency but possibly degrading performance for certain workloads.

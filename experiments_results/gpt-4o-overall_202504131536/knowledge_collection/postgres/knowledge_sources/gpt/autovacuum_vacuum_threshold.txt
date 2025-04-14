@@ -1,0 +1,1 @@
+The value for the knob 'autovacuum_vacuum_threshold' in PostgreSQL is typically set based on the formula: `VACUUM: vacuum threshold + ((vacuum scale factor) * (number of tuples))`, with a common default being 50, which means that the autovacuum process will be triggered after changes (inserts, updates, or deletes) to at least 50 rows in a table.

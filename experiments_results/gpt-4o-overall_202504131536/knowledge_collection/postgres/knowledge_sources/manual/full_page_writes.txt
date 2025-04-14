@@ -1,0 +1,1 @@
+The 'full_page_writes' parameter, when enabled by default, ensures data integrity by writing the entire content of each disk page to WAL during its first modification post-checkpoint, at the cost of increased WAL data; disabling it may speed up operations but risks data corruption similar to disabling fsync.

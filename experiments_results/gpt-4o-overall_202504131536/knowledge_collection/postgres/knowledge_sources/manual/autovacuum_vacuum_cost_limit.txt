@@ -1,0 +1,1 @@
+The `autovacuum_vacuum_cost_limit` specifies the cost limit for automatic VACUUM operations, defaults to -1 for using the regular `vacuum_cost_limit` value, is distributed among autovacuum workers to not exceed the set value, and can only be configured in `postgresql.conf` or the server command line, with individual table settings possible via storage parameters.

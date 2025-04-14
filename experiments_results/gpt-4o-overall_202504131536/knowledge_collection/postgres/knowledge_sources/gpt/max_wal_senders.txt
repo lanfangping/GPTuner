@@ -1,0 +1,1 @@
+The "max_wal_senders" in PostgreSQL should be set based on the number of concurrent streaming replication connections you require, typically ranging from 2 to 10, but it should be set to at least the number of replica servers you plan to use, plus some additional room for future scalability if necessary.

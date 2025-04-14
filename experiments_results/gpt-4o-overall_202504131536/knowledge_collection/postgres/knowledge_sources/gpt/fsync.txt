@@ -1,0 +1,1 @@
+In PostgreSQL, the 'fsync' knob should generally be set to 'on' (the default) to ensure data integrity by forcing the operating system to flush data to disk, with recommendations to only set it to 'off' temporarily for performance testing or non-critical environments, as this can risk data loss in the event of a crash.

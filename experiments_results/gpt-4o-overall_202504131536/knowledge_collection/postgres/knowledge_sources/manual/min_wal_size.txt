@@ -1,0 +1,1 @@
+The 'min_wal_size' parameter, defaulting to 80 MB, ensures that as long as WAL disk usage remains below this threshold, old WAL files are recycled at checkpoints instead of being removed, allowing enough reserved space to accommodate spikes in usage, and it must be set in the postgresql.conf file or on the server command line.
