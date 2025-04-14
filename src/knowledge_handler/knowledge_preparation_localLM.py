@@ -163,7 +163,7 @@ class KGPre(LLM):
         """    
         )
         self.log.info(f"greedy_summarize - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.log.info(f"greedy_summarize - response: {answer}")
         self.token += self.calc_token()
         return answer
@@ -176,7 +176,7 @@ class KGPre(LLM):
         """    
         )
         self.log.info(f"check_summary - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.log.info(f"check_summary - response: {answer}")
         self.token += self.calc_token()
         return answer
@@ -190,7 +190,7 @@ class KGPre(LLM):
         """    
         )
         self.log.info(f"revise_summarize - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.log.info(f"revise_summarize - response: {answer}")
         self.token += self.calc_token()
         return answer

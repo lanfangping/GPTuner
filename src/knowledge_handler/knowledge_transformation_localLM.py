@@ -238,7 +238,7 @@ class KGTrans(LLM):
             Now think step by step and give me the suggested upper bound. The answer should either be a number or null. Just return the answer, do not provide other information.
         """)
         self.log.info(f"mysql_provide_max - prompt - {knob}: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, json_format=False)
         self.log.info(f"mysql_provide_max - response - {knob}: {answer}")
         self.token += self.calc_token()
         with open(os.path.join(self.max_path, knob+".txt"), 'w') as file:

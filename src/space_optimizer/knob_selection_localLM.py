@@ -9,8 +9,8 @@ from knowledge_handler.gpt import LLM
 from config_recommender.workload_runner import BenchbaseRunner
 
 class KnobSelection(LLM):
-    def __init__(self, db, dbms, benchmark, knowledge_path, model='llama3-8b'):
-        super().__init__(model=model)
+    def __init__(self, db, dbms, benchmark, knowledge_path, access_token, model='llama3-8b'):
+        super().__init__(access_token=access_token, model=model)
         self.db = db
         self.dbms = dbms
         self.benchmark = benchmark
@@ -53,16 +53,17 @@ class KnobSelection(LLM):
                 {{
                     "knob_name": {{score}}    // fill "score" with a number between 0 and 1
                 }}
-                If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
+                If no knobs are suggested, return an empty dict in json format. 
                 """)
             self.log.info(f"select_on_system_level - {i}th prompt: {prompt}")
             json_result = self.get_GPT_response_json(prompt, json_format=True)
             self.log.info(f"select_on_system_level - {i}th response: {json_result}")
-            self.token += self.calc_token(prompt, json_result)
-            self.money += self.calc_money(prompt, json_result)
-            selected_knobs.update(json_result)
+            
+            json_result = self._unwrap_json(json_result)
+            self.log.info(f"select_on_system_level - unwarp {i}th response: {json_result}")
 
-        print(selected_knobs)
+            self.token += self.calc_token()
+            selected_knobs.update(json_result)
         return selected_knobs
 
     def select_on_workload_level(self):
@@ -78,15 +79,18 @@ class KnobSelection(LLM):
                 {{
                     "knob_name": {{score}}    // fill "score" with a number between 0 and 1
                 }}
-                If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
+                If no knobs are suggested, return an empty dict in json format. 
                 """)
             self.log.info(f"select_on_workload_level - {i}th prompt: {prompt}")
             json_result = self.get_GPT_response_json(prompt, json_format=True)
             self.log.info(f"select_on_workload_level - {i}th response: {json_result}")
-            self.token += self.calc_token(prompt, json_result)
-            self.money += self.calc_money(prompt, json_result)
+
+            json_result = self._unwrap_json(json_result)
+            self.log.info(f"select_on_system_level - unwarp {i}th response: {json_result}")
+
+            self.token += self.calc_token()
             selected_knobs.update(json_result)
-        print(selected_knobs)
+
         return selected_knobs
 
     def get_top_tpch_query(self, raw_file, n=5):
@@ -136,13 +140,15 @@ class KnobSelection(LLM):
                     {{
                         "knob_name": {{score}}    // fill "score" with a number between 0 and 1
                     }}
-                    If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
+                    If no knobs are suggested, return an empty dict in json format.
                     """)
                 self.log.info(f"select_on_query_level - {j}th query, {i}th prompt: {prompt}")
                 json_result = self.get_GPT_response_json(prompt, json_format=True)
                 self.log.info(f"select_on_query_level - {j}th query, {i}th response: {json_result}")
-                self.token += self.calc_token(prompt, json_result)
-                self.money += self.calc_money(prompt, json_result)
+                json_result = self._unwrap_json(json_result)
+                self.log.info(f"select_on_query_level - {j}th query, unwrap {i}th response: {json_result}")
+
+                self.token += self.calc_token()
                 selected_knobs.update(json_result)
         print(selected_knobs)
         return selected_knobs
@@ -179,16 +185,15 @@ class KnobSelection(LLM):
         Now let us think step by step and give me result in json format, 
         {{
            "think_procedure": {{procedure}}    // fill "procedure" with your "think step by step procedure"
-           "knob_list": {{knob_list}}          // fill "knob_list" with a list of the name of interdependent knobs
+           "knob_list": [knob_list]          // fill "knob_list" with a list of the name of interdependent knobs
         }}
-        If no knobs are interdependent, just fill "knob_list" with "None". 
+        If no knobs are interdependent, just fill "knob_list" with an empty dict. 
         """
         )
         self.log.info(f"select_interdependent_all_knobs - prompt: {prompt}")
         json_result = self.get_GPT_response_json(prompt, json_format=True)
         self.log.info(f"select_interdependent_all_knobs - response: {json_result}")
-        self.token += self.calc_token(prompt, json_result)
-        self.money += self.calc_money(prompt, json_result)
+        self.token += self.calc_token()
         if json_result.get("knob_list") != 'None':
             selected_knobs = list(selected_knobs) + json_result["knob_list"]
         else:
@@ -199,4 +204,10 @@ class KnobSelection(LLM):
                 file.write(line + "\n")
         self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
         return selected_knobs
+    
+    def _unwrap_json(self, json_data):
+        if len(json_data.keys()) == 1: # process json_result, unwrap
+            key = list(json_data.keys())[0]
+            json_data = json_data[key]
+        return json_data
         
