@@ -1,0 +1,1 @@
+To set the `work_mem` parameter in PostgreSQL, start with a value of approximately 4MB to 8MB per connection, and adjust upwards, typically not exceeding 64MB, based on the complexity of your queries and available memory resources, as each sorting operation and hash table during query execution can consume this memory concurrently per connection.

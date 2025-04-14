@@ -1,0 +1,1 @@
+To optimize the `enable_nestloop` parameter in PostgreSQL, set its value to `on` (true) for queries where nested loops are expected to perform well (typically for smaller tables or selective joins), and consider setting it to `off` (false) when dealing with larger datasets or when performance profiling indicates that other join methods outperform nested loops.

@@ -1,0 +1,1 @@
+To enable parallel append in PostgreSQL, set the configuration parameter `enable_parallel_append` to `on` in the `postgresql.conf` file or use the SQL command `SET enable_parallel_append = on;`, which allows the query planner to utilize multiple workers for appending data when performing operations that support parallelism, typically benefiting queries processing large data sets.

@@ -1,0 +1,1 @@
+The 'wal_buffers' knob determines the shared memory allocated for write-ahead log (WAL) data not yet written to disk, defaulting to about 3% of shared_buffers (minimum 64kB, maximum 16MB), and while it can be manually adjusted, values below 32kB are treated as 32kB; ideally, setting it to a few megabytes can enhance write performance on busy servers.

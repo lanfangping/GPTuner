@@ -1,0 +1,1 @@
+To set the `in_hot_standby` parameter in PostgreSQL, configure it to `on` to allow read-only queries on the standby server, and ensure the `max_standby_archive_delay` and `max_standby_streaming_delay` are set to appropriate values (typically 30 seconds or more) to control how long the standby can wait before canceling queries in favor of applying WAL changes.

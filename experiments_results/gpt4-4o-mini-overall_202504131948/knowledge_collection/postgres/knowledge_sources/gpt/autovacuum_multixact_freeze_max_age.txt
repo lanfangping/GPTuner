@@ -1,0 +1,1 @@
+To set the `autovacuum_multixact_freeze_max_age` knob in PostgreSQL, you should configure it to a value that balances performance and the risk of transaction ID wraparound, typically between 150 million and 1 billion (e.g., 200 million) to ensure regular vacuuming without excessive resource consumption.

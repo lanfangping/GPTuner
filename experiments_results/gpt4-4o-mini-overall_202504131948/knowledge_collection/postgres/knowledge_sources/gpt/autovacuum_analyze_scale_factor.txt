@@ -1,0 +1,1 @@
+Set the `autovacuum_analyze_scale_factor` value in PostgreSQL to a default of 0.1 (10% of the number of live tuples) to trigger an automatic ANALYZE when 10% of the table's rows have been modified, but adjust it lower (e.g., to 0.05 or 5%) for tables with high update rates to ensure more frequent analysis.

@@ -1,0 +1,1 @@
+To enable bitmap scans in PostgreSQL, set the `enable_bitmapscan` configuration parameter to `on` by executing the SQL command `SET enable_bitmapscan = ON;`, or adjust the `postgresql.conf` file to include `enable_bitmapscan = on`, which optimizes query performance for certain access patterns, particularly when the effective cache size is around 2GB or more.

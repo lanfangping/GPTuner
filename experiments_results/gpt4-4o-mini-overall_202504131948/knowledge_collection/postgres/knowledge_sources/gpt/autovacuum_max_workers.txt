@@ -1,0 +1,1 @@
+To optimally set the 'autovacuum_max_workers' parameter in PostgreSQL, configure it to a value between 2 and 10, with 2-3 workers for smaller databases (up to ~10GB), 4-5 for medium databases (10GB to 100GB), and 6-10 for larger databases (over 100GB), considering the total number of CPU cores available on the server to avoid resource contention.

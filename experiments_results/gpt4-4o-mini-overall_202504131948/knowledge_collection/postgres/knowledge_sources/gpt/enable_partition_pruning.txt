@@ -1,0 +1,1 @@
+To optimize query performance in PostgreSQL, set the knob `enable_partition_pruning` to `on` (i.e., `SET enable_partition_pruning = true;`) to enable automatic pruning of partitions during query execution, which is particularly beneficial for queries that involve partitioned tables, especially when the partitioning key is involved in the query predicates.
