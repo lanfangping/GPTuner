@@ -1,0 +1,285 @@
+[2025-04-13 20:44:57,698 INFO] [run_gptuner.py:<module>:107] Input arguments: Namespace(config='src/exp_configs/gpt-4-previous.yml', folder='gpt-4-previous-good-knowledge', process='optimization', db='postgres', database='postgres', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/gpt-4-previous-good-knowledge', model='gpt-4', restart_cmd='echo 251314 | sudo -S docker restart tpcc_workload', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-04-13 20:46:27,802 INFO] [coarse_space.py:__init__:21] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.1}, Default: 0.1
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {200000000}, Default: 200000000
+    autovacuum_max_workers, Type: Categorical, Choices: {3, 4, 5}, Default: 3
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {400000000}, Default: 400000000
+    autovacuum_naptime, Type: Categorical, Choices: {60}, Default: 60
+    autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {2.0, 6.0, 8.0, 11.0, 12.5, 15.0, 15.5, 20.0}, Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1}, Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: Categorical, Choices: {0.2}, Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {499, 749, 1000, 536871661, 1073742323}, Default: 1000
+    autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.2}, Default: 0.2
+    autovacuum_vacuum_threshold, Type: Categorical, Choices: {50, 162, 275, 387, 500}, Default: 50
+    autovacuum_work_mem, Type: Categorical, Choices: {-1}, Default: -1
+    bgwriter_flush_after, Type: Categorical, Choices: {32, 48, 64}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {100, 325, 550, 775, 1000}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {2.0}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.9}, Default: 0.9
+    checkpoint_timeout, Type: Categorical, Choices: {300, 465, 682, 22275, 43650}, Default: 300
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_lock_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 250, 375, 500, 750, 2650, 2875, 3250, 5100, 5250, 5500}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 1071341, 1618394, 2165447, 2712500}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {1}, Default: 1
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: Categorical, Choices: {1.0, 2.75, 4.5, 6.25, 8.0}, Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    lock_timeout, Type: Categorical, Choices: {0}, Default: 0
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 3875512, 4875000, 5812756, 6312500}, Default: 65536
+    max_connections, Type: Categorical, Choices: {12, 18, 30, 45, 100, 65553, 65580, 131083, 131101}, Default: 100
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {1, 2, 12, 13, 18, 24, 25, 30, 36}, Default: 2
+    max_wal_size, Type: Categorical, Choices: {1024}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8, 9, 10}, Default: 8
+    shared_buffers, Type: Categorical, Choices: {16384, 484383, 726566, 1114062, 1259375}, Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_multixact_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: -1.0
+    special_autovacuum_vacuum_cost_limit, Type: Constant, Value: -1
+    special_autovacuum_vacuum_insert_threshold, Type: Constant, Value: -1
+    special_autovacuum_vacuum_threshold, Type: Constant, Value: -1
+    special_autovacuum_work_mem, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: -1
+    special_checkpoint_timeout, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_lock_timeout, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_statement_timeout, Type: Constant, Value: 0
+    special_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_vacuum_cost_limit, Type: Constant, Value: -1
+    special_vacuum_freeze_min_age, Type: Constant, Value: 0
+    special_vacuum_multixact_freeze_min_age, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    statement_timeout, Type: Categorical, Choices: {0}, Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    vacuum_cost_delay, Type: Categorical, Choices: {0.0, 0.25, 0.375, 0.4, 0.6000000000000001, 0.625, 0.75, 0.8500000000000001, 0.9}, Default: 0.0
+    vacuum_cost_limit, Type: Categorical, Choices: {200}, Default: 200
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000}, Default: 50000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {5000000}, Default: 5000000
+    wal_buffers, Type: Categorical, Choices: {512, 58127, 87188, 152723, 189196}, Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: Categorical, Choices: {4096, 500032, 750016, 1137500, 1275000}, Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '0'
+    autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '0'
+    autovacuum_work_mem | control_autovacuum_work_mem == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_timeout | control_checkpoint_timeout == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    lock_timeout | control_lock_timeout == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '1'
+    special_autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '1'
+    special_autovacuum_work_mem | control_autovacuum_work_mem == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_timeout | control_checkpoint_timeout == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_lock_timeout | control_lock_timeout == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_freeze_min_age | control_vacuum_freeze_min_age == '1'
+    special_vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    statement_timeout | control_statement_timeout == '0'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_freeze_min_age | control_vacuum_freeze_min_age == '0'
+    vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '0'
+    wal_buffers | control_wal_buffers == '0'
+
+[2025-04-13 21:20:09,933 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.1
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_max_workers, Type: UniformInteger, Range: [3, 5], Default: 3
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [10000, 2000000000], Default: 400000000
+    autovacuum_naptime, Type: UniformInteger, Range: [1, 2147483], Default: 60
+    autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [2.0, 20.0], Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 10000], Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: UniformInteger, Range: [-1, 2147483647], Default: 1000
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_threshold, Type: UniformInteger, Range: [50, 500], Default: 50
+    autovacuum_work_mem, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 64], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [100, 1000], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [0.0, 10.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 86400], Default: 300
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_lock_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [524288, 2712500], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: UniformFloat, Range: [1.0, 8.0], Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    lock_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    maintenance_work_mem, Type: UniformInteger, Range: [1024, 6312500], Default: 65536
+    max_connections, Type: UniformInteger, Range: [1, 262143], Default: 100
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 48], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [8, 10], Default: 8
+    shared_buffers, Type: UniformInteger, Range: [16, 1550000], Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_multixact_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: -1.0
+    special_autovacuum_vacuum_cost_limit, Type: Constant, Value: -1
+    special_autovacuum_vacuum_insert_threshold, Type: Constant, Value: -1
+    special_autovacuum_vacuum_threshold, Type: Constant, Value: -1
+    special_autovacuum_work_mem, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: -1
+    special_checkpoint_timeout, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_lock_timeout, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_statement_timeout, Type: Constant, Value: 0
+    special_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_vacuum_cost_limit, Type: Constant, Value: -1
+    special_vacuum_freeze_min_age, Type: Constant, Value: 0
+    special_vacuum_multixact_freeze_min_age, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    statement_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    vacuum_cost_delay, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.0
+    vacuum_cost_limit, Type: UniformInteger, Range: [1, 10000], Default: 200
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 50000000
+    vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 5000000
+    wal_buffers, Type: UniformInteger, Range: [4, 262143], Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: UniformInteger, Range: [64, 1550000], Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '0'
+    autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '0'
+    autovacuum_work_mem | control_autovacuum_work_mem == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_timeout | control_checkpoint_timeout == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    lock_timeout | control_lock_timeout == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '1'
+    special_autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '1'
+    special_autovacuum_work_mem | control_autovacuum_work_mem == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_timeout | control_checkpoint_timeout == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_lock_timeout | control_lock_timeout == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_freeze_min_age | control_vacuum_freeze_min_age == '1'
+    special_vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    statement_timeout | control_statement_timeout == '0'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_freeze_min_age | control_vacuum_freeze_min_age == '0'
+    vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '0'
+    wal_buffers | control_wal_buffers == '0'
+
