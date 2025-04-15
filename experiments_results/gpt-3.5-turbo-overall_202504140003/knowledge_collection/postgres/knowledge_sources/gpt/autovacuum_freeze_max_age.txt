@@ -1,0 +1,1 @@
+To set the value for 'autovacuum_freeze_max_age' in PostgreSQL, consider setting it to half the estimated number of transactions per day multiplied by the average age of rows in the database, ensuring it is neither too low to cause excessive vacuuming nor too high to risk transaction ID wraparound.

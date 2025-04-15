@@ -82,7 +82,11 @@ class DefaultSpace:
             'hour': 60 * 60000,
             'day': 24 * 60 * 60000,
         }
-        return float(number) * unit_to_size[unit]
+        if unit in unit_to_size.keys():
+            return float(number) * unit_to_size[unit]
+        else:
+            print(f"unknown unit '{unit}', return 1")
+            return 1
     
     def _type_transfer(self, knob_type, value):
         value = str(value)

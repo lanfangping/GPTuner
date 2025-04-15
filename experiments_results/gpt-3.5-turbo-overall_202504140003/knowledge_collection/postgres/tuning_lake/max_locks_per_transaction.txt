@@ -1,0 +1,1 @@
+{'suggestion': 'Consider adjusting the max_locks_per_transaction parameter to accommodate transactions involving many different tables. The default value of 64 may need to be increased based on the number of distinct objects that can be locked at any one time, calculated as max_locks_per_transaction * (max_connections + max_prepared_transactions).'}

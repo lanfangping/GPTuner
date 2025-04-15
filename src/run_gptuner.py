@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
     # store the optimization results
     # Derive output folder from script name
-    script_name = args.config.split('.')[0].split('/')[-1]
+    script_name = ".".join(args.config.split('.')[:-1]).split('/')[-1]
     current_time = datetime.now().strftime("%Y%m%d%H%M")
     if args.folder == 'default':
         folder_name = f'{script_name}_{current_time}'

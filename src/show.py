@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 
 line_styles = [
     {'color': 'purple', 'linestyle': '-', 'marker': 'o'},
-    {'color': 'red', 'linestyle': '-', 'marker': 'o'},
+    {'color': 'orange', 'linestyle': '-', 'marker': 'o'},
     {'color': 'darkorange', 'linestyle': '-', 'marker': '^'},
     {'color': 'teal', 'linestyle': '-', 'marker': 'v'},
-    {'color': 'orange', 'linestyle': '-', 'marker': '^'},
+    {'color': 'red', 'linestyle': '-', 'marker': '^'},
     {'color': 'navy', 'linestyle': '-', 'marker': 'v'},
     {'color': 'black', 'linestyle': '--', 'marker': 's'},
     {'color': 'green', 'linestyle': ':', 'marker': 'D'},
@@ -62,20 +62,20 @@ def show(data_lists:list, labels:list, output_file:str, num_plots:int=1, type:st
         style = line_styles[i%len(line_styles)]
         
         # Plot the line for past best throughputs
-        plt.plot(range(len(historical_best_performance)), historical_best_performance, label=label, color=style['color'], linestyle=style['linestyle'])
+        plt.plot(range(len(historical_best_performance)), historical_best_performance, label=label, markevery=10, **style)
 
-        # Plot the scattered dots for every 10 iterations
-        dots = []
-        dots_index = []
-        for i in range(len(historical_best_performance)):
-            if i % 10 == 0:
-                dots_index.append(i)
-                dots.append(historical_best_performance[i])
+        # # Plot the scattered dots for every 10 iterations
+        # dots = []
+        # dots_index = []
+        # for i in range(len(historical_best_performance)):
+        #     if i % 10 == 0:
+        #         dots_index.append(i)
+        #         dots.append(historical_best_performance[i])
 
-        if len(historical_best_performance) % 10 != 0:
-            dots.append(historical_best_performance[-1]) # add the last dot when the number of data is not 10x
-            dots_index.append(len(historical_best_performance)-1)
-        plt.scatter(dots_index, dots, color=style['color'], marker=style['marker'])
+        # if len(historical_best_performance) % 10 != 0:
+        #     dots.append(historical_best_performance[-1]) # add the last dot when the number of data is not 10x
+        #     dots_index.append(len(historical_best_performance)-1)
+        # plt.scatter(dots_index, dots, color=style['color'], marker=style['marker'])
 
     # Updated x-axis label
     plt.xlabel('Iteration')
@@ -86,17 +86,25 @@ def show(data_lists:list, labels:list, output_file:str, num_plots:int=1, type:st
 
 if __name__ == '__main__':
     
-    num_plots = 3
+    num_plots = 6
     files = [
         ("experiments_results/deepseek-v3-overall_202504101721", 100),
-        ("experiments_results/gpt-4o-overall_202504102122", 100), 
-        ("experiments_results/gpt4-4o-mini-overall_202504101933", 100)
+        ("experiments_results/gpt-4o-overall_202504102122", 100),
+        ("experiments_results/gpt-4o-overall_202504131536", 100), 
+        ("experiments_results/gpt4-4o-mini-overall_202504101933", 100),
+        ("experiments_results/gpt-4-previous-good-knowledge", 100),
+        ("experiments_results/gpt-3.5-turbo-overall_202504140003", 100),
     ]
     labels = [
-        "Deepseek-v3", "GPT-4o", "GPT-4o-mini"
+        "Deepseek-v3", 
+        "GPT-4o-1", 
+        "GPT-4o-2", 
+        "GPT-4o-mini",
+        "Previous Good(GPT-4)",
+        "GPT-3.5-turbo"
     ]
     output_type = 'throughput'
-    output_file = "experiments_results/figures/end_to_end_study/overall_compare.png"
+    output_file = "experiments_results/figures/end_to_end_study/overall_compare_6.png"
     data_lists = []
     for i in range(num_plots):
         folder_name, seed = files[i]

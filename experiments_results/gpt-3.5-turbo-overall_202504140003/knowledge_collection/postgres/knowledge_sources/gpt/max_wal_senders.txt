@@ -1,0 +1,1 @@
+To set the value for the 'max_wal_senders' knob in postgres, evaluate the number of standby servers that need to connect to the primary server and set the value to at least (number of standby servers + 1) to ensure a sufficient number of WAL senders.

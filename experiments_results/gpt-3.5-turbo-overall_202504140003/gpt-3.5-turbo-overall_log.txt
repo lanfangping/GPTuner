@@ -1,0 +1,351 @@
+[2025-04-14 00:03:20,722 INFO] [run_gptuner.py:<module>:107] Input arguments: Namespace(config='src/exp_configs/gpt-3.5-turbo-overall.yml', folder='default', process='whole', db='postgres', database='postgres', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/gpt-3.5-turbo-overall_202504140003', model='gpt-3.5-turbo-0125', restart_cmd='echo 251314 | sudo -S docker restart tpcc_workload', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-04-14 08:25:11,525 INFO] [run_gptuner.py:<module>:107] Input arguments: Namespace(config='src/exp_configs/gpt-3.5-turbo-overall.yml', folder='gpt-3.5-turbo-overall_202504140003', process='whole', db='postgres', database='postgres', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/gpt-3.5-turbo-overall_202504140003', model='gpt-3.5-turbo-0125', restart_cmd='echo 251314 | sudo -S docker restart tpcc_workload', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-04-14 10:44:27,884 INFO] [run_gptuner.py:<module>:107] Input arguments: Namespace(config='src/exp_configs/gpt-3.5-turbo-overall.yml', folder='gpt-3.5-turbo-overall_202504140003', process='whole', db='postgres', database='postgres', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/gpt-3.5-turbo-overall_202504140003', model='gpt-3.5-turbo-0125', restart_cmd='echo 251314 | sudo -S docker restart tpcc_workload', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-04-14 10:46:33,886 INFO] [coarse_space.py:__init__:21] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {200000000}, Default: 200000000
+    bgwriter_flush_after, Type: Categorical, Choices: {0, 64, 110, 157, 203, 250}, Default: 64
+    checkpoint_completion_target, Type: Categorical, Choices: {0.7, 0.8, 0.9}, Default: 0.9
+    checkpoint_flush_after, Type: Categorical, Choices: {0, 32, 86, 141, 195, 250}, Default: 32
+    checkpoint_timeout, Type: Categorical, Choices: {30, 300, 21825, 43350, 64875, 86400}, Default: 300
+    control_autovacuum_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_completion_target, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_index_tuple_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_operator_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_tuple_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_default_statistics_target, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_cache_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_idle_in_transaction_session_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_connections, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_locks_per_transaction, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_replication_slots, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_parallel_setup_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_random_page_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_shared_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_temp_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_track_activity_query_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_page_dirty, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_keep_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: Categorical, Choices: {0.005}, Default: 0.005
+    cpu_operator_cost, Type: Categorical, Choices: {0.0025}, Default: 0.0025
+    cpu_tuple_cost, Type: Categorical, Choices: {0.01}, Default: 0.01
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 2650, 5100}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288}, Default: 524288
+    enable_parallel_append, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_hash, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_aggregate, Type: Categorical, Choices: {on, off}, Default: off
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    force_parallel_mode, Type: Categorical, Choices: {off, on, regress}, Default: off
+    hot_standby, Type: Categorical, Choices: {on, off}, Default: on
+    hot_standby_feedback, Type: Categorical, Choices: {on, off}, Default: off
+    idle_in_transaction_session_timeout, Type: Categorical, Choices: {0}, Default: 0
+    in_hot_standby, Type: Categorical, Choices: {on, off}, Default: off
+    integer_datetimes, Type: Categorical, Choices: {on, off}, Default: on
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    join_collapse_limit, Type: Categorical, Choices: {8}, Default: 8
+    max_connections, Type: Categorical, Choices: {12, 18, 100, 65553, 131083}, Default: 100
+    max_locks_per_transaction, Type: Categorical, Choices: {64}, Default: 64
+    max_prepared_transactions, Type: Categorical, Choices: {0, 6, 9, 65544, 131077}, Default: 0
+    max_replication_slots, Type: Categorical, Choices: {10}, Default: 10
+    max_wal_senders, Type: Categorical, Choices: {10}, Default: 10
+    max_wal_size, Type: Categorical, Choices: {501, 750, 1024, 186000, 371000}, Default: 1024
+    parallel_setup_cost, Type: Categorical, Choices: {1000.0}, Default: 1000.0
+    random_page_cost, Type: Categorical, Choices: {4.0}, Default: 4.0
+    shared_buffers, Type: Categorical, Choices: {16384, 484383, 726566, 1114062, 1259375}, Default: 16384
+    special_autovacuum_freeze_max_age, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: -1
+    special_checkpoint_completion_target, Type: Constant, Value: 0.0
+    special_checkpoint_flush_after, Type: Constant, Value: -1
+    special_checkpoint_timeout, Type: Constant, Value: -1
+    special_cpu_index_tuple_cost, Type: Constant, Value: 0.0
+    special_cpu_operator_cost, Type: Constant, Value: -1.0
+    special_cpu_tuple_cost, Type: Constant, Value: -1.0
+    special_default_statistics_target, Type: Constant, Value: -1
+    special_effective_cache_size, Type: Constant, Value: -1
+    special_idle_in_transaction_session_timeout, Type: Constant, Value: -1
+    special_join_collapse_limit, Type: Constant, Value: -1
+    special_max_connections, Type: Constant, Value: -1
+    special_max_locks_per_transaction, Type: Constant, Value: -1
+    special_max_prepared_transactions, Type: Constant, Value: -1
+    special_max_replication_slots, Type: Constant, Value: -1
+    special_max_wal_senders, Type: Constant, Value: -1
+    special_max_wal_size, Type: Constant, Value: 0
+    special_parallel_setup_cost, Type: Constant, Value: -1.0
+    special_random_page_cost, Type: Constant, Value: -1.0
+    special_shared_buffers, Type: Constant, Value: -1
+    special_statement_timeout, Type: Constant, Value: -1
+    special_temp_buffers, Type: Constant, Value: -1
+    special_track_activity_query_size, Type: Constant, Value: -1
+    special_vacuum_cost_delay, Type: Constant, Value: -1.0
+    special_vacuum_cost_limit, Type: Constant, Value: -1
+    special_vacuum_cost_page_dirty, Type: Constant, Value: -1
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_keep_size, Type: Constant, Value: -1
+    special_work_mem, Type: Constant, Value: 0
+    statement_timeout, Type: Categorical, Choices: {0}, Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: Categorical, Choices: {550, 775, 1024, 268436205, 536871411}, Default: 1024
+    track_activities, Type: Categorical, Choices: {on, off}, Default: on
+    track_activity_query_size, Type: Categorical, Choices: {1024, 4050, 6025, 8000}, Default: 1024
+    track_counts, Type: Categorical, Choices: {on, off}, Default: on
+    track_functions, Type: Categorical, Choices: {none, pl, all}, Default: none
+    track_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    transaction_read_only, Type: Categorical, Choices: {on, off}, Default: off
+    vacuum_cost_delay, Type: Categorical, Choices: {0.0, 0.25, 0.5, 5.0, 5.5, 7.5, 7.75, 10.0, 10.5, 15.0, 15.25, 15.5, 20.0, 20.5, 22.5, 22.75, 25.0, 25.5, 30.0, 30.25, 30.5, 35.0, 35.5, 37.5, 37.75, 40.0, 40.5, 45.0, 45.25, 45.5, 50.0, 50.5, 52.5, 52.75, 60.0, 60.25, 67.5, 67.75, 75.0, 75.25}, Default: 0.0
+    vacuum_cost_limit, Type: Categorical, Choices: {200}, Default: 200
+    vacuum_cost_page_dirty, Type: Categorical, Choices: {20}, Default: 20
+    wal_buffers, Type: Categorical, Choices: {8, 506, 512, 1004, 1502, 2000}, Default: 512
+    wal_keep_size, Type: Categorical, Choices: {0}, Default: 0
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: Categorical, Choices: {4096, 500032, 502048, 750016, 751024, 15500032, 15502048, 23250016, 23251024}, Default: 4096
+  Conditions:
+    autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    checkpoint_completion_target | control_checkpoint_completion_target == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    checkpoint_timeout | control_checkpoint_timeout == '0'
+    cpu_index_tuple_cost | control_cpu_index_tuple_cost == '0'
+    cpu_operator_cost | control_cpu_operator_cost == '0'
+    cpu_tuple_cost | control_cpu_tuple_cost == '0'
+    default_statistics_target | control_default_statistics_target == '0'
+    effective_cache_size | control_effective_cache_size == '0'
+    idle_in_transaction_session_timeout | control_idle_in_transaction_session_timeout == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    max_connections | control_max_connections == '0'
+    max_locks_per_transaction | control_max_locks_per_transaction == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_replication_slots | control_max_replication_slots == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    max_wal_size | control_max_wal_size == '0'
+    parallel_setup_cost | control_parallel_setup_cost == '0'
+    random_page_cost | control_random_page_cost == '0'
+    shared_buffers | control_shared_buffers == '0'
+    special_autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_checkpoint_completion_target | control_checkpoint_completion_target == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_checkpoint_timeout | control_checkpoint_timeout == '1'
+    special_cpu_index_tuple_cost | control_cpu_index_tuple_cost == '1'
+    special_cpu_operator_cost | control_cpu_operator_cost == '1'
+    special_cpu_tuple_cost | control_cpu_tuple_cost == '1'
+    special_default_statistics_target | control_default_statistics_target == '1'
+    special_effective_cache_size | control_effective_cache_size == '1'
+    special_idle_in_transaction_session_timeout | control_idle_in_transaction_session_timeout == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_max_connections | control_max_connections == '1'
+    special_max_locks_per_transaction | control_max_locks_per_transaction == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_replication_slots | control_max_replication_slots == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_max_wal_size | control_max_wal_size == '1'
+    special_parallel_setup_cost | control_parallel_setup_cost == '1'
+    special_random_page_cost | control_random_page_cost == '1'
+    special_shared_buffers | control_shared_buffers == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_temp_buffers | control_temp_buffers == '1'
+    special_track_activity_query_size | control_track_activity_query_size == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_keep_size | control_wal_keep_size == '1'
+    special_work_mem | control_work_mem == '1'
+    statement_timeout | control_statement_timeout == '0'
+    temp_buffers | control_temp_buffers == '0'
+    track_activity_query_size | control_track_activity_query_size == '0'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '0'
+    wal_buffers | control_wal_buffers == '0'
+    wal_keep_size | control_wal_keep_size == '0'
+    work_mem | control_work_mem == '0'
+
+[2025-04-14 11:24:34,806 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 250], Default: 64
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.5, 0.9], Default: 0.9
+    checkpoint_flush_after, Type: UniformInteger, Range: [0, 250], Default: 32
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 86400], Default: 300
+    control_autovacuum_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_completion_target, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_index_tuple_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_operator_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_tuple_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_default_statistics_target, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_cache_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_idle_in_transaction_session_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_connections, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_locks_per_transaction, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_replication_slots, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_parallel_setup_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_random_page_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_shared_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_temp_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_track_activity_query_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_page_dirty, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_keep_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.005
+    cpu_operator_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.0025
+    cpu_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.01
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    enable_parallel_append, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_hash, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_aggregate, Type: Categorical, Choices: {on, off}, Default: off
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    force_parallel_mode, Type: Categorical, Choices: {off, on, regress}, Default: off
+    hot_standby, Type: Categorical, Choices: {on, off}, Default: on
+    hot_standby_feedback, Type: Categorical, Choices: {on, off}, Default: off
+    idle_in_transaction_session_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    in_hot_standby, Type: Categorical, Choices: {on, off}, Default: off
+    integer_datetimes, Type: Categorical, Choices: {on, off}, Default: on
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    join_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    max_connections, Type: UniformInteger, Range: [1, 262143], Default: 100
+    max_locks_per_transaction, Type: UniformInteger, Range: [10, 2147483647], Default: 64
+    max_prepared_transactions, Type: UniformInteger, Range: [0, 262143], Default: 0
+    max_replication_slots, Type: UniformInteger, Range: [0, 262143], Default: 10
+    max_wal_senders, Type: UniformInteger, Range: [0, 262143], Default: 10
+    max_wal_size, Type: UniformInteger, Range: [2, 741000], Default: 1024
+    parallel_setup_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 1000.0
+    random_page_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 4.0
+    shared_buffers, Type: UniformInteger, Range: [16, 1550000], Default: 16384
+    special_autovacuum_freeze_max_age, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: -1
+    special_checkpoint_completion_target, Type: Constant, Value: 0.0
+    special_checkpoint_flush_after, Type: Constant, Value: -1
+    special_checkpoint_timeout, Type: Constant, Value: -1
+    special_cpu_index_tuple_cost, Type: Constant, Value: 0.0
+    special_cpu_operator_cost, Type: Constant, Value: -1.0
+    special_cpu_tuple_cost, Type: Constant, Value: -1.0
+    special_default_statistics_target, Type: Constant, Value: -1
+    special_effective_cache_size, Type: Constant, Value: -1
+    special_idle_in_transaction_session_timeout, Type: Constant, Value: -1
+    special_join_collapse_limit, Type: Constant, Value: -1
+    special_max_connections, Type: Constant, Value: -1
+    special_max_locks_per_transaction, Type: Constant, Value: -1
+    special_max_prepared_transactions, Type: Constant, Value: -1
+    special_max_replication_slots, Type: Constant, Value: -1
+    special_max_wal_senders, Type: Constant, Value: -1
+    special_max_wal_size, Type: Constant, Value: 0
+    special_parallel_setup_cost, Type: Constant, Value: -1.0
+    special_random_page_cost, Type: Constant, Value: -1.0
+    special_shared_buffers, Type: Constant, Value: -1
+    special_statement_timeout, Type: Constant, Value: -1
+    special_temp_buffers, Type: Constant, Value: -1
+    special_track_activity_query_size, Type: Constant, Value: -1
+    special_vacuum_cost_delay, Type: Constant, Value: -1.0
+    special_vacuum_cost_limit, Type: Constant, Value: -1
+    special_vacuum_cost_page_dirty, Type: Constant, Value: -1
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_keep_size, Type: Constant, Value: -1
+    special_work_mem, Type: Constant, Value: 0
+    statement_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: UniformInteger, Range: [100, 1073741823], Default: 1024
+    track_activities, Type: Categorical, Choices: {on, off}, Default: on
+    track_activity_query_size, Type: UniformInteger, Range: [100, 8000], Default: 1024
+    track_counts, Type: Categorical, Choices: {on, off}, Default: on
+    track_functions, Type: Categorical, Choices: {none, pl, all}, Default: none
+    track_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    transaction_read_only, Type: Categorical, Choices: {on, off}, Default: off
+    vacuum_cost_delay, Type: UniformFloat, Range: [0.0, 75.25], Default: 0.0
+    vacuum_cost_limit, Type: UniformInteger, Range: [1, 10000], Default: 200
+    vacuum_cost_page_dirty, Type: UniformInteger, Range: [0, 10000], Default: 20
+    wal_buffers, Type: UniformInteger, Range: [8, 2000], Default: 512
+    wal_keep_size, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: UniformInteger, Range: [64, 23251024], Default: 4096
+  Conditions:
+    autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    checkpoint_completion_target | control_checkpoint_completion_target == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    checkpoint_timeout | control_checkpoint_timeout == '0'
+    cpu_index_tuple_cost | control_cpu_index_tuple_cost == '0'
+    cpu_operator_cost | control_cpu_operator_cost == '0'
+    cpu_tuple_cost | control_cpu_tuple_cost == '0'
+    default_statistics_target | control_default_statistics_target == '0'
+    effective_cache_size | control_effective_cache_size == '0'
+    idle_in_transaction_session_timeout | control_idle_in_transaction_session_timeout == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    max_connections | control_max_connections == '0'
+    max_locks_per_transaction | control_max_locks_per_transaction == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_replication_slots | control_max_replication_slots == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    max_wal_size | control_max_wal_size == '0'
+    parallel_setup_cost | control_parallel_setup_cost == '0'
+    random_page_cost | control_random_page_cost == '0'
+    shared_buffers | control_shared_buffers == '0'
+    special_autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_checkpoint_completion_target | control_checkpoint_completion_target == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_checkpoint_timeout | control_checkpoint_timeout == '1'
+    special_cpu_index_tuple_cost | control_cpu_index_tuple_cost == '1'
+    special_cpu_operator_cost | control_cpu_operator_cost == '1'
+    special_cpu_tuple_cost | control_cpu_tuple_cost == '1'
+    special_default_statistics_target | control_default_statistics_target == '1'
+    special_effective_cache_size | control_effective_cache_size == '1'
+    special_idle_in_transaction_session_timeout | control_idle_in_transaction_session_timeout == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_max_connections | control_max_connections == '1'
+    special_max_locks_per_transaction | control_max_locks_per_transaction == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_replication_slots | control_max_replication_slots == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_max_wal_size | control_max_wal_size == '1'
+    special_parallel_setup_cost | control_parallel_setup_cost == '1'
+    special_random_page_cost | control_random_page_cost == '1'
+    special_shared_buffers | control_shared_buffers == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_temp_buffers | control_temp_buffers == '1'
+    special_track_activity_query_size | control_track_activity_query_size == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_keep_size | control_wal_keep_size == '1'
+    special_work_mem | control_work_mem == '1'
+    statement_timeout | control_statement_timeout == '0'
+    temp_buffers | control_temp_buffers == '0'
+    track_activity_query_size | control_track_activity_query_size == '0'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '0'
+    wal_buffers | control_wal_buffers == '0'
+    wal_keep_size | control_wal_keep_size == '0'
+    work_mem | control_work_mem == '0'
+
