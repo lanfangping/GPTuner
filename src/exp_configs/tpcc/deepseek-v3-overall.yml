@@ -1,3 +1,5 @@
+folder: deepseek-v3-overall_202504131541
+process: optimization
 db: postgres
 user: postgres
 password: postgres
@@ -6,5 +8,5 @@ test: tpcc
 timeout: 180
 seed: 100
 model: deepseek-chat
-restart_cmd: sudo docker restart tpcc_workload
+restart_cmd: echo 251314 | sudo -S docker restart tpcc_workload
 recover_script: ./scripts/recover_docker_postgres.sh
