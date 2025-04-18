@@ -1,0 +1,21 @@
+[INFO ] 2025-04-17 22:05:17,167 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:                       TPCH {com.oltpbenchmark.benchmarks.tpch.TPCHBenchmark}
+Configuration:                   config/postgres/sample_tpch_config.xml
+Type:                            POSTGRES
+Driver:                          org.postgresql.Driver
+URL:                             jdbc:postgresql://localhost:5432/tpch_workload?sslmode=disable&ApplicationName=tpch&reWriteBatchedInserts=true
+Isolation:                       TRANSACTION_SERIALIZABLE
+Batch Size:                      1024
+Scale Factor:                    1.0
+Terminals:                       1
+New Connection Per Txn:          false
+Reconnect on Connection Failure: true
+
+[INFO ] 2025-04-17 22:05:17,168 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2025-04-17 22:05:17,192 [main]  com.oltpbenchmark.DBWorkload main - Timer disabled for serial run; will execute all queries exactly once.
+[WARN ] 2025-04-17 22:05:17,192 [main]  com.oltpbenchmark.DBWorkload main - rounded weight [22] does not equal 100.  Original weight is [22.0]
+[INFO ] 2025-04-17 22:05:22,590 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 1 virtual terminals...
+[INFO ] 2025-04-17 22:05:22,591 [main]  com.oltpbenchmark.benchmarks.tpch.TPCHBenchmark makeWorkersImpl - Creating 1 workers for TPC-H
+[INFO ] 2025-04-17 22:05:22,601 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the TPCH Benchmark with 1 Phase...
+[INFO ] 2025-04-17 22:05:22,606 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=TPCH] [Serial=true] [Time=n/a] [WarmupTime=0] [Rate=unlimited] [Arrival=REGULAR] [Ratios=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]] [ActiveWorkers=1]

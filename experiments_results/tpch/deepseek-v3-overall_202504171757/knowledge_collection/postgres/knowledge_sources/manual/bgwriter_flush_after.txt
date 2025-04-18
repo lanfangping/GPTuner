@@ -1,0 +1,1 @@
+The 'bgwriter_flush_after' knob forces the OS to write data to storage after accumulating 512kB (default on Linux, 0 elsewhere) of dirty data, with a valid range of 0 (disabled) to 2MB, to reduce fsync stalls and improve transaction latency, though performance may degrade for workloads between shared_buffers and the OS page cache size.

@@ -1,0 +1,1 @@
+The `maintenance_work_mem` knob sets the maximum memory for maintenance operations like VACUUM and CREATE INDEX, defaulting to **64MB**, with a **1GB cap** for dead tuple collection during VACUUM, and should be set higher than `work_mem` but cautiously to avoid excessive allocation when multiplied by `autovacuum_max_workers`.

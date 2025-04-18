@@ -1,0 +1,1 @@
+To set the `temp_buffers` knob in PostgreSQL, allocate **8MB to 128MB** (default: 8MB) based on the expected size of temporary data workloads, with higher values (e.g., **32MB–128MB**) recommended for complex queries or large sorts/hashes, but avoid excessive settings as they are session-local and non-shared.

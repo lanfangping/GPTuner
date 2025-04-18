@@ -1,0 +1,3 @@
+To set `autovacuum_work_mem`, allocate **64MB to 1GB** (default is often too low at 1MB), ensuring it does not exceed **5-10% of total system RAM** or compete with `work_mem`/`maintenance_work_mem`, with **256MB** being a common starting point for moderate workloads. Adjust higher if autovacuum is slow and RAM is available.  
+
+*(Example: On a 16GB system, 512MB is reasonable.)*

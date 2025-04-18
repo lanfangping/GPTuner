@@ -1,0 +1,1 @@
+To set `autovacuum_naptime` in PostgreSQL, a typical value is **1–5 seconds** (e.g., `1s` for busy systems needing frequent vacuuming, or `5s` for lighter loads), balancing between vacuum responsiveness and overhead, while ensuring it divides evenly into `autovacuum_vacuum_cost_delay` if cost-based throttling is used. Adjust based on workload and monitoring.

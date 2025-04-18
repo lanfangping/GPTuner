@@ -1,0 +1,1 @@
+The `effective_io_concurrency` knob sets the number of concurrent disk I/O operations PostgreSQL can initiate (range: 1–1000, or 0 to disable), with a default of 1; for magnetic RAID setups, a good starting value is the number of drives (excluding RAID 5 parity), while SSDs may benefit from values in the hundreds, but exceeding the disk's capacity adds unnecessary CPU overhead.

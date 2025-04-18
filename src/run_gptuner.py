@@ -97,7 +97,7 @@ if __name__ == '__main__':
         folder_name = f'{script_name}_{current_time}'
     else:
         folder_name = args.folder # "deepseek-v3-overall_202504101721"
-    folder_path = f"./experiments_results/{folder_name}"
+    folder_path = f"./experiments_results/{args.test}/{folder_name}"
     
     setattr(args, 'result_path', folder_path)
     make_folders(folder_path=folder_path, args=args)

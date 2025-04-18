@@ -1,0 +1,3 @@
+To set `max_parallel_workers_per_gather`, consider the number of available CPU cores: for a system with *N* cores, a typical starting value is *N/2* (e.g., 4 on an 8-core server), but adjust based on workload (e.g., 2–8 for OLTP, up to *N-1* for analytics), ensuring `max_worker_processes` and `max_parallel_workers` are also configured to accommodate it.  
+
+*(Example: On a 16-core machine, set `max_parallel_workers_per_gather=8` for mixed workloads or up to 15 for read-heavy analytics.)*

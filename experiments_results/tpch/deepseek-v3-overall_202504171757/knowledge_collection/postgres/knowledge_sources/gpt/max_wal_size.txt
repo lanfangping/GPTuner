@@ -1,0 +1,3 @@
+To set `max_wal_size` in PostgreSQL, a common guideline is to allocate **1GB (or 10% of shared_buffers, whichever is larger)** for smaller workloads, scaling up to **4GB or more for high-write systems**, while ensuring it’s at least **twice the size of the largest transaction** and monitoring WAL growth to adjust dynamically (e.g., **16GB for very active databases**).  
+
+*(Note: The exact value depends on write volume, checkpoint frequency, and disk I/O capacity.)*

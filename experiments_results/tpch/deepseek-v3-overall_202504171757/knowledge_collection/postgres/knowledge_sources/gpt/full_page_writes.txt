@@ -1,0 +1,3 @@
+To set the `full_page_writes` knob in PostgreSQL, disable it (`full_page_writes = off`) if you have a battery-backed write cache or a reliable filesystem (like ZFS with atomic writes), as it can improve performance by avoiding full-page writes during checkpoints, but leave it enabled (`full_page_writes = on`, the default) otherwise to prevent partial-page corruption after crashes.  
+
+*(Note: Disabling is generally safe on modern storage with power loss protection, but benchmark and verify durability requirements.)*

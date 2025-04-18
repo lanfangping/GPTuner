@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_insert_threshold`, a good starting point is **50–100** (default: 1000), adjusting it lower (e.g., **20–50**) for tables with high insert rates to trigger vacuums more aggressively, or higher (e.g., **200–500**) for mostly static tables to reduce overhead. Monitor table churn (`n_dead_tup`) and tune accordingly.  
+
+*(Note: The default is `autovacuum_vacuum_threshold` + `autovacuum_vacuum_insert_threshold` = 1000, so if the base threshold is 50, inserts add to this.)*

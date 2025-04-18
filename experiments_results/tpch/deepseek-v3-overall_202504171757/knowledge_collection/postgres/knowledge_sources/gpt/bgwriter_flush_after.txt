@@ -1,0 +1,1 @@
+To set the `bgwriter_flush_after` knob in PostgreSQL, adjust it based on your system's workload and I/O capacity: for light workloads or SSDs, use a smaller value (e.g., `64`–`128` kB), while for heavy write loads or HDDs, a larger value (e.g., `512`–`1024` kB) can reduce I/O overhead by delaying flushes. The default is typically `512` kB.

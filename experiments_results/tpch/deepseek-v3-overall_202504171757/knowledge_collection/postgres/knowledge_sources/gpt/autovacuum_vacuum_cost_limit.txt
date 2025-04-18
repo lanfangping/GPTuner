@@ -1,0 +1,1 @@
+To set `autovacuum_vacuum_cost_limit`, a common approach is to start with **200–1000** (default: **200**) and adjust it higher if autovacuum is too slow (e.g., **1000–2000**) or lower if it causes excessive I/O contention, while ensuring `autovacuum_vacuum_cost_delay` (default: **2ms**) is also tuned proportionally to balance performance.

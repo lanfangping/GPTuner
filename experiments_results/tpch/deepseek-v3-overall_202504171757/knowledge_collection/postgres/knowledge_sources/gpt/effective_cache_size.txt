@@ -1,0 +1,3 @@
+To set `effective_cache_size` in PostgreSQL, allocate **50-75% of your system's total RAM** (e.g., 8GB for a 12GB system) to account for the OS file cache while avoiding overallocation.  
+
+*(Rationale: This balances PostgreSQL's assumption of available cache with OS/buffer needs, and typical recommendations range from half to three-quarters of RAM.)*

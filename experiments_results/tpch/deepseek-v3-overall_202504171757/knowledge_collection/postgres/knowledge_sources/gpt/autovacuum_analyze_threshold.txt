@@ -1,0 +1,1 @@
+To set `autovacuum_analyze_threshold`, configure it as **50 plus 10% of `autovacuum_analyze_scale_factor` × table size** (e.g., for a 10,000-row table, the default threshold is 50 + (0.1 × 10,000) = 1,050 rows changed before auto-analyze triggers). Adjust the base value (50) or scale factor (0.1) if earlier analysis is needed.

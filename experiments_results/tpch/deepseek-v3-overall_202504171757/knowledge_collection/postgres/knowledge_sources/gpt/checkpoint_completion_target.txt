@@ -1,0 +1,1 @@
+For the PostgreSQL knob `checkpoint_completion_target`, set it to **0.7–0.9** (default is 0.5) to smooth out I/O load during checkpoints, balancing between write spikes and recovery time, while ensuring it stays below **1.0** to avoid checkpoint starvation. Adjust within this range based on storage latency (e.g., **0.8 for SSDs**, **0.7 for HDDs**).

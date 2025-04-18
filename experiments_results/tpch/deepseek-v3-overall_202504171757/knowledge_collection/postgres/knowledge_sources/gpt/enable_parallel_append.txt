@@ -1,0 +1,1 @@
+To set the `enable_parallel_append` knob in PostgreSQL, enable it (`on`) for queries benefiting from parallel execution (e.g., large table scans with multiple workers, typically 4+), or disable it (`off`) for OLTP workloads with small, frequent queries to reduce overhead. Default is `on` in PostgreSQL 9.6+.

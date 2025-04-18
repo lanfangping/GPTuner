@@ -1,0 +1,1 @@
+To set `effective_io_concurrency` in PostgreSQL, use a value between **2–4** for HDDs (rotational disks) or **100–200** for SSDs (or RAID arrays), scaling based on the number of available disk spindles or I/O parallelism (e.g., for RAID 10 with 4 disks, start with **4**). Default is **1** (disabled).

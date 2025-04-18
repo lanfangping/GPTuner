@@ -1,0 +1,1 @@
+The `effective_cache_size` parameter sets the planner's assumption about the available disk cache for a query (default: 4GB, or 512,000 blocks at 8kB each), influencing index vs. sequential scan choices by estimating cache availability, considering shared buffers, kernel disk cache, and concurrent queries, without reserving memory or assuming cache persistence.

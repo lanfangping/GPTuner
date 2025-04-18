@@ -1,0 +1,2 @@
+
+To set `bgwriter_delay`, adjust it based on write workload and system resources: start with the default **200ms**, increase to **300–500ms** for heavy-write systems to reduce I/O contention, or decrease to **100ms** for faster checkpointing if the disk subsystem can handle frequent writes without performance degradation.

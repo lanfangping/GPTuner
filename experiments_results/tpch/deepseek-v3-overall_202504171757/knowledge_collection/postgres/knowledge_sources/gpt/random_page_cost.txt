@@ -1,0 +1,4 @@
+
+To set `random_page_cost` in PostgreSQL, adjust it based on your storage type: use **1.0** for SSDs, **1.1** for high-end NVMe drives, **2.0** for RAID arrays with caching, or **4.0** (default) for traditional HDDs, with lower values favoring index scans when storage is fast.  
+
+*(Optionally, benchmark with `EXPLAIN ANALYZE` to fine-tune further.)*

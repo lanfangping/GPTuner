@@ -1,0 +1,1 @@
+To set the `wal_buffers` knob in PostgreSQL, allocate **1/32 of shared_buffers** (default 16MB if shared_buffers ≤ 1GB, or up to **16MB–64MB** for larger systems), ensuring it covers at least **3 WAL segments** (typically **48MB**, as each segment is 16MB). Example: if `shared_buffers` is 8GB, set `wal_buffers = 64MB`.

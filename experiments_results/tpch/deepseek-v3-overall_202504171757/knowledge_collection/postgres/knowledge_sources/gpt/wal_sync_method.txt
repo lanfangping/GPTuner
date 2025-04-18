@@ -1,0 +1,3 @@
+To set the `wal_sync_method` in PostgreSQL, choose the most reliable and performant method supported by your OS (e.g., `fdatasync` (default on most Linux systems), `fsync`, `open_sync`, or `open_datasync`), benchmark options like `fdatasync` (typical sync time: ~0.1–10ms depending on hardware) and prioritize data safety over speed unless latency-critical (e.g., use `fsync` if `fdatasync` risks metadata loss).  
+
+*(Note: Specific sync times depend on storage hardware—SSDs/NVMe are faster than HDDs.)*

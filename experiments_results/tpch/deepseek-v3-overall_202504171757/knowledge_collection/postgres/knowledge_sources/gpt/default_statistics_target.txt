@@ -1,0 +1,1 @@
+To set the `default_statistics_target` knob in PostgreSQL, adjust it to a value between **100 and 1000** (default: **100**), where higher values (e.g., **500-1000**) improve query planning accuracy for complex workloads at the cost of increased `ANALYZE` time and storage, while lower values (e.g., **100-200**) suffice for simple queries.

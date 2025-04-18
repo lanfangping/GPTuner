@@ -1,0 +1,1 @@
+To set the `backend_flush_after` knob in PostgreSQL, adjust it based on your workload: for OLTP systems with frequent small writes, use a value like **1MB** (default: 0, disabled), while for bulk-load or batch-processing workloads, disable it (0) or set it higher (e.g., **8MB**) to reduce I/O overhead from frequent flushes. Benchmark with typical workloads to fine-tune.

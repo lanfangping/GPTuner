@@ -1,0 +1,1 @@
+To set the `enable_parallel_hash` knob in PostgreSQL, enable it (`on`) for hash joins involving large tables (e.g., >1GB) to leverage parallel workers (typically 2-4x the CPU cores), or disable it (`off`) for small tables or systems with limited resources to avoid overhead.

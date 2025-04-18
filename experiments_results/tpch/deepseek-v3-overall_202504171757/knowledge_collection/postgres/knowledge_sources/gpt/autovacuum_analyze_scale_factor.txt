@@ -1,0 +1,3 @@
+To set `autovacuum_analyze_scale_factor`, a typical recommendation is to use a value between **0.01 (1%) and 0.05 (5%)**, balancing between frequent analysis overhead and stale statistics, with lower values (e.g., **0.01**) preferred for highly volatile tables and higher values (e.g., **0.05**) for stable ones. Adjust based on monitoring of query plans and `pg_stat_user_tables.n_mod_since_analyze`.  
+
+*(Example: `ALTER TABLE my_table SET (autovacuum_analyze_scale_factor = 0.02);` for a 2% threshold.)*

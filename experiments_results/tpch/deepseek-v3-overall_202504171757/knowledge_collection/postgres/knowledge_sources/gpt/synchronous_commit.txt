@@ -1,0 +1,9 @@
+To set the `synchronous_commit` knob in PostgreSQL, choose:  
+- **`on`** (default, safest, waits for WAL write confirmation),  
+- **`off`** (async, fastest, risks losing recent transactions),  
+- **`remote_write`** (waits for WAL write to standby’s OS buffer), or  
+- **`remote_apply`** (waits for standby to apply WAL).  
+
+For critical data, use `on` or `remote_apply`; for bulk loads or analytics, `off` can boost performance at the cost of potential data loss (e.g., up to `wal_writer_delay`’s 200ms default or longer during crashes). Adjust based on durability vs. speed needs.  
+
+*(Numbers referenced: PostgreSQL’s default `wal_writer_delay = 200ms`)*

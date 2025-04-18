@@ -1,0 +1,1 @@
+The `backend_flush_after` knob forces the OS to write data to storage after a backend writes more than a specified amount (default: 0, range: 0 to 256 blocks [2MB at 8kB BLCKSZ]), reducing dirty page cache buildup and improving checkpoint fsync latency, though it may degrade performance for workloads between shared_buffers and the OS cache.

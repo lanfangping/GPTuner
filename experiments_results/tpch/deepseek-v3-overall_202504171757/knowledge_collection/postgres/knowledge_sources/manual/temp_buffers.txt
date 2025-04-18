@@ -1,0 +1,1 @@
+The `temp_buffers` knob sets the maximum memory per session for temporary table buffers, defaulting to **8MB** (or proportionally scaled if `BLCKSZ` differs from **8kB**), with each active buffer consuming **8kB** (or `BLCKSZ`) and unused increments costing **64 bytes** per buffer descriptor.

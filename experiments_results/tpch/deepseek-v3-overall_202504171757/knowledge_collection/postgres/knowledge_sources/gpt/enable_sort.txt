@@ -1,0 +1,1 @@
+To set the `enable_sort` knob in PostgreSQL, typically enable it (`on` or `true`) for queries benefiting from explicit sorting (e.g., `ORDER BY` operations), or disable it (`off` or `false`) to force alternative plans (e.g., index scans) when sorting is inefficient—benchmark with `EXPLAIN ANALYZE` to validate performance impact. Default is `on`.

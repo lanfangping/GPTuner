@@ -1,0 +1,12 @@
+folder: default
+process: whole
+db: postgres # type of DBMS
+user: postgres
+password: postgres
+database: tpch_workload
+test: tpch
+timeout: 180
+seed: 100
+model: deepseek-chat
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
+recover_script: ./scripts/recover_docker_postgres.sh

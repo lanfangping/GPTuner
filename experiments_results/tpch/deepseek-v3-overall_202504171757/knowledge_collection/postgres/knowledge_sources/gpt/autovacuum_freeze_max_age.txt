@@ -1,0 +1,1 @@
+To set `autovacuum_freeze_max_age`, choose a value between **100–200 million transactions** (default: 200 million), balancing the need to prevent transaction ID wraparound (lower values) and reducing vacuum frequency (higher values), while ensuring it stays below `vacuum_freeze_table_age` (typically 95% of `autovacuum_freeze_max_age`).

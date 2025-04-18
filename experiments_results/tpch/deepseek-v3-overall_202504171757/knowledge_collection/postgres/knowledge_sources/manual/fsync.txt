@@ -1,0 +1,3 @@
+The `fsync` parameter in PostgreSQL ensures data durability by forcing updates to disk via `fsync()` calls, preventing unrecoverable corruption during crashes, but disabling it can improve performance (e.g., during bulk loads or temporary databases) at the risk of data loss if not backed by external recreation methods.  
+
+*(Note: No specific numerical metrics were provided in the original description, so the summary focuses on functional trade-offs.)*

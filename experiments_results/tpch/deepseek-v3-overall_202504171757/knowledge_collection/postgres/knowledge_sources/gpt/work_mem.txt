@@ -1,0 +1,3 @@
+To set `work_mem` in PostgreSQL, allocate **4MB–16MB per connection** for OLTP workloads or **64MB–256MB+** for complex queries (e.g., sorts/joins), ensuring total usage (`work_mem × max_connections`) stays below **25% of RAM** to avoid swapping. Example: For 8GB RAM and 100 connections, start with **8MB** (`(8GB × 0.25) / 100 ≈ 20MB max per connection`). Adjust based on query performance monitoring.  
+
+*(Context: Default is 4MB; oversizing risks memory contention.)*
