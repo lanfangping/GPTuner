@@ -1,0 +1,707 @@
+{
+  "hyperparameters": [
+    {
+      "name": "autovacuum",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_analyze_scale_factor",
+      "type": "categorical",
+      "choices": [
+        "0.1",
+        "0.125",
+        "0.15000000000000002",
+        "0.17500000000000002",
+        "0.2"
+      ],
+      "default": "0.1",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_analyze_threshold",
+      "type": "categorical",
+      "choices": [
+        "50",
+        "75",
+        "87",
+        "125",
+        "150",
+        "162",
+        "200"
+      ],
+      "default": "50",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "100050000",
+        "150025000",
+        "200000000",
+        "650000000",
+        "1100000000"
+      ],
+      "default": "200000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_multixact_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "2800",
+        "5200",
+        "400000000",
+        "500000300",
+        "1000000200"
+      ],
+      "default": "400000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_naptime",
+      "type": "categorical",
+      "choices": [
+        "60",
+        "195",
+        "330"
+      ],
+      "default": "60",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "2.0",
+        "16.0",
+        "23.0",
+        "32.5",
+        "35.0"
+      ],
+      "default": "2.0",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "999",
+        "1499",
+        "4000",
+        "6000"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_insert_scale_factor",
+      "type": "categorical",
+      "choices": [
+        "0.0",
+        "0.2",
+        "0.4",
+        "0.6000000000000001",
+        "0.8",
+        "1.0"
+      ],
+      "default": "0.2",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_insert_threshold",
+      "type": "categorical",
+      "choices": [
+        "1000",
+        "1500",
+        "1750",
+        "3000",
+        "4000",
+        "536872411",
+        "536874661",
+        "1073742823",
+        "1073744323"
+      ],
+      "default": "1000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_scale_factor",
+      "type": "categorical",
+      "choices": [
+        "0.05",
+        "0.07500000000000001",
+        "0.2",
+        "0.325",
+        "0.55"
+      ],
+      "default": "0.2",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_threshold",
+      "type": "categorical",
+      "choices": [
+        "25",
+        "37",
+        "50",
+        "100",
+        "150",
+        "536870949",
+        "536871061",
+        "1073741848",
+        "1073741923"
+      ],
+      "default": "50",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_completion_target",
+      "type": "categorical",
+      "choices": [
+        "0.6",
+        "0.6499999999999999",
+        "0.75",
+        "0.8",
+        "0.9"
+      ],
+      "default": "0.9",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_timeout",
+      "type": "categorical",
+      "choices": [
+        "300",
+        "315",
+        "457",
+        "675",
+        "750"
+      ],
+      "default": "300",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_workers_per_gather",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_temp_buffers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "categorical",
+      "choices": [
+        "50",
+        "75",
+        "100",
+        "150",
+        "250",
+        "325",
+        "375",
+        "400",
+        "550",
+        "600",
+        "625",
+        "750"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "categorical",
+      "choices": [
+        "524288",
+        "1119778",
+        "1715269",
+        "2310759",
+        "2906250"
+      ],
+      "default": "524288",
+      "weights": null
+    },
+    {
+      "name": "effective_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "5",
+        "7",
+        "51",
+        "57",
+        "101",
+        "105"
+      ],
+      "default": "1",
+      "weights": null
+    },
+    {
+      "name": "enable_bitmapscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashagg",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashjoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_mergejoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_parallel_append",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_parallel_hash",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partition_pruning",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partitionwise_aggregate",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "enable_partitionwise_join",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "enable_seqscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_sort",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "force_parallel_mode",
+      "type": "categorical",
+      "choices": [
+        "off",
+        "on",
+        "regress"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "fsync",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "full_page_writes",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "jit",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "jit_above_cost",
+      "type": "categorical",
+      "choices": [
+        "100000.0"
+      ],
+      "default": "100000.0",
+      "weights": null
+    },
+    {
+      "name": "jit_expressions",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "jit_inline_above_cost",
+      "type": "categorical",
+      "choices": [
+        "1000.0",
+        "500000.0"
+      ],
+      "default": "500000.0",
+      "weights": null
+    },
+    {
+      "name": "jit_optimize_above_cost",
+      "type": "categorical",
+      "choices": [
+        "500000.0"
+      ],
+      "default": "500000.0",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "categorical",
+      "choices": [
+        "65536",
+        "1582768",
+        "2341384",
+        "3132768",
+        "3875000",
+        "4650000",
+        "4666384",
+        "6200000"
+      ],
+      "default": "65536",
+      "weights": null
+    },
+    {
+      "name": "max_wal_size",
+      "type": "categorical",
+      "choices": [
+        "1024",
+        "1025",
+        "1536",
+        "536872447",
+        "1073742847"
+      ],
+      "default": "1024",
+      "weights": null
+    },
+    {
+      "name": "random_page_cost",
+      "type": "categorical",
+      "choices": [
+        "1.1",
+        "1.15",
+        "1.175",
+        "1.8250000000000002",
+        "1.9",
+        "2.55",
+        "2.5999999999999996",
+        "3.275",
+        "4.0"
+      ],
+      "default": "4.0",
+      "weights": null
+    },
+    {
+      "name": "seq_page_cost",
+      "type": "categorical",
+      "choices": [
+        "1.0",
+        "2.5",
+        "3.25",
+        "4.0"
+      ],
+      "default": "1.0",
+      "weights": null
+    },
+    {
+      "name": "shared_buffers",
+      "type": "categorical",
+      "choices": [
+        "16384",
+        "492375",
+        "730562",
+        "976562",
+        "984375"
+      ],
+      "default": "16384",
+      "weights": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "track_wal_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "wal_compression",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "work_mem",
+      "type": "categorical",
+      "choices": [
+        "4096",
+        "10048",
+        "13024",
+        "34048",
+        "49024",
+        "536882911",
+        "536918911",
+        "1073749823",
+        "1073773823"
+      ],
+      "default": "4096",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "2",
+        "3",
+        "65538",
+        "131073"
+      ],
+      "default": "3",
+      "weights": null
+    },
+    {
+      "name": "max_parallel_workers_per_gather",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "default": "2",
+      "weights": null
+    },
+    {
+      "name": "special_autovacuum_max_workers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_parallel_workers_per_gather",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_temp_buffers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "temp_buffers",
+      "type": "categorical",
+      "choices": [
+        "1024",
+        "1050",
+        "1525",
+        "8050",
+        "12025",
+        "251500",
+        "262000",
+        "501000",
+        "508000"
+      ],
+      "default": "1024",
+      "weights": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "autovacuum_max_workers",
+      "parent": "control_autovacuum_max_workers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_max_workers",
+      "parent": "control_autovacuum_max_workers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_temp_buffers",
+      "parent": "control_temp_buffers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "temp_buffers",
+      "parent": "control_temp_buffers",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}

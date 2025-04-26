@@ -1,0 +1,1 @@
+To set the `autovacuum_multixact_freeze_max_age` knob in PostgreSQL, configure it to a value that is appropriate for your workload, typically between 150 million and 2 billion (150,000,000 to 2,000,000,000) to prevent multixact wraparound issues while balancing performance; a common starting point is around 1 billion (1,000,000,000).

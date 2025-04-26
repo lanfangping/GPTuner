@@ -1,0 +1,1 @@
+The 'random_page_cost' parameter, with a default value of 4.0, estimates the cost of accessing a non-sequential disk page, where lowering it can encourage index scans relative to sequential access, while it can reflect costs in environments with varied cache effectiveness, such as SSDs potentially benefiting from a value like 1.1 if random read costs are low.

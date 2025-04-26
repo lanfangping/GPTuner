@@ -1,0 +1,1 @@
+To set the `autovacuum_vacuum_insert_scale_factor` in PostgreSQL, you can use a value between 0.1 and 1.0, with a common starting point of 0.5, which determines the ratio of rows inserted before a vacuum is triggered; for example, if you have a table where around 1,000,000 rows are inserted, setting this to 0.5 would initiate a vacuum after approximately 500,000 rows inserted.

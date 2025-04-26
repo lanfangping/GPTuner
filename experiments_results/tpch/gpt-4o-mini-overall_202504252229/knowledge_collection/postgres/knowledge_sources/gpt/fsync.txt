@@ -1,0 +1,1 @@
+To set the 'fsync' knob in PostgreSQL, you should typically keep it enabled (set to 'on') for data integrity, but if you're willing to trade off durability for performance in a testing environment, you can set it to 'off'; however, it is crucial to understand this may lead to data loss on crashes, so in production, it is recommended to keep it at the default value of 'on'.

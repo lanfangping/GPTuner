@@ -1,0 +1,1 @@
+To optimally set the 'enable_partitionwise_aggregate' knob in PostgreSQL, it is recommended to enable it (set to 'on') when dealing with partitioned tables that typically contain more than 1,000 rows per partition, as this can improve query performance by allowing the database to perform aggregate functions more efficiently across partitions.

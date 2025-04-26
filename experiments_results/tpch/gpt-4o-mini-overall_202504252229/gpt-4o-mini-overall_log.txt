@@ -1,0 +1,136 @@
+[2025-04-25 22:29:18,464 INFO] [run_gptuner.py:<module>:107] Input arguments: Namespace(config='src/exp_configs/tpch/gpt-4o-mini-overall.yml', folder='default', process='whole', db='postgres', database='tpch_workload', test='tpch', timeout=180, seed=100, result_path='./experiments_results/tpch/gpt-4o-mini-overall_202504252229', model='gpt-4o-mini', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-04-25 22:35:44,215 WARNING] [run_gptuner.py:<module>:156] 'checkpoint_segments' is not in postgres
+[2025-04-25 22:57:26,275 INFO] [coarse_space.py:__init__:21] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.1, 0.125, 0.15000000000000002, 0.17500000000000002, 0.2}, Default: 0.1
+    autovacuum_analyze_threshold, Type: Categorical, Choices: {50, 75, 87, 125, 150, 162, 200}, Default: 50
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {100050000, 150025000, 200000000, 650000000, 1100000000}, Default: 200000000
+    autovacuum_max_workers, Type: Categorical, Choices: {2, 3, 65538, 131073}, Default: 3
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {2800, 5200, 400000000, 500000300, 1000000200}, Default: 400000000
+    autovacuum_naptime, Type: Categorical, Choices: {60, 195, 330}, Default: 60
+    autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {2.0, 16.0, 23.0, 32.5, 35.0}, Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 999, 1499, 4000, 6000}, Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: Categorical, Choices: {0.0, 0.2, 0.4, 0.6000000000000001, 0.8, 1.0}, Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {1000, 1500, 1750, 3000, 4000, 536872411, 536874661, 1073742823, 1073744323}, Default: 1000
+    autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.05, 0.07500000000000001, 0.2, 0.325, 0.55}, Default: 0.2
+    autovacuum_vacuum_threshold, Type: Categorical, Choices: {25, 37, 50, 100, 150, 536870949, 536871061, 1073741848, 1073741923}, Default: 50
+    checkpoint_completion_target, Type: Categorical, Choices: {0.6, 0.6499999999999999, 0.75, 0.8, 0.9}, Default: 0.9
+    checkpoint_timeout, Type: Categorical, Choices: {300, 315, 457, 675, 750}, Default: 300
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_temp_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    default_statistics_target, Type: Categorical, Choices: {50, 75, 100, 150, 250, 325, 375, 400, 550, 600, 625, 750}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 1119778, 1715269, 2310759, 2906250}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {1, 5, 7, 51, 57, 101, 105}, Default: 1
+    enable_bitmapscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashagg, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_mergejoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_append, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_hash, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_aggregate, Type: Categorical, Choices: {on, off}, Default: off
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    force_parallel_mode, Type: Categorical, Choices: {off, on, regress}, Default: off
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    jit_above_cost, Type: Categorical, Choices: {100000.0}, Default: 100000.0
+    jit_expressions, Type: Categorical, Choices: {on, off}, Default: on
+    jit_inline_above_cost, Type: Categorical, Choices: {1000.0, 500000.0}, Default: 500000.0
+    jit_optimize_above_cost, Type: Categorical, Choices: {500000.0}, Default: 500000.0
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 1582768, 2341384, 3132768, 3875000, 4650000, 4666384, 6200000}, Default: 65536
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {1, 2, 3}, Default: 2
+    max_wal_size, Type: Categorical, Choices: {1024, 1025, 1536, 536872447, 1073742847}, Default: 1024
+    random_page_cost, Type: Categorical, Choices: {1.1, 1.15, 1.175, 1.8250000000000002, 1.9, 2.55, 2.5999999999999996, 3.275, 4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0, 2.5, 3.25, 4.0}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 492375, 730562, 976562, 984375}, Default: 16384
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_temp_buffers, Type: Constant, Value: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: Categorical, Choices: {1024, 1050, 1525, 8050, 12025, 251500, 262000, 501000, 508000}, Default: 1024
+    track_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    track_wal_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: Categorical, Choices: {4096, 10048, 13024, 34048, 49024, 536882911, 536918911, 1073749823, 1073773823}, Default: 4096
+  Conditions:
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_temp_buffers | control_temp_buffers == '1'
+    temp_buffers | control_temp_buffers == '0'
+
+[2025-04-25 23:31:36,372 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.1, 0.2], Default: 0.1
+    autovacuum_analyze_threshold, Type: UniformInteger, Range: [50, 200], Default: 50
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_max_workers, Type: UniformInteger, Range: [1, 262143], Default: 3
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [2800, 2000000000], Default: 400000000
+    autovacuum_naptime, Type: UniformInteger, Range: [60, 600], Default: 60
+    autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [2.0, 40.0], Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 10000], Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: UniformInteger, Range: [1000, 2147483647], Default: 1000
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.2
+    autovacuum_vacuum_threshold, Type: UniformInteger, Range: [0, 2147483647], Default: 50
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.5, 0.9], Default: 0.9
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 900], Default: 300
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_temp_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    default_statistics_target, Type: UniformInteger, Range: [1, 1000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [524288, 2906250], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [1, 200], Default: 1
+    enable_bitmapscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashagg, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_mergejoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_append, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_hash, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_aggregate, Type: Categorical, Choices: {on, off}, Default: off
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    force_parallel_mode, Type: Categorical, Choices: {off, on, regress}, Default: off
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    jit_above_cost, Type: UniformFloat, Range: [-1.0, 9.223372036854776e+17], Default: 100000.0
+    jit_expressions, Type: Categorical, Choices: {on, off}, Default: on
+    jit_inline_above_cost, Type: UniformFloat, Range: [1000.0, 500000.0], Default: 500000.0
+    jit_optimize_above_cost, Type: UniformFloat, Range: [-1.0, 9.223372036854776e+17], Default: 500000.0
+    maintenance_work_mem, Type: UniformInteger, Range: [65536, 6200000], Default: 65536
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 4], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    random_page_cost, Type: UniformFloat, Range: [1.1, 4.0], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16000, 1000000], Default: 16384
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_temp_buffers, Type: Constant, Value: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: UniformInteger, Range: [100, 1000000], Default: 1024
+    track_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    track_wal_io_timing, Type: Categorical, Choices: {on, off}, Default: off
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: UniformInteger, Range: [4096, 2147483647], Default: 4096
+  Conditions:
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_temp_buffers | control_temp_buffers == '1'
+    temp_buffers | control_temp_buffers == '0'
+

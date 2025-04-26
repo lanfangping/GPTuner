@@ -1,0 +1,1 @@
+The 'enable_partitionwise_join' knob, which is off by default, allows the query planner to optimize joins between partitioned tables by joining matching partitions when the join conditions include all partition keys of the same data type, potentially increasing memory usage linearly with the number of partitions scanned and significantly raising planning costs in memory and CPU.

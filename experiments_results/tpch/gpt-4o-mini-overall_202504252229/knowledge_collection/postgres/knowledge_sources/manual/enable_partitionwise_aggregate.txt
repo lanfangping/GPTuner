@@ -1,0 +1,1 @@
+The 'enable_partitionwise_aggregate' knob, which is off by default, allows the query planner to perform grouping or aggregation separately for each partition of a table, potentially increasing memory usage linearly with the number of partitions scanned and significantly raising query planning costs in terms of memory and CPU.

@@ -69,3 +69,9 @@ def extract_range_from_text(line):
             print(f"{knob}: Constant {value}")
             return knob, value
     return knob, None
+
+if __name__ == '__main__':
+    file_path = 'experiments_results/tpcc/gpt-4-previous-good-knowledge/gpt-4-previous_log.txt'
+    coarse_configuration, fine_configuration = extract_knob_range_from_file(file_path)
+    print("coarse_configuration", coarse_configuration)
+    print("fine_configuration", fine_configuration)
