@@ -157,7 +157,7 @@ class KnobSelection(GPT):
         query_knobs = self.select_on_query_level()
 
         all_keys = set(system_knobs).union(workload_knobs, query_knobs)
-        selected_knobs = {key: system_knobs.get(key, 0) + workload_knobs.get(key, 0) + query_knobs.get(key, 0) for key in all_keys}
+        selected_knobs = {key: system_knobs.get(key, 0) + workload_knobs.get(key, 0) + query_knobs.get(key, 0) for key in all_keys if key != 'knob_list'}
 
         top_50_items = sorted(selected_knobs.items(), key=lambda item: item[1], reverse=True)[:50]
         selected_knobs = [key for key, value in top_50_items]

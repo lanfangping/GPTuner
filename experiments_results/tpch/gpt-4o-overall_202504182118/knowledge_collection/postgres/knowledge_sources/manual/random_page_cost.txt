@@ -1,0 +1,1 @@
+The 'random_page_cost' knob sets the planner's cost estimate for non-sequential disk page access, defaulting to 4.0, with adjustments reflecting cache assumptions like a 90% cache hit rate for random reads and can be lowered for storage systems like SSDs, where the random read cost is close to sequential (e.g., 1.1).

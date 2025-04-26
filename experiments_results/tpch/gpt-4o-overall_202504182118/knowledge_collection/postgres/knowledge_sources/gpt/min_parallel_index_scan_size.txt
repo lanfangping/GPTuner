@@ -1,0 +1,1 @@
+To set the value for the 'min_parallel_index_scan_size' knob in PostgreSQL, consider configuring it based on the query workload size; for example, setting it to 8MB might be appropriate for workloads where parallel index scans should be initiated for indexes larger than this size, depending on your system's performance and the typical size of your indexable data.

@@ -3,11 +3,11 @@ version: '3.8'
 services:
   db:
     image: postgres:13
-    container_name: tpcc_workload
+    container_name: benchbase
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: benchbase
+      POSTGRES_DB: tpch_workload
     volumes:
       - ./pgdata:/var/lib/postgresql/data  # Persistent storage
     ports:

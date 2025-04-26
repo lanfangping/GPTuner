@@ -1,0 +1,1 @@
+To set the value for `autovacuum_vacuum_scale_factor` in PostgreSQL, it's recommended to start with a default of 0.2, which means vacuuming will trigger when 20% of the table's rows have been updated or deleted, and adjust down to as low as 0.01 for high-churn tables to ensure more frequent vacuuming.

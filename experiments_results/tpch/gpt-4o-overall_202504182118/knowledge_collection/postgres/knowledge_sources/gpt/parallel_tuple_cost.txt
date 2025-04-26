@@ -1,0 +1,1 @@
+The "parallel_tuple_cost" in PostgreSQL should be set based on the estimated cost of transferring a tuple (row) from a parallel worker process to the main process, often starting at a baseline of 0.1 and adjusted upwards based on the complexity and size of the tuples being processed, with higher values deterring the use of parallelism for cheaper operations.

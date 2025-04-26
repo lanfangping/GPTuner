@@ -1,0 +1,1 @@
+The PostgreSQL 'full_page_writes' parameter, with its default setting as 'on,' ensures crash recovery by writing the entire content of each disk page to the WAL following a checkpoint's first page modification, at the expense of increased write volume, and can only be adjusted in the postgresql.conf file or server command line.

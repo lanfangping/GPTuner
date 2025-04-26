@@ -1,0 +1,1 @@
+Set the 'full_page_writes' knob to 'on' in PostgreSQL to ensure data integrity by writing full pages to the WAL during recovery, especially if you are using an environment that doesn't guarantee power loss protection; otherwise, you can set it to 'off' in systems with reliable hardware that provides checksum protection, potentially reducing the WAL writes by about 50%.

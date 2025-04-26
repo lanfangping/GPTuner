@@ -1,0 +1,1 @@
+The 'wal_buffers' setting determines the shared memory allocated for unwritten WAL data, defaulting to 1/32nd (approximately 3%) of 'shared_buffers', with a minimum of 64kB and a maximum of 16MB, and should be set to at least a few megabytes to enhance performance on busy servers, but cannot be less than 32kB and is only configurable at server start.

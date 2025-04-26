@@ -1,0 +1,1 @@
+The "checkpoint_flush_after" knob specifies the amount of data, ranging between 0 (disabling forced writeback) and 2MB, that triggers the OS to write data to storage during a checkpoint in order to reduce transaction latency, with the default being 256kB on Linux (0 elsewhere), adjustable only via the postgresql.conf file or server command line.
