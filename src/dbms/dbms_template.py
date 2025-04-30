@@ -58,7 +58,7 @@ class DBMSTemplate(ABC):
         os.system(self.restart_cmd)
 
     def create_template(self, test):
-        self.copy_db(source_db="benchbase", target_db=f"{test}_template")
+        self.copy_db(source_db=self.db, target_db=f"{test}_template")
         print(f"created {test}_template for {test}")
         return True
 

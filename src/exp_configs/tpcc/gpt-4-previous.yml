@@ -3,10 +3,10 @@ process: optimization
 db: postgres
 user: postgres
 password: postgres
-database: postgres
+database: tpcc_workload
 test: tpcc
 timeout: 180
 seed: 100
 model: gpt-4
-restart_cmd: echo 251314 | sudo -S docker restart tpcc_workload
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
 recover_script: ./scripts/recover_docker_postgres.sh
