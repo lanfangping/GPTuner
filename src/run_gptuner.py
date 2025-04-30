@@ -130,9 +130,12 @@ if __name__ == '__main__':
     if args.model.startswith('gpt'):
         api_base = os.environ.get("OPENAI_API_BASE")
         api_key = os.environ.get("OPENAI_API_KEY")
-    else:
+    elif args.model.startswith('deepseek'):
         api_base = os.environ.get("DEEPSEEK_API_BASE")
         api_key = os.environ.get("DEEPSEEK_API_KEY")
+    else:
+        api_base = os.environ.get("LLAMA_API_BASE")
+        api_key = os.environ.get("LLAMA_API_KEY")
 
     # f"/home/knob/revision/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
     target_knobs_path = os.path.join(folder_path, "knowledge_collection", f"{args.db}", "target_knobs.txt")
