@@ -1,0 +1,1 @@
+To set the `vacuum_cost_delay` value in PostgreSQL, a common starting point is **2–10 milliseconds** (e.g., `vacuum_cost_delay = 4ms`), balancing I/O throttling to avoid contention while ensuring timely vacuuming; adjust lower (e.g., `0–2ms`) for aggressive workloads or higher (e.g., `10–50ms`) if background vacuum impacts performance too much.

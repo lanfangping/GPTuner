@@ -1,0 +1,1 @@
+To set the `enable_nestloop` knob in PostgreSQL, disable it (`enable_nestloop = off`) for large joins (e.g., tables with >10,000 rows) to force faster hash/merge joins, but enable it (`enable_nestloop = on`, the default) for small, indexed lookups (e.g., OLTP queries with <100 rows) to leverage efficient nested loop plans.

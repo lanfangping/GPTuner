@@ -1,0 +1,1 @@
+To set the `statement_timeout` knob in PostgreSQL, choose a value based on your workload: for OLTP systems, use **30 seconds to 5 minutes** (e.g., `300000ms` for 5 minutes), for analytics queries, set it to **hours** (e.g., `3600000ms` for 1 hour), or disable it (`0`) for long-running batch jobs, while ensuring alignment with application timeouts and user expectations.

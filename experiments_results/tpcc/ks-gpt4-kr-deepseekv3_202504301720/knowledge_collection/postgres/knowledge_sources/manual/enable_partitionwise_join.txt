@@ -1,0 +1,1 @@
+The 'enable_partitionwise_join' knob, when enabled (default: off), allows the query planner to join matching partitions of partitioned tables, but it can increase memory usage linearly with the number of partitions (e.g., 100 partitions may require 100x more memory restricted by work_mem) and significantly raise planning overhead in CPU and memory.

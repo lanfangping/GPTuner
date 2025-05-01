@@ -1,0 +1,1 @@
+The 'autovacuum' knob (default: **on**) controls the autovacuum launcher daemon, requiring **track_counts = on** to function, and can only be disabled globally in **postgresql.conf** or via server command line, though individual tables can bypass it via storage parameters; however, autovacuum processes still run if needed to prevent **transaction ID wraparound**.

@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_insert_scale_factor` in PostgreSQL, adjust it based on the insert-heavy workload: a typical starting value is **0.2** (20% of table size), but for highly volatile tables with frequent inserts, consider lowering it to **0.1** (10%) or pairing it with `autovacuum_vacuum_insert_threshold` (e.g., **1000** rows) to trigger vacuums sooner. Monitor table bloat and adjust accordingly.  
+
+*(Example: `autovacuum_vacuum_scale_factor = 0.1` + `autovacuum_vacuum_threshold = 1000` triggers vacuums when 10% of the table size or 1000 new dead rows are reached, whichever comes first.)*

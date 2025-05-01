@@ -1,0 +1,3 @@
+To set `autovacuum_work_mem`, allocate a value (e.g., **64MB to 1GB**) based on available system RAM—typically **1/32 of total memory**—while ensuring it doesn’t exceed `maintenance_work_mem` (default **64MB**) and leaves enough memory for other processes. Adjust higher if autovacuum is slow but avoid starving other workloads.  
+
+*(Example: On a 32GB server, start with **1GB** and monitor performance.)*

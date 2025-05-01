@@ -1,0 +1,1 @@
+The `hash_mem_multiplier` knob scales the memory limit for hash-based operations by multiplying `work_mem`, with a default of 1.0, but values like 1.5 or 2.0 can help with mixed workloads, while higher settings (2.0–8.0+) may be needed when `work_mem` is already ≥40MB to avoid spilling or memory pressure.

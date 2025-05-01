@@ -1,0 +1,1 @@
+The `vacuum_multixact_freeze_min_age` parameter sets the minimum age (default: 5 million multixacts, range: 0–1 billion) at which VACUUM replaces multixact IDs during table scans, though the effective value is capped at half of `autovacuum_multixact_freeze_max_age` to avoid excessively frequent autovacuums.

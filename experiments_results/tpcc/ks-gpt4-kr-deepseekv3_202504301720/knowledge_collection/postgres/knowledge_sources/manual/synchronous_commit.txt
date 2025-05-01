@@ -1,0 +1,1 @@
+The `synchronous_commit` knob controls WAL durability guarantees, with modes ranging from `off` (no wait, risking up to 3× `wal_writer_delay` of data loss) to `remote_apply` (waiting for WAL to be applied on standbys), with `on` (default, local flush + standby flush) and `remote_write` (standby OS cache write) as intermediate trade-offs between safety and performance.

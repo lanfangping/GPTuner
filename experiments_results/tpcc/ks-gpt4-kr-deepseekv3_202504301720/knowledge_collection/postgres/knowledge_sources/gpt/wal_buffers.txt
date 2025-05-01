@@ -1,0 +1,3 @@
+To set `wal_buffers` in PostgreSQL, a common recommendation is to allocate **1/32 of shared_buffers** (but not less than **64kB** nor more than **16MB**), with **4-16MB** being a typical range for most workloads, though larger values (e.g., **16-64MB**) may benefit high-write systems. Always ensure it aligns with checkpoint and WAL tuning.  
+
+*(Example: If `shared_buffers` is 4GB, `wal_buffers` would be ~128MB by default, but capping at 16MB unless adjusted.)*

@@ -83,6 +83,7 @@ if __name__ == '__main__':
     parser.add_argument("--timeout", type=int)
     parser.add_argument("--seed", type=int, default=1)
     parser.add_argument("--result_path", type=str, default="./experiments_results/test")
+    parser.add_argument("--knobs", type=str, default="None")
     parser.add_argument("--model", type=str, default="gpt-4o-mini")
     parser.add_argument("--restart_cmd", type=str, default="sudo restart tpcc_workload")
     parser.add_argument("--recover_script", type=str, default="./scripts/recover_docker_postgres.sh")
@@ -138,13 +139,31 @@ if __name__ == '__main__':
         api_key = os.environ.get("LLAMA_API_KEY")
 
     # f"/home/knob/revision/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
+    if args.knobs != "None": # provide selected knobs
+        source_selected_knobs = args.knobs
+        dest_selected_knobs = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}")
+        command = f"cp {source_selected_knobs} {dest_selected_knobs}"
+        subprocess.run(command, shell=True, check=True)
+        time.sleep(2)
     target_knobs_path = os.path.join(folder_path, "knowledge_collection", f"{args.db}", "target_knobs.txt")
+        
 
     if args.process == 'whole' or args.process == 'knowledge':
+        # write your api_base and api_key
+        if args.model.startswith('gpt'):
+            api_base = os.environ.get("OPENAI_API_BASE")
+            api_key = os.environ.get("OPENAI_API_KEY")
+        elif args.model.startswith('deepseek'):
+            api_base = os.environ.get("DEEPSEEK_API_BASE")
+            api_key = os.environ.get("DEEPSEEK_API_KEY")
+        else:
+            api_base = os.environ.get("LLAMA_API_BASE")
+            api_key = os.environ.get("LLAMA_API_KEY")
+
         # Select target knobs, write your api_base and api_key
         dbms._connect(args.database)
         knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, knowledge_path=folder_path, api_base=api_base, api_key=api_key, model=args.model)
-        knob_selection.select_interdependent_all_knobs()
+        knob_selection.select_interdependent_all_knobs() # if target_knob.txt exits, then this step is skipped
 
         # prepare tuning lake and structured knowledge
         target_knobs = []

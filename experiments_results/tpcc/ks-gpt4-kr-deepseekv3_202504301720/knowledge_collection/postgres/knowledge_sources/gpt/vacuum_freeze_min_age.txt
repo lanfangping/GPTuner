@@ -1,0 +1,1 @@
+To set the `vacuum_freeze_min_age` knob in PostgreSQL, configure it to a value between **50 million and 200 million transactions** (default is **50 million**), balancing the need to prevent transaction ID wraparound (lower values) with avoiding excessive vacuum overhead (higher values); for long-running databases, a value closer to **100-150 million** is often recommended.

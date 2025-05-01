@@ -1,0 +1,3 @@
+To set the `vacuum_cost_limit` in PostgreSQL, a common starting point is **200-2000** (default is 200), adjusted based on system workload—higher values allow more aggressive vacuuming, but monitor `autovacuum_vacuum_cost_delay` to balance I/O impact; for example, **1000-2000** is typical for high-performance SSDs, while **200-500** may suit HDDs to avoid contention.  
+
+*(Note: The exact value depends on your storage type, autovacuum frequency, and observed I/O latency—tune incrementally while checking `pg_stat_activity` and disk utilization.)*

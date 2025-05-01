@@ -1,0 +1,3 @@
+The 'fsync' knob in PostgreSQL ensures data durability by forcing updates to disk via fsync() calls, preventing data corruption during crashes, but disabling it can improve performance at the risk of unrecoverable data loss unless the database can be recreated externally (e.g., during initial bulk loads or temporary batch processing).  
+
+(Note: The original description does not provide specific numerical metrics, so the summary focuses on the functional trade-offs instead.)

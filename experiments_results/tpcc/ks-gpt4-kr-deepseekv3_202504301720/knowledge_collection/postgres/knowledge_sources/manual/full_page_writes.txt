@@ -1,0 +1,1 @@
+The `full_page_writes` knob, enabled by default, ensures crash recovery by writing full disk pages (typically 8KB) to WAL on their first post-checkpoint modification, preventing partial-page corruption at the cost of increased WAL volume—disabling it risks data corruption but improves performance, similar to tuning `fsync`.

@@ -1,0 +1,1 @@
+To set the `default_statistics_target` knob in PostgreSQL, adjust it between **100 and 1000** (default: **100**)—higher values improve query planning accuracy for complex workloads but increase `ANALYZE` time and storage; typical recommendations are **200-500** for OLTP and **500-1000** for data warehouses.

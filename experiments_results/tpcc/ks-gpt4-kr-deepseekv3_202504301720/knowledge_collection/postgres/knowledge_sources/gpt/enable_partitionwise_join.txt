@@ -1,0 +1,1 @@
+To set the `enable_partitionwise_join` knob in PostgreSQL, enable it (`on`) when joining large partitioned tables (e.g., tables with 10+ partitions) to improve performance, or disable it (`off`) for small partitions (e.g., <5) or when overhead outweighs benefits. Default is `off` in versions before 11, `on` in 11+.

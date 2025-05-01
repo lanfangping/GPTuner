@@ -1,0 +1,1 @@
+The `effective_cache_size` parameter sets the planner's assumption about the available disk cache for a query (default: 4GB), influencing index vs. sequential scan decisions by estimating the cache size, which includes PostgreSQL's shared buffers and the kernel's disk cache, scaled proportionally if `BLCKSZ` differs from 8kB.

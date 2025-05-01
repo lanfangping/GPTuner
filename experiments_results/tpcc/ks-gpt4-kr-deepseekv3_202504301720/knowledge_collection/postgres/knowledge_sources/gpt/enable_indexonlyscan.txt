@@ -1,0 +1,1 @@
+To set `enable_indexonlyscan` in PostgreSQL, typically enable it (`on`/`true`) for queries that benefit from index-only scans (e.g., when covering indexes reduce I/O), or disable it (`off`/`false`) if sequential scans are preferred (e.g., when >~30% of rows are fetched or indexes are poorly selective). The default is `on`.

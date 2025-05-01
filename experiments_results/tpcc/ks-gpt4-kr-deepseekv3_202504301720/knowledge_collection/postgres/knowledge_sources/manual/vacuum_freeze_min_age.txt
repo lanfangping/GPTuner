@@ -1,0 +1,1 @@
+The 'vacuum_freeze_min_age' knob sets the minimum transaction age (default 50 million, range 0–1 billion) for VACUUM to freeze row versions, but it is effectively capped at half of 'autovacuum_freeze_max_age' to prevent excessively frequent forced autovacuums.

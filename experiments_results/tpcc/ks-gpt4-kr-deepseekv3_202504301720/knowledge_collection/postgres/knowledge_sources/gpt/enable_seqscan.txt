@@ -1,0 +1,1 @@
+To set the `enable_seqscan` knob in PostgreSQL, disable it (`SET enable_seqscan = off;`) when query performance analysis shows sequential scans are significantly slower (e.g., >10x) than index scans for critical queries, but leave it enabled (`on`) by default to allow the planner to use sequential scans for small tables (e.g., <1,000 rows) or full-table operations.

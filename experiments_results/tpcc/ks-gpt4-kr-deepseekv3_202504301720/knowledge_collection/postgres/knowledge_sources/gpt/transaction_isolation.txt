@@ -1,0 +1,9 @@
+To set the `transaction_isolation` knob in PostgreSQL, choose one of the four isolation levels: `'read uncommitted'` (rarely used due to no practical difference in PG), `'read committed'` (default, balances consistency and performance), `'repeatable read'` (prevents non-repeatable reads), or `'serializable'` (strictest, ensures full serializability but may reduce concurrency). For example:  
+```sql
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;  
+```  
+or set it globally in `postgresql.conf` with:  
+```ini
+default_transaction_isolation = 'repeatable read'  
+```  
+(Note: Replace `'repeatable read'` with your desired level.)

@@ -1,0 +1,1 @@
+The `bgwriter_lru_multiplier` knob determines the number of dirty buffers written per round by multiplying the average recent buffer demand by this factor (default: 2.0), with values like 1.0 writing only predicted needs and higher values (e.g., 3.0) providing a cushion against demand spikes, while ensuring no more than `bgwriter_lru_maxpages` buffers are written per round.

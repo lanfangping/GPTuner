@@ -1,0 +1,1 @@
+To set the `vacuum_multixact_freeze_min_age` knob in PostgreSQL, adjust it to a value like **5000** (the default) or higher (e.g., **10000–20000**) to balance between avoiding unnecessary freezes and preventing transaction ID wraparound, but ensure it remains **below 0.5 × autovacuum_freeze_max_age** (default **200 million**) to guarantee timely freezing.

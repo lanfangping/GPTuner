@@ -1,0 +1,1 @@
+To set `autovacuum_multixact_freeze_max_age`, choose a value between **100 million (100,000,000)** and **200 million (200,000,000)**, balancing the need to avoid multixact ID wraparound (typically at **2 billion**) with the frequency of autovacuum runs—e.g., **150 million** is a common midpoint. Adjust lower if wraparound warnings occur or higher to reduce maintenance overhead.

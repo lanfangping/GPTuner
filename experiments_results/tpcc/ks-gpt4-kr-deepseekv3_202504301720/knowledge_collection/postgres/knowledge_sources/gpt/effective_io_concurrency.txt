@@ -1,0 +1,1 @@
+For the `effective_io_concurrency` knob in PostgreSQL, set the value based on your storage subsystem: **use 1 for single HDDs, 2-4 for RAID arrays (depending on disks), 100-200 for SSDs, and 200-300 for high-end NVMe storage**, adjusting within these ranges to balance I/O parallelism without overloading the system.

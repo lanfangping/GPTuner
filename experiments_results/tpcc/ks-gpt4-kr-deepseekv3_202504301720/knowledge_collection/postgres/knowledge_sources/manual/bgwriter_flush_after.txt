@@ -1,0 +1,1 @@
+The knob **'bgwriter_flush_after'** forces the OS to write dirty data to storage after **512kB** (default on Linux, 0 elsewhere) is written by the background writer, reducing fsync stalls but potentially degrading performance for workloads between **shared_buffers** and the OS page cache, with a configurable range from **0 (disabled)** to **2MB**.

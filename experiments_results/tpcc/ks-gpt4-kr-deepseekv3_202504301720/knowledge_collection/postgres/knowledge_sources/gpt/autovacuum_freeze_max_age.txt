@@ -1,0 +1,3 @@
+To set `autovacuum_freeze_max_age`, a common recommendation is to keep it below 200 million transactions (e.g., 150-180 million) to prevent transaction ID wraparound while balancing autovacuum frequency, as the default is 200 million and the absolute maximum is 2 billion.  
+
+(Note: This balances PostgreSQL's safety limits with practical maintenance, avoiding overly aggressive vacuuming while preventing wraparound.)

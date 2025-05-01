@@ -1,0 +1,3 @@
+To set the `shared_buffers` knob in PostgreSQL, a common recommendation is to allocate **25% of available RAM** (but not exceeding 8GB) for dedicated systems, e.g., **4GB for a 16GB RAM server**, while ensuring it’s at least **128MB** for minimal setups and adjusted alongside `effective_cache_size` (typically **50–75% of total RAM**).  
+
+*(Note: Adjust based on workload—OLTP may benefit from higher values, while mixed workloads might require balancing with other parameters like `work_mem`.)*

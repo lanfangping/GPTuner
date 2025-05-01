@@ -1,0 +1,1 @@
+To set `autovacuum_vacuum_scale_factor`, a typical starting value is **0.2** (20% of table size), but adjust it lower (e.g., **0.05–0.1**) for large tables to prevent excessive bloat, or higher (e.g., **0.3–0.5**) for small, frequently updated tables to reduce autovacuum frequency. Monitor table-specific statistics (e.g., dead tuple ratios) to refine the value.

@@ -1,0 +1,5 @@
+To set `autovacuum_vacuum_insert_threshold`, a common approach is to use the formula:  
+**`autovacuum_vacuum_insert_threshold = autovacuum_vacuum_threshold + (autovacuum_vacuum_scale_factor × table_size)`**,  
+where typical defaults are `autovacuum_vacuum_threshold = 50` and `autovacuum_vacuum_scale_factor = 0.2` (20%), but adjust based on insert-heavy workloads (e.g., raise to `100–200` for high-churn tables).  
+
+*(For example, a 1GB table would trigger vacuums at `50 + (0.2 × 1,000,000 blocks) ≈ 200,050 rows` by default.)*

@@ -1,0 +1,3 @@
+To set the `enable_sort` knob in PostgreSQL, disable it (`enable_sort = off`) to avoid sort operations when indexes can be used instead, or enable it (`enable_sort = on`, the default) to allow the optimizer to choose sort-based plans when beneficial, typically for small result sets or when no suitable index exists.  
+
+For example, disable it (`off`) for OLTP workloads with heavy index usage, or enable it (`on`) for analytical queries with large, unordered data requiring explicit sorting.

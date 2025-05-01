@@ -1,0 +1,3 @@
+To set the `maintenance_work_mem` knob in PostgreSQL, allocate **5-10% of total RAM** (e.g., **512MB–1GB on an 8GB system**), ensuring it stays below **1GB** for most workloads to avoid excessive memory usage by maintenance operations like `VACUUM` or index creation. Adjust higher (e.g., **2GB**) for large databases or intensive operations, but avoid exceeding **20% of RAM** to prevent contention.  
+
+*(Example: `SET maintenance_work_mem = '1GB';` in `postgresql.conf`.)*

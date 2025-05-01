@@ -1,0 +1,1 @@
+The `maintenance_work_mem` knob sets the maximum memory for maintenance operations (e.g., VACUUM, CREATE INDEX), defaulting to **64MB**, but can be safely increased (up to **1GB** for dead tuple collection) to improve performance, though caution is needed with autovacuum as it may allocate up to `autovacuum_max_workers` times this value.

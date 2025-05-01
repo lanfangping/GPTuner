@@ -1,0 +1,3 @@
+To set `work_mem` in PostgreSQL, allocate **4MB–64MB per operation** (e.g., `SET work_mem = '64MB'`), balancing between available RAM (e.g., 25% of total RAM divided by expected concurrent operations) and query complexity, while monitoring performance to avoid excessive disk usage or contention.  
+
+*(Example: For a server with 16GB RAM and 20 concurrent sorts/hashes, start with `work_mem = 200MB` (16GB × 0.25 / 20).)*

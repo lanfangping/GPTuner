@@ -1,0 +1,3 @@
+To set `autovacuum_vacuum_cost_delay`, start with the default value of `2ms` and adjust it lower (e.g., `0ms` for aggressive vacuuming on high-I/O systems) or higher (e.g., `10ms`–`50ms` for slower, less intrusive vacuuming on latency-sensitive workloads), balancing I/O impact and autovacuum efficiency.  
+
+*(Detailed: Lower values reduce throttling, speeding up vacuum but increasing I/O contention; higher values ease I/O pressure but may delay maintenance.)*
