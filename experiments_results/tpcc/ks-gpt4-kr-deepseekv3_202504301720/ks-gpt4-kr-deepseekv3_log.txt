@@ -1,6 +1,5 @@
-[2025-04-30 17:20:52,222 INFO] [run_gptuner.py:<module>:108] Input arguments: Namespace(config='src/exp_configs/tpcc/ks-gpt4-kr-deepseekv3.yml', folder='default', process='whole', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720', knobs='experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt', model='deepseek-chat', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
-[2025-04-30 17:20:54,261 WARNING] [run_gptuner.py:<module>:178] 'checkpoint_segments' is not in postgres
-[2025-04-30 19:07:13,956 INFO] [coarse_space.py:__init__:21] Coarse Configuration Space: Configuration space object:
+[2025-05-01 23:48:32,833 INFO] [run_gptuner.py:<module>:108] Input arguments: Namespace(config='src/exp_configs/tpcc/ks-gpt4-kr-deepseekv3.yml', folder='ks-gpt4-kr-deepseekv3_202504301720', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720', knobs='experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt', model='deepseek-chat', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-05-01 23:59:09,545 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
   Hyperparameters:
     autovacuum, Type: Categorical, Choices: {on, off}, Default: on
     autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.00025, 0.000375, 0.0005, 0.00075, 0.1, 25.000375, 25.00075, 50.00025, 50.000499999999995}, Default: 0.1
@@ -82,7 +81,7 @@
     vacuum_cost_delay | control_vacuum_cost_delay == '0'
     vacuum_cost_limit | control_vacuum_cost_limit == '0'
 
-[2025-04-30 21:03:13,762 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+[2025-05-02 02:41:30,174 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
   Hyperparameters:
     autovacuum, Type: Categorical, Choices: {on, off}, Default: on
     autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.1
