@@ -1,0 +1,14 @@
+folder: ks-gpt4-kr-gpt3.5turbo_202505011227
+# Selected Knobs by GPT4
+knobs: experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt
+process: optimization
+db: postgres
+user: postgres
+password: postgres
+database: tpcc_workload
+test: tpcc
+timeout: 180
+seed: 100
+model: gpt-3.5-turbo-0125
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
+recover_script: ./scripts/recover_docker_postgres.sh

@@ -122,6 +122,14 @@ class PgDBMS(DBMSTemplate):
         success =  self.update_dbms(query_one)
         if success:
             self.config[knob] = knob_value
+        else:
+            # get the actual number the config uses
+            cursor = self.connection.cursor()
+            cursor.execute(f"SHOW {knob};")
+            value = cursor.fetchone()[0]
+            self.log.info(f"Knob {knob} is set to {value}")
+            self.config[knob] = value
+            cursor.close()
         return success 
     
     def get_knob_value(self, knob):

@@ -1,0 +1,1550 @@
+[2025-05-01 12:28:12,766 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_vacuum_scale_factor: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_vacuum_scale_factor         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:28:13,349 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_vacuum_scale_factor: {'result': False}
+[2025-05-01 12:28:13,350 INFO] [knowledge_update.py:pipeline:71] accumulated token:191, accumulated money:0
+[2025-05-01 12:28:27,154 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - fsync: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+fsync         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:28:27,664 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - fsync: {'result': True}
+[2025-05-01 12:28:27,665 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - fsync: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+fsync
+TUNING_SUGGESTION:
+{'suggestion': 'Consider turning off fsync to enhance performance in specific safe circumstances like initial database loading or batch processing. However, be cautious as it can heighten the risk of data corruption during power failures or system crashes.'}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:28:28,484 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - fsync: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:28:28,486 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for fsync, skip.
+[2025-05-01 12:28:28,486 INFO] [knowledge_update.py:pipeline:87] accumulated token:616, accumulated money:0
+[2025-05-01 12:28:41,695 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_vacuum_cost_limit: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_vacuum_cost_limit         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:28:42,307 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_vacuum_cost_limit: {'result': True}
+[2025-05-01 12:28:42,309 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - autovacuum_vacuum_cost_limit: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+autovacuum_vacuum_cost_limit
+TUNING_SUGGESTION:
+{'suggestion': "Set the 'autovacuum_vacuum_cost_limit' parameter to control the cost limit for automatic VACUUM operations. The default value is -1, which can be distributed among multiple autovacuum workers and overridden on a per-table basis."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:28:43,127 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - autovacuum_vacuum_cost_limit: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:28:43,128 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for autovacuum_vacuum_cost_limit, skip.
+[2025-05-01 12:28:43,129 INFO] [knowledge_update.py:pipeline:87] accumulated token:1067, accumulated money:0
+[2025-05-01 12:28:57,977 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:28:58,487 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum: {'result': True}
+[2025-05-01 12:28:58,488 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - autovacuum: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+autovacuum
+TUNING_SUGGESTION:
+{'suggestion': "To manage the autovacuum process in PostgreSQL effectively, ensure that the 'autovacuum' knob is configured in the postgresql.conf file or on the server command line. This feature is enabled by default but requires track_counts to be enabled as well. Additionally, consider disabling autovacuuming for specific tables by adjusting the storage parameters."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:28:59,409 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - autovacuum: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:28:59,411 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for autovacuum, skip.
+[2025-05-01 12:28:59,411 INFO] [knowledge_update.py:pipeline:87] accumulated token:1526, accumulated money:0
+[2025-05-01 12:29:15,284 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_max_workers: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_max_workers         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:29:15,729 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_max_workers: {'result': True}
+[2025-05-01 12:29:15,730 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - autovacuum_max_workers: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+autovacuum_max_workers
+TUNING_SUGGESTION:
+{'suggestion': 'Set the autovacuum_max_workers parameter to control the maximum number of autovacuum processes. By default, it is set to three and can only be configured at server start.'}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:29:16,615 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - autovacuum_max_workers: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:29:16,617 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for autovacuum_max_workers, skip.
+[2025-05-01 12:29:16,617 INFO] [knowledge_update.py:pipeline:87] accumulated token:1956, accumulated money:0
+[2025-05-01 12:29:33,102 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - checkpoint_completion_target: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+checkpoint_completion_target         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:29:33,612 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - checkpoint_completion_target: {'result': False}
+[2025-05-01 12:29:33,613 INFO] [knowledge_update.py:pipeline:71] accumulated token:2141, accumulated money:0
+[2025-05-01 12:29:45,697 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - synchronous_commit: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+synchronous_commit         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:29:46,310 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - synchronous_commit: {'result': True}
+[2025-05-01 12:29:46,311 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - synchronous_commit: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+synchronous_commit
+TUNING_SUGGESTION:
+{'suggestion': "To optimize data durability and control commit delays in the database server, consider adjusting the 'synchronous_commit' parameter. This parameter offers options like remote_apply, on, remote_write, local, and off to specify the level of WAL processing completion required before a success indication is returned to the client."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:29:47,130 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - synchronous_commit: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:29:47,131 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for synchronous_commit, skip.
+[2025-05-01 12:29:47,132 INFO] [knowledge_update.py:pipeline:87] accumulated token:2586, accumulated money:0
+[2025-05-01 12:29:59,624 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - lock_timeout: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+lock_timeout         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:30:00,134 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - lock_timeout: {'result': False}
+[2025-05-01 12:30:00,135 INFO] [knowledge_update.py:pipeline:71] accumulated token:2770, accumulated money:0
+[2025-05-01 12:30:13,448 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_work_mem: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_work_mem         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:30:14,154 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_work_mem: {'result': True}
+[2025-05-01 12:30:14,155 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - autovacuum_work_mem: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+autovacuum_work_mem
+TUNING_SUGGESTION:
+{'suggestion': "Set the 'autovacuum_work_mem' parameter to control the maximum memory usage per autovacuum worker process. The default value is -1, and it is capped at 1GB. This parameter is essential for collecting dead tuple identifiers during table scans."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:30:15,085 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - autovacuum_work_mem: {'cpu_related': False, 'ram_related': True, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:30:15,087 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for autovacuum_work_mem, skip.
+[2025-05-01 12:30:15,087 INFO] [knowledge_update.py:pipeline:87] accumulated token:3216, accumulated money:0
+[2025-05-01 12:30:31,574 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_vacuum_insert_scale_factor: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_vacuum_insert_scale_factor         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:30:32,186 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_vacuum_insert_scale_factor: {'result': False}
+[2025-05-01 12:30:32,187 INFO] [knowledge_update.py:pipeline:71] accumulated token:3408, accumulated money:0
+[2025-05-01 12:30:46,126 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - default_statistics_target: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+default_statistics_target         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:30:46,624 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - default_statistics_target: {'result': False}
+[2025-05-01 12:30:46,625 INFO] [knowledge_update.py:pipeline:71] accumulated token:3593, accumulated money:0
+[2025-05-01 12:30:59,633 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - effective_io_concurrency: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+effective_io_concurrency         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:31:00,143 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - effective_io_concurrency: {'result': False}
+[2025-05-01 12:31:00,144 INFO] [knowledge_update.py:pipeline:71] accumulated token:3779, accumulated money:0
+[2025-05-01 12:31:13,969 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - vacuum_cost_limit: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+vacuum_cost_limit         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:31:14,478 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - vacuum_cost_limit: {'result': True}
+[2025-05-01 12:31:14,479 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - vacuum_cost_limit: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+vacuum_cost_limit
+TUNING_SUGGESTION:
+{'suggestion': "Consider raising the 'vacuum_cost_limit' parameter to improve I/O usage by potentially reducing recovery time after a database crash. A higher value can lead to larger I/O spikes but may enhance performance overall. The 'vacuum_cost_limit' knob determines the threshold for the vacuuming process to pause based on the accumulated cost."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:31:15,202 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - vacuum_cost_limit: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:31:15,203 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for vacuum_cost_limit, skip.
+[2025-05-01 12:31:15,204 INFO] [knowledge_update.py:pipeline:87] accumulated token:4232, accumulated money:0
+[2025-05-01 12:31:29,271 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - max_connections: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+max_connections         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:31:29,765 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - max_connections: {'result': True}
+[2025-05-01 12:31:29,767 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - max_connections: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+max_connections
+TUNING_SUGGESTION:
+{'suggestion': "Adjust the 'max_connections' knob to set the maximum number of concurrent connections to the database server. The default value is typically 100 but can be increased if supported by kernel settings. Ensure that this value is set to the same or higher on a standby server to allow queries to run smoothly."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:31:30,556 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - max_connections: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:31:30,557 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for max_connections, skip.
+[2025-05-01 12:31:30,558 INFO] [knowledge_update.py:pipeline:87] accumulated token:4675, accumulated money:0
+[2025-05-01 12:31:46,839 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_vacuum_cost_delay: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_vacuum_cost_delay         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:31:47,350 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_vacuum_cost_delay: {'result': True}
+[2025-05-01 12:31:47,352 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - autovacuum_vacuum_cost_delay: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+autovacuum_vacuum_cost_delay
+TUNING_SUGGESTION:
+{'suggestion': "Consider adjusting the 'autovacuum_vacuum_cost_delay' parameter to optimize the performance of automatic VACUUM operations. This parameter specifies the cost delay value, with a default of 2 milliseconds, and can be customized for specific tables by modifying storage parameters."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:31:48,170 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - autovacuum_vacuum_cost_delay: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:31:48,172 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for autovacuum_vacuum_cost_delay, skip.
+[2025-05-01 12:31:48,172 INFO] [knowledge_update.py:pipeline:87] accumulated token:5128, accumulated money:0
+[2025-05-01 12:32:03,019 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_seqscan: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_seqscan         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:32:03,632 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_seqscan: {'result': True}
+[2025-05-01 12:32:03,633 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - enable_seqscan: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+enable_seqscan
+TUNING_SUGGESTION:
+{'suggestion': "Consider adjusting the 'enable_seqscan' knob to control the query planner's consideration of using sequential scan plan types. The default setting is enabled, allowing for sequential scans to be utilized in query planning."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:32:04,450 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - enable_seqscan: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:32:04,452 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for enable_seqscan, skip.
+[2025-05-01 12:32:04,452 INFO] [knowledge_update.py:pipeline:87] accumulated token:5554, accumulated money:0
+[2025-05-01 12:32:24,259 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - vacuum_cost_delay: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+vacuum_cost_delay         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:32:24,829 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - vacuum_cost_delay: {'result': False}
+[2025-05-01 12:32:24,830 INFO] [knowledge_update.py:pipeline:71] accumulated token:5740, accumulated money:0
+[2025-05-01 12:32:44,185 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - wal_compression: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+wal_compression         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:32:44,592 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - wal_compression: {'result': False}
+[2025-05-01 12:32:44,593 INFO] [knowledge_update.py:pipeline:71] accumulated token:5925, accumulated money:0
+[2025-05-01 12:32:56,064 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_vacuum_insert_threshold: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_vacuum_insert_threshold         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:32:56,675 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_vacuum_insert_threshold: {'result': False}
+[2025-05-01 12:32:56,675 INFO] [knowledge_update.py:pipeline:71] accumulated token:6116, accumulated money:0
+[2025-05-01 12:33:08,147 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - transaction_isolation: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+transaction_isolation         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:33:08,562 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - transaction_isolation: {'result': False}
+[2025-05-01 12:33:08,563 INFO] [knowledge_update.py:pipeline:71] accumulated token:6301, accumulated money:0
+[2025-05-01 12:33:21,828 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - maintenance_work_mem: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+maintenance_work_mem         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:33:23,199 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - maintenance_work_mem: {'result': True}
+[2025-05-01 12:33:23,200 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - maintenance_work_mem: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+maintenance_work_mem
+TUNING_SUGGESTION:
+{'suggestion': "To optimize performance for maintenance tasks like VACUUM and index rebuilds, consider significantly increasing the 'maintenance_work_mem' parameter beyond the default 64MB. This adjustment is particularly beneficial when dealing with large RAM resources and write operations, as it can expedite these tasks and enhance overall database efficiency."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:33:24,153 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - maintenance_work_mem: {'cpu_related': False, 'ram_related': True, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:33:24,156 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for maintenance_work_mem, skip.
+[2025-05-01 12:33:24,156 INFO] [knowledge_update.py:pipeline:87] accumulated token:6748, accumulated money:0
+[2025-05-01 12:33:45,626 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - effective_cache_size: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+effective_cache_size         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:33:46,469 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - effective_cache_size: {'result': True}
+[2025-05-01 12:33:46,470 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - effective_cache_size: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+effective_cache_size
+TUNING_SUGGESTION:
+{'suggestion': "Set the 'effective_cache_size' parameter in PostgreSQL to a value calculated as system RAM minus (shared_buffers + work_mem * max_connections * 2) multiplied by 1.1, ensuring to lower the value if the server is not solely dedicated to PostgreSQL. This parameter influences the planner's assumption about the disk cache size available for queries, affecting the preference between index scans and sequential scans. The default value of 'effective_cache_size' is 4 gigabytes."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:33:47,583 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - effective_cache_size: {'cpu_related': False, 'ram_related': True, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:33:47,585 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for effective_cache_size, skip.
+[2025-05-01 12:33:47,585 INFO] [knowledge_update.py:pipeline:87] accumulated token:7228, accumulated money:0
+[2025-05-01 12:34:04,878 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - bgwriter_lru_multiplier: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+bgwriter_lru_multiplier         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:34:05,797 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - bgwriter_lru_multiplier: {'result': True}
+[2025-05-01 12:34:05,798 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - bgwriter_lru_multiplier: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+bgwriter_lru_multiplier
+TUNING_SUGGESTION:
+{'suggestion': 'Adjust the bgwriter_lru_multiplier parameter to optimize the number of dirty buffers written based on recent server process needs. Consider setting it to a value that aligns with a just-in-time policy, with the default value being 2.0.'}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:34:06,924 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - bgwriter_lru_multiplier: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:34:06,925 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for bgwriter_lru_multiplier, skip.
+[2025-05-01 12:34:06,926 INFO] [knowledge_update.py:pipeline:87] accumulated token:7667, accumulated money:0
+[2025-05-01 12:34:24,218 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - jit: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+jit         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:34:25,174 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - jit: {'result': False}
+[2025-05-01 12:34:25,175 INFO] [knowledge_update.py:pipeline:71] accumulated token:7850, accumulated money:0
+[2025-05-01 12:34:43,996 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - max_parallel_workers_per_gather: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+max_parallel_workers_per_gather         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:34:44,609 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - max_parallel_workers_per_gather: {'result': True}
+[2025-05-01 12:34:44,610 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - max_parallel_workers_per_gather: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+max_parallel_workers_per_gather
+TUNING_SUGGESTION:
+{'suggestion': 'When configuring the max_parallel_workers_per_gather setting in PostgreSQL, it is important to consider the specific workload type. For high throughput OLTP systems, it is advisable to keep the value low, ideally at 1 or 2, to avoid resource consumption. However, for analytical or data warehousing systems, the setting can be increased to a fraction of the available cores. It is recommended to review and adjust the value of work_mem accordingly to optimize performance. Careful consideration should be given to enabling parallel query execution, as it can significantly increase resource usage compared to non-parallel queries.'}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:34:45,427 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - max_parallel_workers_per_gather: {'cpu_related': True, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:34:45,429 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for max_parallel_workers_per_gather, skip.
+[2025-05-01 12:34:45,429 INFO] [knowledge_update.py:pipeline:87] accumulated token:8360, accumulated money:0
+[2025-05-01 12:34:59,970 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - max_wal_size: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+max_wal_size         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:35:00,841 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - max_wal_size: {'result': True}
+[2025-05-01 12:35:00,842 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - max_wal_size: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+max_wal_size
+TUNING_SUGGESTION:
+{'suggestion': "To optimize the performance and reliability of the database, consider adjusting the 'max_wal_size' parameter in the postgresql.conf file or on the server command line. Unless disk space constraints are a concern, it is recommended to raise this value to ensure that automatic checkpoints are primarily triggered by timeout rather than by disk space limitations. By increasing 'max_wal_size', the recovery time after a database crash may be extended, but it can help prevent issues related to insufficient Write-Ahead Log capacity during checkpoints."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:35:01,708 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - max_wal_size: {'cpu_related': False, 'ram_related': False, 'disk_size_related': True, 'disk_type_related': False}
+[2025-05-01 12:35:01,709 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for max_wal_size, skip.
+[2025-05-01 12:35:01,709 INFO] [knowledge_update.py:pipeline:87] accumulated token:8849, accumulated money:0
+[2025-05-01 12:35:15,945 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_vacuum_threshold: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_vacuum_threshold         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:35:16,558 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_vacuum_threshold: {'result': False}
+[2025-05-01 12:35:16,559 INFO] [knowledge_update.py:pipeline:71] accumulated token:9039, accumulated money:0
+[2025-05-01 12:36:13,291 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - wal_buffers: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+wal_buffers         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:36:13,801 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - wal_buffers: {'result': True}
+[2025-05-01 12:36:13,802 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - wal_buffers: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+wal_buffers
+TUNING_SUGGESTION:
+{'suggestion': "Adjust the 'wal_buffers' knob to control the amount of shared memory used for WAL data waiting to be written to disk. The default setting is approximately 3% of shared_buffers, ensuring it is not less than 64kB nor more than 16MB."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:36:14,722 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - wal_buffers: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:36:14,724 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for wal_buffers, skip.
+[2025-05-01 12:36:14,725 INFO] [knowledge_update.py:pipeline:87] accumulated token:9476, accumulated money:0
+[2025-05-01 12:36:31,007 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_analyze_scale_factor: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_analyze_scale_factor         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:36:31,619 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_analyze_scale_factor: {'result': False}
+[2025-05-01 12:36:31,620 INFO] [knowledge_update.py:pipeline:71] accumulated token:9666, accumulated money:0
+[2025-05-01 12:36:45,653 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - shared_buffers: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+shared_buffers         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:36:46,467 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - shared_buffers: {'result': True}
+[2025-05-01 12:36:46,468 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - shared_buffers: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+shared_buffers
+TUNING_SUGGESTION:
+{'suggestion': "To achieve optimal performance on your dedicated database server, it is recommended to set 'shared_buffers' to at least 25% of the server's RAM. Larger settings may be beneficial for specific workloads, but systems with less than 1GB of RAM should allocate a smaller percentage to ensure sufficient space for the operating system."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:36:47,287 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - shared_buffers: {'cpu_related': False, 'ram_related': True, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:36:47,288 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for shared_buffers, skip.
+[2025-05-01 12:36:47,289 INFO] [knowledge_update.py:pipeline:87] accumulated token:10115, accumulated money:0
+[2025-05-01 12:37:01,114 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_multixact_freeze_max_age: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_multixact_freeze_max_age         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:37:01,623 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_multixact_freeze_max_age: {'result': False}
+[2025-05-01 12:37:01,623 INFO] [knowledge_update.py:pipeline:71] accumulated token:10308, accumulated money:0
+[2025-05-01 12:37:13,401 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_sort: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_sort         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:37:14,013 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_sort: {'result': False}
+[2025-05-01 12:37:14,014 INFO] [knowledge_update.py:pipeline:71] accumulated token:10492, accumulated money:0
+[2025-05-01 12:37:31,731 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - checkpoint_timeout: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+checkpoint_timeout         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:37:32,241 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - checkpoint_timeout: {'result': False}
+[2025-05-01 12:37:32,242 INFO] [knowledge_update.py:pipeline:71] accumulated token:10676, accumulated money:0
+[2025-05-01 12:37:44,941 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_partitionwise_join: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_partitionwise_join         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:37:45,554 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_partitionwise_join: {'result': False}
+[2025-05-01 12:37:45,555 INFO] [knowledge_update.py:pipeline:71] accumulated token:10862, accumulated money:0
+[2025-05-01 12:38:01,325 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - wal_level: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+wal_level         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:38:01,866 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - wal_level: {'result': True}
+[2025-05-01 12:38:01,867 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - wal_level: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+wal_level
+TUNING_SUGGESTION:
+{'suggestion': "Set the 'wal_level' parameter at server start to determine the amount of information written to the WAL. Options include minimal for the least volume and logical for supporting logical decoding. Each level builds upon the information logged at lower levels."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:38:02,757 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - wal_level: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:38:02,759 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for wal_level, skip.
+[2025-05-01 12:38:02,759 INFO] [knowledge_update.py:pipeline:87] accumulated token:11292, accumulated money:0
+[2025-05-01 12:38:13,938 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_indexscan: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_indexscan         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:38:14,534 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_indexscan: {'result': True}
+[2025-05-01 12:38:14,535 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - enable_indexscan: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+enable_indexscan
+TUNING_SUGGESTION:
+{'suggestion': 'Enable the knob that allows the query planner to utilize index-scan and index-only-scan plan types. The default setting should be enabled for optimal performance.'}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:38:15,353 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - enable_indexscan: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:38:15,355 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for enable_indexscan, skip.
+[2025-05-01 12:38:15,355 INFO] [knowledge_update.py:pipeline:87] accumulated token:11709, accumulated money:0
+[2025-05-01 12:38:30,921 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_freeze_max_age: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_freeze_max_age         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:38:31,533 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_freeze_max_age: {'result': False}
+[2025-05-01 12:38:31,534 INFO] [knowledge_update.py:pipeline:71] accumulated token:11899, accumulated money:0
+[2025-05-01 12:38:48,329 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - bgwriter_lru_maxpages: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+bgwriter_lru_maxpages         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:38:48,839 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - bgwriter_lru_maxpages: {'result': True}
+[2025-05-01 12:38:48,840 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - bgwriter_lru_maxpages: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+bgwriter_lru_maxpages
+TUNING_SUGGESTION:
+{'suggestion': "To optimize database performance on busy databases, consider increasing the value of 'bgwriter_lru_maxpages' to enhance the activity of the background writer. This knob limits the number of buffers written per round by the background writer, with a default value of 100 buffers. Setting it to zero can disable background writing."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:38:49,628 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - bgwriter_lru_maxpages: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:38:49,630 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for bgwriter_lru_maxpages, skip.
+[2025-05-01 12:38:49,630 INFO] [knowledge_update.py:pipeline:87] accumulated token:12354, accumulated money:0
+[2025-05-01 12:39:02,673 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - statement_timeout: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+statement_timeout         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:39:03,175 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - statement_timeout: {'result': False}
+[2025-05-01 12:39:03,176 INFO] [knowledge_update.py:pipeline:71] accumulated token:12538, accumulated money:0
+[2025-05-01 12:39:18,341 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_nestloop: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_nestloop         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:39:18,843 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_nestloop: {'result': False}
+[2025-05-01 12:39:18,844 INFO] [knowledge_update.py:pipeline:71] accumulated token:12724, accumulated money:0
+[2025-05-01 12:39:32,465 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - max_worker_processes: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+max_worker_processes         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:39:36,559 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - max_worker_processes: {'result': True}
+[2025-05-01 12:39:36,560 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - max_worker_processes: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+max_worker_processes
+TUNING_SUGGESTION:
+{'suggestion': "Ensure that the 'max_worker_processes' parameter is set to the same or higher value on a standby server compared to the master server to support the maximum number of background processes and allow queries to run properly."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:39:37,685 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - max_worker_processes: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:39:37,687 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for max_worker_processes, skip.
+[2025-05-01 12:39:37,687 INFO] [knowledge_update.py:pipeline:87] accumulated token:13151, accumulated money:0
+[2025-05-01 12:39:53,252 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_partition_pruning: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_partition_pruning         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:39:54,375 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_partition_pruning: {'result': False}
+[2025-05-01 12:39:54,376 INFO] [knowledge_update.py:pipeline:71] accumulated token:13337, accumulated money:0
+[2025-05-01 12:40:09,944 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - hash_mem_multiplier: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+hash_mem_multiplier         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:40:10,659 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - hash_mem_multiplier: {'result': False}
+[2025-05-01 12:40:10,660 INFO] [knowledge_update.py:pipeline:71] accumulated token:13522, accumulated money:0
+[2025-05-01 12:41:56,958 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - enable_indexonlyscan: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+enable_indexonlyscan         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:41:57,670 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - enable_indexonlyscan: {'result': True}
+[2025-05-01 12:41:57,671 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - enable_indexonlyscan: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+enable_indexonlyscan
+TUNING_SUGGESTION:
+{'suggestion': "Consider enabling the 'enable_indexonlyscan' knob to allow the query planner to use index-only-scan plan types. The default setting is on, and it requires the 'enable_indexscan' setting to be enabled for consideration of index-only-scans."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:41:58,386 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - enable_indexonlyscan: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:41:58,388 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for enable_indexonlyscan, skip.
+[2025-05-01 12:41:58,388 INFO] [knowledge_update.py:pipeline:87] accumulated token:13961, accumulated money:0
+[2025-05-01 12:42:11,087 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - vacuum_multixact_freeze_min_age: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+vacuum_multixact_freeze_min_age         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:42:11,596 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - vacuum_multixact_freeze_min_age: {'result': False}
+[2025-05-01 12:42:11,598 INFO] [knowledge_update.py:pipeline:71] accumulated token:14152, accumulated money:0
+[2025-05-01 12:42:24,195 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - bgwriter_flush_after: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+bgwriter_flush_after         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:42:24,705 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - bgwriter_flush_after: {'result': True}
+[2025-05-01 12:42:24,706 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - bgwriter_flush_after: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+bgwriter_flush_after
+TUNING_SUGGESTION:
+{'suggestion': "Consider adjusting the 'bgwriter_flush_after' parameter to optimize the background writer's behavior. This parameter dictates when the background writer triggers the OS to write data to storage. The default value is 512kB on Linux and 0 elsewhere. Modifying this parameter can potentially decrease transaction latency, although it might impact performance in specific workloads. Evaluate the system's requirements and workload characteristics to determine the most suitable value for 'bgwriter_flush_after'."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:42:25,626 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - bgwriter_flush_after: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:42:25,628 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for bgwriter_flush_after, skip.
+[2025-05-01 12:42:25,628 INFO] [knowledge_update.py:pipeline:87] accumulated token:14630, accumulated money:0
+[2025-05-01 12:42:36,482 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - full_page_writes: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+full_page_writes         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:42:36,993 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - full_page_writes: {'result': True}
+[2025-05-01 12:42:36,994 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - full_page_writes: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+full_page_writes
+TUNING_SUGGESTION:
+{'suggestion': "Consider enabling 'full_page_writes' in PostgreSQL to ensure data integrity and correct post-crash recovery. This setting writes the entire content of each disk page to the Write-Ahead Logging (WAL) during the first modification after a checkpoint, even though it increases the data written to WAL."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:42:38,222 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - full_page_writes: {'cpu_related': False, 'ram_related': False, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:42:38,223 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for full_page_writes, skip.
+[2025-05-01 12:42:38,224 INFO] [knowledge_update.py:pipeline:87] accumulated token:15077, accumulated money:0
+[2025-05-01 12:42:49,264 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - autovacuum_naptime: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+autovacuum_naptime         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:42:49,792 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - autovacuum_naptime: {'result': False}
+[2025-05-01 12:42:49,793 INFO] [knowledge_update.py:pipeline:71] accumulated token:15266, accumulated money:0
+[2025-05-01 12:43:02,808 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - vacuum_freeze_min_age: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+vacuum_freeze_min_age         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:43:03,721 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - vacuum_freeze_min_age: {'result': False}
+[2025-05-01 12:43:03,722 INFO] [knowledge_update.py:pipeline:71] accumulated token:15454, accumulated money:0
+[2025-05-01 12:43:23,691 INFO] [knowledge_update.py:filter_knob:126] filter_knob - prompt - work_mem: 
+I first give you a knob of postgres, determine if it is related to resources, focusing primarily on CPU, RAM, disk size, and disk type. Note that some knobs may not appear directly related to resources but are indeed associated with them, so please exercise careful discernment. 
+
+let's think step by step
+
+step 1: Summarize the function of  knob from postgres  with no more than five sentences.
+step 2: Judge whether this knob is related to cpu, ram, disk type or disk size.
+step 3: If the knob is related to any hardware resource in step 2, return the boolean value true, otherwise, return the boolean value false.
+
+Please give me the result in json format.
+
+KNOB:
+work_mem         
+
+JSON RESULT TEMPLATE:
+{
+    "result" : // Set as Boolean true if resource-related, otherwise false
+}
+
+[2025-05-01 12:43:24,391 INFO] [knowledge_update.py:filter_knob:128] filter_knob - response - work_mem: {'result': True}
+[2025-05-01 12:43:24,392 INFO] [knowledge_update.py:filter_knowledge:168] filter_knowledge - prompt - work_mem: 
+I first give you a knob of postgres and its tuning suggestion, please judge whether the tuning suggestion is related to the given hardware sources.Note that a knob may be related to more than one class.
+
+KNOB:
+work_mem
+TUNING_SUGGESTION:
+{'suggestion': "When configuring the 'work_mem' parameter for query operations in your database, it is essential to strike a balance between memory usage and performance impact. For OLTP queries without complex joins, a low MB value may suffice, while OLAP-style queries with fewer concurrent operations may require values in the GB range. It is recommended to adjust the 'work_mem' parameter based on the memory usage observed in queries. Consider increasing the default value of 4MB, with suggestions like 16MB being a good starting point for most systems. Keep in mind that setting 'work_mem' too low can lead to performance issues, while setting it too high may destabilize node throughput under heavy concurrent operations."}
+
+Now think step by step, and give me the result in json format. If the suggestion is related to the resource, put true as the value. If not, return false.
+JSON RESULT TEMPLATE:
+{
+    "cpu_related": // Set as Boolean true if CPU-related, otherwise false
+    "ram_related": // Set as Boolean true if RAM-related, otherwise false
+    "disk_size_related": // Set as Boolean true if disk size-related, otherwise false
+    "disk_type_related": // Set as Boolean true if disk type-related, otherwise false
+}
+
+
+[2025-05-01 12:43:25,210 INFO] [knowledge_update.py:filter_knowledge:170] filter_knowledge - response - work_mem: {'cpu_related': False, 'ram_related': True, 'disk_size_related': False, 'disk_type_related': False}
+[2025-05-01 12:43:25,212 INFO] [knowledge_update.py:pipeline:86] Already finished to update structured knowledge for work_mem, skip.
+[2025-05-01 12:43:25,213 INFO] [knowledge_update.py:pipeline:87] accumulated token:15976, accumulated money:0

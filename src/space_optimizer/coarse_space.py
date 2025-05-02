@@ -14,17 +14,19 @@ from ConfigSpace import (
 class CoarseSpace(DefaultSpace):
 
     def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
-        super().__init__(dbms, test, timeout, target_knobs_path, results_folder, seed)
+        super().__init__(dbms, test, timeout, target_knobs_path, results_folder, seed, log)
         self.factors = [0, 0.25, 0.5]
         self.special_skill_path = special_skill_path
         self.define_search_space()
-        log.info(f"Coarse Configuration Space: {self.search_space}")
+        self.log = log
+        self.log.info(f"Coarse Configuration Space: {self.search_space}")
 
     def define_search_space(self):
         for knob in self.target_knobs:
             print(knob)
             info = self.dbms.knob_info[knob]
             if info is None:
+                self.log(f"knob {knob} is removed since it does not be found in system_view")
                 self.target_knobs.remove(knob) # this knob is not by the DBMS under specific version
                 continue
 

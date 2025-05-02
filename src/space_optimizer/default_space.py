@@ -20,7 +20,7 @@ from ConfigSpace import (
 
 class DefaultSpace:
     """ Base template of GPTuner"""
-    def __init__(self, dbms, test, timeout, target_knobs_path, results_folder, seed=1):
+    def __init__(self, dbms, test, timeout, target_knobs_path, results_folder, seed, error_log):
         self.dbms = dbms
         self.seed = seed if seed is not None else 1
         self.test = test
@@ -41,6 +41,7 @@ class DefaultSpace:
         self.log_file = os.path.join(results_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
         self.init_log_file()
         self.prev_end = 0
+        self.error_log = error_log
 
 
     def init_log_file(self):
@@ -81,6 +82,7 @@ class DefaultSpace:
             'h': 60 * 60000,
             'hour': 60 * 60000,
             'day': 24 * 60 * 60000,
+            'million': 1e6
         }
         if unit in unit_to_size.keys():
             return float(number) * unit_to_size[unit]
@@ -234,7 +236,8 @@ class DefaultSpace:
                     value = config[f"special_{knob}"]
             except:
                 value = config[knob]
-            dbms.set_knob(knob, value)
+            if not dbms.set_knob(knob, value):
+                self.error_log(f"Config {self.round}: knob {knob} is failed to set to {value}")
             
         dbms.reconfigure()
         if self.test not in self.benchmark_latency:
