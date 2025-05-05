@@ -17,8 +17,8 @@ class CoarseSpace(DefaultSpace):
         super().__init__(dbms, test, timeout, target_knobs_path, results_folder, seed, log)
         self.factors = [0, 0.25, 0.5]
         self.special_skill_path = special_skill_path
-        self.define_search_space()
         self.log = log
+        self.define_search_space()
         self.log.info(f"Coarse Configuration Space: {self.search_space}")
 
     def define_search_space(self):
@@ -103,15 +103,25 @@ class CoarseSpace(DefaultSpace):
                     boot_value = self._type_transfer(knob_type, boot_value)
                 except:
                     def match_num(value):
-                        pattern = r"(\d+)"
+                        pattern = r'(\d+(?:\.\d+)?)[\s]*([a-zA-Z]+)'
                         match = re.match(pattern, value)
-                        if match:
-                            return match.group(1)
+                        if not match:
+                            pattern = r"(\d+(?:\.\d+)?)"  
+                            match = re.match(pattern, value)
+                            if match:
+                                return match.group(1)
+                            else:
+                                return ""
                         else:
-                            return ""
+                            return self._transfer_unit(value)
 
-                    pattern = r"(\d+)"
-                    suggested_values = [self._type_transfer(knob_type, re.match(pattern, value).group(1)) for value in suggested_values if re.match(pattern, value) is not None]
+                    # if the knob's unit is null, then if the suggested value contains string, e.g., '150 million', convert it
+                    temp = []
+                    for value in suggested_values:
+                        value = match_num(value)
+                        if value != "":
+                            temp.append(self._type_transfer(knob_type, value))
+                    suggested_values = temp
                     min_value = self._type_transfer(knob_type, match_num(min_value))
                     max_value = self._type_transfer(knob_type, match_num(max_value))
                     boot_value = self._type_transfer(knob_type, match_num(boot_value))
@@ -121,9 +131,11 @@ class CoarseSpace(DefaultSpace):
                 sequence = []
                 min_value = min(min_value, boot_value)
                 max_value = max(max_value, boot_value)
-
                 
                 for value in suggested_values:
+                    if value > max_value or value < min_value:
+                        self.log.warning(f"Suggested value '{value}' is outside of suggested min/max or default range. It is discarded.")
+                        continue
                     for factor in self.factors:
                         explore_up = value + factor * (max_value - value) # scale up the suggested value
                         explore_down = value + factor * (min_value - value) # scale down the suggested value
@@ -140,7 +152,10 @@ class CoarseSpace(DefaultSpace):
                     if not max_from_sys:
                         sequence.append(max_value)
                 sequence.append(boot_value)
-          
+
+                # if knob == "autovacuum_freeze_max_age":
+                #     print("sequence", sequence)
+                #     exit()
                 # special_skill_path = f"./knowledge_collection/{self.dbms.name}/structured_knowledge/special/"
                 # check if this knob is special knob
                 special = False

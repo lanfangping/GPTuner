@@ -108,15 +108,25 @@ class FineSpace(DefaultSpace):
                 except:
 
                     def match_num(value):
-                        pattern = r"(\d+)"
+                        pattern = r'(\d+(?:\.\d+)?)[\s]*([a-zA-Z]+)'
                         match = re.match(pattern, value)
-                        if match:
-                            return match.group(1)
+                        if not match:
+                            pattern = r"(\d+(?:\.\d+)?)"  
+                            match = re.match(pattern, value)
+                            if match:
+                                return match.group(1)
+                            else:
+                                return ""
                         else:
-                            return ""
+                            return self._transfer_unit(value)
 
-                    pattern = r"(\d+)"
-                    suggested_values = [self._type_transfer(knob_type, re.match(pattern, value).group(1)) for value in suggested_values if re.match(pattern, value) is not None]
+                    # if the knob's unit is null, then if the suggested value contains string, e.g., '150 million', convert it
+                    temp = []
+                    for value in suggested_values:
+                        value = match_num(value)
+                        if value != "":
+                            temp.append(self._type_transfer(knob_type, value))
+                    suggested_values = temp
                     min_value = self._type_transfer(knob_type, match_num(min_value))
                     max_value = self._type_transfer(knob_type, match_num(max_value))
                     boot_value = self._type_transfer(knob_type, match_num(boot_value))
@@ -134,13 +144,17 @@ class FineSpace(DefaultSpace):
                 max_value = max(max_value, boot_value)
                 # scale up and down the suggested value
                 for value in suggested_values:
+                    # if knob == 'vacuum_freeze_min_age':
+                    #     print(f"suggest value: {value}, min_value: {min_value}, max_value: {max_value}, value? > max_value or value ?< min_value: {value > max_value or value < min_value}")
                     for factor in self.factors:
                         explore_up = value + factor * (max_value - value)
                         explore_down = value + factor * (min_value - value)
                         if explore_up < sys.maxsize / 10 and explore_down < explore_up:
                             coarse_sequence.append(explore_up)
                             coarse_sequence.append(explore_down)
-                
+                # if knob == 'vacuum_freeze_min_age':
+                #     print("coarse sequence:", coarse_sequence)
+                #     exit()
                 if coarse_sequence == [] and (not min_from_sys or not max_from_sys):
                     for factor in [0.25, 0.5, 0.75]:
                         coarse_sequence.append(boot_value + factor * (max_value - boot_value)) 

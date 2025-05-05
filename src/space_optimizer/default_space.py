@@ -61,7 +61,8 @@ class DefaultSpace:
         value = value.replace(",", "")
         if value.isalpha():
             value = "1" + value
-        pattern = r'(\d+\.\d+|\d+)([a-zA-Z]+)'
+        # pattern = r'(\d+\.\d+|\d+)([a-zA-Z]+)'
+        pattern = r'(\d+(?:\.\d+)?)[\s]*([a-zA-Z]+)'
         match = re.match(pattern, value)
         if not match:
             return float(value)
@@ -237,7 +238,7 @@ class DefaultSpace:
             except:
                 value = config[knob]
             if not dbms.set_knob(knob, value):
-                self.error_log(f"Config {self.round}: knob {knob} is failed to set to {value}")
+                self.error_log.error(f"Config {self.round}: knob {knob} is failed to set to {value}")
             
         dbms.reconfigure()
         if self.test not in self.benchmark_latency:
