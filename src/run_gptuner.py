@@ -8,6 +8,7 @@ import openai
 import concurrent.futures
 import subprocess
 from knowledge_handler.knowledge_update import KGUpdate
+from knowledge_handler.utils import get_hardware_info, get_disk_type
 from dbms.postgres import PgDBMS
 from dbms.mysql import  MysqlDBMS
 from config_recommender.coarse_stage import CoarseStage
@@ -84,6 +85,9 @@ if __name__ == '__main__':
     parser.add_argument("--seed", type=int, default=1)
     parser.add_argument("--result_path", type=str, default="./experiments_results/test")
     parser.add_argument("--knobs", type=str, default="None")
+    parser.add_argument("--suggest_range_path", type=str, default="None")
+    parser.add_argument("--suggest_values_path", type=str, default="None")
+    parser.add_argument("--special_skill_path", type=str, default="None")
     parser.add_argument("--model", type=str, default="gpt-4o-mini")
     parser.add_argument("--restart_cmd", type=str, default="sudo restart tpcc_workload")
     parser.add_argument("--recover_script", type=str, default="./scripts/recover_docker_postgres.sh")
@@ -99,7 +103,7 @@ if __name__ == '__main__':
     else:
         folder_name = args.folder # "deepseek-v3-overall_202504101721"
     folder_path = f"./experiments_results/{args.test}/{folder_name}"
-    
+
     setattr(args, 'result_path', folder_path)
     make_folders(folder_path=folder_path, args=args)
 
@@ -194,12 +198,47 @@ if __name__ == '__main__':
         #         for future in concurrent.futures.as_completed(futures):
         #             print(future.result())
         #     print(f"Update {i} completed")
-    if args.process == 'optimization' and args.folder == 'default':
+    # if args.process == 'optimization' and args.folder == 'default':
+    #     print('Please specify the knowledge folder using --folder.')
+    #     exit()
+    
+    if args.suggest_range_path != "None" or args.suggest_values_path != "None" or args.special_skill_path != "None":
+        if args.suggest_range_path == "None" or args.suggest_values_path == "None" or args.special_skill_path == "None":
+            print('Please suggest_range_path, suggest_values_path, or special_skill_path cannot be None when one of them is specified.')
+            exit()
+
+        source_special_skill_path = os.path.join(f"{args.special_skill_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        source_normal_suggest_value_skill_path = os.path.join(f"{args.suggest_values_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
+        source_normal_suggest_range_skill_path = os.path.join(f"{args.suggest_range_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
+        target_special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        target_normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
+        
+        command = f"cp -r {source_special_skill_path} {target_special_skill_path}"
+        subprocess.run(command, shell=True, check=True)
+        time.sleep(2)
+        cpu_cores, ram_size, disk_size = get_hardware_info()
+        disk_type = get_disk_type()
+        with open(target_knobs_path, 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                data = {}
+                knob = line.strip()
+                if knob not in dbms.knob_info.keys(): # knob is not in system_view
+                    continue
+                value_data = json.load(open(os.path.join(source_normal_suggest_value_skill_path, f"{knob}.json"), "r"))
+                range_data = json.load(open(os.path.join(source_normal_suggest_range_skill_path, f"{knob}.json"), "r"))
+                data['min_value'] = range_data['min_value']
+                data['max_value'] = range_data['max_value']
+                data['suggested_values'] = value_data['suggested_values']
+                data.update({"cpu":cpu_cores, "ram":ram_size, "disk_size":disk_size, "disk_type":disk_type})
+                json.dump(data, open(os.path.join(target_normal_skill_path, f"{knob}.json"), "w"))
+    elif args.process == 'optimization' and args.folder == 'default':
         print('Please specify the knowledge folder using --folder.')
         exit()
 
     if args.process == 'whole' or args.process == 'optimization':
         special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         gptuner_coarse = CoarseStage(
             dbms=dbms, 
             target_knobs_path=target_knobs_path, 
@@ -208,7 +247,7 @@ if __name__ == '__main__':
             seed=args.seed,
             special_skill_path=special_skill_path,
             log=log,
-            results_folder = folder_path 
+            results_folder = folder_path
         )
 
         gptuner_coarse.optimize(

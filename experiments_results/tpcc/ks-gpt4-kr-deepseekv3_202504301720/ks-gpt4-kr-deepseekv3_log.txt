@@ -1,16 +1,17 @@
-[2025-05-01 23:48:32,833 INFO] [run_gptuner.py:<module>:108] Input arguments: Namespace(config='src/exp_configs/tpcc/ks-gpt4-kr-deepseekv3.yml', folder='ks-gpt4-kr-deepseekv3_202504301720', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720', knobs='experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt', model='deepseek-chat', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
-[2025-05-01 23:59:09,545 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
+[2025-05-04 21:41:27,773 INFO] [run_gptuner.py:<module>:108] Input arguments: Namespace(config='src/exp_configs/tpcc/ks-gpt4-kr-deepseekv3.yml', folder='ks-gpt4-kr-deepseekv3_202504301720', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720', knobs='experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt', model='deepseek-chat', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-05-04 21:44:45,313 WARNING] [coarse_space.py:define_search_space:137] Suggested value '200050' is outside of suggested min/max or default range. It is discarded.
+[2025-05-04 21:44:45,377 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
   Hyperparameters:
     autovacuum, Type: Categorical, Choices: {on, off}, Default: on
     autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.00025, 0.000375, 0.0005, 0.00075, 0.1, 25.000375, 25.00075, 50.00025, 50.000499999999995}, Default: 0.1
-    autovacuum_freeze_max_age, Type: Categorical, Choices: {25112, 25135, 50075, 50090, 50000112, 50000135, 100000075, 100000090, 200000000}, Default: 200000000
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {75050000, 90050000, 112525000, 135025000, 162500000, 175000000, 185000000, 190000000, 200000000}, Default: 200000000
     autovacuum_max_workers, Type: Categorical, Choices: {2, 3, 4, 5}, Default: 3
-    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {125, 137, 100000112, 200000075, 400000000}, Default: 400000000
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {125000000, 137500000, 212500000, 275000000, 400000000}, Default: 400000000
     autovacuum_naptime, Type: Categorical, Choices: {30, 45, 60, 150, 225, 300, 450, 536915, 537095, 537320, 1073771, 1073891, 1074041}, Default: 60
     autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {-0.5, -0.25, 2.0, 4.5, 7.25, 24.5, 25.0, 32.5, 37.25, 50.0, 55.0, 62.5, 75.0}, Default: 2.0
     autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 99, 149, 2650, 5100}, Default: -1
     autovacuum_vacuum_insert_scale_factor, Type: Categorical, Choices: {0.05, 0.07500000000000001, 0.2, 25.075000000000003, 50.050000000000004}, Default: 0.2
-    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {1000, 100075, 100525, 150062, 150287}, Default: 1000
+    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {100, 1000}, Default: 1000
     autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.025, 0.037500000000000006, 0.05, 0.07500000000000001, 0.1, 0.15, 0.15000000000000002, 0.2, 0.22499999999999998, 0.25, 0.375, 25.0375, 25.075000000000003, 25.15, 25.225, 25.375, 50.025, 50.050000000000004, 50.1, 50.15, 50.25}, Default: 0.2
     autovacuum_vacuum_threshold, Type: Categorical, Choices: {50, 100, 150, 275, 350}, Default: 50
     autovacuum_work_mem, Type: Categorical, Choices: {-1, 499999, 749999, 1000000}, Default: -1
@@ -59,7 +60,7 @@
     transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
     vacuum_cost_delay, Type: Categorical, Choices: {0.0, 2.0, 3.0, 15.5, 27.0}, Default: 0.0
     vacuum_cost_limit, Type: Categorical, Choices: {200, 600, 650, 800, 1100, 1250, 1500, 1550, 2000}, Default: 200
-    vacuum_freeze_min_age, Type: Categorical, Choices: {100, 125, 137, 12500075, 12500112, 25000050, 25000075, 50000000}, Default: 50000000
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 112500000, 125000000, 150000000}, Default: 50000000
     vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {5000, 7500, 10000, 15000, 5000000, 250007500, 250015000, 500005000, 500010000}, Default: 5000000
     wal_buffers, Type: Categorical, Choices: {512, 1002, 1501, 3500, 5000}, Default: 512
     wal_compression, Type: Categorical, Choices: {on, off}, Default: off
@@ -81,13 +82,78 @@
     vacuum_cost_delay | control_vacuum_cost_delay == '0'
     vacuum_cost_limit | control_vacuum_cost_limit == '0'
 
-[2025-05-02 02:41:30,174 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+[2025-05-04 21:47:03,085 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-04 21:47:03,224 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 21:50:46,584 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to serializable
+[2025-05-04 21:50:46,728 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 21:54:40,642 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 21:54:40,792 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 21:58:40,609 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 21:58:40,665 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-04 22:01:17,033 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:04:37,643 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:04:37,689 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to serializable
+[2025-05-04 22:07:34,648 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:07:34,700 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 22:07:34,840 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:09:19,157 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:09:19,211 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 22:12:09,979 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-04 22:14:04,474 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:14:04,530 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:14:04,663 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:16:55,415 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:20:24,348 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:20:24,402 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:20:24,544 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:24:14,080 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:24:14,133 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:24:14,271 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:27:20,044 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:27:20,097 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:27:20,239 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:30:38,853 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:30:38,913 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:30:39,055 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:34:06,810 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:34:06,946 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:37:17,745 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:37:17,898 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:40:42,312 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:40:42,364 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:40:42,495 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:43:06,293 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:43:06,451 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:43:06,868 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:46:31,269 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 22:48:55,296 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to serializable
+[2025-05-04 22:52:19,891 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 22:52:19,942 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:52:20,086 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:56:00,844 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:56:00,983 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 22:59:33,193 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to read committed
+[2025-05-04 22:59:33,325 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 23:03:05,115 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:03:05,165 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 23:06:20,328 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:06:20,378 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to serializable
+[2025-05-04 23:06:20,516 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 23:09:52,351 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:09:52,404 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:13:31,755 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:13:32,034 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 23:16:52,916 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:16:52,968 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-04 23:20:19,929 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:20:19,979 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-04 23:27:19,708 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
   Hyperparameters:
     autovacuum, Type: Categorical, Choices: {on, off}, Default: on
     autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.1
-    autovacuum_freeze_max_age, Type: UniformInteger, Range: [25112, 200000000], Default: 200000000
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 200000000], Default: 200000000
     autovacuum_max_workers, Type: UniformInteger, Range: [1, 7], Default: 3
-    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [100, 400000000], Default: 400000000
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [100000000, 400000000], Default: 400000000
     autovacuum_naptime, Type: UniformInteger, Range: [1, 2147483], Default: 60
     autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [-1.0, 100.0], Default: 2.0
     autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 10000], Default: -1
@@ -141,7 +207,7 @@
     transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
     vacuum_cost_delay, Type: UniformFloat, Range: [0.0, 50.0], Default: 0.0
     vacuum_cost_limit, Type: UniformInteger, Range: [200, 2000], Default: 200
-    vacuum_freeze_min_age, Type: UniformInteger, Range: [100, 50000000], Default: 50000000
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [50000000, 150000000], Default: 50000000
     vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 5000000
     wal_buffers, Type: UniformInteger, Range: [4, 8000], Default: 512
     wal_compression, Type: Categorical, Choices: {on, off}, Default: off
@@ -163,3 +229,145 @@
     vacuum_cost_delay | control_vacuum_cost_delay == '0'
     vacuum_cost_limit | control_vacuum_cost_limit == '0'
 
+[2025-05-04 23:30:07,323 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:30:07,377 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:30:07,516 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 23:33:51,164 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:33:51,217 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:36:29,940 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:36:29,991 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:39:45,558 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:39:45,611 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:39:45,751 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-04 23:43:41,783 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:43:41,834 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to serializable
+[2025-05-04 23:46:10,349 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to read committed
+[2025-05-04 23:49:43,808 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:49:43,882 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 23:52:42,185 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:52:42,269 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 23:56:22,930 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob vacuum_cost_limit is failed to set to 0
+[2025-05-04 23:56:23,015 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to repeatable read
+[2025-05-04 23:56:23,235 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 00:00:26,842 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:00:26,922 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to serializable
+[2025-05-05 00:00:27,228 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 00:04:37,811 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:09:00,594 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:11:58,636 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 00:11:59,389 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 00:16:16,549 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:16:16,628 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:19:17,134 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:19:17,221 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to serializable
+[2025-05-05 00:19:17,440 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 00:23:09,659 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:23:09,713 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:27:19,264 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:27:19,481 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 00:31:29,796 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:35:48,739 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:40:33,089 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:40:33,684 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 00:43:46,400 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:43:46,451 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:43:46,589 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 00:47:13,295 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:47:13,355 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to read committed
+[2025-05-05 00:50:40,899 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 00:50:40,956 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 00:54:22,110 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to serializable
+[2025-05-05 00:57:50,491 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 01:01:30,816 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to repeatable read
+[2025-05-05 01:03:39,695 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:03:39,748 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:03:39,891 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 01:07:12,434 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:07:12,486 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to serializable
+[2025-05-05 01:10:53,600 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to serializable
+[2025-05-05 01:14:41,666 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:14:41,722 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:18:12,807 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:18:12,860 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:20:44,185 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:20:44,242 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob transaction_isolation is failed to set to repeatable read
+[2025-05-05 01:23:20,668 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:26:55,825 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob transaction_isolation is failed to set to serializable
+[2025-05-05 01:30:33,541 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:30:33,604 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 01:34:16,349 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:38:22,978 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:42:36,488 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:46:41,729 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:46:41,870 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 01:50:27,732 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob transaction_isolation is failed to set to serializable
+[2025-05-05 01:54:35,182 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 01:54:35,237 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:54:35,380 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 01:58:39,374 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob transaction_isolation is failed to set to read committed
+[2025-05-05 01:58:39,520 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:02:33,263 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:06:19,418 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 02:06:19,475 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob transaction_isolation is failed to set to repeatable read
+[2025-05-05 02:06:19,865 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:10:19,053 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 02:10:19,110 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:10:19,251 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:14:11,698 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:18:20,156 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:18:20,307 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:22:13,850 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 02:22:13,906 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 02:25:14,133 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob transaction_isolation is failed to set to serializable
+[2025-05-05 02:29:10,588 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:29:10,846 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:33:34,447 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob transaction_isolation is failed to set to serializable
+[2025-05-05 02:33:34,692 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:37:47,108 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:37:47,259 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:42:06,183 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:46:10,471 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 02:46:10,639 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:49:24,517 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob transaction_isolation is failed to set to serializable
+[2025-05-05 02:52:31,678 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob transaction_isolation is failed to set to read committed
+[2025-05-05 02:52:31,869 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 02:55:40,838 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob transaction_isolation is failed to set to serializable
+[2025-05-05 03:00:36,408 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 03:00:36,500 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:05:13,101 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 03:05:13,163 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 03:09:40,638 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 03:14:01,184 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:18:10,581 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob transaction_isolation is failed to set to serializable
+[2025-05-05 03:18:10,866 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 03:22:15,455 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 03:22:15,560 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob transaction_isolation is failed to set to serializable
+[2025-05-05 03:26:09,251 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob transaction_isolation is failed to set to repeatable read
+[2025-05-05 03:26:09,489 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 03:29:57,528 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 03:29:57,621 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob transaction_isolation is failed to set to serializable
+[2025-05-05 03:33:34,390 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:37:43,459 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:41:09,310 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 03:41:09,363 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:41:09,499 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 03:44:56,967 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob transaction_isolation is failed to set to serializable
+[2025-05-05 03:48:22,807 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 03:48:22,942 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 03:51:52,783 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:55:08,021 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:58:56,557 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob transaction_isolation is failed to set to read committed
+[2025-05-05 03:58:56,694 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 04:02:34,147 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob transaction_isolation is failed to set to read committed
+[2025-05-05 04:02:34,294 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 04:06:06,611 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob transaction_isolation is failed to set to read committed
+[2025-05-05 04:09:27,857 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 04:09:27,912 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob transaction_isolation is failed to set to serializable
+[2025-05-05 04:12:08,666 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob transaction_isolation is failed to set to read committed
+[2025-05-05 04:12:08,797 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 04:15:43,508 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob transaction_isolation is failed to set to read committed
+[2025-05-05 04:15:43,643 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-05 04:19:22,251 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob vacuum_cost_limit is failed to set to 0
+[2025-05-05 04:19:22,303 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob transaction_isolation is failed to set to read committed
+[2025-05-05 04:22:56,653 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-05 04:22:56,786 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob autovacuum_freeze_max_age is failed to set to 0

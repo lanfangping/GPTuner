@@ -32,7 +32,7 @@
       "name": "autovacuum_multixact_freeze_max_age",
       "type": "uniform_int",
       "log": false,
-      "lower": 100,
+      "lower": 100000000,
       "upper": 400000000,
       "default": 400000000,
       "q": null
@@ -425,8 +425,8 @@
       "name": "vacuum_freeze_min_age",
       "type": "uniform_int",
       "log": false,
-      "lower": 100,
-      "upper": 50000000,
+      "lower": 50000000,
+      "upper": 150000000,
       "default": 50000000,
       "q": null
     },
@@ -482,7 +482,7 @@
       "name": "autovacuum_freeze_max_age",
       "type": "uniform_int",
       "log": false,
-      "lower": 25112,
+      "lower": 100000,
       "upper": 200000000,
       "default": 200000000,
       "q": null

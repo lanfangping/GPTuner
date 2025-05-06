@@ -1,330 +1,639 @@
-[2025-05-02 00:04:48,618 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 21:47:03,083 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 00:04:48,619 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 00:10:11,222 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 21:47:03,085 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 21:47:03,223 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 00:10:11,223 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 00:16:05,342 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 21:47:03,224 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 21:50:46,581 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 00:16:05,344 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 00:21:43,048 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 21:50:46,583 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 21:50:46,727 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 00:21:43,049 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 00:27:02,360 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 21:50:46,728 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 21:54:40,640 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 00:27:02,362 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 00:32:41,231 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 21:54:40,641 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 21:54:40,791 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 00:32:41,233 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 00:38:30,159 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 21:54:40,792 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 21:58:40,606 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 00:38:30,161 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 00:44:17,004 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 21:58:40,608 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 21:58:40,664 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 00:44:17,005 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 00:49:52,802 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 21:58:40,665 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 21:59:01,315 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 22:01:17,031 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 00:49:52,804 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 00:55:21,300 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:01:17,032 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:04:37,642 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 00:55:21,301 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 01:00:12,357 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:04:37,643 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:04:37,689 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:00:12,359 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:04:55,610 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:04:37,689 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:07:34,646 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 01:04:55,612 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 01:09:50,287 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:07:34,647 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:07:34,699 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:09:50,289 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:14:28,440 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:07:34,700 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:07:34,839 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 01:14:28,441 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:18:47,355 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:07:34,840 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:07:55,339 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 22:09:19,156 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 01:18:47,356 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 01:23:46,983 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:09:19,157 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:09:19,210 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:23:46,985 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:28:28,318 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:09:19,211 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:12:09,977 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:28:28,320 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:33:35,249 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:12:09,979 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:12:30,520 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 22:14:04,472 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 01:33:35,251 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 01:38:45,257 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:14:04,474 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:14:04,529 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:38:45,259 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 01:43:42,461 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:14:04,530 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:14:04,662 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 01:43:42,462 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:48:36,598 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:14:04,663 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:16:55,413 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:48:36,600 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 01:53:12,965 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:16:55,415 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:20:24,346 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 01:53:12,967 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 01:57:31,386 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:20:24,348 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:20:24,401 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 01:57:31,387 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:01:53,338 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:20:24,402 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:20:24,544 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 02:01:53,339 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:06:29,094 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:20:24,544 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:24:14,078 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 02:06:29,095 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:11:34,934 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:24:14,080 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:24:14,132 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 02:11:34,936 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:16:10,008 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:24:14,132 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:24:14,270 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 02:16:10,010 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:20:58,856 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:24:14,270 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:27:20,042 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 02:20:58,857 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 02:25:38,605 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:27:20,043 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:27:20,096 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 02:25:38,607 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 02:30:16,660 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:27:20,097 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:27:20,238 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 02:30:16,662 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:46:29,018 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:27:20,238 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:30:38,850 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 02:46:29,020 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 02:51:55,903 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:30:38,853 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:30:38,912 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 02:51:55,904 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 02:57:06,785 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:30:38,913 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:30:39,054 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 02:57:06,786 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 03:01:47,673 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:30:39,055 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:34:06,807 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 03:01:47,675 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:07:16,465 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:34:06,809 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:34:06,945 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 03:07:16,467 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 03:12:30,495 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:34:06,946 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:37:17,743 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 03:12:30,497 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 03:17:40,624 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:37:17,745 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:37:17,897 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 03:17:40,625 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:22:59,030 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:37:17,898 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:40:42,310 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 03:22:59,031 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:27:29,297 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:40:42,311 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:40:42,363 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 03:27:29,299 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 03:32:17,215 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:40:42,364 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:40:42,494 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 03:32:17,217 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:37:06,001 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:40:42,495 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:41:03,011 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 22:43:06,291 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 03:37:06,003 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 03:42:05,307 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:43:06,293 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:43:06,449 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 03:42:05,309 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:46:38,073 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:43:06,450 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:43:06,866 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 03:46:38,074 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:51:12,159 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:43:06,867 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:46:31,266 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 03:51:12,161 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 03:55:41,135 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:46:31,268 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:46:51,886 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 22:48:55,293 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 03:55:41,137 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 04:00:45,373 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:48:55,295 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:52:19,889 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 04:00:45,375 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 04:05:15,723 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:52:19,891 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 22:52:19,941 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 04:05:15,724 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:10:05,321 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:52:19,942 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:52:20,084 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 04:10:05,323 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:14:54,392 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:52:20,085 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:56:00,842 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 04:14:54,393 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 04:20:07,230 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:56:00,844 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:56:00,982 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 04:20:07,232 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 04:25:14,979 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:56:00,982 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 22:59:33,191 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 04:25:14,981 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:30:34,962 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 22:59:33,192 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 22:59:33,324 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 04:30:34,964 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 04:35:52,935 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 22:59:33,325 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 23:03:05,113 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 04:35:52,937 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:41:16,419 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:03:05,114 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:03:05,164 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 04:41:16,421 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:46:37,675 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:03:05,164 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:06:20,326 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 04:46:37,676 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:51:39,918 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:06:20,328 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:06:20,377 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 04:51:39,920 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 04:56:00,345 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:06:20,378 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:06:20,514 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 04:56:00,346 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:01:06,383 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:06:20,515 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 23:09:52,349 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 05:01:06,384 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:05:45,292 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:09:52,350 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:09:52,403 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 05:05:45,294 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:10:37,527 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:09:52,404 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:13:31,753 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 05:10:37,528 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:15:30,355 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:13:31,755 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:13:32,033 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 05:15:30,357 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 05:20:14,309 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:13:32,034 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 23:16:52,913 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 05:20:14,310 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 05:24:46,046 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:16:52,916 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:16:52,967 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 05:24:46,048 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 05:29:45,153 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:16:52,967 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:20:19,928 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 05:29:45,155 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:34:57,723 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:20:19,929 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:20:19,979 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 05:34:57,724 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:39:51,351 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:20:19,979 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:30:07,321 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 05:39:51,353 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:44:33,079 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:30:07,323 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:30:07,375 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 05:44:33,080 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 05:48:46,669 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:30:07,376 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:30:07,515 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 05:48:46,670 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 05:53:34,096 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:30:07,516 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 23:33:51,162 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 05:53:34,098 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 05:58:43,613 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:33:51,163 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:33:51,215 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 05:58:43,615 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 06:03:11,379 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:33:51,216 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:34:11,859 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 23:36:29,938 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 06:03:11,380 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 06:08:29,596 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:36:29,939 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:36:29,990 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 06:08:29,598 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:13:55,795 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:36:29,991 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:39:45,556 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 06:13:55,797 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:18:48,681 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:39:45,558 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:39:45,610 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 06:18:48,682 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:23:30,846 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:39:45,610 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:39:45,750 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 06:23:30,848 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:28:10,947 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:39:45,751 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-04 23:43:41,781 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 06:28:10,949 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:32:53,572 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:43:41,783 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:43:41,834 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 06:32:53,574 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:37:28,711 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:43:41,834 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:44:02,471 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 23:46:10,347 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 06:37:28,713 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:41:57,296 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:46:10,349 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:49:43,805 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 06:41:57,297 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:46:54,983 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:49:43,807 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:49:43,881 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 06:46:54,985 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 06:51:39,861 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:49:43,882 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:50:04,793 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-04 23:52:42,183 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 06:51:39,862 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 06:56:32,694 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:52:42,184 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:52:42,268 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 06:56:32,696 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:00:58,242 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:52:42,269 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:56:22,928 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 07:00:58,244 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 07:05:58,885 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:56:22,930 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-04 23:56:23,014 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 07:05:58,886 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 07:10:59,814 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-04 23:56:23,014 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-04 23:56:23,233 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 07:10:59,815 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 07:15:44,019 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-04 23:56:23,234 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 00:00:26,840 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 07:15:44,020 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:20:24,309 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:00:26,841 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:00:26,921 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 07:20:24,310 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:24:42,279 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:00:26,922 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:00:27,227 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 07:24:42,281 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:29:20,541 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:00:27,228 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 00:04:37,808 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 07:29:20,543 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:34:13,189 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:04:37,811 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:09:00,592 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 07:34:13,190 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:39:00,458 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:09:00,593 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:09:22,126 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 00:11:58,633 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 07:39:00,460 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:44:04,019 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:11:58,635 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:11:59,387 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 07:44:04,021 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:49:12,642 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:11:59,388 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 00:16:16,547 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 07:49:12,643 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 07:54:20,649 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:16:16,548 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:16:16,627 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 07:54:20,651 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 07:58:57,665 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:16:16,628 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:16:38,000 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 00:19:17,132 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 07:58:57,666 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:03:28,025 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:19:17,134 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:19:17,220 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:03:28,027 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 08:08:05,140 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:19:17,221 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:19:17,439 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 08:08:05,142 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 08:13:16,696 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:19:17,439 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 00:23:09,658 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 08:13:16,697 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:17:55,370 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:23:09,659 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:23:09,712 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:17:55,371 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:22:57,290 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:23:09,713 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:27:19,262 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:22:57,292 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 08:27:45,674 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:27:19,264 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:27:19,480 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 08:27:45,675 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 08:32:20,343 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:27:19,480 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 00:31:29,793 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:32:20,346 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:36:56,088 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:31:29,795 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:35:48,736 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:36:56,089 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:41:38,743 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:35:48,738 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:40:33,085 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 08:41:38,745 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:46:28,242 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:40:33,088 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:40:33,682 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:46:28,244 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:51:45,113 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:40:33,683 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:43:46,398 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 08:51:45,115 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 08:56:17,815 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:43:46,400 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:43:46,450 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 08:56:17,817 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 09:00:58,490 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:43:46,451 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:43:46,588 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
 
-[2025-05-02 09:00:58,492 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
-[2025-05-02 09:05:31,449 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+[2025-05-05 00:43:46,589 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 00:47:13,294 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
 
-[2025-05-02 09:05:31,451 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
-[2025-05-02 09:10:19,510 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+[2025-05-05 00:47:13,295 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:47:13,354 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
 
-[2025-05-02 09:10:19,512 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:47:13,354 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:50:40,897 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 00:50:40,898 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 00:50:40,954 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 00:50:40,955 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:54:22,107 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 00:54:22,109 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 00:57:50,488 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 00:57:50,490 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:01:30,814 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:01:30,816 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:01:51,386 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 01:03:39,693 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:03:39,694 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:03:39,747 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:03:39,748 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:03:39,890 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 01:03:39,891 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 01:07:12,432 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:07:12,434 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:07:12,486 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:07:12,486 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:10:53,597 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:10:53,599 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:14:41,664 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:14:41,666 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:14:41,721 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:14:41,722 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:18:12,806 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:18:12,807 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:18:12,859 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:18:12,860 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:18:33,498 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 01:20:44,183 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:20:44,185 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:20:44,241 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:20:44,241 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:21:06,891 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 01:23:20,666 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:23:20,668 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:26:55,824 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:26:55,825 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:30:33,539 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:30:33,541 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:30:33,603 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:30:33,603 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:34:16,347 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:34:16,349 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:38:22,976 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:38:22,978 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:42:36,486 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:42:36,487 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:46:41,727 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:46:41,729 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:46:41,869 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 01:46:41,870 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 01:50:27,730 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:50:27,732 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:54:35,180 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 01:54:35,182 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 01:54:35,236 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:54:35,237 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:54:35,379 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 01:54:35,380 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 01:58:39,372 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 01:58:39,374 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 01:58:39,519 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 01:58:39,520 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:02:33,261 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:02:33,263 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:06:19,416 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 02:06:19,418 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 02:06:19,474 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:06:19,475 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:06:19,864 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:06:19,865 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:10:19,051 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 02:10:19,053 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 02:10:19,109 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:10:19,110 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:10:19,250 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:10:19,251 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:14:11,696 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:14:11,698 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:18:20,154 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:18:20,155 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:18:20,306 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:18:20,307 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:22:13,848 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 02:22:13,849 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 02:22:13,904 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:22:13,905 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:22:36,952 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 02:25:14,131 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:25:14,133 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:29:10,586 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:29:10,588 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:29:10,845 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:29:10,846 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:33:34,444 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:33:34,447 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:33:34,690 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:33:34,691 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:37:47,105 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:37:47,107 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:37:47,258 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:37:47,259 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:42:06,181 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:42:06,183 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:46:10,468 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 02:46:10,470 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 02:46:10,637 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:46:10,639 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:46:31,915 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 02:49:24,515 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:49:24,517 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:49:45,704 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 02:52:31,676 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:52:31,678 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 02:52:31,868 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 02:52:31,869 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 02:52:55,077 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 02:55:40,835 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 02:55:40,837 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:00:36,406 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 03:00:36,407 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 03:00:36,499 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:00:36,500 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:05:13,099 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 03:05:13,101 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 03:05:13,161 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:05:13,162 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:09:40,636 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:09:40,638 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:14:01,182 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:14:01,183 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:18:10,579 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:18:10,581 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:18:10,865 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 03:18:10,866 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 03:22:15,452 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 03:22:15,454 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 03:22:15,558 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:22:15,559 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:26:09,248 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:26:09,251 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:26:09,488 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 03:26:09,489 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 03:29:57,525 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 03:29:57,527 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 03:29:57,620 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:29:57,621 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:33:34,387 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:33:34,390 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:37:43,456 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:37:43,459 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:41:09,308 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 03:41:09,310 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 03:41:09,362 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:41:09,363 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:41:09,498 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 03:41:09,499 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 03:44:56,965 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:44:56,966 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:48:22,805 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:48:22,806 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:48:22,941 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 03:48:22,942 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 03:51:52,781 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:51:52,782 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:55:08,019 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:55:08,021 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:58:56,555 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 03:58:56,556 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 03:58:56,693 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 03:58:56,694 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 04:02:34,145 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:02:34,147 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:02:34,293 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 04:02:34,294 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 04:06:06,608 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:06:06,611 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:09:27,855 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 04:09:27,857 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 04:09:27,911 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:09:27,912 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:09:48,622 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-05 04:12:08,664 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:12:08,665 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:12:08,796 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 04:12:08,797 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 04:15:43,506 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:15:43,507 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:15:43,642 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 04:15:43,642 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-05 04:19:22,249 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '0';" to update dbms for error: 0 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-05 04:19:22,251 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-05 04:19:22,302 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:19:22,303 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:22:56,652 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-05 04:22:56,653 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-05 04:22:56,786 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-05 04:22:56,786 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
