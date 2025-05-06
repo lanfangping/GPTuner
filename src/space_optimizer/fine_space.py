@@ -72,6 +72,8 @@ class FineSpace(DefaultSpace):
 
                         if min_value < sys_min_value:
                             min_value = sys_min_value
+                    else:
+                        min_value = self._transfer_unit(min_value)
 
                 if not max_from_sys:
                     if unit:
@@ -82,6 +84,9 @@ class FineSpace(DefaultSpace):
                         sys_max_value = self._type_transfer(knob_type, info["max_val"])
                         if max_value > sys_max_value:
                             max_value = sys_max_value
+                    else:
+                        max_value = self._transfer_unit(max_value)
+
                 # Since the upper bound of some knob in mysql is too big, use GPT's offered upperbound for mysql
                 if isinstance(self.dbms, MysqlDBMS):
                     if max_from_sys or max_value >= sys.maxsize / 10:  
@@ -98,6 +103,8 @@ class FineSpace(DefaultSpace):
                 if unit is not None:
                     unit = self._transfer_unit(unit)
                     suggested_values = [(self._transfer_unit(value) / unit) for value in suggested_values]
+                else:
+                    suggested_values = [(self._transfer_unit(value)) for value in suggested_values]
                 
                 # type transformation
                 try:
