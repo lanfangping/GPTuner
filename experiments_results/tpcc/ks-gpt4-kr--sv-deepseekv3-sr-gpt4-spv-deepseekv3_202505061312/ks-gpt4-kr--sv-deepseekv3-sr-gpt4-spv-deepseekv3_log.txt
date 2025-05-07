@@ -1,0 +1,221 @@
+[2025-05-06 13:12:27,908 INFO] [run_gptuner.py:<module>:112] Input arguments: Namespace(config='src/exp_configs/tpcc/ks-gpt4-kr--sv-deepseekv3-sr-gpt4-spv-deepseekv3.yml', folder='default', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/ks-gpt4-kr--sv-deepseekv3-sr-gpt4-spv-deepseekv3_202505061312', knobs='experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt', suggest_range_path='experiments_results/tpcc/gpt-4-previous-good-knowledge', suggest_values_path='experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720', special_skill_path='experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720', model='deepseek-chat', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-05-06 13:17:04,787 WARNING] [coarse_space.py:define_search_space:144] Suggested value '0.0' is outside of suggested min/max or default range. It is discarded.
+[2025-05-06 13:17:04,787 WARNING] [coarse_space.py:define_search_space:144] Suggested value '50.0' is outside of suggested min/max or default range. It is discarded.
+[2025-05-06 13:17:04,789 WARNING] [coarse_space.py:define_search_space:144] Suggested value '4.0' is outside of suggested min/max or default range. It is discarded.
+[2025-05-06 13:17:04,816 WARNING] [coarse_space.py:define_search_space:144] Suggested value '12' is outside of suggested min/max or default range. It is discarded.
+[2025-05-06 13:17:04,832 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.00025, 0.000375, 0.0005, 0.00075, 0.1, 25.000375, 25.00075, 50.00025, 50.000499999999995}, Default: 0.1
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {75050000, 90050000, 112525000, 135025000, 200000000, 612500000, 635000000, 1075000000, 1090000000}, Default: 200000000
+    autovacuum_max_workers, Type: Categorical, Choices: {3, 4}, Default: 3
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {75005000, 112502500, 400000000, 612500000, 1075000000}, Default: 400000000
+    autovacuum_naptime, Type: Categorical, Choices: {30, 45, 60, 150, 225, 300, 450, 536915, 537095, 537320, 1073771, 1073891, 1074041}, Default: 60
+    autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {2.0, 6.0, 8.0, 12.5, 15.0}, Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 99, 149, 2650, 5100}, Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: Categorical, Choices: {0.05, 0.07500000000000001, 0.2, 25.075000000000003, 50.050000000000004}, Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {1000, 100024, 150037, 537020949, 1073841848}, Default: 1000
+    autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.025, 0.037500000000000006, 0.05, 0.07500000000000001, 0.1, 0.15, 0.15000000000000002, 0.2, 0.22499999999999998, 0.25, 0.375, 25.0375, 25.075000000000003, 25.15, 25.225, 25.375, 50.025, 50.050000000000004, 50.1, 50.15, 50.25}, Default: 0.2
+    autovacuum_vacuum_threshold, Type: Categorical, Choices: {50, 125, 162, 275, 350}, Default: 50
+    autovacuum_work_mem, Type: Categorical, Choices: {-1, 499999, 749999, 537620911, 1074241823}, Default: -1
+    bgwriter_flush_after, Type: Categorical, Choices: {32, 48, 64}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {100, 300, 400, 550, 625, 750, 775, 1000}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.0, 1.5, 2.0, 4.0, 6.0}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.25, 0.375, 0.45, 0.625, 0.675, 0.75, 0.9, 0.925, 0.95}, Default: 0.9
+    checkpoint_timeout, Type: Categorical, Choices: {165, 232, 300, 465, 682, 21825, 22275, 43350, 43650}, Default: 300
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 250, 375, 500, 750, 2650, 2875, 3250, 5100, 5250, 5500}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 1071341, 1618394, 2165447, 2712500}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {0, 1, 250, 500}, Default: 1
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: Categorical, Choices: {1.0, 1.25, 1.375, 1.5, 1.75, 3.125, 3.5, 4.5, 4.75, 5.0, 6.25, 8.0}, Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    lock_timeout, Type: Categorical, Choices: {0, 50, 75, 150, 225, 500, 750, 5000, 7500, 536870986, 536871136, 536871661, 536878411, 1073741873, 1073741973, 1073742323, 1073746823}, Default: 0
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 500512, 750256, 775512, 1162756, 1250000, 1500000, 1662500, 1775000}, Default: 65536
+    max_connections, Type: Categorical, Choices: {60, 90, 100, 135, 65625, 65670, 131131, 131161}, Default: 100
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {2, 3, 13, 15, 25, 26}, Default: 2
+    max_wal_size, Type: Categorical, Choices: {501, 750, 1024, 2001, 3000, 4001, 6000, 536871661, 536873911, 536876911, 1073742323, 1073743823, 1073745823}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8, 9, 10}, Default: 8
+    shared_buffers, Type: Categorical, Choices: {16384, 484383, 726566, 1114062, 1259375}, Default: 16384
+    statement_timeout, Type: Categorical, Choices: {0}, Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    vacuum_cost_delay, Type: Categorical, Choices: {0.0, 0.25, 0.5, 0.75, 1.0}, Default: 0.0
+    vacuum_cost_limit, Type: Categorical, Choices: {100, 150, 200, 500, 750, 1000, 1500, 2650, 3250, 4000, 5100, 5500, 6000}, Default: 200
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000, 75000000, 112500000, 325000000, 362500000, 550000000, 575000000}, Default: 50000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {5000, 7500, 10000, 15000, 5000000, 250007500, 250015000, 500005000, 500010000}, Default: 5000000
+    wal_buffers, Type: Categorical, Choices: {512, 1002, 1501, 67035, 132071}, Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: Categorical, Choices: {4096, 8032, 12016, 100032, 150016, 399500, 537500, 783000, 875000}, Default: 4096
+
+[2025-05-06 13:19:28,347 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 13:21:05,519 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to read committed
+[2025-05-06 13:24:19,675 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 13:26:42,125 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 13:30:16,040 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 13:34:15,791 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to serializable
+[2025-05-06 13:38:02,524 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 13:41:39,133 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to serializable
+[2025-05-06 13:44:22,259 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to read committed
+[2025-05-06 13:48:07,951 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 13:51:55,193 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to read committed
+[2025-05-06 13:55:41,621 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to serializable
+[2025-05-06 13:59:20,888 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to read committed
+[2025-05-06 14:02:47,665 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 14:06:25,858 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to read committed
+[2025-05-06 14:10:15,290 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 14:14:07,093 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 14:17:36,919 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to serializable
+[2025-05-06 14:21:19,079 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to serializable
+[2025-05-06 14:25:07,456 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to serializable
+[2025-05-06 14:29:00,116 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 14:32:52,451 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to serializable
+[2025-05-06 14:36:43,778 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to read committed
+[2025-05-06 14:40:35,929 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 14:43:31,669 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 14:47:28,425 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to read committed
+[2025-05-06 14:50:58,113 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 14:54:32,705 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 14:57:12,284 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 15:00:56,559 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to serializable
+[2025-05-06 15:04:17,790 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.1
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_max_workers, Type: UniformInteger, Range: [3, 5], Default: 3
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [10000, 2000000000], Default: 400000000
+    autovacuum_naptime, Type: UniformInteger, Range: [1, 2147483], Default: 60
+    autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [0.5, 42.5], Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 10000], Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: UniformInteger, Range: [-1, 2147483647], Default: 1000
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_threshold, Type: UniformInteger, Range: [50, 500], Default: 50
+    autovacuum_work_mem, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 64], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [100, 1000], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [0.0, 10.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 86400], Default: 300
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [524288, 2712500], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: UniformFloat, Range: [1.0, 8.0], Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    lock_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    maintenance_work_mem, Type: UniformInteger, Range: [1024, 2000000], Default: 65536
+    max_connections, Type: UniformInteger, Range: [1, 262143], Default: 100
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [2, 48], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [8, 11], Default: 8
+    shared_buffers, Type: UniformInteger, Range: [16, 1550000], Default: 16384
+    statement_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    vacuum_cost_delay, Type: UniformFloat, Range: [0.0, 3.25], Default: 0.0
+    vacuum_cost_limit, Type: UniformInteger, Range: [1, 10000], Default: 200
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 50000000
+    vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 5000000
+    wal_buffers, Type: UniformInteger, Range: [4, 262143], Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: UniformInteger, Range: [64, 1550000], Default: 4096
+
+[2025-05-06 15:06:52,167 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to serializable
+[2025-05-06 15:10:33,814 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to serializable
+[2025-05-06 15:14:22,816 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 15:18:23,267 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 15:22:07,902 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to read committed
+[2025-05-06 15:25:34,669 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 15:29:18,336 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to serializable
+[2025-05-06 15:32:54,612 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 15:36:29,139 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to serializable
+[2025-05-06 15:39:03,002 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to read committed
+[2025-05-06 15:41:29,489 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to read committed
+[2025-05-06 15:43:48,345 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to serializable
+[2025-05-06 15:47:17,795 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to read committed
+[2025-05-06 15:49:54,142 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to read committed
+[2025-05-06 15:52:22,028 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to read committed
+[2025-05-06 15:55:34,299 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 15:59:07,498 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 16:01:52,853 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 16:05:35,666 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to read committed
+[2025-05-06 16:09:26,483 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to read committed
+[2025-05-06 16:13:09,045 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to read committed
+[2025-05-06 16:17:02,246 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 16:21:01,374 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 16:24:47,421 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to read committed
+[2025-05-06 16:28:36,123 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 16:32:29,729 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 16:36:28,766 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to serializable
+[2025-05-06 16:40:13,535 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 16:44:09,711 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 16:48:02,972 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to serializable
+[2025-05-06 16:51:57,360 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob transaction_isolation is failed to set to read committed
+[2025-05-06 16:56:03,507 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 17:00:16,076 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:04:00,745 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:07:36,990 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 17:11:18,506 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:15:16,784 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob transaction_isolation is failed to set to read committed
+[2025-05-06 17:17:59,090 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:21:57,364 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:26:04,098 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:29:56,282 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob transaction_isolation is failed to set to serializable
+[2025-05-06 17:34:18,960 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob transaction_isolation is failed to set to serializable
+[2025-05-06 17:38:00,944 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:42:04,902 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:45:43,840 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob transaction_isolation is failed to set to read committed
+[2025-05-06 17:49:28,024 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:53:09,791 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 17:56:44,332 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob transaction_isolation is failed to set to read committed
+[2025-05-06 18:00:24,746 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:04:00,143 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:06:40,207 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:09:12,402 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:11:40,391 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:13:59,617 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:17:31,961 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:19:54,389 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob transaction_isolation is failed to set to read committed
+[2025-05-06 18:23:27,225 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:27:04,765 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:30:31,402 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:33:54,850 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:37:39,775 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 18:41:21,860 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob transaction_isolation is failed to set to serializable
+[2025-05-06 18:45:02,638 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 18:48:39,630 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob transaction_isolation is failed to set to serializable
+[2025-05-06 18:52:27,481 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob transaction_isolation is failed to set to serializable
+[2025-05-06 18:55:14,876 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob transaction_isolation is failed to set to read committed
+[2025-05-06 18:58:45,268 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 19:02:26,847 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob transaction_isolation is failed to set to serializable
+[2025-05-06 19:06:03,636 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob transaction_isolation is failed to set to read committed
+[2025-05-06 19:09:37,926 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob transaction_isolation is failed to set to repeatable read
+[2025-05-06 19:12:07,615 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-06 19:15:37,180 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob transaction_isolation is failed to set to read committed
+[2025-05-06 19:19:19,979 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob transaction_isolation is failed to set to serializable
+[2025-05-06 19:22:50,263 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob transaction_isolation is failed to set to serializable
+[2025-05-06 19:26:08,490 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob transaction_isolation is failed to set to read committed
+[2025-05-06 19:29:17,993 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob transaction_isolation is failed to set to serializable
+[2025-05-06 19:32:21,392 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob transaction_isolation is failed to set to read committed
+[2025-05-06 19:35:33,559 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob transaction_isolation is failed to set to serializable
+[2025-05-06 19:38:57,347 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob transaction_isolation is failed to set to serializable
+[2025-05-06 19:42:21,505 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob transaction_isolation is failed to set to serializable
