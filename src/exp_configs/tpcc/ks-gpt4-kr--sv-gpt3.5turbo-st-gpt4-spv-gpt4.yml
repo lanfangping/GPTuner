@@ -1,0 +1,17 @@
+folder: default
+# Selected Knobs by GPT4
+knobs: experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt
+suggest_range_path: experiments_results/tpcc/gpt-4-previous-good-knowledge  # suggest range by gpt-4
+suggest_values_path: experiments_results/tpcc/ks-gpt4-kr-gpt3.5turbo_202505011227  # special value by gpt3.5turbo
+special_skill_path: experiments_results/tpcc/gpt-4-previous-good-knowledge  # suggest range by gpt-4 
+process: optimization
+db: postgres
+user: postgres
+password: postgres
+database: tpcc_workload
+test: tpcc
+timeout: 180
+seed: 100
+model: gpt-3.5-turbo-0125
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
+recover_script: ./scripts/recover_docker_postgres.sh
