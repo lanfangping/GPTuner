@@ -210,7 +210,7 @@ if __name__ == '__main__':
         source_special_skill_path = os.path.join(f"{args.special_skill_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         source_normal_suggest_value_skill_path = os.path.join(f"{args.suggest_values_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         source_normal_suggest_range_skill_path = os.path.join(f"{args.suggest_range_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
-        target_special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        target_special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge")
         target_normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         
         command = f"cp -r {source_special_skill_path} {target_special_skill_path}"
