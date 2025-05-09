@@ -1,0 +1,850 @@
+[2025-05-08 16:16:29,819 INFO] [run_gptuner.py:<module>:112] Input arguments: Namespace(config='src/exp_configs/tpcc/ks-gpt4-kr--sv-gpt4-st-gpt3.5turbo-spv-gpt4.yml', folder='default', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-st-gpt3.5turbo-spv-gpt4_202505081616', knobs='experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt', suggest_range_path='experiments_results/tpcc/ks-gpt4-kr-gpt3.5turbo_202505011227', suggest_values_path='experiments_results/tpcc/gpt-4-previous-good-knowledge', special_skill_path='experiments_results/tpcc/gpt-4-previous-good-knowledge', model='gpt-3.5-turbo-0125', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-05-08 16:20:53,823 WARNING] [coarse_space.py:define_search_space:144] Suggested value '116250' is outside of suggested min/max or default range. It is discarded.
+[2025-05-08 16:20:53,894 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.1}, Default: 0.1
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {100000, 200000000, 650000000, 1100000000, 1550000000, 2000000000}, Default: 200000000
+    autovacuum_max_workers, Type: Categorical, Choices: {3, 4, 65539, 131074}, Default: 3
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {400000000}, Default: 400000000
+    autovacuum_naptime, Type: Categorical, Choices: {60}, Default: 60
+    autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {2.0, 6.0, 8.0, 11.0, 15.5, 32.5, 40.0, 55.0, 60.0}, Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1}, Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: Categorical, Choices: {0.2}, Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {500, 750, 1000, 536871661, 1073742323}, Default: 1000
+    autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.2}, Default: 0.2
+    autovacuum_vacuum_threshold, Type: Categorical, Choices: {50}, Default: 50
+    autovacuum_work_mem, Type: Categorical, Choices: {-1, 249999, 499999, 749999, 1000000}, Default: -1
+    bgwriter_flush_after, Type: Categorical, Choices: {32, 48, 64, 112, 160}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {100, 268435530, 536870961, 805306392}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {2.0}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.9}, Default: 0.9
+    checkpoint_timeout, Type: Categorical, Choices: {300, 465, 682, 22275, 43650}, Default: 300
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_lock_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 250, 375, 500, 750, 2650, 2875, 3250, 5100, 5250, 5500}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {1}, Default: 1
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: Categorical, Choices: {1.0}, Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    lock_timeout, Type: Categorical, Choices: {0}, Default: 0
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 3907000, 5828500, 542683411, 1077616823}, Default: 65536
+    max_connections, Type: Categorical, Choices: {12, 18, 30, 45, 100, 65553, 65580, 131083, 131101}, Default: 100
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1, 2, 12, 18, 256, 257, 274, 512, 513, 524}, Default: 2
+    max_wal_size, Type: Categorical, Choices: {1024}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8}, Default: 8
+    shared_buffers, Type: Categorical, Choices: {16384, 484383, 726566, 1114062, 1259375}, Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_multixact_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: -1.0
+    special_autovacuum_vacuum_cost_limit, Type: Constant, Value: -1
+    special_autovacuum_vacuum_insert_threshold, Type: Constant, Value: -1
+    special_autovacuum_vacuum_threshold, Type: Constant, Value: -1
+    special_autovacuum_work_mem, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: -1
+    special_checkpoint_timeout, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_lock_timeout, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_statement_timeout, Type: Constant, Value: 0
+    special_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_vacuum_cost_limit, Type: Constant, Value: -1
+    special_vacuum_freeze_min_age, Type: Constant, Value: 0
+    special_vacuum_multixact_freeze_min_age, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    statement_timeout, Type: Categorical, Choices: {0}, Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    vacuum_cost_delay, Type: Categorical, Choices: {0.0, 0.25, 0.375, 0.4, 0.6000000000000001, 0.625, 0.75, 0.8500000000000001, 0.9}, Default: 0.0
+    vacuum_cost_limit, Type: Categorical, Choices: {200}, Default: 200
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000}, Default: 50000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {5000000}, Default: 5000000
+    wal_buffers, Type: Categorical, Choices: {8, 512, 884, 1256, 1628, 2000}, Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: Categorical, Choices: {4096, 502000, 751000, 537620911, 1074241823}, Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '0'
+    autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '0'
+    autovacuum_work_mem | control_autovacuum_work_mem == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_timeout | control_checkpoint_timeout == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    lock_timeout | control_lock_timeout == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '1'
+    special_autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '1'
+    special_autovacuum_work_mem | control_autovacuum_work_mem == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_timeout | control_checkpoint_timeout == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_lock_timeout | control_lock_timeout == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_freeze_min_age | control_vacuum_freeze_min_age == '1'
+    special_vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    statement_timeout | control_statement_timeout == '0'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_freeze_min_age | control_vacuum_freeze_min_age == '0'
+    vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '0'
+    wal_buffers | control_wal_buffers == '0'
+
+[2025-05-08 16:23:59,565 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to read committed
+[2025-05-08 16:23:59,716 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 16:27:55,167 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 16:27:55,514 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 16:27:55,676 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 16:27:55,742 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 16:27:55,787 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 16:27:55,853 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 16:32:15,862 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 16:32:15,923 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 16:32:15,974 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 16:32:16,065 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 16:32:16,077 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 16:35:18,007 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 16:35:18,072 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 16:35:18,128 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 16:35:18,186 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 16:35:18,233 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 16:35:18,261 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 16:35:18,263 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 16:39:18,741 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to read committed
+[2025-05-08 16:39:18,794 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 16:39:18,822 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 16:39:18,881 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 16:43:35,729 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 16:43:35,785 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to serializable
+[2025-05-08 16:43:35,928 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 16:47:53,665 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to serializable
+[2025-05-08 16:47:53,768 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 16:47:53,796 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 16:51:03,347 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 16:51:03,408 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 16:51:03,462 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 16:51:03,519 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 16:51:03,564 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 16:51:03,593 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 16:55:10,644 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 16:55:10,696 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to read committed
+[2025-05-08 16:55:10,748 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 16:55:10,776 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 16:55:10,828 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 16:58:59,891 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 16:59:00,012 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 16:59:00,097 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 16:59:00,149 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 17:02:09,687 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to read committed
+[2025-05-08 17:05:52,042 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:05:52,172 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 17:05:52,285 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:09:38,824 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 17:12:14,615 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 17:12:14,669 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 17:12:14,724 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:12:14,752 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:15:03,472 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 17:15:03,786 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:19:05,182 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:19:05,246 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 17:19:05,301 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 17:19:05,355 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:19:05,381 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:19:05,391 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:22:51,296 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 17:22:51,348 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to read committed
+[2025-05-08 17:22:51,449 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:22:51,476 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:26:37,540 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 17:26:37,592 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:26:37,619 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:26:37,629 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:26:37,659 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:30:22,478 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to read committed
+[2025-05-08 17:30:22,532 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:30:22,562 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:33:22,573 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:33:22,695 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to serializable
+[2025-05-08 17:33:22,787 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:33:22,799 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:33:22,828 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:33:22,829 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 17:37:01,414 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:37:01,531 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to serializable
+[2025-05-08 17:37:01,579 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:37:01,605 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:37:01,615 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:37:01,641 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:37:01,642 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 17:40:17,199 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 17:40:17,248 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 17:40:17,297 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:40:17,342 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:40:17,374 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 17:43:47,089 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 17:43:47,141 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 17:43:47,192 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:43:47,219 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:43:47,230 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:43:47,260 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:47:13,070 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:47:13,195 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 17:47:13,250 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:47:13,279 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:47:13,334 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 17:50:57,156 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:50:57,274 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read committed
+[2025-05-08 17:50:57,327 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:50:57,413 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 17:54:42,930 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:54:42,997 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 17:54:43,056 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to serializable
+[2025-05-08 17:54:43,149 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 17:54:43,159 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 17:54:43,188 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:57:07,096 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 17:57:07,245 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to serializable
+[2025-05-08 17:57:07,300 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 17:57:07,382 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 17:57:07,384 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:00:46,192 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:00:46,311 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:00:46,358 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:00:46,383 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:00:46,393 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:00:46,418 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:03:18,662 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 18:03:18,709 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:03:18,754 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:03:18,776 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:03:18,785 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:03:18,816 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:05:58,689 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:05:58,824 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:10:03,226 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.1
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_max_workers, Type: UniformInteger, Range: [1, 262143], Default: 3
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [10000, 2000000000], Default: 400000000
+    autovacuum_naptime, Type: UniformInteger, Range: [1, 2147483], Default: 60
+    autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [2.0, 100.0], Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 10000], Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: UniformInteger, Range: [0, 2147483647], Default: 1000
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_threshold, Type: UniformInteger, Range: [0, 2147483647], Default: 50
+    autovacuum_work_mem, Type: UniformInteger, Range: [-1, 1000000], Default: -1
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 256], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [100, 1073741823], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [0.0, 10.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 86400], Default: 300
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_lock_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partitionwise_join, Type: Categorical, Choices: {on, off}, Default: off
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: UniformFloat, Range: [1.0, 1000.0], Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    lock_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    maintenance_work_mem, Type: UniformInteger, Range: [64000, 2147483647], Default: 65536
+    max_connections, Type: UniformInteger, Range: [1, 262143], Default: 100
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [0, 1024], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [0, 262143], Default: 8
+    shared_buffers, Type: UniformInteger, Range: [16, 1550000], Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_multixact_freeze_max_age, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: -1.0
+    special_autovacuum_vacuum_cost_limit, Type: Constant, Value: -1
+    special_autovacuum_vacuum_insert_threshold, Type: Constant, Value: -1
+    special_autovacuum_vacuum_threshold, Type: Constant, Value: -1
+    special_autovacuum_work_mem, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: -1
+    special_checkpoint_timeout, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_lock_timeout, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_statement_timeout, Type: Constant, Value: 0
+    special_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_vacuum_cost_limit, Type: Constant, Value: -1
+    special_vacuum_freeze_min_age, Type: Constant, Value: 0
+    special_vacuum_multixact_freeze_min_age, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    statement_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    vacuum_cost_delay, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.0
+    vacuum_cost_limit, Type: UniformInteger, Range: [1, 10000], Default: 200
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [0, 50000000], Default: 50000000
+    vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 5000000
+    wal_buffers, Type: UniformInteger, Range: [8, 87687], Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    work_mem, Type: UniformInteger, Range: [4000, 2147483647], Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '0'
+    autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '0'
+    autovacuum_work_mem | control_autovacuum_work_mem == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_timeout | control_checkpoint_timeout == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    lock_timeout | control_lock_timeout == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_freeze_max_age | control_autovacuum_freeze_max_age == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_multixact_freeze_max_age | control_autovacuum_multixact_freeze_max_age == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '1'
+    special_autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '1'
+    special_autovacuum_work_mem | control_autovacuum_work_mem == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_timeout | control_checkpoint_timeout == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_lock_timeout | control_lock_timeout == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_freeze_min_age | control_vacuum_freeze_min_age == '1'
+    special_vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    statement_timeout | control_statement_timeout == '0'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_freeze_min_age | control_vacuum_freeze_min_age == '0'
+    vacuum_multixact_freeze_min_age | control_vacuum_multixact_freeze_min_age == '0'
+    wal_buffers | control_wal_buffers == '0'
+
+[2025-05-08 18:12:28,836 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:12:28,893 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:12:28,923 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:12:28,971 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:16:17,559 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:16:17,679 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:16:17,731 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:16:17,759 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:16:17,769 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:16:17,799 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:20:29,166 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:20:29,292 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:20:29,386 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:20:29,396 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:20:29,423 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:24:08,878 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 18:24:08,930 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:24:08,958 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:24:09,010 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:26:39,981 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:26:40,044 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 18:26:40,098 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 18:26:40,157 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:26:40,185 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:26:40,195 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:26:40,223 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:26:40,224 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:30:15,234 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to serializable
+[2025-05-08 18:30:15,318 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:30:15,361 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:33:47,706 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 18:33:47,761 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:33:47,789 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:33:47,834 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:33:47,836 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:37:18,793 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:37:18,860 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 18:37:18,918 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to read committed
+[2025-05-08 18:37:19,011 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:37:19,058 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:41:14,442 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:41:14,566 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:41:14,621 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:41:14,650 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:41:14,662 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:41:14,699 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:45:09,015 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:45:09,136 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:45:09,190 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:45:09,216 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:45:09,227 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:45:09,256 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:45:09,258 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:48:53,342 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:48:53,471 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:48:53,523 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:48:53,549 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:48:53,559 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:48:53,594 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:52:44,086 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:52:44,205 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:52:44,260 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:52:44,287 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:52:44,297 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:52:44,324 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 18:52:44,326 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 18:56:37,527 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 18:56:37,591 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 18:56:37,643 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 18:56:37,695 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 18:56:37,722 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 18:56:37,732 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 18:56:37,772 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:00:47,120 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:00:47,232 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:00:47,281 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:00:47,307 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:00:47,358 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:04:48,607 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:04:48,920 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 19:04:49,129 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to serializable
+[2025-05-08 19:04:49,296 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:04:49,309 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:04:49,348 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:08:04,273 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:08:04,403 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to serializable
+[2025-05-08 19:08:04,464 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:08:04,555 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:08:04,557 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:11:01,741 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:11:01,877 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:11:01,935 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:11:01,963 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:11:01,973 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:11:02,003 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:13:58,627 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to read committed
+[2025-05-08 19:13:58,791 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:13:58,997 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:16:43,848 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 19:16:43,901 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:16:43,956 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:16:43,984 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:16:44,029 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:16:44,031 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:20:51,164 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:20:51,291 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:20:51,349 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:20:51,380 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:20:51,390 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:20:51,487 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:20:51,488 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:24:45,900 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:24:46,035 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to read committed
+[2025-05-08 19:24:46,093 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:24:46,122 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:24:46,133 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:24:46,159 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:24:46,161 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:27:53,595 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:27:53,721 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:27:53,775 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:27:53,821 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:30:48,414 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:30:48,470 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:30:48,503 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:30:48,560 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:33:48,916 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 19:33:48,975 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:33:49,033 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:33:49,064 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:33:49,075 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:33:49,105 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:33:49,107 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:36:47,082 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:36:47,214 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read committed
+[2025-05-08 19:36:47,303 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:36:47,314 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:36:47,342 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:39:48,238 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:39:48,367 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:39:48,438 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:39:48,470 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:39:48,481 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:39:48,511 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:39:48,512 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:43:39,417 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:43:39,481 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 19:43:39,539 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 19:43:39,597 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:43:39,686 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:43:39,688 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:47:47,189 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 19:47:47,256 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 19:47:47,315 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:47:47,372 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:47:47,402 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:47:47,413 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:47:47,441 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:47:47,443 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 19:51:49,715 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to read committed
+[2025-05-08 19:51:49,769 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:51:49,799 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:51:49,809 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:51:49,837 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 19:56:06,851 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 19:56:06,912 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 19:56:06,971 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 19:56:07,001 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 19:56:07,012 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 19:56:07,041 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:00:20,386 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:00:20,452 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:00:20,552 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:00:20,678 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:00:20,711 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:00:20,754 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:00:20,830 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 20:04:28,027 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:04:28,153 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:04:28,241 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:08:40,617 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:08:40,683 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:08:40,739 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob transaction_isolation is failed to set to read committed
+[2025-05-08 20:08:40,834 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:08:40,884 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:12:30,305 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:12:30,367 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:12:30,418 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:12:30,472 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:12:30,499 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:12:30,544 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:16:34,063 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:16:34,120 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob transaction_isolation is failed to set to serializable
+[2025-05-08 20:16:34,177 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:16:34,208 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:16:34,220 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:16:34,259 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 20:19:18,920 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:19:19,032 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:19:19,081 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:19:19,107 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:19:19,117 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:19:19,150 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:19:19,152 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 20:23:16,176 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:23:16,247 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:23:16,377 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:23:16,541 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:23:16,609 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:23:16,655 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:23:16,722 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:23:16,724 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 20:27:07,673 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:27:07,737 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:27:07,794 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob transaction_isolation is failed to set to read committed
+[2025-05-08 20:27:07,854 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:27:07,886 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:27:07,933 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:31:37,826 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:31:37,979 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:31:38,066 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:31:38,155 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:31:38,202 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:31:38,219 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:31:38,269 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:36:13,347 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:36:13,447 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:36:13,531 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:36:13,616 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:36:13,662 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:36:13,680 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:36:13,722 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:36:13,724 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 20:40:42,587 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:40:42,670 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:40:42,752 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:40:42,798 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:40:42,813 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:44:52,793 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:44:52,886 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:44:52,964 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:44:53,115 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:49:03,204 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 20:49:03,291 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:49:03,321 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:49:03,333 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 20:53:21,423 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 20:53:21,557 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:53:21,715 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob transaction_isolation is failed to set to read committed
+[2025-05-08 20:53:21,880 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 20:53:22,104 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 20:53:22,105 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 20:56:11,003 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 20:56:11,059 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob transaction_isolation is failed to set to read committed
+[2025-05-08 20:56:11,148 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 20:56:11,159 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:00:23,149 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:00:23,278 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob transaction_isolation is failed to set to read committed
+[2025-05-08 21:00:23,336 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:00:23,364 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:00:23,376 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:00:23,405 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:04:36,380 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:04:36,437 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:04:36,484 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:08:50,043 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:08:50,110 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:08:50,165 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:08:50,219 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:08:50,248 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:08:50,259 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:12:42,529 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:12:42,582 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:12:42,636 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:12:42,664 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:12:42,711 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:12:42,712 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:15:32,104 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:15:32,168 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:15:32,219 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:15:32,306 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:15:32,316 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:15:32,343 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:15:32,344 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:18:20,703 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:18:20,758 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:18:20,865 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:18:20,893 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:18:20,895 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:21:16,348 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:21:16,477 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:21:16,586 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:21:16,615 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:21:16,616 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:24:08,615 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:24:08,667 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:24:08,714 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:24:08,738 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:24:08,746 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:24:08,770 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:24:08,771 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:27:56,350 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:27:56,403 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob transaction_isolation is failed to set to read committed
+[2025-05-08 21:27:56,491 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:27:56,533 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:27:56,534 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:30:40,811 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:30:40,957 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:30:40,958 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:34:34,754 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob transaction_isolation is failed to set to read committed
+[2025-05-08 21:34:34,852 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:34:34,886 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:37:35,367 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:37:35,485 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:37:35,535 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:37:35,561 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:37:35,570 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:37:35,596 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:41:01,212 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:41:01,343 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:41:01,397 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:41:01,480 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:41:01,482 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:44:55,323 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:44:55,455 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob transaction_isolation is failed to set to serializable
+[2025-05-08 21:44:55,515 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:44:55,564 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:44:55,595 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:44:55,597 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:48:43,340 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:48:43,463 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:48:43,516 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:48:43,544 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:48:43,586 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 21:52:40,457 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:52:40,512 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 21:52:40,558 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:52:40,649 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:52:40,682 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:55:18,282 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:55:18,411 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob transaction_isolation is failed to set to read committed
+[2025-05-08 21:55:18,501 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:55:18,511 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:55:18,549 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 21:58:59,967 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 21:59:00,331 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 21:59:00,492 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 21:59:00,585 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 21:59:00,596 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 21:59:00,689 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:02:45,825 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 22:02:45,925 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:02:45,952 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:05:28,577 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:05:28,694 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 22:05:28,745 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:05:28,771 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:05:28,823 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:08:14,969 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:08:15,032 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:08:15,084 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 22:08:15,136 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:08:15,163 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:08:15,173 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:08:15,199 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:12:00,810 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:12:00,861 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob transaction_isolation is failed to set to read committed
+[2025-05-08 22:12:00,914 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:12:00,941 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:12:00,952 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:12:00,981 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:16:04,961 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:16:05,011 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob transaction_isolation is failed to set to read committed
+[2025-05-08 22:16:05,062 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:16:05,105 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:16:05,132 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:19:57,216 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:19:57,268 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob transaction_isolation is failed to set to read committed
+[2025-05-08 22:19:57,314 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:19:57,352 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:19:57,376 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:23:56,010 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:23:56,078 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:23:56,133 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob transaction_isolation is failed to set to serializable
+[2025-05-08 22:23:56,279 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:27:34,645 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:27:34,698 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 22:27:34,752 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:27:34,797 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:31:19,179 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:31:19,322 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob vacuum_cost_limit is failed to set to -1
+[2025-05-08 22:31:19,448 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 22:31:19,735 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:35:05,557 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob transaction_isolation is failed to set to serializable
+[2025-05-08 22:35:05,613 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:35:05,642 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:35:05,654 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:35:05,682 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:35:05,683 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:38:55,151 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:38:55,278 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 22:38:55,367 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:38:55,413 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:38:55,414 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:42:51,437 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:42:51,561 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob transaction_isolation is failed to set to read committed
+[2025-05-08 22:42:51,651 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:42:51,696 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:42:51,698 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:46:40,509 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:46:40,627 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-08 22:46:40,679 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:46:40,706 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:46:40,716 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:46:40,750 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:49:16,107 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob transaction_isolation is failed to set to read committed
+[2025-05-08 22:49:16,194 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:49:16,240 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:49:16,241 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:53:00,984 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:53:01,103 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob transaction_isolation is failed to set to read committed
+[2025-05-08 22:53:01,154 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:53:01,188 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_multixact_freeze_max_age is failed to set to 0
+[2025-05-08 22:53:01,197 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob checkpoint_timeout is failed to set to 0
+[2025-05-08 22:53:01,223 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:53:01,224 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:55:41,810 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob transaction_isolation is failed to set to repeatable read
+[2025-05-08 22:55:41,867 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-05-08 22:55:41,950 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob autovacuum_freeze_max_age is failed to set to 0
+[2025-05-08 22:55:41,952 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob bgwriter_lru_maxpages is failed to set to -1
+[2025-05-08 22:59:21,703 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob autovacuum_max_workers is failed to set to 0
+[2025-05-08 22:59:21,830 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob transaction_isolation is failed to set to read uncommitted
