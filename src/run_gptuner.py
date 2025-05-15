@@ -19,6 +19,7 @@ from space_optimizer.knob_selection import KnobSelection
 from utils import misc
 from utils.logger import MyLogger
 from dotenv import load_dotenv
+from utils.exp_tools import replace_range_for_knobs
 load_dotenv()  # take environment variables from .env.
 
 def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
@@ -86,6 +87,8 @@ if __name__ == '__main__':
     parser.add_argument("--result_path", type=str, default="./experiments_results/test")
     parser.add_argument("--knobs", type=str, default="None")
     parser.add_argument("--suggest_range_path", type=str, default="None")
+    parser.add_argument("--suggest_range_target_path", type=str, default="None")
+    parser.add_argument("--suggest_range_mode", type=str, default="default") # `default`: only use `suggest_range_path`, `narrow`: replace the range in `suggest_range_path` with the narrow range in `suggest_range_target_path`
     parser.add_argument("--suggest_values_path", type=str, default="None")
     parser.add_argument("--special_skill_path", type=str, default="None")
     parser.add_argument("--model", type=str, default="gpt-4o-mini")
@@ -150,7 +153,18 @@ if __name__ == '__main__':
         subprocess.run(command, shell=True, check=True)
         time.sleep(2)
     target_knobs_path = os.path.join(folder_path, "knowledge_collection", f"{args.db}", "target_knobs.txt")
-        
+    
+    # prepare tuning lake and structured knowledge
+    target_knobs = []
+    knob_info = json.load(open(os.path.join(folder_path, f"knowledge_collection/{args.db}/knob_info/system_view.json")))
+    with open(target_knobs_path, 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            knob = line.strip()
+            if knob in knob_info.keys():
+                target_knobs.append(knob)
+            else:
+                log.warning(f"'{knob}' is not in {args.db}")
 
     if args.process == 'whole' or args.process == 'knowledge':
         # write your api_base and api_key
@@ -169,19 +183,6 @@ if __name__ == '__main__':
         knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, knowledge_path=folder_path, api_base=api_base, api_key=api_key, model=args.model)
         knob_selection.select_interdependent_all_knobs() # if target_knob.txt exits, then this step is skipped
 
-        # prepare tuning lake and structured knowledge
-        target_knobs = []
-        knob_info = json.load(open(os.path.join(folder_path, f"knowledge_collection/{args.db}/knob_info/system_view.json")))
-        with open(target_knobs_path, 'r') as file:
-            lines = file.readlines()
-            for line in lines:
-                knob = line.strip()
-                if knob in knob_info.keys():
-                    target_knobs.append(knob)
-                else:
-                    log.warning(f"'{knob}' is not in {args.db}")
-                    
-        
         knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
         knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
         knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
@@ -218,6 +219,10 @@ if __name__ == '__main__':
         time.sleep(2)
         cpu_cores, ram_size, disk_size = get_hardware_info()
         disk_type = get_disk_type()
+
+        if args.suggest_range_mode == 'narrow':
+            range_info = replace_range_for_knobs(target_knobs, args.suggest_range_path, args.suggest_range_target_path)
+
         with open(target_knobs_path, 'r') as file:
             lines = file.readlines()
             for line in lines:
@@ -227,8 +232,12 @@ if __name__ == '__main__':
                     continue
                 value_data = json.load(open(os.path.join(source_normal_suggest_value_skill_path, f"{knob}.json"), "r"))
                 range_data = json.load(open(os.path.join(source_normal_suggest_range_skill_path, f"{knob}.json"), "r"))
-                data['min_value'] = range_data['min_value']
-                data['max_value'] = range_data['max_value']
+                if args.suggest_range_mode != 'default':
+                    data['min_value'] = range_info[knob]['min_value']
+                    data['max_value'] = range_info[knob]['max_value']
+                else:
+                    data['min_value'] = range_data['min_value']
+                    data['max_value'] = range_data['max_value']
                 data['suggested_values'] = value_data['suggested_values']
                 data.update({"cpu":cpu_cores, "ram":ram_size, "disk_size":disk_size, "disk_type":disk_type})
                 json.dump(data, open(os.path.join(target_normal_skill_path, f"{knob}.json"), "w"))
