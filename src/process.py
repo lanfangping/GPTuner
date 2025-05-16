@@ -17,7 +17,7 @@ def extract_knob_range_from_file(file_path):
                 
             elif "Fine Configuration Space" in line:
                 fine_start = True
-            elif "Conditions:" in line:
+            elif "Conditions:" in line or line.startswith('['):
                 coarse_start = False
                 fine_start = False
 
@@ -39,7 +39,6 @@ def extract_knob_range_from_file(file_path):
                     fine_configuration[knob]['special'] = knob_range
                 else:
                     fine_configuration[knob]['range'] = knob_range # knob_range may be a value
-
     return coarse_configuration, fine_configuration
                 
 def extract_range_from_text(line):
@@ -149,10 +148,27 @@ def extract_knobs_from_different_sources(file_path):
                 found_interdependent_candidate_knobs = False
     return knobs_data
 
-if __name__ == '__main__':
-    folder_path = "experiments_results/tpcc/ks-gpt4-kr-deepseekv3_202504301720"
+def extract_best_assignments(file_path, output_type='throughput'):
+    history = json.load(open(file_path, 'r'))
+    best_idx = "1"
+    best_performance = 0
+    for d in history['data']:
+        if output_type == 'throuhgput':
+            if d[4] < best_performance:
+                best_performance = d[4]
+                best_idx = d[0]
+        else:
+            if d[4] > best_performance:
+                best_performance = d[4]
+                best_idx = d[0]
 
-    file_path = os.path.join(folder_path, 'ks-gpt4-kr-deepseekv3_log.txt')
+    best_config = history['configs'][best_idx]
+    print("\n\n=============Best Assignments===============")
+    for knob, value in best_config.items():
+        print(f"{knob}|{value}")
+    
+def run_range(folder_path):
+    file_path = os.path.join(folder_path, 'ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_log.txt')
     coarse_configuration, fine_configuration = extract_knob_range_from_file(file_path)
     print("=============Coarse search range===============")
     for key, info_dict in coarse_configuration.items():
@@ -174,35 +190,46 @@ if __name__ == '__main__':
     for knob, suggested_values in knob_suggested_values.items():
         print(f"{knob}|{suggested_values}")
 
+def run_knobs(folder_path):
+    print("\n\n============Selected Knobs================")
+    selection_file = os.path.join(folder_path, "knob_selection_log.txt") 
+    knobs_data = extract_knobs_from_different_sources(selection_file)
+    # print(knobs_data)
+    for level, data in knobs_data.items():
+        print(f"\n============{level}================")
+        if level != 'interdependency':
+            for i, candidates in enumerate(data['candidates']):
+                knob_importance = data['response'][i]
+                missing_knobs = []
+                print(f"============{i}th================")
+                for candidate in candidates:
+                    if candidate in knob_importance.keys():
+                        print(f"{candidate}: {knob_importance[candidate]}")
+                    else:
+                        missing_knobs.append(candidate)
+                print(f"============Missing================")
+                print(missing_knobs)
+                print(f"============Hallucinated================")
+                candidates_set = set(candidates)
+                response_set = set(knob_importance.keys())
+                print(response_set.difference(candidates_set))
 
-    # print("\n\n============Selected Knobs================")
-    # selection_file = os.path.join(folder_path, "knob_selection_log.txt") 
-    # knobs_data = extract_knobs_from_different_sources(selection_file)
-    # # print(knobs_data)
-    # for level, data in knobs_data.items():
-    #     print(f"\n============{level}================")
-    #     if level != 'interdependency':
-    #         for i, candidates in enumerate(data['candidates']):
-    #             knob_importance = data['response'][i]
-    #             missing_knobs = []
-    #             print(f"============{i}th================")
-    #             for candidate in candidates:
-    #                 if candidate in knob_importance.keys():
-    #                     print(f"{candidate}: {knob_importance[candidate]}")
-    #                 else:
-    #                     missing_knobs.append(candidate)
-    #             print(f"============Missing================")
-    #             print(missing_knobs)
-    #             print(f"============Hallucinated================")
-    #             candidates_set = set(candidates)
-    #             response_set = set(knob_importance.keys())
-    #             print(response_set.difference(candidates_set))
+        else:
+            print("Top 50 knobs:")
+            print('\n'.join(data['candidates']))
+            print(f"============================")
+            print('\n'.join(data['response']))
 
-    #     else:
-    #         print("Top 50 knobs:")
-    #         print('\n'.join(data['candidates']))
-    #         print(f"============================")
-    #         print('\n'.join(data['response']))
+if __name__ == '__main__':
+    folder_path = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505141738"
+    run_range(folder_path)
+    # run_knobs(folder_path)
+    
+    file_path = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-st-gpt3.5turbo-spv-gpt4_202505081616/postgres/fine/100/runhistory.json"
+    extract_best_assignments(file_path)
+
+
+    
         
 
             
