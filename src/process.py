@@ -220,13 +220,39 @@ def run_knobs(folder_path):
             print(f"============================")
             print('\n'.join(data['response']))
 
+def check_history(history_dict1, history_dict2):
+    """
+    runhistory.json ['configs']
+    """
+    for _id, config1 in history_dict1['configs'].items():
+        config2 = history_dict2['configs'][_id]
+        if config1 == config2:
+            _id = int(_id)
+            pfm1 = -history_dict1['data'][_id][4]
+            pfm2 = -history_dict2['data'][_id][4]
+            print("Distance:", pfm1-pfm2)
+            continue
+        else:
+            print(f"id: {_id}")
+            return False
+    return True
+
 if __name__ == '__main__':
-    folder_path = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505141738"
-    run_range(folder_path)
-    # run_knobs(folder_path)
+    # folder_path = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505141738"
+    # run_range(folder_path)
+    # # run_knobs(folder_path)
     
-    file_path = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-st-gpt3.5turbo-spv-gpt4_202505081616/postgres/fine/100/runhistory.json"
-    extract_best_assignments(file_path)
+    # file_path = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-st-gpt3.5turbo-spv-gpt4_202505081616/postgres/fine/100/runhistory.json"
+    # extract_best_assignments(file_path)
+
+    # history1_file = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505141738/postgres/coarse/100/runhistory.json"
+    # history2_file = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505161241/postgres/coarse/100/runhistory.json"
+    history1_file = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-deepseekv3-spv-gpt4_202505080025/postgres/coarse/100/runhistory.json"
+    history2_file = "experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-deepseekv3-spv-gpt4_202505201450/postgres/coarse/100/runhistory.json"
+    history1_json = json.load(open(history1_file, 'r'))
+    history2_json = json.load(open(history2_file, 'r'))
+    result = check_history(history1_json, history2_json)
+    print(f"Identical? {result}")
 
 
     
