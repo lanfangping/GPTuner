@@ -1,0 +1,1502 @@
+[2025-05-22 21:55:37,671 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 21:55:37,672 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 21:55:37,883 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 21:55:37,884 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 21:59:11,694 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 21:59:11,695 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 21:59:11,877 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 21:59:11,877 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 21:59:11,957 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 21:59:11,958 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 21:59:11,998 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 21:59:11,998 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 21:59:12,013 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 21:59:12,014 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 21:59:12,052 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 21:59:12,053 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:02:13,456 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 22:02:13,457 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 22:02:13,545 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:02:13,546 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:02:13,623 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:02:13,624 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:02:13,745 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:02:13,746 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:02:13,760 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:02:13,761 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:02:34,439 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:04:05,664 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 22:04:05,665 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 22:04:05,767 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:04:05,768 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:04:05,855 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:04:05,856 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:04:05,943 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:04:05,944 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:04:06,023 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:04:06,024 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:04:06,137 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:04:06,138 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:04:06,140 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 22:04:06,140 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 22:07:19,699 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:07:19,701 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:07:19,757 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:07:19,758 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:07:19,786 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:07:19,787 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:07:19,843 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 22:07:19,844 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 22:10:54,063 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:10:54,064 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:10:54,150 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:10:54,150 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:10:54,480 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:10:54,480 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:14:44,948 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:14:44,949 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:14:45,141 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:14:45,141 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:14:45,190 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:14:45,191 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:15:07,287 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:17:16,241 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 22:17:16,243 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 22:17:16,366 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:17:16,367 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:17:16,451 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:17:16,452 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:17:16,542 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:17:16,543 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:17:16,609 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:17:16,610 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:17:16,651 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:17:16,652 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:20:54,209 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:20:54,211 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:20:54,451 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:20:54,452 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:20:54,794 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:20:54,795 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:20:54,947 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:20:54,948 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:20:55,079 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 22:20:55,080 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 22:24:40,264 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 22:24:40,265 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 22:24:40,681 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:24:40,682 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:24:40,988 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:24:40,989 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:24:41,077 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 22:24:41,078 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 22:25:02,449 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:27:16,881 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:27:16,883 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:30:49,451 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:30:49,481 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:30:49,707 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:30:49,709 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:30:49,965 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:30:49,966 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:30:50,348 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:30:50,349 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:34:27,947 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:34:27,948 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:34:28,032 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:34:28,032 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:34:28,118 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:34:28,119 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:34:28,167 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:34:28,168 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:34:28,245 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:34:28,246 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:34:49,193 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:36:57,208 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 22:36:57,210 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 22:36:57,268 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:36:57,269 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:36:57,418 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:36:57,419 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:40:31,495 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:40:31,497 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:40:31,613 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:40:31,614 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:40:31,645 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:40:31,646 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:43:52,798 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:43:52,800 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:43:52,916 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:43:52,917 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:43:52,951 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:43:52,952 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:43:53,080 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:43:53,081 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:47:06,626 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:47:06,627 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:47:06,679 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:47:06,680 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:47:06,724 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:47:06,725 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:47:06,754 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:47:06,755 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:47:27,230 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:49:17,014 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:49:17,014 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:49:17,108 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:49:17,109 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:49:17,120 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 22:49:17,121 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 22:49:17,152 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:49:17,153 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:49:37,616 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:51:38,322 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:51:38,323 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:51:38,379 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:51:38,380 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:51:38,408 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 22:51:38,408 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 22:51:38,454 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 22:51:38,455 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 22:52:00,879 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 22:54:07,317 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 22:54:07,318 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 22:54:07,505 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:54:07,506 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:54:07,588 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:54:07,589 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 22:57:57,236 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 22:57:57,237 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 22:57:57,375 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 22:57:57,375 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 22:57:57,439 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 22:57:57,440 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:01:43,926 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:01:43,927 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:01:44,024 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 23:01:44,025 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 23:01:44,104 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:01:44,105 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:01:44,238 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:01:44,239 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:01:44,304 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:01:44,305 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:05:25,320 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:05:25,322 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:05:25,493 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:05:25,495 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:08:58,914 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:08:58,916 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:08:58,974 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:08:58,975 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:08:59,064 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:08:59,065 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:12:49,562 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:12:49,564 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:12:49,662 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 23:12:49,663 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 23:12:49,746 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:12:49,747 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:12:49,834 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:12:49,834 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:12:49,877 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:12:49,878 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:12:49,962 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 23:12:49,963 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 23:16:51,062 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:16:51,063 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:16:51,158 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 23:16:51,159 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 23:16:51,240 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:16:51,241 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:16:51,373 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:16:51,374 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:16:51,389 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:16:51,389 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:16:51,428 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:16:51,429 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:17:12,475 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 23:19:33,178 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:19:33,180 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:19:33,312 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:19:33,313 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:19:33,369 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:19:33,370 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:19:33,454 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:19:33,455 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:19:33,456 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 23:19:33,457 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 23:23:03,175 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:23:03,178 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:23:03,314 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:23:03,315 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:23:03,374 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:23:03,375 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:23:03,405 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:23:03,406 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:23:03,417 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:23:03,418 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:23:03,448 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:23:03,449 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:23:25,402 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-22 23:25:26,162 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:25:26,164 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:25:26,281 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:25:26,282 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:25:26,313 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:25:26,314 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:28:57,748 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:28:57,749 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:28:57,815 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 23:28:57,816 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 23:28:57,870 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:28:57,871 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:28:57,928 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:28:57,929 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:28:57,959 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:28:57,960 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:28:58,002 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:28:58,003 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:28:58,066 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:28:58,068 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:38:31,111 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:38:31,112 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:38:31,233 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:38:31,234 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:38:31,285 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:38:31,286 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:38:31,314 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:38:31,314 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:38:31,323 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:38:31,324 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:38:31,350 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:38:31,350 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:42:37,558 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:42:37,560 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:42:37,624 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 23:42:37,625 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 23:42:37,679 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:42:37,680 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:42:37,734 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:42:37,735 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:42:37,765 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:42:37,766 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:42:37,777 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:42:37,778 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:42:37,805 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:42:37,806 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:42:37,807 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 23:42:37,807 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 23:46:16,758 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-22 23:46:16,760 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-22 23:46:16,811 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:46:16,812 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:46:16,864 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:46:16,864 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:46:16,890 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:46:16,891 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:46:16,932 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:46:16,933 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:46:16,934 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 23:46:16,935 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 23:49:46,145 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:49:46,146 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:49:46,200 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:49:46,201 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:49:46,249 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:49:46,250 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:49:46,260 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:49:46,261 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:49:46,288 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:49:46,289 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:53:31,618 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:53:31,620 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:53:31,779 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-22 23:53:31,780 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-22 23:53:31,895 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:53:31,896 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:53:31,956 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 23:53:31,957 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-22 23:57:06,329 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-22 23:57:06,330 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-22 23:57:06,456 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-22 23:57:06,456 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-22 23:57:06,544 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-22 23:57:06,544 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-22 23:57:06,554 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-22 23:57:06,555 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-22 23:57:06,584 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-22 23:57:06,585 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-22 23:57:06,586 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-22 23:57:06,587 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 00:00:38,793 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:00:38,794 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:00:38,847 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:00:38,848 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:00:38,875 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 00:00:38,876 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 00:00:38,923 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:00:38,924 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:00:38,925 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 00:00:38,925 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 00:04:20,725 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:04:20,726 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:04:20,861 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:04:20,862 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:04:20,916 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:04:20,917 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:04:20,961 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:04:20,962 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:08:17,251 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:08:17,252 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:08:17,388 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:08:17,389 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:08:17,452 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:08:17,452 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:08:17,500 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:08:17,501 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:08:17,533 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:08:17,534 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:12:05,739 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:12:05,740 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:12:05,874 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:12:05,874 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:12:05,990 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:12:05,992 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:12:06,022 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:12:06,023 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:15:54,861 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:15:54,862 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:15:54,993 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:15:54,994 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:15:55,052 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:15:55,053 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:15:55,098 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:15:55,098 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:15:55,126 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:15:55,126 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:15:55,127 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 00:15:55,127 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 00:18:55,880 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:18:55,881 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:19:00,940 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:19:00,941 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:19:01,002 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:19:01,003 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:19:01,034 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 00:19:01,034 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 00:19:01,084 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:19:01,085 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:19:21,644 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 00:21:28,910 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:21:28,912 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:21:28,982 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 00:21:28,983 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 00:21:29,042 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:21:29,043 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:21:49,682 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 00:23:59,884 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 00:23:59,886 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 00:23:59,940 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:23:59,941 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:24:00,155 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:24:00,157 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:24:00,222 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:24:00,223 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:27:52,435 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:27:52,436 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:27:52,504 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 00:27:52,505 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 00:27:52,563 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:27:52,564 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:27:52,661 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 00:27:52,662 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 00:27:52,673 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:27:52,673 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:27:52,701 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:27:52,702 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:28:13,678 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 00:30:38,730 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:30:38,732 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:30:38,855 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:30:38,856 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:30:38,910 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:30:38,911 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:30:38,991 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:30:38,992 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:30:38,993 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 00:30:38,994 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 00:34:19,668 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:34:19,670 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:34:19,800 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:34:19,801 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:34:19,857 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:34:19,858 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:34:19,890 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 00:34:19,890 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 00:34:19,901 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:34:19,901 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:34:19,931 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:34:19,932 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:34:42,803 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 00:36:54,051 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:36:54,053 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:36:54,185 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:36:54,186 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:36:54,244 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:36:54,245 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:36:54,293 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:36:54,294 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:36:54,322 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:36:54,323 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:40:20,531 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:40:20,533 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:40:20,660 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:40:20,661 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:40:20,719 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:40:20,720 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:40:20,800 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:40:20,801 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:40:20,900 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:40:20,901 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:44:07,183 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:44:07,185 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:44:07,238 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:44:07,239 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:44:07,328 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 00:44:07,328 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 00:48:09,945 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:48:09,947 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:48:10,010 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:48:10,010 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:48:10,062 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:48:10,063 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:52:13,739 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 00:52:13,740 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 00:52:13,797 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:52:13,798 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:52:13,859 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:52:13,860 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:52:13,908 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:52:13,909 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 00:56:25,105 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 00:56:25,106 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 00:56:25,265 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 00:56:25,266 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 00:56:25,391 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 00:56:25,392 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 00:56:25,540 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 00:56:25,541 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:00:30,329 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:00:30,330 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:00:30,412 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:00:30,412 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:04:41,441 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:04:41,443 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:04:41,679 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:04:41,680 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:04:41,835 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:04:41,835 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:04:41,851 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:04:41,851 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:04:41,894 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:04:41,895 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:05:05,381 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 01:07:50,173 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:07:50,175 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:07:50,229 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:07:50,229 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:07:50,256 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:07:50,256 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:07:50,266 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:07:50,266 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:07:50,293 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:07:50,294 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:11:34,733 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:11:34,734 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:11:34,797 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 01:11:34,798 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 01:11:34,851 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:11:34,852 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:11:34,907 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:11:34,907 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:11:34,989 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:11:34,989 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:11:34,990 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:11:34,991 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 01:15:43,824 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:15:43,825 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:15:43,884 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:15:43,884 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:15:44,015 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:15:44,016 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 01:19:39,961 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:19:39,963 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:19:40,097 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:19:40,098 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:19:40,157 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:19:40,158 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:19:40,190 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:19:40,191 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:19:40,241 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:19:40,242 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:19:40,243 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:19:40,244 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 01:20:00,787 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 01:22:31,614 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:22:31,617 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:22:31,747 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:22:31,748 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:22:31,837 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:22:31,838 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:22:31,883 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:22:31,884 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:22:52,393 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 01:25:28,624 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:25:28,626 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:25:28,881 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:25:28,883 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:25:28,894 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:25:28,894 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:25:28,924 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:25:28,925 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:29:12,449 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:29:12,450 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:29:12,572 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:29:12,573 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:29:12,665 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:29:12,666 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:29:12,723 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:29:12,724 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 01:29:35,726 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 01:32:00,504 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:32:00,506 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:32:00,657 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:32:00,658 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:32:00,829 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:32:00,829 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:32:00,894 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:32:00,895 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:36:22,364 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:36:22,366 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:36:22,421 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:36:22,421 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:36:22,464 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:36:22,465 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:36:22,494 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:36:22,495 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:40:39,384 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 01:40:39,385 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 01:40:39,447 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:40:39,448 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:40:39,572 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:40:39,573 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:40:39,636 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 01:40:39,637 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 01:40:39,649 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:40:39,650 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:40:39,759 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:40:39,760 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 01:44:35,252 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:44:35,254 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:44:35,356 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 01:44:35,356 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 01:44:35,468 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:44:35,469 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:44:35,524 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:44:35,524 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:44:35,571 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:44:35,572 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:44:35,600 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:44:35,600 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:48:32,953 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:48:32,955 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:48:33,089 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:48:33,090 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:48:33,145 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 01:48:33,146 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 01:48:33,192 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 01:48:33,193 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 01:48:33,225 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:48:33,225 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:52:32,157 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:52:32,158 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:52:32,305 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:52:32,306 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:52:32,306 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:52:32,307 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 01:56:35,817 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 01:56:35,819 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 01:56:35,950 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 01:56:35,951 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 01:56:36,097 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 01:56:36,098 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 01:56:36,099 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 01:56:36,100 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:00:40,964 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:00:40,965 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:00:41,097 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:00:41,097 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:00:41,158 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:00:41,158 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:00:41,248 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:00:41,249 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:04:41,990 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:04:41,992 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:04:42,123 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:04:42,124 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:04:42,183 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:04:42,184 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:04:42,279 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:04:42,280 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:08:59,014 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:08:59,015 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:08:59,185 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:08:59,185 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:08:59,243 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:08:59,244 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:08:59,329 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:08:59,330 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:08:59,331 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:08:59,331 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:13:12,480 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:13:12,482 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:13:12,620 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:13:12,621 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:13:12,681 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:13:12,682 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:13:12,785 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:13:12,786 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:17:07,104 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:17:07,106 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:17:07,169 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 02:17:07,170 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 02:17:07,224 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:17:07,225 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:17:07,279 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:17:07,279 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:17:07,359 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:17:07,360 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:17:07,360 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:17:07,361 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:17:28,042 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 02:20:08,508 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:20:08,509 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:20:08,637 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:20:08,638 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:20:08,692 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:20:08,693 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:20:08,773 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:20:08,773 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:20:08,774 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:20:08,774 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:24:16,496 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:24:16,498 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:24:16,629 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:24:16,629 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:24:16,720 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:24:16,721 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:24:16,858 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:24:16,859 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:24:16,860 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:24:16,861 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:28:13,968 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:28:13,969 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:28:14,098 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:28:14,099 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:28:14,188 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:28:14,189 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:28:14,307 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 02:28:14,308 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 02:28:14,370 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:28:14,371 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:28:14,372 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:28:14,372 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:28:34,963 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 02:31:17,117 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:31:17,119 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:31:17,180 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 02:31:17,181 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 02:31:17,236 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:31:17,236 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:31:17,324 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:31:17,325 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:31:17,388 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 02:31:17,389 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 02:31:17,431 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 02:31:17,432 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 02:35:23,148 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:35:23,150 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:35:23,274 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:35:23,275 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:35:23,328 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:35:23,329 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:35:23,375 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 02:35:23,376 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 02:35:23,403 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:35:23,403 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:39:18,541 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 02:39:18,543 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 02:39:18,665 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:39:18,666 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:39:18,809 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:39:18,810 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:39:18,810 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:39:18,811 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:43:11,686 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:43:11,687 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:43:11,853 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 02:43:11,854 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 02:43:11,916 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:43:11,917 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:47:21,353 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:47:21,354 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:47:21,404 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:47:21,405 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:47:21,489 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:47:21,490 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:51:27,687 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:51:27,689 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:51:27,742 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:51:27,743 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:51:27,823 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:51:27,823 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:55:35,522 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 02:55:35,523 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 02:55:35,576 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:55:35,577 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:55:35,673 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 02:55:35,674 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 02:55:35,722 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:55:35,723 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 02:55:35,725 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 02:55:35,725 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 02:55:56,282 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 02:58:19,552 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 02:58:19,554 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 02:58:19,607 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 02:58:19,608 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 02:58:19,690 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 02:58:19,690 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:02:07,549 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:02:07,550 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:02:07,650 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:02:07,650 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:02:07,684 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:02:07,685 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:02:31,104 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 03:04:46,328 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:04:46,329 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:04:46,459 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:04:46,460 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:08:38,048 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:08:38,050 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:08:38,438 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:08:38,439 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:12:27,531 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:12:27,533 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:12:27,588 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:12:27,589 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:12:27,638 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:12:27,639 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:12:27,679 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:12:27,680 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:16:22,009 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:16:22,013 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:16:22,201 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:16:22,202 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:19:56,921 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:19:56,922 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:19:57,015 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 03:19:57,015 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 03:19:57,094 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:19:57,095 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:19:57,268 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:19:57,269 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:19:57,327 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:19:57,328 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:20:18,303 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 03:22:48,605 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:22:48,607 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:22:48,827 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:22:48,827 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:22:48,962 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 03:22:48,963 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 03:22:48,976 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:22:48,977 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:22:49,032 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:22:49,033 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:26:22,868 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:26:22,869 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:26:23,034 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:26:23,035 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:26:23,100 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:26:23,101 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:26:23,201 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:26:23,201 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:26:23,202 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:26:23,203 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:30:16,908 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:30:16,909 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:30:17,082 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:30:17,083 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:30:17,128 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:30:17,129 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:30:39,324 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 03:32:54,471 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:32:54,473 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:32:55,032 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:32:55,033 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:32:55,295 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:32:55,297 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:32:55,408 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 03:32:55,409 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 03:32:55,652 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:32:55,653 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:33:19,211 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 03:35:50,850 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:35:50,851 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:35:51,055 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:35:51,056 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:35:51,141 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:35:51,142 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:35:51,187 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 03:35:51,188 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 03:35:51,205 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:35:51,206 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:35:51,254 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:35:51,254 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:39:44,222 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:39:44,223 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:39:44,422 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:39:44,423 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:39:44,517 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:39:44,518 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:39:44,563 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 03:39:44,564 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 03:39:44,639 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:39:44,640 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:43:28,885 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 03:43:28,886 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 03:43:28,974 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:43:28,975 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:43:29,058 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:43:29,059 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:43:29,130 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:43:29,131 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:43:29,177 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:43:29,178 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:47:12,369 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:47:12,370 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:47:12,543 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:47:12,544 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:47:12,627 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:47:12,627 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:47:12,696 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:47:12,697 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:47:12,736 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:47:12,737 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:50:55,633 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:50:55,635 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:50:55,699 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set vacuum_cost_limit to '-1';" to update dbms for error: -1 is outside the valid range for parameter "vacuum_cost_limit" (1 .. 10000)
+
+[2025-05-23 03:50:55,700 INFO] [postgres.py:set_knob:130] Knob vacuum_cost_limit is set to 200
+[2025-05-23 03:50:55,756 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'serializable';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:50:55,756 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:50:55,910 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:50:55,910 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:54:58,931 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:54:58,932 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:54:59,179 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:54:59,180 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:54:59,270 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 03:54:59,271 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 03:54:59,343 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:54:59,343 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:54:59,396 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:54:59,397 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 03:59:11,902 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 03:59:11,903 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 03:59:12,091 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 03:59:12,092 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 03:59:12,234 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 03:59:12,235 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 03:59:12,251 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 03:59:12,252 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 03:59:12,294 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 03:59:12,295 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 03:59:12,296 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 03:59:12,297 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:03:24,151 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:03:24,153 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:03:24,351 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:03:24,352 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:03:24,496 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 04:03:24,497 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 04:03:24,568 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 04:03:24,569 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 04:03:24,570 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 04:03:24,570 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:07:23,259 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:07:23,261 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:07:23,828 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:07:23,829 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:07:23,986 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 04:07:23,987 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 04:07:24,395 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 04:07:24,397 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 04:07:24,398 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 04:07:24,398 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:11:20,555 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:11:20,557 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:11:20,744 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:11:20,745 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:11:20,957 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 04:11:20,958 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 04:15:18,998 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:15:18,999 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:15:19,185 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:15:19,186 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:15:19,267 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 04:15:19,268 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 04:15:19,308 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 04:15:19,309 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 04:15:19,323 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 04:15:19,324 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 04:15:19,378 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 04:15:19,379 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:15:40,288 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 04:18:13,174 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:18:13,177 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:18:13,438 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'repeatable read';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:18:13,438 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:18:13,695 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 04:18:13,696 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 04:18:13,805 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 04:18:13,806 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 04:18:13,918 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 04:18:13,920 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 04:18:13,921 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 04:18:13,922 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:22:22,482 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:22:22,484 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:22:22,683 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read committed';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:22:22,684 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:22:22,774 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 04:22:22,775 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 04:22:22,821 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 04:22:22,822 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 04:22:22,840 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set checkpoint_timeout to '0';" to update dbms for error: 0 s is outside the valid range for parameter "checkpoint_timeout" (30 .. 86400)
+
+[2025-05-23 04:22:22,841 INFO] [postgres.py:set_knob:130] Knob checkpoint_timeout is set to 5min
+[2025-05-23 04:22:22,884 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 04:22:22,885 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 04:22:22,886 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 04:22:22,886 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:22:43,757 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system reset all;" to update dbms for error: 'NoneType' object has no attribute 'autocommit'
+[2025-05-23 04:25:32,047 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:25:32,048 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:25:32,175 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:25:32,175 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
+[2025-05-23 04:25:32,231 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_vacuum_threshold to '-1';" to update dbms for error: -1 is outside the valid range for parameter "autovacuum_vacuum_threshold" (0 .. 2147483647)
+
+[2025-05-23 04:25:32,232 INFO] [postgres.py:set_knob:130] Knob autovacuum_vacuum_threshold is set to 50
+[2025-05-23 04:25:32,260 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_multixact_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_multixact_freeze_max_age" (10000 .. 2000000000)
+
+[2025-05-23 04:25:32,261 INFO] [postgres.py:set_knob:130] Knob autovacuum_multixact_freeze_max_age is set to 400000000
+[2025-05-23 04:25:32,308 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_freeze_max_age to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_freeze_max_age" (100000 .. 2000000000)
+
+[2025-05-23 04:25:32,309 INFO] [postgres.py:set_knob:130] Knob autovacuum_freeze_max_age is set to 200000000
+[2025-05-23 04:25:32,310 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set bgwriter_lru_maxpages to '-1';" to update dbms for error: -1 is outside the valid range for parameter "bgwriter_lru_maxpages" (0 .. 1073741823)
+
+[2025-05-23 04:25:32,311 INFO] [postgres.py:set_knob:130] Knob bgwriter_lru_maxpages is set to 100
+[2025-05-23 04:29:33,471 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set autovacuum_max_workers to '0';" to update dbms for error: 0 is outside the valid range for parameter "autovacuum_max_workers" (1 .. 262143)
+
+[2025-05-23 04:29:33,473 INFO] [postgres.py:set_knob:130] Knob autovacuum_max_workers is set to 3
+[2025-05-23 04:29:33,601 ERROR] [postgres.py:update_dbms:117] Failed to execute "alter system set transaction_isolation to 'read uncommitted';" to update dbms for error: parameter "transaction_isolation" cannot be changed
+
+[2025-05-23 04:29:33,602 INFO] [postgres.py:set_knob:130] Knob transaction_isolation is set to read committed
