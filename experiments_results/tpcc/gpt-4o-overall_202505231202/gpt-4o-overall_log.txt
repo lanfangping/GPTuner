@@ -1,0 +1,452 @@
+[2025-05-23 12:02:40,979 INFO] [run_gptuner.py:<module>:115] Input arguments: Namespace(config='src/exp_configs/tpcc/gpt-4o-overall.yml', folder='default', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/gpt-4o-overall_202505231202', knobs='experiments_results/tpcc/gpt-4o-overall_202504102122/knowledge_collection/postgres/target_knobs.txt', suggest_range_path='experiments_results/tpcc/gpt-4o-overall_202504102122', suggest_range_target_path='experiments_results/tpcc/gpt-4o-overall_202504102122', suggest_range_mode='default', suggest_values_path='experiments_results/tpcc/gpt-4o-overall_202504102122', special_skill_path='experiments_results/tpcc/gpt-4o-overall_202504102122', model='deepseek-chat', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-05-23 12:02:43,039 WARNING] [run_gptuner.py:<module>:167] 'checkpoint_segments' is not in postgres
+[2025-05-23 12:04:34,442 WARNING] [coarse_space.py:define_search_space:144] Suggested value '12' is outside of suggested min/max or default range. It is discarded.
+[2025-05-23 12:04:34,568 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.05, 0.08750000000000001, 0.1, 0.125, 0.1625, 0.2}, Default: 0.1
+    autovacuum_analyze_threshold, Type: Categorical, Choices: {25, 37, 50, 536870949, 1073741848}, Default: 50
+    autovacuum_max_workers, Type: Categorical, Choices: {2, 3, 4, 6, 8, 10}, Default: 3
+    autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0.5, 1.25, 2.0, 26.5, 51.0}, Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 499, 749, 3250, 5500}, Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: Categorical, Choices: {0.2}, Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {499, 749, 1000, 536871661, 1073742323}, Default: 1000
+    autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.05, 0.07500000000000001, 0.1, 0.15000000000000002, 0.2, 25.075000000000003, 25.15, 50.050000000000004, 50.1}, Default: 0.2
+    autovacuum_vacuum_threshold, Type: Categorical, Choices: {25, 37, 50, 536870949, 1073741848}, Default: 50
+    autovacuum_work_mem, Type: Categorical, Choices: {-1, 499999, 749999, 1000000}, Default: -1
+    bgwriter_flush_after, Type: Categorical, Choices: {32, 48, 64, 112, 160}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 100, 268435530, 536870961, 805306392}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.0, 1.5, 2.0, 2.5, 3.0}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.35, 0.45, 0.5249999999999999, 0.675, 0.7749999999999999, 0.85, 0.9, 0.925, 0.95}, Default: 0.9
+    checkpoint_flush_after, Type: Categorical, Choices: {32}, Default: 32
+    checkpoint_timeout, Type: Categorical, Choices: {300}, Default: 300
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_log_min_duration_statement, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_maintenance_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: Categorical, Choices: {0.005}, Default: 0.005
+    cpu_operator_cost, Type: Categorical, Choices: {0.0025}, Default: 0.0025
+    cpu_tuple_cost, Type: Categorical, Choices: {0.01}, Default: 0.01
+    default_transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    effective_cache_size, Type: Categorical, Choices: {524288}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {1}, Default: 1
+    enable_bitmapscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashagg, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_append, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_hash, Type: Categorical, Choices: {on, off}, Default: on
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: Categorical, Choices: {1.0, 1.25, 1.375, 1.5, 1.75, 4.5, 6.25, 251.125, 251.5, 256.0, 500.75, 501.0, 504.0}, Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    join_collapse_limit, Type: Categorical, Choices: {8}, Default: 8
+    log_min_duration_statement, Type: Categorical, Choices: {-1, 124, 187, 536871099, 1073741948}, Default: -1
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 299152, 532768, 766384, 1000000}, Default: 65536
+    max_connections, Type: Categorical, Choices: {100}, Default: 100
+    max_parallel_maintenance_workers, Type: Categorical, Choices: {2}, Default: 2
+    max_parallel_workers, Type: Categorical, Choices: {6, 8, 9, 265, 518}, Default: 8
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1, 2, 256, 257, 512, 513}, Default: 2
+    max_wal_size, Type: Categorical, Choices: {501, 750, 1024, 536871661, 1073742323}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8, 11, 14, 17, 21}, Default: 8
+    min_wal_size, Type: Categorical, Choices: {80}, Default: 80
+    parallel_tuple_cost, Type: Categorical, Choices: {0.1}, Default: 0.1
+    random_page_cost, Type: Categorical, Choices: {1.0, 1.5, 1.75, 2.5, 3.0, 4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 7859383, 11789066, 18076562, 20434375}, Default: 16384
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_autovacuum_vacuum_cost_limit, Type: Constant, Value: -1
+    special_autovacuum_vacuum_insert_threshold, Type: Constant, Value: 0
+    special_autovacuum_work_mem, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_checkpoint_flush_after, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_log_min_duration_statement, Type: Categorical, Choices: {-1, 0}, Default: -1
+    special_max_parallel_maintenance_workers, Type: Constant, Value: 0
+    special_max_parallel_workers, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_statement_timeout, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: -1
+    statement_timeout, Type: Categorical, Choices: {0, 5000, 7500, 536878411, 1073746823}, Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: Categorical, Choices: {1024}, Default: 1024
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    wal_buffers, Type: Categorical, Choices: {512, 1002, 1501, 67035, 132071}, Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: Categorical, Choices: {105, 152, 200, 2650, 5100}, Default: 200
+    wal_writer_flush_after, Type: Categorical, Choices: {128}, Default: 128
+    work_mem, Type: Categorical, Choices: {2032, 3016, 4096, 8032, 12016, 6290500, 6299500, 12577000, 12583000}, Default: 4096
+  Conditions:
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '0'
+    autovacuum_work_mem | control_autovacuum_work_mem == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    log_min_duration_statement | control_log_min_duration_statement == '0'
+    max_parallel_maintenance_workers | control_max_parallel_maintenance_workers == '0'
+    max_parallel_workers | control_max_parallel_workers == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '1'
+    special_autovacuum_work_mem | control_autovacuum_work_mem == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_log_min_duration_statement | control_log_min_duration_statement == '1'
+    special_max_parallel_maintenance_workers | control_max_parallel_maintenance_workers == '1'
+    special_max_parallel_workers | control_max_parallel_workers == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    statement_timeout | control_statement_timeout == '0'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2025-05-23 12:05:07,710 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:05:07,712 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:05:52,940 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:05:52,943 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:05:53,002 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:06:36,597 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:07:20,211 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:07:20,277 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:08:03,760 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:08:03,762 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:08:47,521 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:08:47,590 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:09:31,214 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:09:31,217 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:10:14,850 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:11:54,931 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:11:54,996 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:12:38,470 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:12:38,472 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:12:38,538 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:13:22,097 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:14:53,918 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:14:53,921 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:14:53,996 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:16:24,198 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:16:24,201 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:16:24,259 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:17:07,768 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:17:51,357 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:18:35,084 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:18:35,153 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:20:05,468 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:20:05,470 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:20:05,537 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:20:49,156 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:20:49,158 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:20:49,217 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:21:32,841 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:21:32,844 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:23:04,957 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:23:48,651 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:23:48,713 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:24:32,275 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:26:05,634 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:27:36,615 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:28:20,295 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:28:20,355 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:29:03,974 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:29:03,976 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:29:04,178 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:29:48,145 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:29:48,210 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:30:31,799 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:30:31,861 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:32:52,935 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:32:52,995 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:33:36,705 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:33:36,707 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:35:26,034 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.05, 0.2], Default: 0.1
+    autovacuum_analyze_threshold, Type: UniformInteger, Range: [0, 2147483647], Default: 50
+    autovacuum_max_workers, Type: UniformInteger, Range: [2, 11], Default: 3
+    autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [-1.0, 100.0], Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 10000], Default: -1
+    autovacuum_vacuum_insert_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_insert_threshold, Type: UniformInteger, Range: [-1, 2147483647], Default: 1000
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.0, 100.0], Default: 0.2
+    autovacuum_vacuum_threshold, Type: UniformInteger, Range: [0, 2147483647], Default: 50
+    autovacuum_work_mem, Type: UniformInteger, Range: [-1, 1000000], Default: -1
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 256], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [0, 1073741823], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [0.0, 4.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    checkpoint_flush_after, Type: UniformInteger, Range: [0, 256], Default: 32
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 86400], Default: 300
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_insert_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_work_mem, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_log_min_duration_statement, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_maintenance_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_statement_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.005
+    cpu_operator_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.0025
+    cpu_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.01
+    default_transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    enable_bitmapscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashagg, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_append, Type: Categorical, Choices: {on, off}, Default: on
+    enable_parallel_hash, Type: Categorical, Choices: {on, off}, Default: on
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    full_page_writes, Type: Categorical, Choices: {on, off}, Default: on
+    hash_mem_multiplier, Type: UniformFloat, Range: [1.0, 1000.0], Default: 1.0
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    join_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    log_min_duration_statement, Type: UniformInteger, Range: [-1, 2147483647], Default: -1
+    maintenance_work_mem, Type: UniformInteger, Range: [1024, 1000000], Default: 65536
+    max_connections, Type: UniformInteger, Range: [1, 262143], Default: 100
+    max_parallel_maintenance_workers, Type: UniformInteger, Range: [0, 1024], Default: 2
+    max_parallel_workers, Type: UniformInteger, Range: [0, 1024], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [0, 1024], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [8, 21], Default: 8
+    min_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 80
+    parallel_tuple_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 0.1
+    random_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16, 25150000], Default: 16384
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_autovacuum_vacuum_cost_limit, Type: Constant, Value: -1
+    special_autovacuum_vacuum_insert_threshold, Type: Constant, Value: 0
+    special_autovacuum_work_mem, Type: Constant, Value: -1
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_checkpoint_flush_after, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_log_min_duration_statement, Type: Categorical, Choices: {-1, 0}, Default: -1
+    special_max_parallel_maintenance_workers, Type: Constant, Value: 0
+    special_max_parallel_workers, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_statement_timeout, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: -1
+    statement_timeout, Type: UniformInteger, Range: [0, 2147483647], Default: 0
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: UniformInteger, Range: [100, 1073741823], Default: 1024
+    transaction_isolation, Type: Categorical, Choices: {serializable, repeatable read, read committed, read uncommitted}, Default: read committed
+    wal_buffers, Type: UniformInteger, Range: [4, 262143], Default: 512
+    wal_compression, Type: Categorical, Choices: {on, off}, Default: off
+    wal_level, Type: Categorical, Choices: {minimal, replica, logical}, Default: replica
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: UniformInteger, Range: [10, 10000], Default: 200
+    wal_writer_flush_after, Type: UniformInteger, Range: [0, 2147483647], Default: 128
+    work_mem, Type: UniformInteger, Range: [64, 25150000], Default: 4096
+  Conditions:
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '0'
+    autovacuum_work_mem | control_autovacuum_work_mem == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    log_min_duration_statement | control_log_min_duration_statement == '0'
+    max_parallel_maintenance_workers | control_max_parallel_maintenance_workers == '0'
+    max_parallel_workers | control_max_parallel_workers == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_insert_threshold | control_autovacuum_vacuum_insert_threshold == '1'
+    special_autovacuum_work_mem | control_autovacuum_work_mem == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_log_min_duration_statement | control_log_min_duration_statement == '1'
+    special_max_parallel_maintenance_workers | control_max_parallel_maintenance_workers == '1'
+    special_max_parallel_workers | control_max_parallel_workers == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_statement_timeout | control_statement_timeout == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    statement_timeout | control_statement_timeout == '0'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2025-05-23 12:35:53,022 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:37:22,882 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:37:22,943 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:38:06,745 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:38:50,449 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:39:34,225 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:39:34,289 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:40:18,055 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:40:18,124 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:41:48,732 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:42:32,451 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob transaction_isolation is failed to set to read committed
+[2025-05-23 12:43:19,071 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:43:19,141 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:44:03,172 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:45:33,492 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:45:33,564 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:46:17,195 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:46:17,197 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:47:55,951 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:47:55,954 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:48:39,788 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:48:39,791 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:49:23,644 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 12:49:23,646 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:49:23,717 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:50:07,398 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:50:07,464 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:50:51,377 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 12:50:51,437 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:51:38,229 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:53:08,550 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:54:47,469 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob transaction_isolation is failed to set to serializable
+[2025-05-23 12:57:02,087 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 12:57:02,149 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 12:58:32,628 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:00:03,118 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:01:33,448 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob transaction_isolation is failed to set to serializable
+[2025-05-23 13:03:12,740 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob transaction_isolation is failed to set to read committed
+[2025-05-23 13:03:12,806 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:04:00,480 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:04:44,165 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:04:44,167 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob transaction_isolation is failed to set to serializable
+[2025-05-23 13:04:44,237 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:05:28,074 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:06:58,366 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:08:28,271 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:09:58,573 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:09:58,575 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:11:29,086 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:13:15,901 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:14:54,881 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 13:16:34,039 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:16:34,041 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 13:16:34,127 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:17:17,956 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob transaction_isolation is failed to set to serializable
+[2025-05-23 13:18:56,517 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:20:28,921 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:20:28,923 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:21:59,440 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob transaction_isolation is failed to set to read committed
+[2025-05-23 13:22:43,291 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:22:43,292 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob transaction_isolation is failed to set to serializable
+[2025-05-23 13:24:25,767 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:25:55,597 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:26:40,045 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:28:10,608 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 13:28:10,673 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:28:54,404 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:28:54,406 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:30:25,038 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:31:08,930 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:31:08,932 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:32:39,168 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob transaction_isolation is failed to set to read committed
+[2025-05-23 13:32:39,231 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:33:25,986 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:34:56,730 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:36:34,616 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:38:04,832 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:39:43,603 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:41:14,089 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:41:14,092 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:41:14,187 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:41:57,983 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:43:32,482 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:43:32,484 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob transaction_isolation is failed to set to read committed
+[2025-05-23 13:44:19,915 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:44:19,918 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:45:50,805 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:47:21,685 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:47:21,747 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:48:52,173 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:48:52,176 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:48:52,237 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:50:22,948 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:50:22,949 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:50:23,010 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:51:06,811 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob transaction_isolation is failed to set to read committed
+[2025-05-23 13:51:06,873 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:51:50,589 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:51:50,592 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:53:31,302 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:53:31,304 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob transaction_isolation is failed to set to read committed
+[2025-05-23 13:53:31,648 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 13:54:17,678 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 13:54:17,680 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 13:55:04,478 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:56:34,775 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 13:58:05,271 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 13:58:49,152 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:00:19,295 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob transaction_isolation is failed to set to read committed
+[2025-05-23 14:00:19,359 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 14:01:03,131 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 14:01:03,133 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:02:33,452 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 14:02:33,454 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:03:20,381 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:04:51,059 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:06:21,373 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:07:52,444 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob transaction_isolation is failed to set to serializable
+[2025-05-23 14:08:36,489 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:10:06,884 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob transaction_isolation is failed to set to read uncommitted
+[2025-05-23 14:10:06,952 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob wal_writer_flush_after is failed to set to -1
+[2025-05-23 14:10:50,831 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:12:21,517 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob autovacuum_max_workers is failed to set to 0
+[2025-05-23 14:12:21,519 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob transaction_isolation is failed to set to repeatable read
+[2025-05-23 14:12:21,597 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob wal_writer_flush_after is failed to set to -1
