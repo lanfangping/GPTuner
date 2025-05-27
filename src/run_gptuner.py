@@ -208,7 +208,10 @@ if __name__ == '__main__':
             print('Please suggest_range_path, suggest_values_path, or special_skill_path cannot be None when one of them is specified.')
             exit()
 
-        source_special_skill_path = os.path.join(f"{args.special_skill_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        if args.special_skill_path == '.':
+            source_special_skill_path = f"knowledge_collection/{args.db}/manual_collected_special"
+        else:
+            source_special_skill_path = os.path.join(f"{args.special_skill_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         source_normal_suggest_value_skill_path = os.path.join(f"{args.suggest_values_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         source_normal_suggest_range_skill_path = os.path.join(f"{args.suggest_range_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         target_special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge")
