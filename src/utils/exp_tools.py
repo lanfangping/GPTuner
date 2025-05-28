@@ -119,6 +119,22 @@ def replace_range_for_knobs(target_knobs, source_folder, target_folder, strategy
     
     return knob_ranges
 
+def replace_special_values(target_knobs, source_folder, source_base_folder, target_folder):
+    for knob in target_knobs:
+        file_name = f"{knob}.json"
+        if file_name in os.listdir(source_base_folder):
+            with open(os.path.join(source_base_folder, file_name), 'r') as json_file:
+                special_skill = json.load(json_file)
+                special_knob = special_skill["special_knob"]
+                if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                    # source_special = True
+                    # source_special_value = special_skill["special_value"]
+                    replace_value_json = json.load(open(os.path.join(source_folder, file_name), 'r'))
+                    json.dump(replace_value_json, open(os.path.join(target_folder, file_name), 'w'))
+                else:
+                    json.dump(special_skill, open(os.path.join(target_folder, file_name), 'w'))
+
+
 
 def generate_special_value_json_file(output_folder):
     manual_set_special_values_json = json.load(open("knowledge_collection/postgres/special_values.json", "r"))

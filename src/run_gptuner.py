@@ -19,7 +19,7 @@ from space_optimizer.knob_selection import KnobSelection
 from utils import misc
 from utils.logger import MyLogger
 from dotenv import load_dotenv
-from utils.exp_tools import replace_range_for_knobs
+from utils.exp_tools import replace_range_for_knobs, replace_special_values
 load_dotenv()  # take environment variables from .env.
 
 def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
@@ -91,6 +91,7 @@ if __name__ == '__main__':
     parser.add_argument("--suggest_range_mode", type=str, default="default") # `default`: only use `suggest_range_path`, `narrow`: replace the range in `suggest_range_path` with the narrow range in `suggest_range_target_path`
     parser.add_argument("--suggest_values_path", type=str, default="None")
     parser.add_argument("--special_skill_path", type=str, default="None")
+    parser.add_argument("--special_skill_mode", type=str, default="default") 
     parser.add_argument("--model", type=str, default="gpt-4o-mini")
     parser.add_argument("--restart_cmd", type=str, default="sudo restart tpcc_workload")
     parser.add_argument("--recover_script", type=str, default="./scripts/recover_docker_postgres.sh")
@@ -212,14 +213,19 @@ if __name__ == '__main__':
             source_special_skill_path = f"knowledge_collection/{args.db}/manual_collected_special"
         else:
             source_special_skill_path = os.path.join(f"{args.special_skill_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
+        if args.special_skill_base_path != 'None':
+            source_special_skill_base_path = os.path.join(f"{args.special_skill_base_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         source_normal_suggest_value_skill_path = os.path.join(f"{args.suggest_values_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         source_normal_suggest_range_skill_path = os.path.join(f"{args.suggest_range_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         target_special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge")
         target_normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         
-        command = f"cp -r {source_special_skill_path} {target_special_skill_path}"
-        subprocess.run(command, shell=True, check=True)
-        time.sleep(2)
+        if args.special_skill_mode == 'default':
+            command = f"cp -r {source_special_skill_path} {target_special_skill_path}"
+            subprocess.run(command, shell=True, check=True)
+            time.sleep(2)
+        else:
+            replace_special_values(target_knobs, source_special_skill_path, source_special_skill_base_path, target_special_skill_path)
         cpu_cores, ram_size, disk_size = get_hardware_info()
         disk_type = get_disk_type()
 
@@ -248,6 +254,7 @@ if __name__ == '__main__':
         print('Please specify the knowledge folder using --folder.')
         exit()
 
+    exit()
     if args.process == 'whole' or args.process == 'optimization':
         special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
