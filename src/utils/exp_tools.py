@@ -122,6 +122,7 @@ def replace_range_for_knobs(target_knobs, source_folder, target_folder, strategy
 def replace_special_values(target_knobs, source_folder, source_base_folder, target_folder):
     for knob in target_knobs:
         file_name = f"{knob}.json"
+        print(file_name)
         if file_name in os.listdir(source_base_folder):
             with open(os.path.join(source_base_folder, file_name), 'r') as json_file:
                 special_skill = json.load(json_file)

@@ -254,7 +254,7 @@ if __name__ == '__main__':
         print('Please specify the knowledge folder using --folder.')
         exit()
 
-    exit()
+    # exit()
     if args.process == 'whole' or args.process == 'optimization':
         special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
