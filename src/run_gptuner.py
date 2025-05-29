@@ -225,7 +225,7 @@ if __name__ == '__main__':
             subprocess.run(command, shell=True, check=True)
             time.sleep(2)
         else:
-            replace_special_values(target_knobs, source_special_skill_path, source_special_skill_base_path, target_special_skill_path)
+            replace_special_values(target_knobs, source_special_skill_path, source_special_skill_base_path, os.path.join(target_special_skill_path, 'special'))
         cpu_cores, ram_size, disk_size = get_hardware_info()
         disk_type = get_disk_type()
 
@@ -254,7 +254,7 @@ if __name__ == '__main__':
         print('Please specify the knowledge folder using --folder.')
         exit()
 
-    # exit()
+    exit()
     if args.process == 'whole' or args.process == 'optimization':
         special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")

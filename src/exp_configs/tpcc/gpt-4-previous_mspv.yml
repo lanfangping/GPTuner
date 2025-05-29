@@ -13,13 +13,13 @@
 
 folder: default
 # Selected Knobs by GPT4
-knobs: experiments_results/tpcc/gpt-4-previous-good-knowledge/knowledge_collection/postgres/target_knobs.txt
-suggest_range_path: experiments_results/tpcc/gpt-4-previous-good-knowledge    # suggest range by gpt4 
-suggest_range_target_path: experiments_results/tpcc/gpt-4-previous-good-knowledge    # replace narrow range by deepseek-v3 
+knobs: experiments_results/tpcc/gpt-4-previous/knowledge_collection/postgres/target_knobs.txt
+suggest_range_path: experiments_results/tpcc/gpt-4-previous    # suggest range by gpt4 
+suggest_range_target_path: experiments_results/tpcc/gpt-4-previous    # replace narrow range by deepseek-v3 
 suggest_range_mode: default # narrow 
-suggest_values_path: experiments_results/tpcc/gpt-4-previous-good-knowledge # suggest values by gpt4
+suggest_values_path: experiments_results/tpcc/gpt-4-previous # suggest values by gpt4
 special_skill_path: .  # special values from manually collected
-special_skill_base_path: experiments_results/tpcc/gpt-4-previous-good-knowledge
+special_skill_base_path: experiments_results/tpcc/gpt-4-previous
 special_skill_mode: llm-suggest
 process: optimization
 db: postgres
