@@ -221,14 +221,14 @@ if __name__ == '__main__':
         target_normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         
         if args.special_skill_mode == 'default':
-            command = f"cp -r {source_special_skill_path} {target_special_skill_path}"
+            command = f"cp -r {os.path.join(source_special_skill_path, '*')} {os.path.join(target_special_skill_path, 'special')}"
             subprocess.run(command, shell=True, check=True)
             time.sleep(2)
         else:
             replace_special_values(target_knobs, source_special_skill_path, source_special_skill_base_path, os.path.join(target_special_skill_path, 'special'))
         cpu_cores, ram_size, disk_size = get_hardware_info()
         disk_type = get_disk_type()
-
+        
         if args.suggest_range_mode == 'narrow':
             range_info = replace_range_for_knobs(target_knobs, args.suggest_range_path, args.suggest_range_target_path)
 
