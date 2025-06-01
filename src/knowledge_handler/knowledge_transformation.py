@@ -266,6 +266,6 @@ class KGTrans(GPT):
         print(f"Finished to prepare structured knowledge for {knob}")
         # print(f"total token:{self.token}, total money:{self.money}, total time: {self.total_time}, knob num: {self.knob_num}")
         # print(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
-        self.log.info(f"total token:{self.token}, total money:{self.money}, total time: {self.total_time}, knob num: {self.knob_num}")
+        self.log.info(f"total token:{self.token}, accumulated input token: {self.input_token}, accumulated output token: {self.output_token}, total money:{self.money}, total time: {self.total_time}, knob num: {self.knob_num}")
         self.log.info(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
         

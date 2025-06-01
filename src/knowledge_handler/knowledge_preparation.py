@@ -263,5 +263,5 @@ class KGPre(GPT):
             print(f"Finished to prepare knowledge source for {knob}")
             # print(f"accumulated token:{self.token}, accumulated money:{self.money}, accumulated time: {self.total_time}, accumulated knob num: {self.knob_num}")
             # print(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")
-            self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}, accumulated time: {self.total_time}, accumulated knob num: {self.knob_num}")
+            self.log.info(f"accumulated token:{self.token}, accumulated input token: {self.input_token}, accumulated output token: {self.output_token}, accumulated money:{self.money}, accumulated time: {self.total_time}, accumulated knob num: {self.knob_num}")
             self.log.info(f"ave token: {self.token/self.knob_num}, ave money:{self.money/self.knob_num}, ave time:{self.total_time/self.knob_num},")

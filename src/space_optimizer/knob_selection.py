@@ -197,6 +197,6 @@ class KnobSelection(GPT):
         with open(self.target_knobs_dir, 'w') as file:
             for line in selected_knobs:
                 file.write(line + "\n")
-        self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
+        self.log.info(f"accumulated token:{self.token}, accumulated input token: {self.input_token}, accumulated output token: {self.output_token},  accumulated money:{self.money}")
         return selected_knobs
         

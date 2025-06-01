@@ -94,7 +94,7 @@ class KGUpdate(GPT):
         with open(os.path.join(self.skill_json_path, knob+".json"), 'w') as file:
             json.dump(new_structure, file)
         print(f"Finished to update structured knowledge for {knob}")
-        self.log.info(f"accumulated token:{self.token}, accumulated money:{self.money}")
+        self.log.info(f"accumulated token:{self.token}, accumulated input token: {self.input_token}, accumulated output token: {self.output_token}, accumulated money:{self.money}")
         return new_structure
 
     # offline

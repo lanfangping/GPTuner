@@ -142,6 +142,9 @@ if __name__ == '__main__':
     elif args.model.startswith('deepseek'):
         api_base = os.environ.get("DEEPSEEK_API_BASE")
         api_key = os.environ.get("DEEPSEEK_API_KEY")
+    elif args.model.startswith('gemini'):
+        api_base = os.environ.get("GEMINI_API_BASE")
+        api_key = os.environ.get("GEMINI_API_KEY")
     else:
         api_base = os.environ.get("LLAMA_API_BASE")
         api_key = os.environ.get("LLAMA_API_KEY")

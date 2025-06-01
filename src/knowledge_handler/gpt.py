@@ -21,6 +21,8 @@ class GPT:
         self.model = model
         self.money = 0
         self.token = 0
+        self.input_token = 0
+        self.output_token = 0
         self.cur_token = 0
         self.cur_money = 0
 
@@ -43,7 +45,6 @@ class GPT:
                 # print(response)
                 ans = response.choices[0].message.content
                 completion = json.loads(ans)  # Convert to json object
-                
             else: # string
                 response = client.chat.completions.create(
                     messages=[
@@ -92,7 +93,11 @@ class GPT:
             #     enc = tiktoken.encoding_for_model(self.model)
             # enc = tiktoken.encoding_for_model(self.model)
             # enc = tiktoken.get_encoding("o200k_base")
-        return len(enc.encode(out_text+in_text))
+        in_tokens_num = len(enc.encode(in_text))
+        out_tokens_num = len(enc.encode(out_text))
+        self.input_token += in_tokens_num
+        self.output_token += out_tokens_num
+        return in_tokens_num + out_tokens_num
 
     def calc_money(self, in_text, out_text):
         """money for gpt4"""
