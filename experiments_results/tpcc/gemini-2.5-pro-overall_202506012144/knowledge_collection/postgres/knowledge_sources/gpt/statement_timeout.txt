@@ -1,0 +1,1 @@
+Set `statement_timeout` in milliseconds, typically configuring a global default between 30,000ms (30 seconds) and 300,000ms (5 minutes) in `postgresql.conf` to prevent runaway queries, while individual sessions can override this with `SET statement_timeout = value_in_ms;` for specific needs, like 5,000ms (5 seconds) for interactive tasks.

@@ -1,0 +1,1 @@
+Set `enable_indexonlyscan` to `ON` (the default and recommended value) to allow PostgreSQL to use efficient index-only scans, and only consider changing it to `OFF` (e.g., via `SET enable_indexonlyscan = off;` for a session) for temporary debugging or if specific query analysis reveals it causes a performance regression in rare cases.

@@ -1,0 +1,1 @@
+Set `enable_nestloop` to `off` (from its default of `on`) to forbid the query planner from using nested loop joins, a change typically considered for specific, problematic queries involving large tables (e.g., with over 10,000 to 100,000 rows) where the planner wrongly estimates this join method as cheapest, leading to significant performance degradation.

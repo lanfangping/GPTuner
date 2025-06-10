@@ -1,0 +1,1 @@
+Generally, keep `autovacuum_freeze_max_age` at its default of 200 million transactions; however, for systems with extremely high transaction throughput, you might cautiously increase it to a value between 500 million and 1 billion to reduce the frequency of aggressive anti-wraparound vacuums, ensuring it remains well below the hard limit of approximately 2 billion.

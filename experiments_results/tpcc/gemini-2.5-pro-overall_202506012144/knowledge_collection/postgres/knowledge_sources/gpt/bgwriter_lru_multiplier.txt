@@ -1,0 +1,1 @@
+You should increase `bgwriter_lru_multiplier` from its default of `2.0` (e.g., to `3.0` or `4.0`, up to `10.0`) if `buffers_backend` in `pg_stat_bgwriter` is consistently high (e.g., more than 5-10% of total buffers written), enabling the background writer to scan more pages and thus perform more of the dirty buffer writing.

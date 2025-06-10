@@ -1,0 +1,1 @@
+Set `min_wal_size` to a value, starting from the default 80MB and potentially increasing to hundreds of megabytes (e.g., 256MB, 512MB) or even 1-2GB for high-throughput systems, to ensure WAL disk usage doesn't drop below this floor after a checkpoint, thereby providing a buffer to smooth out WAL generation spikes and prevent overly frequent recycling.

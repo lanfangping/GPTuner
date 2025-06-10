@@ -1,0 +1,1 @@
+When `synchronous_commit` is enabled, set `commit_siblings` to its default of 5, considering an increase (e.g., towards 10-50) if you have very high concurrent transaction commit rates and aim to improve overall throughput at the cost of potentially slightly increased latency for individual leading transactions.

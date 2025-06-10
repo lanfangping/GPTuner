@@ -1,0 +1,1 @@
+The `synchronous_commit` knob specifies how much WAL processing across five distinct levels—from `off` (no waiting, risking loss of transactions committed within up to three times `wal_writer_delay` before a crash) to `remote_apply` (waiting for standbys to apply changes and make them visible)—must complete before a transaction success is reported to the client.

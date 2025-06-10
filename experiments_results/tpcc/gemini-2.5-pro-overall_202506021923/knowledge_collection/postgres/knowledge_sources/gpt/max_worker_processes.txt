@@ -1,0 +1,1 @@
+Set `max_worker_processes` to the sum of `max_parallel_workers` (e.g., often set to the number of CPU cores, like 4 or 8), plus `max_logical_replication_workers` (e.g., default 4 if used), and an additional 2-5 for core system background processes like autovacuum and the background writer.

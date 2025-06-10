@@ -1,0 +1,1 @@
+To set `enable_mergejoin` in PostgreSQL, you typically leave it `on` (the default, equivalent to `true` or `1`) to allow the query planner to consider merge join strategies, and only set it to `off` (equivalent to `false` or `0`) if specific performance issues indicate the planner is consistently making suboptimal choices by selecting merge joins.

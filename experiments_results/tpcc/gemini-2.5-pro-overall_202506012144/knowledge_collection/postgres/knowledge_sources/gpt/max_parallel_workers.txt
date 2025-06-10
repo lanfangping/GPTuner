@@ -1,0 +1,1 @@
+Set `max_parallel_workers` to a value approximately equal to the number of CPU cores available to PostgreSQL, for instance, 8 for an 8-core CPU, ensuring this value (plus other background workers like autovacuum) does not exceed `max_worker_processes` (which also defaults to 8 and may need increasing).

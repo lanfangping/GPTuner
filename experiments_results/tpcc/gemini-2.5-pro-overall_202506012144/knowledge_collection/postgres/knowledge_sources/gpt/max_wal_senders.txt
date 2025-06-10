@@ -1,0 +1,1 @@
+Set `max_wal_senders` to the total number of your standby/replica servers plus the number of concurrent backup processes (like `pg_basebackup`, typically 1-2), and then add a small buffer of 2-5 for flexibility and future growth.

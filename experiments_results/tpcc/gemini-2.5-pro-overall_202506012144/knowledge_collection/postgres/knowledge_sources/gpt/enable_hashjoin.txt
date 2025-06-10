@@ -1,0 +1,1 @@
+Set `enable_hashjoin` to `on` (the default) for optimal performance in most scenarios, and only consider setting it to `off` as a last resort for specific problematic queries or if `work_mem` is severely restricted (e.g., to 1MB or less) and cannot be increased, as this forces potentially less efficient join methods.

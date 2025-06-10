@@ -1,0 +1,1 @@
+Set `autovacuum_vacuum_threshold` to a base number of dead rows (default 50) that must accumulate before autovacuum considers a table for vacuuming, often increased substantially (e.g., from 1,000 to potentially 1,000,000+ for multi-terabyte tables) for very large tables to ensure vacuums are not excessively delayed by `autovacuum_vacuum_scale_factor` alone.

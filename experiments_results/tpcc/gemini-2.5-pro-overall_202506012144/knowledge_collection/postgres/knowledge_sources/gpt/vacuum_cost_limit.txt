@@ -1,0 +1,1 @@
+Increase `vacuum_cost_limit` from its default of 200, often to values between 1000 and 10000, to allow individual autovacuum workers to perform more I/O before pausing, thereby making them more aggressive in cleaning up dead tuples.

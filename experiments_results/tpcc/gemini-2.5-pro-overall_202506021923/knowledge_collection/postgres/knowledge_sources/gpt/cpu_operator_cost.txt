@@ -1,0 +1,1 @@
+Set `cpu_operator_cost` to its default value of 0.0025, representing the planner's cost estimate for processing a single operator or function call, and only consider small adjustments—such as down to 0.001 if CPUs are significantly faster than I/O, or up towards 0.005 if they are relatively slower—to help the planner better reflect actual resource usage.

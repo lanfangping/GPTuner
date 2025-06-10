@@ -1,0 +1,1 @@
+Set `vacuum_multixact_freeze_table_age` to its default of 150 million multixact IDs, ensuring this value is significantly lower—for instance, 50-75%—than `autovacuum_multixact_freeze_max_age` (default 400 million) to allow ample time for aggressive autovacuum operations to prevent multixact ID wraparound.

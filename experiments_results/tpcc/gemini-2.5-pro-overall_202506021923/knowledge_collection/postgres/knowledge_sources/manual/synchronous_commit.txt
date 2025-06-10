@@ -1,0 +1,1 @@
+The `synchronous_commit` knob controls when transaction success is reported to the client by specifying one of five levels of Write-Ahead Logging (WAL) processing completion required, ranging from `off` (no wait, with a potential data loss window of up to three times `wal_writer_delay` on crash) to `remote_apply` (waiting for WAL to be applied and visible on a standby server).

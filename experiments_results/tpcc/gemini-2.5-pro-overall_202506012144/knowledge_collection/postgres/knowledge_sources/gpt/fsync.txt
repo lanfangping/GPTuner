@@ -1,0 +1,1 @@
+Set `fsync` to `on` (the default) for production databases to ensure data durability by forcing writes to disk after each transaction commit, or to `off` for non-critical tasks like bulk loading or testing where significant speed gains (e.g. 2-5x faster writes) outweigh the risk of losing all recently committed data (potentially minutes worth) upon a system crash.

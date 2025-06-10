@@ -1,0 +1,1 @@
+Set `max_wal_size` sufficiently large, typically starting from its default (e.g., 1GB) and often increased to values like 4GB, 8GB, 16GB, or significantly more for write-intensive systems, to prevent checkpoints from occurring too frequently (aiming for intervals of 5-30 minutes or longer) due to this size limit, while balancing disk space usage and recovery time objectives.

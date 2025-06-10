@@ -1,0 +1,1 @@
+The `wal_buffers` knob, set at server start, allocates shared memory for WAL data not yet written to disk, defaulting to 1/32nd of `shared_buffers` (typically between 64kB and 16MB), though setting it to at least a few megabytes can improve write performance on busy servers.

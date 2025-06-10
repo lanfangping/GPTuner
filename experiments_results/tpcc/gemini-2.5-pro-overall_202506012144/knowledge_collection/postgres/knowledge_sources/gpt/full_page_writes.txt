@@ -1,0 +1,1 @@
+Set `full_page_writes` to `off` only if your operating system and filesystem (e.g., modern Linux with XFS, ext4 in `data=ordered` or `data=journal` mode, or ZFS) guarantee atomic writes for database pages (typically 8KB); otherwise, leave it `on` (the default) to prevent data corruption from partial page writes during a crash.

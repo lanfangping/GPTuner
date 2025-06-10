@@ -1,0 +1,1 @@
+Generally, keep `enable_tidscan` set to `ON` (its default value) to allow the planner to use highly efficient direct row lookups (often with an estimated cost near 0.01), and only consider setting it to `OFF` if you have a very specific diagnostic reason to prevent these scans.

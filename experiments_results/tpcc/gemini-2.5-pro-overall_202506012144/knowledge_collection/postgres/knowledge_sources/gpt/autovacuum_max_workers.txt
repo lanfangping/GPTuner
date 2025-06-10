@@ -1,0 +1,1 @@
+Set `autovacuum_max_workers` by starting with its default value of 3, and consider cautiously increasing it, for example, towards half the number of your CPU cores (e.g., 4 workers on an 8-core system), if autovacuum consistently struggles to keep up with frequently updated tables, while monitoring system I/O and CPU load.

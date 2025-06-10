@@ -1,0 +1,1 @@
+Set `enable_tidscan` to its default of `ON` (equivalent to `1` or `true`) to permit very fast direct row lookups using CTIDs, and only consider changing it to `OFF` (equivalent to `0` or `false`) if you have confirmed virtually zero usage or are diagnosing rare cases where the planner might suboptimally choose a TID scan.

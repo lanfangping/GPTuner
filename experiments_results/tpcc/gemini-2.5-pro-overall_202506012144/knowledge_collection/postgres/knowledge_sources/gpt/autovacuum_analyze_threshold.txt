@@ -1,0 +1,1 @@
+Set `autovacuum_analyze_threshold` to a base number of tuple changes (default 50) that, when added to a percentage of the table size (defined by `autovacuum_analyze_scale_factor`, typically 10%), triggers an `ANALYZE`; you might lower this threshold (e.g., to 25) for small, highly active tables to ensure more frequent statistics updates, or keep the default for most other cases.

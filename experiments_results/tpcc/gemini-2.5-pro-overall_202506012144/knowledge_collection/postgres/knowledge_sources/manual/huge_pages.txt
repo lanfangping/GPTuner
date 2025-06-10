@@ -1,0 +1,1 @@
+The 'huge_pages' knob controls whether PostgreSQL requests huge pages for its main shared memory area—with valid values being `try` (default), `on` (start-up fails on error), or `off`—to improve performance by reducing page table size and CPU overhead, supported on Linux (requiring `shared_memory_type=mmap`) and Windows (requiring 'Lock Pages in Memory' user right).

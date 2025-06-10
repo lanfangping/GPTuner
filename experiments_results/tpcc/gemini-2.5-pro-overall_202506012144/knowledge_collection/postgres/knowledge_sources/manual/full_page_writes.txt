@@ -1,0 +1,1 @@
+`full_page_writes` (default on) ensures data integrity after a system crash by writing the entire content of each disk page (typically 8KB) to WAL on its first modification after a checkpoint, preventing corruption from partial page writes at the cost of increased WAL volume.

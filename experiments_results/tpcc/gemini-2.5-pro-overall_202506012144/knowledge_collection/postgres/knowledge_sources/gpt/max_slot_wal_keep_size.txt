@@ -1,0 +1,1 @@
+Set `max_slot_wal_keep_size` to a value, often ranging from tens to hundreds of gigabytes (e.g., 50GB to 200GB), that accommodates the amount of WAL generated during your longest anticipated replica downtime or acceptable lag period, while ensuring this size is safely below the total capacity of your `pg_wal` disk partition to prevent it from filling up.

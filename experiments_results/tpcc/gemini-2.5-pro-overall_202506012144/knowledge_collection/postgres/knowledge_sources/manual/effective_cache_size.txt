@@ -1,0 +1,1 @@
+The 'effective_cache_size' informs the query planner's assumption of available disk cache for a single query, making index scans more likely with higher values (default is 4GB) and sequential scans with lower values, and should be set considering PostgreSQL's shared buffers, kernel disk cache, and concurrent queries.

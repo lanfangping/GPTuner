@@ -1,0 +1,1 @@
+Set `checkpoint_timeout` to balance your desired recovery time (e.g., 5 minutes or 300 seconds for faster recovery, but more I/O) against I/O overhead (potentially extending to 15-30 minutes or 900-1800 seconds to reduce I/O impact), aiming for time-based checkpoints to occur more frequently than those triggered by `max_wal_size` for predictable recovery.

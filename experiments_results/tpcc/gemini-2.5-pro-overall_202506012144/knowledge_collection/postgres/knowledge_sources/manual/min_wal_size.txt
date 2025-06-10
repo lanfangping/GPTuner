@@ -1,0 +1,1 @@
+`min_wal_size` ensures that a minimum amount of WAL disk space, defaulting to 80MB, is reserved by recycling old WAL files at checkpoints rather than removing them, as long as total WAL usage stays below this threshold, to accommodate spikes in WAL generation.

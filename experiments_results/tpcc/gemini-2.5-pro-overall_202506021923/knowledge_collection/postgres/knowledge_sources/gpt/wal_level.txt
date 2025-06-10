@@ -1,0 +1,1 @@
+Set `wal_level` to `replica` (the default since PostgreSQL 10) to support WAL archiving, point-in-time recovery, and streaming replication, or to `logical` if you additionally require logical decoding and logical replication, reserving `minimal` only for standalone systems where crash recovery is the sole requirement.

@@ -1,0 +1,1 @@
+You set `cpu_tuple_cost` by starting with its default (typically 0.01, relative to `seq_page_cost` being 1.0, meaning processing 100 tuples is considered as costly as one sequential page I/O) and incrementally decrease it (e.g., to 0.005) if CPU is fast relative to I/O, or increase it (e.g., to 0.02) if CPU is a significant bottleneck, to better guide the query planner.

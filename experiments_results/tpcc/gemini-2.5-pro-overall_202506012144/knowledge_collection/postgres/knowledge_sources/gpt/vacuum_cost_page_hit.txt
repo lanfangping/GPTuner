@@ -1,0 +1,1 @@
+Set `vacuum_cost_page_hit` to its default of 1, reflecting the low cost of processing a page already in shared buffers, and only consider increasing it slightly, for instance to a value between 2 and 5, if you need autovacuum to be more conservative and throttle more readily when it encounters pages in cache.

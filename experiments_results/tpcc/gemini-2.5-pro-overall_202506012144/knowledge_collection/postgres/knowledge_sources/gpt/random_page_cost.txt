@@ -1,0 +1,1 @@
+You should lower `random_page_cost` from its default of 4.0 to a value closer to `seq_page_cost` (default 1.0), often to between 1.1 and 1.5, for systems with fast SSDs or where the working set fits largely in RAM, to better reflect the reduced penalty of random I/O and encourage more index usage.

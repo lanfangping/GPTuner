@@ -1,0 +1,1488 @@
+{
+  "hyperparameters": [
+    {
+      "name": "archive_mode",
+      "type": "categorical",
+      "choices": [
+        "always",
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "autovacuum",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_analyze_threshold",
+      "type": "categorical",
+      "choices": [
+        "12",
+        "18",
+        "25",
+        "37",
+        "50",
+        "536870930",
+        "536870949",
+        "1073741836",
+        "1073741848"
+      ],
+      "default": "50",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "100050000",
+        "150025000",
+        "200000000",
+        "650000000",
+        "1100000000"
+      ],
+      "default": "200000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "categorical",
+      "choices": [
+        "3",
+        "4",
+        "6"
+      ],
+      "default": "3",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_multixact_freeze_max_age",
+      "type": "categorical",
+      "choices": [
+        "400000000",
+        "550000000",
+        "700000000"
+      ],
+      "default": "400000000",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_naptime",
+      "type": "categorical",
+      "choices": [
+        "37",
+        "48",
+        "60"
+      ],
+      "default": "60",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_scale_factor",
+      "type": "categorical",
+      "choices": [
+        "0.2"
+      ],
+      "default": "0.2",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_delay",
+      "type": "categorical",
+      "choices": [
+        "10",
+        "200"
+      ],
+      "default": "200",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_timeout",
+      "type": "categorical",
+      "choices": [
+        "300",
+        "1125",
+        "1950",
+        "2775",
+        "3600"
+      ],
+      "default": "300",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_analyze_scale_factor",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_threshold",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_work_mem",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_bgwriter_lru_maxpages",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_bgwriter_lru_multiplier",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_checkpoint_completion_target",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_commit_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_commit_siblings",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_idle_in_transaction_session_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_lock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_log_autovacuum_min_duration",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_maintenance_workers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_workers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_slot_wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_wal_senders",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_superuser_reserved_connections",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_buffers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "150",
+        "175",
+        "400",
+        "600"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "default_transaction_isolation",
+      "type": "categorical",
+      "choices": [
+        "serializable",
+        "repeatable read",
+        "read committed",
+        "read uncommitted"
+      ],
+      "default": "read committed",
+      "weights": null
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "categorical",
+      "choices": [
+        "524288",
+        "1512144",
+        "1715269",
+        "2006072",
+        "2310759",
+        "2601562",
+        "2703125",
+        "2906250"
+      ],
+      "default": "524288",
+      "weights": null
+    },
+    {
+      "name": "enable_bitmapscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashagg",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashjoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexonlyscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_material",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_mergejoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_nestloop",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partition_pruning",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_seqscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_sort",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_tidscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "fsync",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "full_page_writes",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "huge_pages",
+      "type": "categorical",
+      "choices": [
+        "off",
+        "on",
+        "try"
+      ],
+      "default": "try",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "categorical",
+      "choices": [
+        "65536",
+        "532768",
+        "766384",
+        "1750000",
+        "2032768",
+        "2500000",
+        "3016384",
+        "4000000"
+      ],
+      "default": "65536",
+      "weights": null
+    },
+    {
+      "name": "max_connections",
+      "type": "categorical",
+      "choices": [
+        "24",
+        "42",
+        "43",
+        "51",
+        "62",
+        "70",
+        "80",
+        "81",
+        "100"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "max_wal_size",
+      "type": "categorical",
+      "choices": [
+        "1024",
+        "2512",
+        "3256",
+        "4512",
+        "6256",
+        "8512",
+        "12256",
+        "536873911",
+        "536876911",
+        "536882911",
+        "1073743823",
+        "1073745823",
+        "1073749823"
+      ],
+      "default": "1024",
+      "weights": null
+    },
+    {
+      "name": "min_wal_size",
+      "type": "categorical",
+      "choices": [
+        "80",
+        "501",
+        "750",
+        "536871661",
+        "1073742323"
+      ],
+      "default": "80",
+      "weights": null
+    },
+    {
+      "name": "random_page_cost",
+      "type": "categorical",
+      "choices": [
+        "1.15",
+        "1.175",
+        "1.9",
+        "2.5999999999999996",
+        "4.0"
+      ],
+      "default": "4.0",
+      "weights": null
+    },
+    {
+      "name": "seq_page_cost",
+      "type": "categorical",
+      "choices": [
+        "0.5",
+        "0.75",
+        "1.0",
+        "1.75",
+        "2.5"
+      ],
+      "default": "1.0",
+      "weights": null
+    },
+    {
+      "name": "shared_buffers",
+      "type": "categorical",
+      "choices": [
+        "16384",
+        "484383",
+        "726566",
+        "1114062",
+        "1259375"
+      ],
+      "default": "16384",
+      "weights": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_counts",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "transaction_isolation",
+      "type": "categorical",
+      "choices": [
+        "serializable",
+        "repeatable read",
+        "read committed",
+        "read uncommitted"
+      ],
+      "default": "read committed",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_page_dirty",
+      "type": "categorical",
+      "choices": [
+        "11",
+        "20",
+        "2515",
+        "5010",
+        "7505"
+      ],
+      "default": "20",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_page_hit",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "default": "1",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_page_miss",
+      "type": "categorical",
+      "choices": [
+        "2",
+        "5",
+        "7",
+        "2507",
+        "5005"
+      ],
+      "default": "2",
+      "weights": null
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "wal_sync_method",
+      "type": "categorical",
+      "choices": [
+        "fsync",
+        "fdatasync",
+        "open_sync",
+        "open_datasync"
+      ],
+      "default": "fdatasync",
+      "weights": null
+    },
+    {
+      "name": "work_mem",
+      "type": "categorical",
+      "choices": [
+        "4096",
+        "10048",
+        "13024",
+        "44000",
+        "72000"
+      ],
+      "default": "4096",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_analyze_scale_factor",
+      "type": "categorical",
+      "choices": [
+        "0.1",
+        "25.075000000000003",
+        "50.050000000000004",
+        "75.025"
+      ],
+      "default": "0.1",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0.0",
+        "2.0"
+      ],
+      "default": "2.0",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "499",
+        "749",
+        "999",
+        "1250",
+        "1499",
+        "1500",
+        "2000"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_vacuum_threshold",
+      "type": "categorical",
+      "choices": [
+        "50",
+        "500025",
+        "750012",
+        "537620911",
+        "1074241823"
+      ],
+      "default": "50",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_work_mem",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "127999",
+        "191999",
+        "442000",
+        "628000"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_lru_maxpages",
+      "type": "categorical",
+      "choices": [
+        "100",
+        "325",
+        "550",
+        "775",
+        "1000"
+      ],
+      "default": "100",
+      "weights": null
+    },
+    {
+      "name": "bgwriter_lru_multiplier",
+      "type": "categorical",
+      "choices": [
+        "1.5",
+        "2.0",
+        "2.25",
+        "3.0",
+        "4.75",
+        "5.5",
+        "6.5",
+        "7.0"
+      ],
+      "default": "2.0",
+      "weights": null
+    },
+    {
+      "name": "checkpoint_completion_target",
+      "type": "categorical",
+      "choices": [
+        "0.45",
+        "0.675",
+        "0.9",
+        "0.925",
+        "0.95"
+      ],
+      "default": "0.9",
+      "weights": null
+    },
+    {
+      "name": "commit_delay",
+      "type": "categorical",
+      "choices": [
+        "0"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "commit_siblings",
+      "type": "categorical",
+      "choices": [
+        "5",
+        "16",
+        "27"
+      ],
+      "default": "5",
+      "weights": null
+    },
+    {
+      "name": "idle_in_transaction_session_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "150000",
+        "225000",
+        "450000",
+        "600000"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "lock_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1250",
+        "2500",
+        "3750",
+        "5000"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "log_autovacuum_min_duration",
+      "type": "categorical",
+      "choices": [
+        "-1"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "124",
+        "187",
+        "1437",
+        "2625"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "max_parallel_maintenance_workers",
+      "type": "categorical",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "260",
+        "515"
+      ],
+      "default": "2",
+      "weights": null
+    },
+    {
+      "name": "max_parallel_workers",
+      "type": "categorical",
+      "choices": [
+        "6",
+        "8",
+        "9",
+        "265",
+        "518"
+      ],
+      "default": "8",
+      "weights": null
+    },
+    {
+      "name": "max_slot_wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "-1",
+        "31",
+        "47",
+        "536870959",
+        "1073741855"
+      ],
+      "default": "-1",
+      "weights": null
+    },
+    {
+      "name": "max_wal_senders",
+      "type": "categorical",
+      "choices": [
+        "2",
+        "3",
+        "10",
+        "65538",
+        "131073"
+      ],
+      "default": "10",
+      "weights": null
+    },
+    {
+      "name": "special_autovacuum_analyze_scale_factor",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "special_autovacuum_vacuum_cost_delay",
+      "type": "constant",
+      "value": -1.0
+    },
+    {
+      "name": "special_autovacuum_vacuum_cost_limit",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_autovacuum_vacuum_threshold",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_autovacuum_work_mem",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_bgwriter_lru_maxpages",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_bgwriter_lru_multiplier",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "special_checkpoint_completion_target",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "special_commit_delay",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_commit_siblings",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_idle_in_transaction_session_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_lock_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_log_autovacuum_min_duration",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_log_min_duration_statement",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_max_parallel_maintenance_workers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_parallel_workers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_slot_wal_keep_size",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_max_wal_senders",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_statement_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_superuser_reserved_connections",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_vacuum_cost_delay",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "special_vacuum_cost_limit",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_wal_buffers",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_wal_keep_size",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "statement_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "2500",
+        "3750",
+        "536874661",
+        "1073744323"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "superuser_reserved_connections",
+      "type": "categorical",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "65537",
+        "65538",
+        "131072",
+        "131073"
+      ],
+      "default": "3",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0.0",
+        "0.25",
+        "0.5",
+        "0.75",
+        "1.0"
+      ],
+      "default": "0.0",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "200",
+        "500",
+        "750",
+        "3250",
+        "5500"
+      ],
+      "default": "200",
+      "weights": null
+    },
+    {
+      "name": "wal_buffers",
+      "type": "categorical",
+      "choices": [
+        "499",
+        "512",
+        "749",
+        "999",
+        "1250",
+        "1499",
+        "1500",
+        "2000"
+      ],
+      "default": "512",
+      "weights": null
+    },
+    {
+      "name": "wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "2560",
+        "3840",
+        "5376",
+        "5632"
+      ],
+      "default": "0",
+      "weights": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "autovacuum_analyze_scale_factor",
+      "parent": "control_autovacuum_analyze_scale_factor",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_analyze_scale_factor",
+      "parent": "control_autovacuum_analyze_scale_factor",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_cost_delay",
+      "parent": "control_autovacuum_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_cost_delay",
+      "parent": "control_autovacuum_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_threshold",
+      "parent": "control_autovacuum_vacuum_threshold",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_threshold",
+      "parent": "control_autovacuum_vacuum_threshold",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_work_mem",
+      "parent": "control_autovacuum_work_mem",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_work_mem",
+      "parent": "control_autovacuum_work_mem",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "bgwriter_lru_maxpages",
+      "parent": "control_bgwriter_lru_maxpages",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_bgwriter_lru_maxpages",
+      "parent": "control_bgwriter_lru_maxpages",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "bgwriter_lru_multiplier",
+      "parent": "control_bgwriter_lru_multiplier",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_bgwriter_lru_multiplier",
+      "parent": "control_bgwriter_lru_multiplier",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "checkpoint_completion_target",
+      "parent": "control_checkpoint_completion_target",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_checkpoint_completion_target",
+      "parent": "control_checkpoint_completion_target",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "commit_delay",
+      "parent": "control_commit_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_commit_delay",
+      "parent": "control_commit_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "commit_siblings",
+      "parent": "control_commit_siblings",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_commit_siblings",
+      "parent": "control_commit_siblings",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "idle_in_transaction_session_timeout",
+      "parent": "control_idle_in_transaction_session_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_idle_in_transaction_session_timeout",
+      "parent": "control_idle_in_transaction_session_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "lock_timeout",
+      "parent": "control_lock_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_lock_timeout",
+      "parent": "control_lock_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "log_autovacuum_min_duration",
+      "parent": "control_log_autovacuum_min_duration",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_log_autovacuum_min_duration",
+      "parent": "control_log_autovacuum_min_duration",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_maintenance_workers",
+      "parent": "control_max_parallel_maintenance_workers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_maintenance_workers",
+      "parent": "control_max_parallel_maintenance_workers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_workers",
+      "parent": "control_max_parallel_workers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_workers",
+      "parent": "control_max_parallel_workers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_slot_wal_keep_size",
+      "parent": "control_max_slot_wal_keep_size",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_slot_wal_keep_size",
+      "parent": "control_max_slot_wal_keep_size",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_wal_senders",
+      "parent": "control_max_wal_senders",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_wal_senders",
+      "parent": "control_max_wal_senders",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "statement_timeout",
+      "parent": "control_statement_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_superuser_reserved_connections",
+      "parent": "control_superuser_reserved_connections",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "superuser_reserved_connections",
+      "parent": "control_superuser_reserved_connections",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_cost_delay",
+      "parent": "control_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_cost_delay",
+      "parent": "control_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_cost_limit",
+      "parent": "control_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_cost_limit",
+      "parent": "control_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_buffers",
+      "parent": "control_wal_buffers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_buffers",
+      "parent": "control_wal_buffers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_keep_size",
+      "parent": "control_wal_keep_size",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_keep_size",
+      "parent": "control_wal_keep_size",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}

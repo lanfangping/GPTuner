@@ -1,0 +1,1 @@
+The `synchronous_standby_names` knob configures synchronous replication by listing standby server `application_name`s and using syntax like `[FIRST|ANY] num_sync (standby1, ...)` (e.g., `FIRST 1 (s1, s2)` for priority-based or `ANY 2 (s1, s2, s3)` for quorum-based) to define how many standbys must confirm WAL receipt before transactions commit.

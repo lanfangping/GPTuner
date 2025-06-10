@@ -1,0 +1,1 @@
+To set `autovacuum_vacuum_scale_factor`, reduce it from the default of 0.2 (20%) to a much smaller value, often between 0.01 (1%) and 0.05 (5%), on a per-table basis for large (e.g., >10GB) or frequently updated tables to trigger vacuuming when a smaller percentage of rows become dead.

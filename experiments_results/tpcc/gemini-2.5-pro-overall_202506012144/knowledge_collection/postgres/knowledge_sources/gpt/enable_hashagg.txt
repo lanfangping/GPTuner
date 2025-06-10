@@ -1,0 +1,1 @@
+Set `enable_hashagg` to `on` (the default) to allow the planner to use generally faster hash aggregation, ensuring `work_mem` is sufficiently large (e.g., typically 64MB to 256MB or more per concurrent aggregation operation) to hold the hash tables in memory and avoid performance degradation from disk spilling.

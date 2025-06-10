@@ -1,0 +1,1 @@
+{'comprehensive_suggestion': "Set `pg_stat_statements.max` to a value high enough to track your workload's common distinct query patterns, often starting with the default (e.g., 5000) and increasing to 10,000 or more if statements are frequently evicted, while being mindful that each entry consumes shared memory (roughly 1KB, so 10,000 entries would use about 10MB)."}

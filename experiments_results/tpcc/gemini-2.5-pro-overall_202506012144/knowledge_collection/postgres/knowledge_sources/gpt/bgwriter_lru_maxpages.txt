@@ -1,0 +1,1 @@
+To minimize backend processes having to write out dirty buffers themselves, set `bgwriter_lru_maxpages` (default 100) to a value, often between 200 and 1000 pages on busy systems, that keeps the `buffers_backend` count in `pg_stat_bgwriter` consistently low, indicating the background writer is sufficiently cleaning pages.

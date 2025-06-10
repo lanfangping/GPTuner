@@ -1,0 +1,1 @@
+Set `work_mem` high enough, often starting in the 16MB to 128MB range, for common complex sorts and hash operations to complete in RAM (verified using `EXPLAIN ANALYZE` to avoid disk usage), while ensuring the total potential memory consumed by concurrent operations across all connections does not exhaust available system RAM.

@@ -1,0 +1,1 @@
+Set the PostgreSQL `huge_pages` parameter to `try` (recommended) or `on` in `postgresql.conf`, after ensuring the operating system is pre-configured with a sufficient number of huge pages, typically calculated as `ceil(shared_buffers_size / huge_page_size)` (e.g., for 8GB `shared_buffers` and 2MB huge pages, you'd need at least 4096 huge pages allocated at the OS level).

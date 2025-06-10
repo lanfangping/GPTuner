@@ -1,0 +1,1 @@
+Set `commit_delay` to a small number of microseconds, typically between 0 (default, no delay) and a few hundred (e.g., 10-200 µs), only when using synchronous replication and expecting at least `commit_siblings` (default 5) transactions to be ready to commit simultaneously, to potentially improve throughput by batching WAL flushes.

@@ -1,0 +1,33 @@
+# folder: gpt-4-previous-good-knowledge
+# process: optimization
+# db: postgres
+# user: postgres
+# password: postgres
+# database: tpcc_workload
+# test: tpcc
+# timeout: 180
+# seed: 100
+# model: gpt-4
+# restart_cmd: echo 251314 | sudo -S docker restart benchbase
+# recover_script: ./scripts/recover_docker_postgres.sh
+
+folder: default
+# knobs: experiments_results/tpcc/gpt-4-previous/knowledge_collection/postgres/target_knobs.txt
+# suggest_range_path: experiments_results/tpcc/gpt-4-previous    # suggest range by gpt4 
+# suggest_range_target_path: experiments_results/tpcc/gpt-4-previous    # replace narrow range by deepseek-v3 
+# suggest_range_mode: default # narrow 
+# suggest_values_path: experiments_results/tpcc/gpt-4-previous # suggest values by gpt4
+# special_skill_path: .  # special values from manually collected
+# special_skill_base_path: experiments_results/tpcc/gpt-4-previous
+# special_skill_mode: default
+process: whole
+db: postgres
+user: postgres
+password: postgres
+database: tpcc_workload
+test: tpcc
+timeout: 180
+seed: 100
+model: gemini-2.5-pro-preview-05-06
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
+recover_script: ./scripts/recover_docker_postgres.sh

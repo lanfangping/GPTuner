@@ -1,0 +1,1 @@
+Set `vacuum_cost_page_miss` to estimate the I/O cost of fetching a disk page not in shared buffers, typically starting at the default of `10` for HDDs and potentially lowering it to `2-4` for fast SSDs, while keeping it relative to `vacuum_cost_page_hit` (default `1`) and `vacuum_cost_page_dirty` (default `20`).

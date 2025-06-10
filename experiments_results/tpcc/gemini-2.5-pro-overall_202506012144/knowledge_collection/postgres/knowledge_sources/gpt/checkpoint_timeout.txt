@@ -1,0 +1,1 @@
+Increase `checkpoint_timeout` from its default of 5 minutes (300 seconds) to a higher value, often between 15 minutes (900s) and 1 hour (3600s), to allow `max_wal_size` to primarily govern checkpoint frequency for better I/O smoothing, while ensuring your recovery time objective (RTO) is still met.

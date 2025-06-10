@@ -1,0 +1,1 @@
+Set `autovacuum_vacuum_cost_delay` to a specific duration in milliseconds, typically between its default of 2ms (PostgreSQL 12+) and 20ms, to make autovacuum pause after processing a batch of I/O operations (defined by `autovacuum_vacuum_cost_limit`), increasing this value (e.g., to 10-20ms) to reduce autovacuum's immediate I/O impact on concurrent queries.

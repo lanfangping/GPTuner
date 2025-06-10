@@ -1,0 +1,1 @@
+Set `wal_buffers` to its default value of -1 (which automatically sizes it to 1/32 of `shared_buffers`, capped between 64kB and one WAL segment, typically 16MB), or for write-intensive workloads, manually increase it towards the WAL segment size, often trying values like 8MB or 16MB, as values beyond one segment rarely provide additional benefit.
