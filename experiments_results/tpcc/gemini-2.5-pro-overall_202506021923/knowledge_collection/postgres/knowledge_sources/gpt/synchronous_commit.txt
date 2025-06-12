@@ -1,1 +1,0 @@
-Set `synchronous_commit` to `on` (default) for maximum data safety where transactions wait for WAL disk flush (and for `remote_apply`, standby acknowledgment), `local` to ensure durability only on the primary, or `off` for highest performance at the risk of losing a small window of recent transactions (e.g., up to the `wal_writer_delay`, typically 200ms by default) in a crash.

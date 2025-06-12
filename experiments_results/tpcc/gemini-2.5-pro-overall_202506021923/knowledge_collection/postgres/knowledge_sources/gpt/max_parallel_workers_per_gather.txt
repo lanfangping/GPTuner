@@ -1,1 +1,0 @@
-Set `max_parallel_workers_per_gather` starting from the default of 2, and cautiously increase it to a value such as 4 or up to half the number of your CPU cores (e.g., 4 for an 8-core system), ensuring it never exceeds `max_parallel_workers` and only if specific complex queries show benefit without causing system-wide resource contention.

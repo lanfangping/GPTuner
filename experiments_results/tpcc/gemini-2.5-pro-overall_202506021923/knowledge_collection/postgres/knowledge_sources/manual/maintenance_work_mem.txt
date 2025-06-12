@@ -1,2 +1,0 @@
-SENTENCE:
-`maintenance_work_mem` specifies the maximum memory (defaulting to 64MB) for single maintenance operations like `VACUUM` (which is capped at 1GB for dead tuple collection) and `CREATE INDEX`, but note that autovacuum can allocate this amount per worker, potentially consuming up to `autovacuum_max_workers` times this value in total.

@@ -1,1 +1,0 @@
-To ensure timely query planner statistics, reduce `autovacuum_analyze_scale_factor` from its default of 0.10 (10% of table size) to a smaller value, such as 0.02 (2%) or 0.01 (1%), for large or frequently modified tables, so ANALYZE is triggered after a smaller percentage of rows change.

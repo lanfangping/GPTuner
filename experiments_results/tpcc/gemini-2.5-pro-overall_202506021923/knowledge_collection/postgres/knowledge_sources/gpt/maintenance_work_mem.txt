@@ -1,1 +1,0 @@
-Set `maintenance_work_mem` to a substantial value, typically ranging from 256MB to 1GB (or even 2GB-4GB for systems with ample RAM and very large databases), ensuring that the total memory potentially consumed by `autovacuum_max_workers` (each using this amount) plus other concurrent maintenance operations does not exhaust available system RAM.
