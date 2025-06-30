@@ -124,7 +124,7 @@ class KGUpdate(GPT):
         """    
         )
         self.log.info(f"filter_knob - prompt - {knob}: {prompt}")
-        response = self.get_GPT_response_json(prompt)
+        response = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"filter_knob - response - {knob}: {response}")
         self.token += self.calc_token(prompt, response)
         self.money += self.calc_money(prompt, response)
@@ -166,7 +166,7 @@ class KGUpdate(GPT):
             """    
         )
         self.log.info(f"filter_knowledge - prompt - {knob}: {prompt}")
-        response = self.get_GPT_response_json(prompt)
+        response = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"filter_knowledge - response - {knob}: {response}")
         self.token += self.calc_token(prompt, response)
         self.money += self.calc_money(prompt, response)

@@ -30,7 +30,7 @@ class KGPre(GPT):
             There are many useful manuals to guide the knob tuning process. For knob '{knob_name}' in {self.db}, summerize the way to set the value for it in a sentence. This sentence should be associated with concrete numbers as more detailed information if needed.
         """)
         self.log.info(f"get_suggestions_from_gpt - prompt - {knob_name}: {suggestions_prompt}")
-        suggestions = self.get_GPT_response_json(suggestions_prompt, json_format=False)
+        suggestions = self.get_GPT_response_json(suggestions_prompt, json_format=False, log=self.log)
         self.log.info(f"get_suggestions_from_gpt - response - {knob_name}: {suggestions}")
         self.token += self.calc_token(suggestions_prompt, suggestions)
         self.money += self.calc_money(suggestions_prompt, suggestions)
@@ -55,7 +55,7 @@ class KGPre(GPT):
                 SENTECNCE:
             """)
             self.log.info(f"get_suggestions_from_manual - prompt - {knob_name}: {summerize_prompt}")
-            answer = self.get_GPT_response_json(summerize_prompt, json_format=False)
+            answer = self.get_GPT_response_json(summerize_prompt, json_format=False, log=self.log)
             self.log.info(f"get_suggestions_from_manual - response - {knob_name}: {answer}")
             self.token += self.calc_token(summerize_prompt, answer)
             self.money += self.calc_money(summerize_prompt, answer)
@@ -103,7 +103,7 @@ class KGPre(GPT):
     """    
     )   
         self.log.info(f"prune_suggestion - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"prune_suggestion - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
@@ -124,7 +124,7 @@ class KGPre(GPT):
         """    
         )
         self.log.info(f"prune_contradiction - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"prune_contradiction - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
@@ -154,7 +154,7 @@ class KGPre(GPT):
             """    
             )
         self.log.info(f"prune_default - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"prune_default - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
@@ -168,7 +168,7 @@ class KGPre(GPT):
         """    
         )
         self.log.info(f"greedy_summarize - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"greedy_summarize - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
@@ -182,7 +182,7 @@ class KGPre(GPT):
         """    
         )
         self.log.info(f"check_summary - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"check_summary - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
@@ -197,7 +197,7 @@ class KGPre(GPT):
         """    
         )
         self.log.info(f"revise_summarize - prompt: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"revise_summarize - response: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)

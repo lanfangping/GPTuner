@@ -93,7 +93,7 @@ class KGTrans(GPT):
 
                 """)
         self.log.info(f"get_skill - prompt - {knob}: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         answer.update({"cpu":cpu_cores, "ram":ram_size, "disk_size":disk_size, "disk_type":disk_type})
         self.log.info(f"get_skill - response - {knob}: {answer}")
         self.token += self.calc_token(prompt, answer)
@@ -200,7 +200,7 @@ class KGTrans(GPT):
             }}
         """)
         self.log.info(f"classify_special_knob - prompt - {knob_name}: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"classify_special_knob - response - {knob_name}: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
@@ -240,7 +240,7 @@ class KGTrans(GPT):
             Now think step by step and give me the suggested upper bound. The answer should either be a number or null. Just return the answer, do not provide other information.
         """)
         self.log.info(f"mysql_provide_max - prompt - {knob}: {prompt}")
-        answer = self.get_GPT_response_json(prompt)
+        answer = self.get_GPT_response_json(prompt, log=self.log)
         self.log.info(f"mysql_provide_max - response - {knob}: {answer}")
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)

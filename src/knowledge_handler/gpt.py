@@ -12,6 +12,7 @@ import torch
 import anthropic
 from huggingface_hub import login
 from transformers import LlamaForCausalLM, LlamaTokenizer, AutoModelForCausalLM, AutoTokenizer
+from utils.misc import extract_json_knob_settings
 from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env.
 
@@ -27,17 +28,17 @@ class GPT:
         self.cur_token = 0
         self.cur_money = 0
 
-    def get_GPT_response_json(self, prompt, json_format=True, max_tokens=1000, n=3): # This function returns the GPT response, which can be specified to return json or string format
+    def get_GPT_response_json(self, prompt, json_format=True, max_tokens=1000, n=3, log=None): # This function returns the GPT response, which can be specified to return json or string format
         if n <= 0:
             print("Call API failure.")
             exit()
         
         if self.model.startswith('claude'):
-            return self._invoke_antropic_api(prompt=prompt, json_format=json_format, max_tokens=max_tokens, n=n)
+            return self._invoke_antropic_api(prompt=prompt, json_format=json_format, max_tokens=max_tokens, n=n, log=log)
         else:
-            return self._invoke_openai_api(prompt=prompt, json_format=json_format, n=n)
+            return self._invoke_openai_api(prompt=prompt, json_format=json_format, n=n, log=log)
         
-    def _invoke_openai_api(self, prompt, json_format=True, n=3):
+    def _invoke_openai_api(self, prompt, json_format=True, n=3, log=None):
         client = OpenAI(api_key=self.api_key, base_url = self.api_base)
         try:
             if json_format: # json
@@ -51,6 +52,8 @@ class GPT:
                 )
                 # print(response)
                 ans = response.choices[0].message.content
+                if log:
+                    log.info(f"OpenAI raw response: {response}")
                 completion = json.loads(ans)  # Convert to json object
             else: # string
                 response = client.chat.completions.create(
@@ -60,6 +63,8 @@ class GPT:
                     temperature=1,     
                 )
                 completion = response.choices[0].message.content
+                if log:
+                    log.info(f"OpenAI raw response: {response}")
         except APIError as e:
             print("Call API fail:", e)
             exit()
@@ -74,7 +79,7 @@ class GPT:
             return self.get_GPT_response_json(prompt, json_format, n=n-1)
         return completion
     
-    def _invoke_antropic_api(self, prompt, json_format=True, max_tokens=1000, n=3):
+    def _invoke_antropic_api(self, prompt, json_format=True, max_tokens=1000, n=3, log=None):
 
         client = anthropic.Anthropic(
             api_key=self.api_key
@@ -93,7 +98,9 @@ class GPT:
                 )
                 # print(response)
                 ans = response.content[0].text
-                completion = json.loads(ans)  # Convert to json object
+                if log:
+                    log.info(f"Antropic raw response: {response}")
+                completion = extract_json_knob_settings(ans) # Convert to json object
             else:
                 # Make a simple request
                 response = client.messages.create(
@@ -105,10 +112,13 @@ class GPT:
                     ]
                 )
                 completion = response.content[0].text
+                if log:
+                    log.info(f"Antropic raw response: {response}")
         except APIError as e:
             print("Call API fail:", e)
             exit()
         except Exception as e:
+            print("Response:", response)
             exc_type, exc_obj, exc_tb = sys.exc_info()
             print(f"Exception Type: {exc_type.__name__}")
             print(f"Exception Message: {str(e)}")

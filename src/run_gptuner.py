@@ -150,7 +150,7 @@ if __name__ == '__main__':
         api_key = os.environ.get("LLAMA_API_KEY")
     else:
         api_key = os.environ.get("ANTHROPIC_API_KEY")
-        api_key = None
+        api_base = None
 
     # f"/home/knob/revision/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
     if args.knobs != "None": # provide selected knobs

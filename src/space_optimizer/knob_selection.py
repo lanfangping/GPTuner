@@ -56,7 +56,7 @@ class KnobSelection(GPT):
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
             self.log.info(f"select_on_system_level - {i}th prompt: {prompt}")
-            json_result = self.get_GPT_response_json(prompt, json_format=True)
+            json_result = self.get_GPT_response_json(prompt, json_format=True, log=self.log)
             self.log.info(f"select_on_system_level - {i}th response: {json_result}")
             self.token += self.calc_token(prompt, json_result)
             self.money += self.calc_money(prompt, json_result)
@@ -81,7 +81,7 @@ class KnobSelection(GPT):
                 If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                 """)
             self.log.info(f"select_on_workload_level - {i}th prompt: {prompt}")
-            json_result = self.get_GPT_response_json(prompt, json_format=True)
+            json_result = self.get_GPT_response_json(prompt, json_format=True, log=self.log)
             self.log.info(f"select_on_workload_level - {i}th response: {json_result}")
             self.token += self.calc_token(prompt, json_result)
             self.money += self.calc_money(prompt, json_result)
@@ -139,7 +139,7 @@ class KnobSelection(GPT):
                     If no knobs are suggested, just fill "knob_list" with "None" and also return result in json format. 
                     """)
                 self.log.info(f"select_on_query_level - {j}th query, {i}th prompt: {prompt}")
-                json_result = self.get_GPT_response_json(prompt, json_format=True)
+                json_result = self.get_GPT_response_json(prompt, json_format=True, log=self.log)
                 self.log.info(f"select_on_query_level - {j}th query, {i}th response: {json_result}")
                 self.token += self.calc_token(prompt, json_result)
                 self.money += self.calc_money(prompt, json_result)
@@ -185,7 +185,7 @@ class KnobSelection(GPT):
         """
         )
         self.log.info(f"select_interdependent_all_knobs - prompt: {prompt}")
-        json_result = self.get_GPT_response_json(prompt, json_format=True)
+        json_result = self.get_GPT_response_json(prompt, json_format=True, log=self.log)
         self.log.info(f"select_interdependent_all_knobs - response: {json_result}")
         self.token += self.calc_token(prompt, json_result)
         self.money += self.calc_money(prompt, json_result)
