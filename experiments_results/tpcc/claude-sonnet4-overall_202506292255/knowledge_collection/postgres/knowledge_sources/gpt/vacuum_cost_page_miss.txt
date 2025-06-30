@@ -1,0 +1,1 @@
+To tune the `vacuum_cost_page_miss` parameter in PostgreSQL, **set it to a value between 2-20 (default is 2) based on your storage speed, where faster storage like SSDs can use lower values (2-5) while slower mechanical drives should use higher values (10-20) to properly account for the I/O cost of reading pages not found in the buffer cache during vacuum operations.**

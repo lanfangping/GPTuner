@@ -1,0 +1,1 @@
+To set PostgreSQL's `min_wal_size`, configure it to 2-4 times your typical checkpoint interval's WAL generation (commonly 1-2GB for most systems), with a minimum of 80MB and scaling up to 4-8GB for high-write workloads to balance WAL recycling efficiency against disk space usage.

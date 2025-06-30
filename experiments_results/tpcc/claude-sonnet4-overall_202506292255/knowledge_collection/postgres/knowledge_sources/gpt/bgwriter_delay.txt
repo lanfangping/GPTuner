@@ -1,0 +1,1 @@
+For PostgreSQL's `bgwriter_delay` parameter, set it to a lower value like 10-50ms (from the default 200ms) on high-write workloads or systems with fast storage to increase background writer frequency and reduce checkpoint spikes, or increase it to 500-1000ms on low-write systems to reduce unnecessary background activity.

@@ -1,0 +1,1 @@
+The 'wal_sync_method' knob determines how PostgreSQL forces Write-Ahead Log (WAL) updates to disk, offering 5 options (open_datasync, fdatasync, fsync, fsync_writethrough, open_sync) with fdatasync being the default on Linux and FreeBSD, while the first available method is used as default on other platforms.

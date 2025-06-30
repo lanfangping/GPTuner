@@ -1,0 +1,1 @@
+For PostgreSQL's `autovacuum_max_workers` parameter, set the value to 2-4 workers for most systems, with a general rule of 1 worker per 2-4 CPU cores, ensuring it doesn't exceed the number of available database connections since each worker consumes one connection from the `max_connections` pool.

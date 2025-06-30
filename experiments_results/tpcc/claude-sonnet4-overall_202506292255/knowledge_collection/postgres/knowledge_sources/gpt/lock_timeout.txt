@@ -1,0 +1,1 @@
+For PostgreSQL's `lock_timeout` parameter, set it to a value between 1000ms to 30000ms (1-30 seconds) for OLTP workloads to prevent long-running queries from blocking others, or disable it entirely (set to 0) for analytical workloads where longer lock waits are acceptable, with a typical recommended starting point of 5000ms (5 seconds) for most production environments.

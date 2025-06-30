@@ -1,0 +1,1 @@
+For PostgreSQL's 'max_parallel_workers' knob, set the value to match your CPU core count (typically 8-16 for most systems) or slightly higher, but ensure it doesn't exceed the sum of max_parallel_workers_per_gather (default 2) multiplied by your expected concurrent parallel queries, with a practical ceiling around 2-4 times your CPU cores to avoid resource contention.

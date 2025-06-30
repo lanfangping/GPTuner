@@ -1,0 +1,4 @@
+**SENTENCE:**
+The 'autovacuum_analyze_scale_factor' knob determines the fraction of table size added to the analyze threshold to trigger automatic ANALYZE operations, with a default value of 0.1 (meaning 10% of the table size).
+
+**Concrete example:** For a table with 1,000,000 rows and default settings (autovacuum_analyze_threshold=50, autovacuum_analyze_scale_factor=0.1), ANALYZE will trigger when 100,050 rows (50 + 1,000,000 × 0.1) have been inserted, updated, or deleted.

@@ -1,0 +1,1 @@
+For PostgreSQL's `autovacuum_vacuum_cost_limit`, set it to a higher value like 2000-6000 (default is 200) on modern systems with good I/O capacity to allow autovacuum processes to work faster, or increase it proportionally with `autovacuum_max_workers` (e.g., if you have 6 workers, consider setting it to 1200+ so each worker gets adequate cost budget).

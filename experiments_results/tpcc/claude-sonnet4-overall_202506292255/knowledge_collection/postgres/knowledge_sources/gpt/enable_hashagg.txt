@@ -1,0 +1,3 @@
+For the PostgreSQL 'enable_hashagg' knob, set it to 'on' (default) to allow hash aggregation for GROUP BY operations which is typically faster for large datasets, or set it to 'off' only for debugging purposes or when troubleshooting hash aggregation issues, as disabling it forces the planner to use slower sort-based aggregation methods.
+
+Note: This is a boolean parameter (on/off) rather than a numeric parameter, so there are no specific threshold numbers to tune - it's simply an enable/disable switch for the query planner's hash aggregation capability.

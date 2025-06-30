@@ -1,0 +1,3 @@
+To set PostgreSQL's `work_mem` parameter, allocate 2-8 MB per connection for typical workloads (default is 4MB), but increase to 50-200 MB for complex analytical queries with large sorts/joins, while ensuring total memory usage (work_mem × max_connections × 2-3) doesn't exceed 25% of available RAM.
+
+For example: with 100 max_connections and 16GB RAM, set work_mem to 10-20MB to stay within safe memory bounds while improving query performance.

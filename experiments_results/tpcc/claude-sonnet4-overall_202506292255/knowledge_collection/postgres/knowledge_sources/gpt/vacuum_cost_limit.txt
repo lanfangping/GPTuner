@@ -1,0 +1,1 @@
+To set the `vacuum_cost_limit` in PostgreSQL, start with the default value of 200 and increase it to 1000-2000 (or higher up to 5000-10000) if you want VACUUM operations to run faster and can tolerate higher I/O impact, or decrease it to 100-50 if you need to minimize the performance impact of background vacuuming on your workload.

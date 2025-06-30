@@ -1,0 +1,1 @@
+To tune the `vacuum_cost_page_dirty` knob in PostgreSQL, set it to a value between 10-40 (default is 20) based on your I/O capacity, where higher values like 30-40 are suitable for systems with fast storage (SSDs) that can handle more aggressive vacuuming, while lower values like 10-15 are better for slower storage or I/O-constrained systems to reduce vacuum overhead.

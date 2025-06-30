@@ -1,0 +1,1 @@
+To tune the 'enable_indexscan' knob in PostgreSQL, you should generally keep it set to the default value of 'on' (true) unless you're specifically debugging query performance issues, as disabling it (setting to 'off') forces the planner to avoid index scans entirely and typically degrades performance by 10-100x or more for queries that would benefit from indexed access.

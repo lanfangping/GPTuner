@@ -1,0 +1,1 @@
+To tune PostgreSQL's `random_page_cost` parameter, set it based on your storage type: use **1.1-2.0** for SSDs (since random and sequential access costs are similar) and **4.0** (default) for traditional HDDs, where you can test values between 2.0-6.0 depending on your specific workload's balance between index scans and sequential scans.

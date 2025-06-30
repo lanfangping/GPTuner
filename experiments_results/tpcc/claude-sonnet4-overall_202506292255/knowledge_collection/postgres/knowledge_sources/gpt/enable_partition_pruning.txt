@@ -1,0 +1,7 @@
+To optimize the 'enable_partition_pruning' knob in PostgreSQL, **keep it enabled (default ON) as it provides significant query performance improvements by eliminating irrelevant partitions during query planning, typically reducing query execution time by 50-90% on partitioned tables with proper WHERE clause conditions that match partition keys**.
+
+The key details:
+- Default value: ON (enabled)
+- Recommended setting: Keep enabled unless specifically troubleshooting
+- Performance impact: Can improve query performance by 50-90% when queries include partition key filters
+- Only disable temporarily for debugging partition-related query planning issues

@@ -1,0 +1,3 @@
+To tune the `bgwriter_lru_multiplier` knob in PostgreSQL, **start with the default value of 2.0 and monitor buffer allocation rates, then increase it to 3.0-5.0 if you observe frequent buffer shortages or high checkpoint I/O spikes, but avoid setting it above 10.0 as it may cause excessive background writing that competes with foreground operations.**
+
+This parameter controls how many buffers the background writer cleans based on recent buffer allocation patterns, where higher values (like 4.0-5.0) are typically beneficial for write-heavy workloads with large shared_buffers (8GB+), while lower values (1.5-2.5) work better for read-heavy systems.

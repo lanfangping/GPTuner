@@ -1,0 +1,1 @@
+For PostgreSQL's 'shared_buffers' parameter, set it to 25% of total system RAM as a starting point (e.g., 2GB for an 8GB system), with typical production values ranging from 128MB to 8GB, though you should monitor cache hit ratios and adjust upward if consistently above 99% or downward if the system experiences memory pressure.

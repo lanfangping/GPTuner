@@ -1,0 +1,1 @@
+To tune PostgreSQL's `default_statistics_target`, increase it from the default value of 100 to 1000-10000 for tables with highly selective queries or complex WHERE clauses, as higher values (up to the maximum of 10000) provide more accurate query planning statistics at the cost of longer ANALYZE times and slightly more storage overhead.

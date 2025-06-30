@@ -1,0 +1,1 @@
+For the PostgreSQL knob 'bgwriter_lru_maxpages', set the value based on your system's write workload intensity, typically starting with the default of 100 pages per round and increasing to 500-1000 pages for write-heavy workloads, while monitoring that background writer statistics show it's keeping up with buffer pool cleaning demands without causing excessive I/O overhead.

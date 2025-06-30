@@ -1,0 +1,1 @@
+Based on PostgreSQL tuning guidelines, **autovacuum_vacuum_cost_delay** should typically be set to **2-10 milliseconds** (default is 2ms) for balanced performance, where lower values like **0-1ms** prioritize autovacuum speed over concurrent query performance, while higher values like **10-20ms** reduce autovacuum's impact on active workloads but slow down vacuum operations.

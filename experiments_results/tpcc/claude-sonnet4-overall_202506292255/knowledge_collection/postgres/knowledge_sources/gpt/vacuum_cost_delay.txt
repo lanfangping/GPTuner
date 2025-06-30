@@ -1,0 +1,1 @@
+To set the `vacuum_cost_delay` in PostgreSQL, start with the default value of 0 (no delay) for systems that can handle I/O load, or set it to 10-20 milliseconds (e.g., `vacuum_cost_delay = 10`) on production systems to throttle vacuum operations and reduce their impact on concurrent queries, adjusting upward to 50-100ms if vacuum operations are still causing performance issues.

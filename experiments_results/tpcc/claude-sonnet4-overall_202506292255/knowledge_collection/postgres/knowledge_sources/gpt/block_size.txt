@@ -1,0 +1,1 @@
+The PostgreSQL `block_size` parameter is set at compile time (typically 8KB by default) and cannot be changed without recompiling PostgreSQL from source, where common alternatives include 4KB for high-concurrency OLTP workloads or 16KB/32KB for data warehousing scenarios with large sequential scans.

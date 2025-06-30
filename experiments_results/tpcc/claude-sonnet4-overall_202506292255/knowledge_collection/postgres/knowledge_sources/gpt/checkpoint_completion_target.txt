@@ -1,0 +1,1 @@
+For PostgreSQL's `checkpoint_completion_target`, set the value between 0.5-0.9 (default 0.5) to spread checkpoint I/O over that fraction of the checkpoint interval, with 0.9 being recommended for most production systems to minimize performance spikes by distributing writes over 90% of the checkpoint cycle rather than completing them quickly.

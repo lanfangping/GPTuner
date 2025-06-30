@@ -1,0 +1,1 @@
+To set `max_wal_size` in PostgreSQL, configure it to 2-4 times your `checkpoint_segments` equivalent (typically 1-4 GB for most workloads, but can be set to 10-20 GB or higher for write-heavy systems) to balance write performance with recovery time, where larger values reduce checkpoint frequency but increase crash recovery duration.

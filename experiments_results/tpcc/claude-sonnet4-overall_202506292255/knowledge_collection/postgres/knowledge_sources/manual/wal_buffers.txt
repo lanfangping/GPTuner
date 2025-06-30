@@ -1,0 +1,1 @@
+The 'wal_buffers' parameter controls the amount of shared memory allocated for Write-Ahead Log data awaiting disk writes, with a default of -1 that auto-selects 1/32nd of shared_buffers (typically 3%, ranging from 64kB to 16MB), though it can be manually set with a minimum of 32kB and is measured in 8kB blocks when no units are specified.

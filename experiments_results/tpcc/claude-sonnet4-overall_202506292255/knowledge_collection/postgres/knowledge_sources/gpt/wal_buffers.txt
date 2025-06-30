@@ -1,0 +1,1 @@
+For PostgreSQL's `wal_buffers` parameter, set it to approximately 3% of `shared_buffers` or around 16MB for most workloads, which typically translates to values between 16MB-64MB (e.g., `wal_buffers = 16MB`), as the default auto-sizing usually provides adequate performance and manual tuning beyond this range rarely yields significant benefits.

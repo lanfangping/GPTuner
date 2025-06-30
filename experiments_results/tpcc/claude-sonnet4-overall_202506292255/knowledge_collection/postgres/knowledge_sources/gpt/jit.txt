@@ -1,0 +1,7 @@
+For the 'jit' knob in PostgreSQL, **enable it by setting `jit = on` for workloads with complex queries involving many expressions or aggregations, but consider disabling it (`jit = off`) if your queries are simple or if JIT compilation overhead (typically 10-100ms) exceeds the execution time savings, which usually benefits queries running longer than 100-200ms.**
+
+The key considerations are:
+- JIT compilation adds overhead of 10-100ms per query
+- Most beneficial for analytical queries with complex expressions, aggregations, or large result sets
+- Default is usually `on` in PostgreSQL 11+, but may hurt performance for OLTP workloads with many short queries
+- Works best when combined with appropriate `jit_above_cost` settings (default 100000)

@@ -1,0 +1,1 @@
+Based on PostgreSQL documentation, `vacuum_multixact_freeze_table_age` should be set to a value between 0 and 2 billion (with a default of 150 million), where setting it to 150-400 million transactions is typically recommended to balance between preventing multixact ID wraparound while avoiding overly aggressive table freezing that could impact performance.

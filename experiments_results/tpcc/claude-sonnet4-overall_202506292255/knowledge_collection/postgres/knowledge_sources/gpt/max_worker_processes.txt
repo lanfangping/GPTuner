@@ -1,0 +1,1 @@
+For PostgreSQL's `max_worker_processes` parameter, set it to 2-4 times the number of CPU cores (e.g., 16-32 for an 8-core system), with a typical range of 8-32 for most production systems, ensuring it's high enough to accommodate background workers, parallel query workers, and logical replication workers without overwhelming system resources.
