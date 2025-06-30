@@ -9,6 +9,7 @@ import datetime
 import tiktoken
 import transformers
 import torch
+import anthropic
 from huggingface_hub import login
 from transformers import LlamaForCausalLM, LlamaTokenizer, AutoModelForCausalLM, AutoTokenizer
 from dotenv import load_dotenv
@@ -26,11 +27,17 @@ class GPT:
         self.cur_token = 0
         self.cur_money = 0
 
-    def get_GPT_response_json(self, prompt, json_format=True, n=3): # This function returns the GPT response, which can be specified to return json or string format
+    def get_GPT_response_json(self, prompt, json_format=True, max_tokens=1000, n=3): # This function returns the GPT response, which can be specified to return json or string format
         if n <= 0:
             print("Call API failure.")
             exit()
-
+        
+        if self.model.startswith('claude'):
+            return self._invoke_antropic_api(prompt=prompt, json_format=json_format, max_tokens=max_tokens, n=n)
+        else:
+            return self._invoke_openai_api(prompt=prompt, json_format=json_format, n=n)
+        
+    def _invoke_openai_api(self, prompt, json_format=True, n=3):
         client = OpenAI(api_key=self.api_key, base_url = self.api_base)
         try:
             if json_format: # json
@@ -64,9 +71,54 @@ class GPT:
             print("Sleeping...")
             time.sleep(random.randint(30, 40))
             print("retry.")
-            return self.get_GPT_response_json(prompt, json_format, n-1)
+            return self.get_GPT_response_json(prompt, json_format, n=n-1)
         return completion
     
+    def _invoke_antropic_api(self, prompt, json_format=True, max_tokens=1000, n=3):
+
+        client = anthropic.Anthropic(
+            api_key=self.api_key
+        )
+        try:
+            if json_format:
+                # Make a simple request
+                response = client.messages.create(
+                    model=self.model,
+                    max_tokens=max_tokens,
+                    temperature=0.5,
+                    system="You should output JSON.",
+                    messages=[
+                        {"role": "user", "content": f"{prompt}"}
+                    ]
+                )
+                # print(response)
+                ans = response.content[0].text
+                completion = json.loads(ans)  # Convert to json object
+            else:
+                # Make a simple request
+                response = client.messages.create(
+                    model=self.model,
+                    max_tokens=max_tokens,
+                    temperature=1,
+                    messages=[
+                        {"role": "user", "content": f"{prompt}"}
+                    ]
+                )
+                completion = response.content[0].text
+        except APIError as e:
+            print("Call API fail:", e)
+            exit()
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"Exception Type: {exc_type.__name__}")
+            print(f"Exception Message: {str(e)}")
+            print(f"Occurred at Line: {exc_tb.tb_lineno}")
+            print("Sleeping...")
+            time.sleep(random.randint(30, 40))
+            print("retry.")
+            return self.get_GPT_response_json(prompt, json_format, max_tokens=max_tokens, n=n-1)
+        return completion
+
     def calc_token(self, in_text, out_text=""):
         if isinstance(in_text, dict):
             in_text = json.dumps(in_text)
@@ -79,6 +131,28 @@ class GPT:
             enc =  transformers.AutoTokenizer.from_pretrained( 
                     chat_tokenizer_dir, trust_remote_code=True
                     )
+        elif self.model.startswith('claude'):
+            client = anthropic.Anthropic()
+            
+            # Use the count_tokens method
+            in_token_count = client.messages.count_tokens(
+                model=self.model,
+                messages=[
+                    {"role": "user", "content": in_text}
+                ]
+            )
+            input_token = in_token_count.input_tokens
+            self.input_token += input_token
+
+            out_token_count = client.messages.count_tokens(
+                model=self.model,
+                messages=[
+                    {"role": "user", "content": in_text}
+                ]
+            )
+            output_token = out_token_count.input_tokens
+            self.output_token += output_token
+            return input_token + output_token
         else:
             try:
                 enc = tiktoken.encoding_for_model(self.model)
@@ -294,9 +368,11 @@ class LLM:
     
 
 if __name__ == '__main__':
-    api_base = os.environ.get("LLAMA_API_BASE")
-    api_key = os.environ.get("LLAMA_API_KEY")
-    model_type = os.environ.get("LLAMA_MODEL")
+    api_base = os.environ.get("GEMINI_API_BASE")
+    api_key = os.environ.get("GEMINI_API_KEY")
+    print(api_base)
+    print(api_key)
+    model_type = "gemini-2.5-flash-preview-05-20"
     model = GPT(api_base=api_base, api_key=api_key, model=model_type)
     prompt = "Hello, 1+1=?"
     response = model.get_GPT_response_json(prompt=prompt, json_format=True)

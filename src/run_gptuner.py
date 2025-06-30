@@ -145,9 +145,12 @@ if __name__ == '__main__':
     elif args.model.startswith('gemini'):
         api_base = os.environ.get("GEMINI_API_BASE")
         api_key = os.environ.get("GEMINI_API_KEY")
-    else:
+    elif args.model.startswith('llama'):
         api_base = os.environ.get("LLAMA_API_BASE")
         api_key = os.environ.get("LLAMA_API_KEY")
+    else:
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        api_key = None
 
     # f"/home/knob/revision/GPTuner/knowledge_collection/{args.db}/target_knobs.txt"
     if args.knobs != "None": # provide selected knobs
@@ -156,8 +159,13 @@ if __name__ == '__main__':
         command = f"cp {source_selected_knobs} {dest_selected_knobs}"
         subprocess.run(command, shell=True, check=True)
         time.sleep(2)
+
+    elif args.process == 'whole' or args.process == 'knowledge':
+        dbms._connect(args.database)
+        knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, knowledge_path=folder_path, api_base=api_base, api_key=api_key, model=args.model)
+        knob_selection.select_interdependent_all_knobs() # if target_knob.txt exits, then this step is skipped
+
     target_knobs_path = os.path.join(folder_path, "knowledge_collection", f"{args.db}", "target_knobs.txt")
-    
     # prepare tuning lake and structured knowledge
     target_knobs = []
     knob_info = json.load(open(os.path.join(folder_path, f"knowledge_collection/{args.db}/knob_info/system_view.json")))
@@ -171,22 +179,6 @@ if __name__ == '__main__':
                 log.warning(f"'{knob}' is not in {args.db}")
 
     if args.process == 'whole' or args.process == 'knowledge':
-        # write your api_base and api_key
-        if args.model.startswith('gpt'):
-            api_base = os.environ.get("OPENAI_API_BASE")
-            api_key = os.environ.get("OPENAI_API_KEY")
-        elif args.model.startswith('deepseek'):
-            api_base = os.environ.get("DEEPSEEK_API_BASE")
-            api_key = os.environ.get("DEEPSEEK_API_KEY")
-        else:
-            api_base = os.environ.get("LLAMA_API_BASE")
-            api_key = os.environ.get("LLAMA_API_KEY")
-
-        # Select target knobs, write your api_base and api_key
-        dbms._connect(args.database)
-        knob_selection = KnobSelection(db=args.db, dbms=dbms, benchmark=args.test, knowledge_path=folder_path, api_base=api_base, api_key=api_key, model=args.model)
-        knob_selection.select_interdependent_all_knobs() # if target_knob.txt exits, then this step is skipped
-
         knowledge_pre = KGPre(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
         knowledge_trans = KGTrans(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
         knowledge_update = KGUpdate(db=args.db, api_base=api_base, api_key=api_key, model=args.model, knowledge_path=os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}"))
