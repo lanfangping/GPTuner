@@ -91,6 +91,7 @@ if __name__ == '__main__':
     parser.add_argument("--suggest_range_mode", type=str, default="default") # `default`: only use `suggest_range_path`, `narrow`: replace the range in `suggest_range_path` with the narrow range in `suggest_range_target_path`
     parser.add_argument("--suggest_values_path", type=str, default="None")
     parser.add_argument("--special_skill_path", type=str, default="None")
+    parser.add_argument("--special_skill_base_path", type=str, default="None")
     parser.add_argument("--special_skill_mode", type=str, default="default") 
     parser.add_argument("--model", type=str, default="gpt-4o-mini")
     parser.add_argument("--restart_cmd", type=str, default="sudo restart tpcc_workload")

@@ -42,7 +42,6 @@ def load_and_get_historical_best_data(folder_name, seed=100, type='throughput'):
         file_data = json.load(f)
         data = file_data['data']
         performance.extend(load_and_process(data, type))
-
     with open(fine_path, 'r') as f:
         file_data = json.load(f)
         data = file_data['data']
@@ -56,8 +55,8 @@ def load_and_get_historical_best_data(folder_name, seed=100, type='throughput'):
 
     return historical_best_performance, performance
 
-def load_and_get_data_with_deviation_from_project_data(project_name):
-    project_data = json.load(open('experiments_results/tpcc/project_data.json', 'r'))
+def load_and_get_data_with_deviation_from_project_data(project_name, workload):
+    project_data = json.load(open(f'experiments_results/{workload}/project_data.json', 'r'))
     data = []
     for performance_tuple in project_data[project_name]['performance_tuple']:
         data.append(performance_tuple[0])
@@ -114,12 +113,12 @@ def show_with_std(data_lists:list, labels:list, output_file:str, num_plots:int=1
     plt.grid(True)
     plt.savefig(output_file)
 
-def maintain_data(folder="experiments_results/tpcc"):
+def maintain_data(folder="experiments_results/tpcc", type='throughput'):
     project_data = defaultdict(lambda: defaultdict(list))
     for folder_name in os.listdir(folder):
         if folder_name == 'figures' or folder_name == 'project_data.json':
             continue
-        
+        # print(folder_name)
         items = folder_name.split('_')
         if items[-1].isdigit():
             project_name = '_'.join(items[:-1])
@@ -132,8 +131,9 @@ def maintain_data(folder="experiments_results/tpcc"):
         history_file = os.path.join(folder, folder_name)
         # print(history_file)
         try:
-            data_tuple = load_and_get_historical_best_data(history_file)
+            data_tuple = load_and_get_historical_best_data(history_file, type=type)
         except FileNotFoundError as e:
+            print(e)
             continue
         project_data[project_name]['performance_tuple'].append(data_tuple)
         project_data[project_name]['date_ids'].append(date_id)
@@ -142,7 +142,7 @@ def maintain_data(folder="experiments_results/tpcc"):
 
 
 if __name__ == '__main__':
-    maintain_data(folder="experiments_results/tpcc")
+    
     # #==================overall================
     # num_plots = 7
     # files = [
@@ -190,45 +190,31 @@ if __name__ == '__main__':
     #     "KS-GPT4, SV-GPT3.5-turbo, SR-GPT3.5-turbo, SPV-GPT3.5-turbo"
     # ]
 
-    num_plots = 3
     project_names = [
-        "gpt-4-previous",
-        "ks-gpt4-kr--sv-gpt4-sr-deepseekv3-spv-gpt4",
-        "ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4",
-        # ("experiments_results/tpcc/gpt-4-previous_mspv_202505270205", 100)
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-deepseekv3-spv-gpt4_202505080025", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-deepseekv3-spv-gpt4_202505201450", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-deepseekv3-spv-gpt4_202505210131", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505141738", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505151912", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505161241", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505171418", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505180328", 100),
-        # ("experiments_results/tpcc/ks-gpt4-kr--sv-gpt4-sr-gpt4-narrow-deepseekv3-spv-gpt4_202505181352", 100)
+        "deepseek-v3-overall",
+        "gpt-3.5-turbo-overall",
+        "gpt4-4o-mini-overall",
+        "gpt-4o-overall",
+        "claude-sonnet4-overall",
+        "gpt-4-previous"
     ]
     labels = [
-        "KS-GPT4, SV-GPT4, SR-GPT4, SPV-GPT4", 
-        "KS-GPT4, SV-GPT4, SR-Deepseekv3, SPV-GPT4", 
-        "KS-GPT4, SV-GPT4, SR-Deepseekv3-narrow, SPV-GPT4",
-        "DeepseekV3",
-        "GPT3.5-turbo"
-        # "KS-GPT4, SV-GPT4, SR-GPT4, SPV-manual"
-        # "KS-GPT4, SV-GPT4, SR-Deepseekv3-1, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-Deepseekv3-2, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-Deepseekv3-3, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-GPT4-Deepseekv3-narrow-1, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-GPT4-Deepseekv3-narrow-2, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-GPT4-Deepseekv3-narrow-3, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-GPT4-Deepseekv3-narrow-4, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-GPT4-Deepseekv3-narrow-5, SPV-GPT4",
-        # "KS-GPT4, SV-GPT4, SR-GPT4-Deepseekv3-narrow-6, SPV-GPT4",
+        "DeepSeekV3", 
+        "GPT3.5-turbo", 
+        "GPT4o-mini",
+        "GPT4o",
+        "Claude Sonnet4",
+        "GPT4"
     ]
+    num_plots = len(project_names)
     output_type = 'throughput'
-    output_file = f"experiments_results/tpcc/figures/ablation_study/KR_study_std_{num_plots}.png"
+    workload='tpcc'
+    maintain_data(folder=f"experiments_results/{workload}", type=output_type)
+    output_file = f"experiments_results/{workload}/figures/end_to_end_study/overall_study_std_{num_plots}.png"
     data_lists = []
     for i in range(num_plots):
         project_name = project_names[i]
-        data = load_and_get_data_with_deviation_from_project_data(project_name=project_name)
+        data = load_and_get_data_with_deviation_from_project_data(project_name=project_name, workload=workload)
         data_lists.append(data)
     
     show_with_std(data_lists=data_lists, labels=labels, output_file=output_file, num_plots=num_plots, type=output_type)
