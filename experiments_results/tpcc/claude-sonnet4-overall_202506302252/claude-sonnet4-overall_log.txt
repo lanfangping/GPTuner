@@ -1,0 +1,655 @@
+[2025-06-30 22:52:17,951 INFO] [run_gptuner.py:<module>:117] Input arguments: Namespace(config='src/exp_configs/tpcc/claude-sonnet4-overall.yml', folder='default', process='optimization', db='postgres', database='tpcc_workload', test='tpcc', timeout=180, seed=100, result_path='./experiments_results/tpcc/claude-sonnet4-overall_202506302252', knobs='experiments_results/tpcc/claude-sonnet4-overall_202506292255/knowledge_collection/postgres/target_knobs.txt', suggest_range_path='experiments_results/tpcc/claude-sonnet4-overall_202506292255', suggest_range_target_path='None', suggest_range_mode='default', suggest_values_path='experiments_results/tpcc/claude-sonnet4-overall_202506292255', special_skill_path='experiments_results/tpcc/claude-sonnet4-overall_202506292255', special_skill_base_path='None', special_skill_mode='default', model='claude-sonnet-4-20250514', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', user='postgres', password='postgres')
+[2025-06-30 22:54:04,248 WARNING] [coarse_space.py:define_search_space:144] Suggested value '29750' is outside of suggested min/max or default range. It is discarded.
+[2025-06-30 22:54:04,284 INFO] [coarse_space.py:__init__:22] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0.05, 0.1, 0.2, 0.30000000000000004, 0.4, 0.5}, Default: 0.1
+    autovacuum_analyze_threshold, Type: Categorical, Choices: {10, 50, 1287, 2525, 3762, 5000}, Default: 50
+    autovacuum_max_workers, Type: Categorical, Choices: {3, 4, 5, 6}, Default: 3
+    autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {2.0, 4.0, 6.0, 8.0, 10.0}, Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 1499, 2999, 4499, 6000}, Default: -1
+    autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0.05, 0.2, 0.275, 0.35, 0.425, 0.5}, Default: 0.2
+    autovacuum_vacuum_threshold, Type: Categorical, Choices: {50, 287, 525}, Default: 50
+    bgwriter_delay, Type: Categorical, Choices: {20, 200, 400, 600, 800, 1000}, Default: 200
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {100, 325, 550, 775, 1000}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.75, 1.875, 2.0, 2.75, 3.5}, Default: 2.0
+    block_size, Type: Categorical, Choices: {8192}, Default: 8192
+    checkpoint_completion_target, Type: Categorical, Choices: {0.7, 0.8, 0.9}, Default: 0.9
+    checkpoint_timeout, Type: Categorical, Choices: {300, 465, 682, 22275, 43650}, Default: 300
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_analyze_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_multiplier, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_operator_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_jit_above_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_lock_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_page_dirty, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_page_miss, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_table_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: Categorical, Choices: {0.001, 0.005, 0.00625, 0.0075, 0.00875, 0.01}, Default: 0.005
+    cpu_operator_cost, Type: Categorical, Choices: {0.001, 0.0025}, Default: 0.0025
+    cpu_tuple_cost, Type: Categorical, Choices: {0.005, 0.01}, Default: 0.01
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 250, 375, 500, 750, 2650, 2875, 3250, 5100, 5250, 5500}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {0, 1, 250, 500}, Default: 1
+    enable_bitmapscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashagg, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    huge_pages, Type: Categorical, Choices: {off, on, try}, Default: try
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    jit_above_cost, Type: Categorical, Choices: {100000.0, 200000.0, 300000.0, 400000.0, 500000.0}, Default: 100000.0
+    join_collapse_limit, Type: Categorical, Choices: {8, 11, 14, 17, 20}, Default: 8
+    lock_timeout, Type: Categorical, Choices: {0, 2500, 3750, 11250, 17500}, Default: 0
+    log_lock_waits, Type: Categorical, Choices: {on, off}, Default: off
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 532768, 766384, 2300000, 3600000}, Default: 65536
+    max_connections, Type: Categorical, Choices: {24, 30, 33, 42, 43, 51, 52, 62, 68, 70, 80, 100}, Default: 100
+    max_parallel_workers, Type: Categorical, Choices: {8, 10, 11, 21, 30}, Default: 8
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1, 2, 3, 256, 257, 259, 512, 513, 514}, Default: 2
+    max_wal_size, Type: Categorical, Choices: {1024}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8, 9, 10, 11}, Default: 8
+    min_wal_size, Type: Categorical, Choices: {80, 501, 750, 536871661, 1073742323}, Default: 80
+    random_page_cost, Type: Categorical, Choices: {4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0, 1.75, 2.5}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 492375, 730562, 1114062, 1259375}, Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_analyze_threshold, Type: Constant, Value: -1
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 0}, Default: -1
+    special_autovacuum_vacuum_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_vacuum_threshold, Type: Constant, Value: -1
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_bgwriter_lru_multiplier, Type: Constant, Value: 0.0
+    special_cpu_operator_cost, Type: Constant, Value: 0.0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_jit_above_cost, Type: Constant, Value: -1.0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_lock_timeout, Type: Constant, Value: 0
+    special_max_parallel_workers, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_wal_size, Type: Constant, Value: -1
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_vacuum_cost_limit, Type: Constant, Value: 0
+    special_vacuum_cost_page_dirty, Type: Constant, Value: 0
+    special_vacuum_cost_page_miss, Type: Constant, Value: 0
+    special_vacuum_freeze_min_age, Type: Constant, Value: 0
+    special_vacuum_freeze_table_age, Type: Constant, Value: 0
+    special_vacuum_multixact_freeze_table_age, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: Categorical, Choices: {1000, 1024, 4768, 8512, 12256, 16000}, Default: 1024
+    vacuum_cost_delay, Type: Categorical, Choices: {0.0, 0.25, 0.5}, Default: 0.0
+    vacuum_cost_limit, Type: Categorical, Choices: {200, 525, 762, 1025, 1512, 2000, 2750, 3000, 3500}, Default: 200
+    vacuum_cost_page_dirty, Type: Categorical, Choices: {10, 20}, Default: 20
+    vacuum_cost_page_hit, Type: Categorical, Choices: {1, 2}, Default: 1
+    vacuum_cost_page_miss, Type: Categorical, Choices: {2, 6, 11, 15, 20}, Default: 2
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000}, Default: 50000000
+    vacuum_freeze_table_age, Type: Categorical, Choices: {150000000, 162500000, 175000000, 187500000, 200000000}, Default: 150000000
+    vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {150000000, 212500000, 275000000}, Default: 150000000
+    wal_buffers, Type: Categorical, Choices: {8, 512, 884, 1256, 1628, 2000}, Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    work_mem, Type: Categorical, Choices: {4096, 10048, 13024, 399500, 783000}, Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_analyze_threshold | control_autovacuum_analyze_threshold == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_scale_factor | control_autovacuum_vacuum_scale_factor == '0'
+    autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    bgwriter_lru_multiplier | control_bgwriter_lru_multiplier == '0'
+    cpu_operator_cost | control_cpu_operator_cost == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    jit_above_cost | control_jit_above_cost == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    lock_timeout | control_lock_timeout == '0'
+    max_parallel_workers | control_max_parallel_workers == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_wal_size | control_max_wal_size == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_analyze_threshold | control_autovacuum_analyze_threshold == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_scale_factor | control_autovacuum_vacuum_scale_factor == '1'
+    special_autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_bgwriter_lru_multiplier | control_bgwriter_lru_multiplier == '1'
+    special_cpu_operator_cost | control_cpu_operator_cost == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_jit_above_cost | control_jit_above_cost == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_lock_timeout | control_lock_timeout == '1'
+    special_max_parallel_workers | control_max_parallel_workers == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_wal_size | control_max_wal_size == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '1'
+    special_vacuum_cost_page_miss | control_vacuum_cost_page_miss == '1'
+    special_vacuum_freeze_min_age | control_vacuum_freeze_min_age == '1'
+    special_vacuum_freeze_table_age | control_vacuum_freeze_table_age == '1'
+    special_vacuum_multixact_freeze_table_age | control_vacuum_multixact_freeze_table_age == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '0'
+    vacuum_cost_page_miss | control_vacuum_cost_page_miss == '0'
+    vacuum_freeze_min_age | control_vacuum_freeze_min_age == '0'
+    vacuum_freeze_table_age | control_vacuum_freeze_table_age == '0'
+    vacuum_multixact_freeze_table_age | control_vacuum_multixact_freeze_table_age == '0'
+    wal_buffers | control_wal_buffers == '0'
+
+[2025-06-30 22:54:32,461 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 22:54:32,528 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob block_size is failed to set to 8192
+[2025-06-30 22:55:20,401 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob block_size is failed to set to 8192
+[2025-06-30 22:55:20,451 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 22:55:20,486 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 22:57:03,659 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob block_size is failed to set to 8192
+[2025-06-30 22:57:03,753 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 22:58:38,868 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob block_size is failed to set to 8192
+[2025-06-30 22:58:38,923 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 22:58:38,956 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 22:58:38,963 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:00:13,390 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:00:13,449 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob block_size is failed to set to 8192
+[2025-06-30 23:00:13,484 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob max_wal_size is failed to set to -1
+[2025-06-30 23:00:13,500 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:00:13,537 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:01:47,852 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob block_size is failed to set to 8192
+[2025-06-30 23:01:47,885 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob max_wal_size is failed to set to -1
+[2025-06-30 23:02:35,777 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:02:35,840 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob block_size is failed to set to 8192
+[2025-06-30 23:02:35,872 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob max_wal_size is failed to set to -1
+[2025-06-30 23:02:35,915 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:04:10,793 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:04:10,856 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob block_size is failed to set to 8192
+[2025-06-30 23:04:10,889 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob max_wal_size is failed to set to -1
+[2025-06-30 23:04:10,905 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:04:10,933 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:04:10,941 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:04:58,574 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:04:58,643 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob block_size is failed to set to 8192
+[2025-06-30 23:04:58,736 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:06:34,439 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob block_size is failed to set to 8192
+[2025-06-30 23:06:34,476 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob max_wal_size is failed to set to -1
+[2025-06-30 23:06:34,494 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:06:34,525 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:07:22,174 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob block_size is failed to set to 8192
+[2025-06-30 23:08:58,184 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob block_size is failed to set to 8192
+[2025-06-30 23:08:58,218 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob max_wal_size is failed to set to -1
+[2025-06-30 23:08:58,274 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:10:33,309 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob block_size is failed to set to 8192
+[2025-06-30 23:10:33,387 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:10:33,395 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:12:08,298 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob block_size is failed to set to 8192
+[2025-06-30 23:12:08,393 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:13:42,893 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob block_size is failed to set to 8192
+[2025-06-30 23:13:42,967 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:13:42,973 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:15:17,210 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob block_size is failed to set to 8192
+[2025-06-30 23:15:17,308 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:16:56,597 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob block_size is failed to set to 8192
+[2025-06-30 23:16:56,632 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob max_wal_size is failed to set to -1
+[2025-06-30 23:16:56,679 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:16:56,688 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:17:44,506 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:17:44,568 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob block_size is failed to set to 8192
+[2025-06-30 23:17:44,665 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:18:32,298 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:18:32,367 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob block_size is failed to set to 8192
+[2025-06-30 23:18:32,400 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob max_wal_size is failed to set to -1
+[2025-06-30 23:18:32,416 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:18:32,454 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:20:17,642 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob block_size is failed to set to 8192
+[2025-06-30 23:20:17,675 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob max_wal_size is failed to set to -1
+[2025-06-30 23:20:17,729 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:21:56,152 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob block_size is failed to set to 8192
+[2025-06-30 23:21:56,251 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:23:33,007 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob block_size is failed to set to 8192
+[2025-06-30 23:23:33,101 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:25:08,482 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob block_size is failed to set to 8192
+[2025-06-30 23:25:08,516 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob max_wal_size is failed to set to -1
+[2025-06-30 23:25:08,534 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:25:08,572 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:26:44,312 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob block_size is failed to set to 8192
+[2025-06-30 23:26:44,347 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob max_wal_size is failed to set to -1
+[2025-06-30 23:27:32,348 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob block_size is failed to set to 8192
+[2025-06-30 23:27:32,386 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob max_wal_size is failed to set to -1
+[2025-06-30 23:27:32,404 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:27:32,444 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:28:20,233 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob block_size is failed to set to 8192
+[2025-06-30 23:28:20,287 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:28:20,326 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:29:56,618 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:29:56,684 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob block_size is failed to set to 8192
+[2025-06-30 23:29:56,782 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:31:31,304 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob block_size is failed to set to 8192
+[2025-06-30 23:31:31,343 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob max_wal_size is failed to set to -1
+[2025-06-30 23:31:31,363 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:33:07,748 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob block_size is failed to set to 8192
+[2025-06-30 23:33:07,842 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:33:55,508 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:33:55,576 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob block_size is failed to set to 8192
+[2025-06-30 23:33:55,613 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob max_wal_size is failed to set to -1
+[2025-06-30 23:35:49,011 INFO] [fine_space.py:__init__:26] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum, Type: Categorical, Choices: {on, off}, Default: on
+    autovacuum_analyze_scale_factor, Type: UniformFloat, Range: [0.05, 0.5], Default: 0.1
+    autovacuum_analyze_threshold, Type: UniformInteger, Range: [10, 5000], Default: 50
+    autovacuum_max_workers, Type: UniformInteger, Range: [3, 6], Default: 3
+    autovacuum_vacuum_cost_delay, Type: UniformFloat, Range: [2.0, 10.0], Default: 2.0
+    autovacuum_vacuum_cost_limit, Type: UniformInteger, Range: [-1, 6000], Default: -1
+    autovacuum_vacuum_scale_factor, Type: UniformFloat, Range: [0.05, 0.5], Default: 0.2
+    autovacuum_vacuum_threshold, Type: UniformInteger, Range: [50, 1000], Default: 50
+    bgwriter_delay, Type: UniformInteger, Range: [20, 1000], Default: 200
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [100, 1000], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [1.5, 5.0], Default: 2.0
+    block_size, Type: Constant, Value: 8192
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.5, 0.9], Default: 0.9
+    checkpoint_timeout, Type: UniformInteger, Range: [30, 86400], Default: 300
+    control_autovacuum_analyze_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_analyze_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_max_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_scale_factor, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_autovacuum_vacuum_threshold, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_multiplier, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_cpu_operator_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_jit_above_cost, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_lock_timeout, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_size, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_worker_processes, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_page_dirty, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_cost_page_miss, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_min_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_freeze_table_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    cpu_index_tuple_cost, Type: UniformFloat, Range: [0.001, 0.01], Default: 0.005
+    cpu_operator_cost, Type: UniformFloat, Range: [0.001, 0.0025], Default: 0.0025
+    cpu_tuple_cost, Type: UniformFloat, Range: [0.005, 0.01], Default: 0.01
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    enable_bitmapscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashagg, Type: Categorical, Choices: {on, off}, Default: on
+    enable_hashjoin, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexonlyscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_indexscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_nestloop, Type: Categorical, Choices: {on, off}, Default: on
+    enable_partition_pruning, Type: Categorical, Choices: {on, off}, Default: on
+    enable_seqscan, Type: Categorical, Choices: {on, off}, Default: on
+    enable_sort, Type: Categorical, Choices: {on, off}, Default: on
+    fsync, Type: Categorical, Choices: {on, off}, Default: on
+    huge_pages, Type: Categorical, Choices: {off, on, try}, Default: try
+    jit, Type: Categorical, Choices: {on, off}, Default: on
+    jit_above_cost, Type: UniformFloat, Range: [100000.0, 500000.0], Default: 100000.0
+    join_collapse_limit, Type: UniformInteger, Range: [8, 20], Default: 8
+    lock_timeout, Type: UniformInteger, Range: [0, 30000], Default: 0
+    log_lock_waits, Type: Categorical, Choices: {on, off}, Default: off
+    maintenance_work_mem, Type: UniformInteger, Range: [65536, 6200000], Default: 65536
+    max_connections, Type: UniformInteger, Range: [24, 100], Default: 100
+    max_parallel_workers, Type: UniformInteger, Range: [8, 48], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [0, 1024], Default: 2
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [8, 11], Default: 8
+    min_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 80
+    random_page_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16000, 1550000], Default: 16384
+    special_autovacuum_analyze_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_analyze_threshold, Type: Constant, Value: -1
+    special_autovacuum_max_workers, Type: Constant, Value: 0
+    special_autovacuum_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_autovacuum_vacuum_cost_limit, Type: Categorical, Choices: {-1, 0}, Default: -1
+    special_autovacuum_vacuum_scale_factor, Type: Constant, Value: 0.0
+    special_autovacuum_vacuum_threshold, Type: Constant, Value: -1
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_bgwriter_lru_multiplier, Type: Constant, Value: 0.0
+    special_cpu_operator_cost, Type: Constant, Value: 0.0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_jit_above_cost, Type: Constant, Value: -1.0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_lock_timeout, Type: Constant, Value: 0
+    special_max_parallel_workers, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_wal_size, Type: Constant, Value: -1
+    special_max_worker_processes, Type: Constant, Value: 0
+    special_vacuum_cost_delay, Type: Constant, Value: 0.0
+    special_vacuum_cost_limit, Type: Constant, Value: 0
+    special_vacuum_cost_page_dirty, Type: Constant, Value: 0
+    special_vacuum_cost_page_miss, Type: Constant, Value: 0
+    special_vacuum_freeze_min_age, Type: Constant, Value: 0
+    special_vacuum_freeze_table_age, Type: Constant, Value: 0
+    special_vacuum_multixact_freeze_table_age, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    synchronous_commit, Type: Categorical, Choices: {local, remote_write, remote_apply, on, off}, Default: on
+    temp_buffers, Type: UniformInteger, Range: [1000, 16000], Default: 1024
+    vacuum_cost_delay, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.0
+    vacuum_cost_limit, Type: UniformInteger, Range: [50, 5000], Default: 200
+    vacuum_cost_page_dirty, Type: UniformInteger, Range: [10, 20], Default: 20
+    vacuum_cost_page_hit, Type: UniformInteger, Range: [1, 2], Default: 1
+    vacuum_cost_page_miss, Type: UniformInteger, Range: [2, 20], Default: 2
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 50000000
+    vacuum_freeze_table_age, Type: UniformInteger, Range: [150000000, 200000000], Default: 150000000
+    vacuum_multixact_freeze_table_age, Type: UniformInteger, Range: [150000000, 400000000], Default: 150000000
+    wal_buffers, Type: UniformInteger, Range: [8, 22812], Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    work_mem, Type: UniformInteger, Range: [4096, 1550000], Default: 4096
+  Conditions:
+    autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '0'
+    autovacuum_analyze_threshold | control_autovacuum_analyze_threshold == '0'
+    autovacuum_max_workers | control_autovacuum_max_workers == '0'
+    autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '0'
+    autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '0'
+    autovacuum_vacuum_scale_factor | control_autovacuum_vacuum_scale_factor == '0'
+    autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    bgwriter_lru_multiplier | control_bgwriter_lru_multiplier == '0'
+    cpu_operator_cost | control_cpu_operator_cost == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    jit_above_cost | control_jit_above_cost == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    lock_timeout | control_lock_timeout == '0'
+    max_parallel_workers | control_max_parallel_workers == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_wal_size | control_max_wal_size == '0'
+    max_worker_processes | control_max_worker_processes == '0'
+    special_autovacuum_analyze_scale_factor | control_autovacuum_analyze_scale_factor == '1'
+    special_autovacuum_analyze_threshold | control_autovacuum_analyze_threshold == '1'
+    special_autovacuum_max_workers | control_autovacuum_max_workers == '1'
+    special_autovacuum_vacuum_cost_delay | control_autovacuum_vacuum_cost_delay == '1'
+    special_autovacuum_vacuum_cost_limit | control_autovacuum_vacuum_cost_limit == '1'
+    special_autovacuum_vacuum_scale_factor | control_autovacuum_vacuum_scale_factor == '1'
+    special_autovacuum_vacuum_threshold | control_autovacuum_vacuum_threshold == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_bgwriter_lru_multiplier | control_bgwriter_lru_multiplier == '1'
+    special_cpu_operator_cost | control_cpu_operator_cost == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_jit_above_cost | control_jit_above_cost == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_lock_timeout | control_lock_timeout == '1'
+    special_max_parallel_workers | control_max_parallel_workers == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_wal_size | control_max_wal_size == '1'
+    special_max_worker_processes | control_max_worker_processes == '1'
+    special_vacuum_cost_delay | control_vacuum_cost_delay == '1'
+    special_vacuum_cost_limit | control_vacuum_cost_limit == '1'
+    special_vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '1'
+    special_vacuum_cost_page_miss | control_vacuum_cost_page_miss == '1'
+    special_vacuum_freeze_min_age | control_vacuum_freeze_min_age == '1'
+    special_vacuum_freeze_table_age | control_vacuum_freeze_table_age == '1'
+    special_vacuum_multixact_freeze_table_age | control_vacuum_multixact_freeze_table_age == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    vacuum_cost_delay | control_vacuum_cost_delay == '0'
+    vacuum_cost_limit | control_vacuum_cost_limit == '0'
+    vacuum_cost_page_dirty | control_vacuum_cost_page_dirty == '0'
+    vacuum_cost_page_miss | control_vacuum_cost_page_miss == '0'
+    vacuum_freeze_min_age | control_vacuum_freeze_min_age == '0'
+    vacuum_freeze_table_age | control_vacuum_freeze_table_age == '0'
+    vacuum_multixact_freeze_table_age | control_vacuum_multixact_freeze_table_age == '0'
+    wal_buffers | control_wal_buffers == '0'
+
+[2025-06-30 23:36:19,723 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob block_size is failed to set to 8192
+[2025-06-30 23:36:19,820 ERROR] [default_space.py:set_and_replay_ori:241] Config 1: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:38:14,872 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob block_size is failed to set to 8192
+[2025-06-30 23:38:14,930 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:38:14,974 ERROR] [default_space.py:set_and_replay_ori:241] Config 2: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:40:02,010 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob block_size is failed to set to 8192
+[2025-06-30 23:40:02,114 ERROR] [default_space.py:set_and_replay_ori:241] Config 3: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:42:11,503 ERROR] [default_space.py:set_and_replay_ori:241] Config 4: knob block_size is failed to set to 8192
+[2025-06-30 23:43:51,384 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob block_size is failed to set to 8192
+[2025-06-30 23:43:51,440 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:43:51,481 ERROR] [default_space.py:set_and_replay_ori:241] Config 5: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:45:26,493 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob block_size is failed to set to 8192
+[2025-06-30 23:45:26,591 ERROR] [default_space.py:set_and_replay_ori:241] Config 6: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:47:03,702 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob block_size is failed to set to 8192
+[2025-06-30 23:47:03,753 ERROR] [default_space.py:set_and_replay_ori:241] Config 7: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:48:39,539 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:48:39,608 ERROR] [default_space.py:set_and_replay_ori:241] Config 8: knob block_size is failed to set to 8192
+[2025-06-30 23:50:46,683 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob block_size is failed to set to 8192
+[2025-06-30 23:50:46,735 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:50:46,763 ERROR] [default_space.py:set_and_replay_ori:241] Config 9: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:51:34,932 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:51:34,997 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob block_size is failed to set to 8192
+[2025-06-30 23:51:35,033 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob max_wal_size is failed to set to -1
+[2025-06-30 23:51:35,095 ERROR] [default_space.py:set_and_replay_ori:241] Config 10: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:52:23,155 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob block_size is failed to set to 8192
+[2025-06-30 23:52:23,247 ERROR] [default_space.py:set_and_replay_ori:241] Config 11: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:53:58,098 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob block_size is failed to set to 8192
+[2025-06-30 23:53:58,132 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob max_wal_size is failed to set to -1
+[2025-06-30 23:53:58,149 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:53:58,176 ERROR] [default_space.py:set_and_replay_ori:241] Config 12: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:54:47,144 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob block_size is failed to set to 8192
+[2025-06-30 23:54:47,196 ERROR] [default_space.py:set_and_replay_ori:241] Config 13: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-06-30 23:55:35,159 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:55:35,223 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob block_size is failed to set to 8192
+[2025-06-30 23:55:35,257 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob max_wal_size is failed to set to -1
+[2025-06-30 23:55:35,313 ERROR] [default_space.py:set_and_replay_ori:241] Config 14: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:56:22,939 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob vacuum_cost_limit is failed to set to 0
+[2025-06-30 23:56:23,008 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob block_size is failed to set to 8192
+[2025-06-30 23:56:23,108 ERROR] [default_space.py:set_and_replay_ori:241] Config 15: knob autovacuum_max_workers is failed to set to 0
+[2025-06-30 23:58:02,927 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob block_size is failed to set to 8192
+[2025-06-30 23:58:02,961 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob max_wal_size is failed to set to -1
+[2025-06-30 23:58:03,009 ERROR] [default_space.py:set_and_replay_ori:241] Config 16: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-06-30 23:59:59,980 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:00:00,054 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob block_size is failed to set to 8192
+[2025-07-01 00:00:00,146 ERROR] [default_space.py:set_and_replay_ori:241] Config 17: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:00:50,937 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob block_size is failed to set to 8192
+[2025-07-01 00:00:50,976 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob max_wal_size is failed to set to -1
+[2025-07-01 00:00:50,995 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:00:51,041 ERROR] [default_space.py:set_and_replay_ori:241] Config 18: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:02:25,518 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob block_size is failed to set to 8192
+[2025-07-01 00:02:25,552 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob max_wal_size is failed to set to -1
+[2025-07-01 00:02:25,570 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:02:25,608 ERROR] [default_space.py:set_and_replay_ori:241] Config 19: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:04:01,032 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob block_size is failed to set to 8192
+[2025-07-01 00:04:01,065 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob max_wal_size is failed to set to -1
+[2025-07-01 00:04:01,081 ERROR] [default_space.py:set_and_replay_ori:241] Config 20: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:05:50,507 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob block_size is failed to set to 8192
+[2025-07-01 00:05:50,545 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob max_wal_size is failed to set to -1
+[2025-07-01 00:05:50,563 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:05:50,601 ERROR] [default_space.py:set_and_replay_ori:241] Config 21: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:07:25,759 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob block_size is failed to set to 8192
+[2025-07-01 00:07:25,796 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob max_wal_size is failed to set to -1
+[2025-07-01 00:07:25,814 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:07:25,843 ERROR] [default_space.py:set_and_replay_ori:241] Config 22: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:09:00,943 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:09:01,017 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob block_size is failed to set to 8192
+[2025-07-01 00:09:01,059 ERROR] [default_space.py:set_and_replay_ori:241] Config 23: knob max_wal_size is failed to set to -1
+[2025-07-01 00:10:39,555 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob block_size is failed to set to 8192
+[2025-07-01 00:10:39,608 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:10:39,646 ERROR] [default_space.py:set_and_replay_ori:241] Config 24: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:12:14,734 ERROR] [default_space.py:set_and_replay_ori:241] Config 25: knob block_size is failed to set to 8192
+[2025-07-01 00:13:58,609 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob block_size is failed to set to 8192
+[2025-07-01 00:13:58,707 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:13:58,717 ERROR] [default_space.py:set_and_replay_ori:241] Config 26: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:15:40,130 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob block_size is failed to set to 8192
+[2025-07-01 00:15:40,188 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:15:40,227 ERROR] [default_space.py:set_and_replay_ori:241] Config 27: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:17:18,885 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob block_size is failed to set to 8192
+[2025-07-01 00:17:18,969 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:17:18,976 ERROR] [default_space.py:set_and_replay_ori:241] Config 28: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:19:05,547 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob block_size is failed to set to 8192
+[2025-07-01 00:19:05,636 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:19:05,645 ERROR] [default_space.py:set_and_replay_ori:241] Config 29: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:20:50,285 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob block_size is failed to set to 8192
+[2025-07-01 00:20:50,324 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob max_wal_size is failed to set to -1
+[2025-07-01 00:20:50,379 ERROR] [default_space.py:set_and_replay_ori:241] Config 30: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:22:25,841 ERROR] [default_space.py:set_and_replay_ori:241] Config 31: knob block_size is failed to set to 8192
+[2025-07-01 00:24:03,589 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob block_size is failed to set to 8192
+[2025-07-01 00:24:03,643 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:24:03,682 ERROR] [default_space.py:set_and_replay_ori:241] Config 32: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:24:55,127 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob block_size is failed to set to 8192
+[2025-07-01 00:24:55,169 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob max_wal_size is failed to set to -1
+[2025-07-01 00:24:55,231 ERROR] [default_space.py:set_and_replay_ori:241] Config 33: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:25:43,807 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob block_size is failed to set to 8192
+[2025-07-01 00:25:43,842 ERROR] [default_space.py:set_and_replay_ori:241] Config 34: knob max_wal_size is failed to set to -1
+[2025-07-01 00:26:32,011 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:26:32,077 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob block_size is failed to set to 8192
+[2025-07-01 00:26:32,109 ERROR] [default_space.py:set_and_replay_ori:241] Config 35: knob max_wal_size is failed to set to -1
+[2025-07-01 00:28:13,018 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob block_size is failed to set to 8192
+[2025-07-01 00:28:13,053 ERROR] [default_space.py:set_and_replay_ori:241] Config 36: knob max_wal_size is failed to set to -1
+[2025-07-01 00:29:01,020 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob block_size is failed to set to 8192
+[2025-07-01 00:29:01,122 ERROR] [default_space.py:set_and_replay_ori:241] Config 37: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:29:49,047 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob block_size is failed to set to 8192
+[2025-07-01 00:29:49,135 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:29:49,143 ERROR] [default_space.py:set_and_replay_ori:241] Config 38: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:30:37,187 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob block_size is failed to set to 8192
+[2025-07-01 00:30:37,285 ERROR] [default_space.py:set_and_replay_ori:241] Config 39: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:31:25,202 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:31:25,269 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob block_size is failed to set to 8192
+[2025-07-01 00:31:25,304 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob max_wal_size is failed to set to -1
+[2025-07-01 00:31:25,352 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:31:25,360 ERROR] [default_space.py:set_and_replay_ori:241] Config 40: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:33:05,996 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:33:06,065 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob block_size is failed to set to 8192
+[2025-07-01 00:33:06,162 ERROR] [default_space.py:set_and_replay_ori:241] Config 41: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:34:49,951 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:34:50,026 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob block_size is failed to set to 8192
+[2025-07-01 00:34:50,127 ERROR] [default_space.py:set_and_replay_ori:241] Config 42: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:36:26,745 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob block_size is failed to set to 8192
+[2025-07-01 00:36:26,837 ERROR] [default_space.py:set_and_replay_ori:241] Config 43: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:37:14,753 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob block_size is failed to set to 8192
+[2025-07-01 00:37:14,789 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob max_wal_size is failed to set to -1
+[2025-07-01 00:37:14,806 ERROR] [default_space.py:set_and_replay_ori:241] Config 44: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:39:13,562 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob block_size is failed to set to 8192
+[2025-07-01 00:39:13,649 ERROR] [default_space.py:set_and_replay_ori:241] Config 45: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:40:01,350 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:40:01,428 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob block_size is failed to set to 8192
+[2025-07-01 00:40:01,539 ERROR] [default_space.py:set_and_replay_ori:241] Config 46: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:41:39,930 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob block_size is failed to set to 8192
+[2025-07-01 00:41:40,026 ERROR] [default_space.py:set_and_replay_ori:241] Config 47: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:42:27,803 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:42:27,869 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob block_size is failed to set to 8192
+[2025-07-01 00:42:27,955 ERROR] [default_space.py:set_and_replay_ori:241] Config 48: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:44:09,049 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob block_size is failed to set to 8192
+[2025-07-01 00:44:09,139 ERROR] [default_space.py:set_and_replay_ori:241] Config 49: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:45:44,218 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:45:44,287 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob block_size is failed to set to 8192
+[2025-07-01 00:45:44,389 ERROR] [default_space.py:set_and_replay_ori:241] Config 50: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:47:20,646 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:47:20,716 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob block_size is failed to set to 8192
+[2025-07-01 00:47:20,768 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:47:20,805 ERROR] [default_space.py:set_and_replay_ori:241] Config 51: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:49:27,984 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:49:28,048 ERROR] [default_space.py:set_and_replay_ori:241] Config 52: knob block_size is failed to set to 8192
+[2025-07-01 00:51:03,802 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob block_size is failed to set to 8192
+[2025-07-01 00:51:03,844 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob max_wal_size is failed to set to -1
+[2025-07-01 00:51:03,864 ERROR] [default_space.py:set_and_replay_ori:241] Config 53: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:52:40,196 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob block_size is failed to set to 8192
+[2025-07-01 00:52:40,249 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 00:52:40,278 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:52:40,286 ERROR] [default_space.py:set_and_replay_ori:241] Config 54: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:53:28,831 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 00:53:28,909 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob block_size is failed to set to 8192
+[2025-07-01 00:53:29,003 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:53:29,011 ERROR] [default_space.py:set_and_replay_ori:241] Config 55: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:55:12,276 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob block_size is failed to set to 8192
+[2025-07-01 00:55:12,311 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob max_wal_size is failed to set to -1
+[2025-07-01 00:55:12,363 ERROR] [default_space.py:set_and_replay_ori:241] Config 56: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 00:56:03,324 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob block_size is failed to set to 8192
+[2025-07-01 00:56:03,419 ERROR] [default_space.py:set_and_replay_ori:241] Config 57: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:57:38,924 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob block_size is failed to set to 8192
+[2025-07-01 00:57:38,956 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob max_wal_size is failed to set to -1
+[2025-07-01 00:57:39,007 ERROR] [default_space.py:set_and_replay_ori:241] Config 58: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 00:59:16,984 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob block_size is failed to set to 8192
+[2025-07-01 00:59:17,076 ERROR] [default_space.py:set_and_replay_ori:241] Config 59: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:01:09,056 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob block_size is failed to set to 8192
+[2025-07-01 01:01:09,160 ERROR] [default_space.py:set_and_replay_ori:241] Config 60: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:02:54,927 ERROR] [default_space.py:set_and_replay_ori:241] Config 61: knob block_size is failed to set to 8192
+[2025-07-01 01:04:36,707 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob block_size is failed to set to 8192
+[2025-07-01 01:04:36,741 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob max_wal_size is failed to set to -1
+[2025-07-01 01:04:36,757 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:04:36,785 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 01:04:36,793 ERROR] [default_space.py:set_and_replay_ori:241] Config 62: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:05:24,642 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob block_size is failed to set to 8192
+[2025-07-01 01:05:24,735 ERROR] [default_space.py:set_and_replay_ori:241] Config 63: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:07:05,931 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob block_size is failed to set to 8192
+[2025-07-01 01:07:05,988 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:07:06,033 ERROR] [default_space.py:set_and_replay_ori:241] Config 64: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:09:25,348 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:09:25,412 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob block_size is failed to set to 8192
+[2025-07-01 01:09:25,464 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:09:25,492 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 01:09:25,499 ERROR] [default_space.py:set_and_replay_ori:241] Config 65: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:11:08,205 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:11:08,269 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob block_size is failed to set to 8192
+[2025-07-01 01:11:08,364 ERROR] [default_space.py:set_and_replay_ori:241] Config 66: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:12:47,594 ERROR] [default_space.py:set_and_replay_ori:241] Config 67: knob block_size is failed to set to 8192
+[2025-07-01 01:14:25,060 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:14:25,126 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob block_size is failed to set to 8192
+[2025-07-01 01:14:25,176 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:14:25,202 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 01:14:25,209 ERROR] [default_space.py:set_and_replay_ori:241] Config 68: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:15:13,888 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:15:13,953 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob block_size is failed to set to 8192
+[2025-07-01 01:15:14,047 ERROR] [default_space.py:set_and_replay_ori:241] Config 69: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:17:00,996 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob block_size is failed to set to 8192
+[2025-07-01 01:17:01,050 ERROR] [default_space.py:set_and_replay_ori:241] Config 70: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:18:47,979 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:18:48,053 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob block_size is failed to set to 8192
+[2025-07-01 01:18:48,147 ERROR] [default_space.py:set_and_replay_ori:241] Config 71: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:20:25,420 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:20:25,482 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob block_size is failed to set to 8192
+[2025-07-01 01:20:25,569 ERROR] [default_space.py:set_and_replay_ori:241] Config 72: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:22:28,244 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob block_size is failed to set to 8192
+[2025-07-01 01:22:28,343 ERROR] [default_space.py:set_and_replay_ori:241] Config 73: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:24:05,990 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:24:06,065 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob block_size is failed to set to 8192
+[2025-07-01 01:24:06,159 ERROR] [default_space.py:set_and_replay_ori:241] Config 74: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:25:45,080 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:25:45,146 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob block_size is failed to set to 8192
+[2025-07-01 01:25:45,229 ERROR] [default_space.py:set_and_replay_ori:241] Config 75: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:27:28,868 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:27:28,934 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob block_size is failed to set to 8192
+[2025-07-01 01:27:28,989 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:27:29,017 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 01:27:29,025 ERROR] [default_space.py:set_and_replay_ori:241] Config 76: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:29:12,150 ERROR] [default_space.py:set_and_replay_ori:241] Config 77: knob block_size is failed to set to 8192
+[2025-07-01 01:30:51,461 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:30:51,522 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob block_size is failed to set to 8192
+[2025-07-01 01:30:51,571 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_analyze_threshold is failed to set to -1
+[2025-07-01 01:30:51,598 ERROR] [default_space.py:set_and_replay_ori:241] Config 78: knob autovacuum_vacuum_threshold is failed to set to -1
+[2025-07-01 01:32:44,271 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:32:44,337 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob block_size is failed to set to 8192
+[2025-07-01 01:32:44,434 ERROR] [default_space.py:set_and_replay_ori:241] Config 79: knob autovacuum_max_workers is failed to set to 0
+[2025-07-01 01:34:25,421 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob vacuum_cost_limit is failed to set to 0
+[2025-07-01 01:34:25,498 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob block_size is failed to set to 8192
+[2025-07-01 01:34:25,558 ERROR] [default_space.py:set_and_replay_ori:241] Config 80: knob autovacuum_analyze_threshold is failed to set to -1
