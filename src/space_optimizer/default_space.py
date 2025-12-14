@@ -28,7 +28,7 @@ class DefaultSpace:
         self.target_knobs_path = target_knobs_path
         self.round = 0
         task_folder = os.path.dirname(os.path.dirname(results_folder))
-        self.summary_path = os.path.join(results_folder, 'temp_results') # "./optimization_results/temp_results"
+        self.summary_path = os.path.join(task_folder, 'temp_results') # "./optimization_results/temp_results"
         self.benchmark_copy_db = ['tpcc', 'twitter', "sibench", "voter", "tatp", "smallbank", "seats"]   # Some benchmark will insert or delete data, Need to be rewrite each time.
         self.benchmark_latency = ['tpch']
         self.search_space = ConfigurationSpace()
@@ -39,7 +39,7 @@ class DefaultSpace:
         # self.penalty = 0
         self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
-        self.log_file = os.path.join(results_folder, f"log/{self.seed}_log.txt")
+        self.log_file = os.path.join(task_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
         self.feasible_configs = {}
         self.feasible_configs_path = os.path.join(results_folder, f"{self.seed}/feasible_configs.json")
         self.init_log_file()
