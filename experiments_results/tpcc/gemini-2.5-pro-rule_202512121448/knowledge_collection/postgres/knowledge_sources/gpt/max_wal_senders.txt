@@ -1,0 +1,1 @@
+Set `max_wal_senders` to the total number of all physical standby replicas and logical replication consumers, plus a small buffer for concurrent backup processes; for example, a system with 2 replicas, 1 logical consumer, and 1 backup slot should have a value of at least 4.

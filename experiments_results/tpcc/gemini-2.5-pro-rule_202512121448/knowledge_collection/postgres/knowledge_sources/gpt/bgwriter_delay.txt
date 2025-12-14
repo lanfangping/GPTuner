@@ -1,0 +1,1 @@
+Adjust `bgwriter_delay` from its default of 200ms, often decreasing it towards a value between 10ms and 50ms on write-heavy systems, until the `buffers_backend` count in the `pg_stat_bgwriter` view is consistently near zero.

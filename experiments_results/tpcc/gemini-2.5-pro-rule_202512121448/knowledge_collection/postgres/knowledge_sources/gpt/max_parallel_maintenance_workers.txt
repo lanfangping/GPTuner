@@ -1,0 +1,6 @@
+Set `max_parallel_maintenance_workers` to the number of CPU cores you want to dedicate to speeding up maintenance tasks like `CREATE INDEX`, starting with a conservative value and increasing it as system resources allow.
+
+**Detailed Information with Concrete Numbers:**
+*   **Default:** The default value is `2`.
+*   **Good Starting Point:** A common practice is to set it to half the number of available CPU cores (e.g., `4` on an 8-core machine).
+*   **Aggressive Setting:** For a dedicated maintenance window, you can set it equal to the number of CPU cores, but ensure it does not exceed the `max_worker_processes` limit (default is `8`).

@@ -1,0 +1,1 @@
+To mitigate checkpoint I/O spikes on slower disks, set `checkpoint_flush_after` to a value between `64kB` (8 blocks) and `256kB` (32 blocks), but for very fast I/O systems, disable it by setting the value to `0` to complete the checkpoint as quickly as possible.

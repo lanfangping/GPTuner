@@ -1,0 +1,1 @@
+Set `min_wal_size` to a value large enough to hold several minutes of write-ahead logs generated during your peak workload, often starting at 1 GB for moderate systems and increasing to 4 GB or more for write-heavy applications to avoid performance penalties from frequent WAL file creation.

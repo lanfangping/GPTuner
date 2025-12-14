@@ -1,0 +1,4 @@
+Set `autovacuum_freeze_max_age` to a large fraction of the two billion transaction limit to reduce the frequency of forced, I/O-intensive anti-wraparound vacuums on very active databases.
+
+*   **Default:** 200,000,000 (often too low for busy systems).
+*   **Recommended for busy systems:** Increase to `1,000,000,000` (1 billion) or even higher, ensuring it remains well below the absolute maximum.

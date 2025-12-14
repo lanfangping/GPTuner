@@ -1,0 +1,1 @@
+Set `vacuum_freeze_min_age` to a lower value, such as the default of 50 million, for high-transaction systems to proactively prevent wraparound issues, or increase it towards half of `autovacuum_freeze_max_age` (typically up to 100 million) to reduce I/O overhead on less busy systems.

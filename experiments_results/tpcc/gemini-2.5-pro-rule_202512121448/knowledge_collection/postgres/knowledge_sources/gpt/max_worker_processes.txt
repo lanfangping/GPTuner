@@ -1,0 +1,3 @@
+Set `max_worker_processes` to a value at least equal to your desired number of parallel query workers (`max_parallel_workers`) plus any additional workers needed for tasks like logical replication.
+
+For example, on a server with 16 CPU cores where you want full parallel query capability, a common configuration would be to set `max_parallel_workers` to 16, and therefore `max_worker_processes` should be set to at least 16, or higher (e.g., 21) if you also use features like logical replication which defaults to needing 4 workers.

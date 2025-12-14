@@ -1,0 +1,1 @@
+Set `vacuum_multixact_freeze_table_age` to a value significantly lower than `autovacuum_multixact_freeze_max_age` to provide a large buffer for routine autovacuum to run, for example, using the default of 150,000,000 gives ample time before the hard limit of 400,000,000 triggers a forced, anti-wraparound vacuum.

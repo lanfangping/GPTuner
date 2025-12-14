@@ -1,0 +1,1 @@
+Set `vacuum_multixact_freeze_min_age` to a value that balances the I/O cost of routine freezing against wraparound risk, typically by leaving it at the default of 5,000,000 or cautiously raising it to no more than 10-25% of `autovacuum_multixact_freeze_max_age` (e.g., up to 40-100 million) on very busy systems to reduce vacuum overhead.

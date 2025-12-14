@@ -130,10 +130,10 @@ class GPT:
         return completion
 
     def calc_token(self, in_text, out_text=""):
-        if isinstance(in_text, dict):
-            in_text = json.dumps(in_text)
+        if not isinstance(in_text, str):
+            in_text = str(in_text)
         
-        if isinstance(out_text, dict):
+        if not isinstance(out_text, str):
             out_text = json.dumps(out_text)
             
         if self.model == 'deepseek-chat':

@@ -1,0 +1,1 @@
+To minimize query stalls on write-heavy workloads, gradually increase `bgwriter_lru_multiplier` from its default of 2.0 towards values like 3.0 to 5.0, aiming to make the `buffers_backend` count in the `pg_stat_bgwriter` view approach zero.

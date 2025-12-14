@@ -1,0 +1,1 @@
+Set `maintenance_work_mem` to a moderate global value in `postgresql.conf` (e.g., 256MB to 1GB) for autovacuum, and temporarily increase it per-session to a much larger value (e.g., 1GB to 8GB or more) before running intensive operations like `CREATE INDEX`.

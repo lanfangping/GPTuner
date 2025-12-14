@@ -1,0 +1,3 @@
+Set `checkpoint_timeout` to a high value so that checkpoints are triggered by the amount of WAL generated (`max_wal_size`) rather than time, which smooths I/O performance.
+
+As for concrete numbers: while the default is 5 minutes, a common best practice is to set this to a value between **30 minutes** and **1 hour**.

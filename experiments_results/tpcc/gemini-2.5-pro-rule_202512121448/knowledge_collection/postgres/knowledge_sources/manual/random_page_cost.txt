@@ -1,0 +1,1 @@
+`random_page_cost` sets the planner's estimated cost for a non-sequential disk page read, which defaults to 4.0 based on an assumed 90% cache hit rate, and can be lowered for fast storage like SSDs (e.g., to 1.1) or raised for workloads with poor caching.

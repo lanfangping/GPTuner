@@ -1,0 +1,3 @@
+Set `max_parallel_workers` equal to the number of available CPU cores on your server to maximize performance for large, CPU-bound queries.
+
+As more detailed information, for a machine with 8 CPU cores, you would typically set `max_parallel_workers = 8`, while also ensuring `max_parallel_workers_per_gather` is a smaller value like `4` to allow multiple parallel queries to run concurrently.

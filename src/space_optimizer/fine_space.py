@@ -19,7 +19,8 @@ from ConfigSpace import (
 class FineSpace(DefaultSpace):
 
     def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
-        super().__init__(dbms, test, timeout, target_knobs_path, results_folder, seed, log)
+        fine_results_path = os.path.join(results_folder, f"{self.dbms.name}/fine")
+        super().__init__(dbms, test, timeout, target_knobs_path, fine_results_path, seed, log)
         self.factors = [0, 0.25, 0.5]
         self.special_skill_path = special_skill_path
         self.define_search_space()

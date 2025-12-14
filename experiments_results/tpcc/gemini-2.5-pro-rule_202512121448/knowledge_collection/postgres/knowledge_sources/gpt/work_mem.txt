@@ -1,0 +1,3 @@
+Set the `work_mem` value by running `EXPLAIN ANALYZE` on slow queries and making it slightly larger than the amount of data reported as spilled to disk for sort or hash operations.
+
+For example, if the output shows `Sort Method: external merge Disk: 16384kB`, you should set `work_mem` to a value just above that, such as `'20MB'`, to allow that specific operation to run entirely in memory.

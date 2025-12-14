@@ -1,0 +1,1 @@
+Set `bgwriter_lru_maxpages` by increasing it from the default of 100 to a higher value, typically in the range of 300 to 1000, until the `buffers_backend` statistic in the `pg_stat_bgwriter` view becomes and remains close to zero.

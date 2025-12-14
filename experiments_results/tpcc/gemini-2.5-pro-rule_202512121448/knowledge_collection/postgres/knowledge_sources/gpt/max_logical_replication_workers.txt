@@ -1,0 +1,1 @@
+Set `max_logical_replication_workers` to at least the number of subscriptions you will have, plus the number of tables you want to sync in parallel for the largest subscription (e.g., 4 subscriptions plus 2 parallel sync workers would need a setting of at least 6).

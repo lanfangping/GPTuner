@@ -27,18 +27,21 @@ class DefaultSpace:
         self.timeout = timeout
         self.target_knobs_path = target_knobs_path
         self.round = 0
+        task_folder = os.path.dirname(os.path.dirname(results_folder))
         self.summary_path = os.path.join(results_folder, 'temp_results') # "./optimization_results/temp_results"
         self.benchmark_copy_db = ['tpcc', 'twitter', "sibench", "voter", "tatp", "smallbank", "seats"]   # Some benchmark will insert or delete data, Need to be rewrite each time.
         self.benchmark_latency = ['tpch']
         self.search_space = ConfigurationSpace()
-        self.skill_path = os.path.join(results_folder, f"knowledge_collection/{self.dbms.name}/structured_knowledge/normal")
+        self.skill_path = os.path.join(task_folder, f"knowledge_collection/{self.dbms.name}/structured_knowledge/normal")
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
             self.dbms.create_template(self.test)
         # self.penalty = 0
         self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
-        self.log_file = os.path.join(results_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
+        self.log_file = os.path.join(results_folder, f"log/{self.seed}_log.txt")
+        self.feasible_configs = {}
+        self.feasible_configs_path = os.path.join(results_folder, f"{self.seed}/feasible_configs.json")
         self.init_log_file()
         self.prev_end = 0
         self.error_log = error_log
@@ -98,6 +101,13 @@ class DefaultSpace:
             return int(round(float(value)))
         if knob_type == "real":
             return float(value)
+
+    def _set_feasible(self, feasible=True, run_crash=False):
+        "set whether the proposed config is valid"
+
+        self.feasible_configs[self.round-1] = {'feasible': feasible, 'run_crash': run_crash, 'penalty': self.penalty}
+        with open(self.feasible_configs_path, 'w') as f:
+            json.dump(self.feasible_configs, f)
 
     def knob_select(self):
         """ 
@@ -208,7 +218,7 @@ class DefaultSpace:
 
 
     def set_and_replay_ori(self, config, seed=0):
-        self.round += 1
+        self.round += 1 # start from 1
         print(f"Tuning round {self.round} ...")
         dbms = self.dbms
         print(f"--- Restore the dbms to default configuration ---")
@@ -238,14 +248,16 @@ class DefaultSpace:
             except:
                 value = config[knob]
             if not dbms.set_knob(knob, value):
-                self.error_log.error(f"Config {self.round}: knob {knob} is failed to set to {value}")
+                self.error_log.error(f"Config {self.round-1}: knob {knob} is failed to set to {value}")
             
         dbms.reconfigure()
         if self.test not in self.benchmark_latency:
             if dbms.failed_times == 4:
+                self._set_feasible(feasible=False, run_crash=None)
                 return -int(self.penalty) / 2
         else:
             if dbms.failed_times == 4:
+                self._set_feasible(feasible=False, run_crash=None)
                 return self.penalty * 2
             
         try:
@@ -273,6 +285,7 @@ class DefaultSpace:
 
         except Exception as e:
             print(f'Exception for {self.test}: {e}')
+            self._set_feasible(feasible=False, run_crash=True)
             # update worst_perf
             if self.test not in self.benchmark_latency:
                 return -int(self.penalty) / 2
@@ -280,7 +293,7 @@ class DefaultSpace:
             else:
                 return self.penalty * 2
     
-
+        self._set_feasible(feasible=True, run_crash=False)
         if self.test not in self.benchmark_latency:
             return -throughput
         else:

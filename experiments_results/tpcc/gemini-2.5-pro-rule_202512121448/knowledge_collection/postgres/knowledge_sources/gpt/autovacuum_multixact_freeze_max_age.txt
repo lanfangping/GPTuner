@@ -1,0 +1,1 @@
+Set `autovacuum_multixact_freeze_max_age` high enough to prevent frequent, aggressive vacuuming on a busy system but low enough to ensure that a full-database vacuum can comfortably complete before the oldest multixact ID approaches the hard limit, which is often a value between the default of 400 million and a maximum of 2 billion.
