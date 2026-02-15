@@ -1,9 +1,11 @@
 ```bash
+cd benchbase/target/benchbase-postgres
 java -jar benchbase.jar -b tpcc -c config/postgres/sample_tpcc_config.xml --create true --load true
 java -jar benchbase.jar -b tpcc -c config/postgres/sample_tpcc_config.xml --execute true 
 
 PYTHONPATH=src python src/run_gptuner.py postgres tpch 180 -seed=100
 PYTHONPATH=src python src/run_gptuner.py src/exp_configs/tpcc/claude-sonnet4-overall.yml
+PYTHONPATH=src python src/run_gptuner.py src/exp_configs/tpcc/gpt5.2-overall.yml
 ```
 
 
