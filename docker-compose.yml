@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 services:
   db:
@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: tpcc_workload
+      POSTGRES_DB: workload
     volumes:
       - ./pgdata:/var/lib/postgresql/data  # Persistent storage
     ports:
