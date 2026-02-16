@@ -27,6 +27,7 @@ class FineStage(FineSpace):
         )
         init_design = initial_design.DefaultInitialDesign(
             scenario,
+            seed=self.seed
         )
         smac = HyperparameterOptimizationFacade(
             scenario=scenario,

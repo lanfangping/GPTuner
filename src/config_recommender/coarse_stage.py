@@ -20,6 +20,7 @@ class CoarseStage(CoarseSpace):
             scenario,
             n_configs=initial_config_number,
             max_ratio=0.8,  # set this to a value close to 1 to get exact initial_configs as specified
+            seed=self.seed
         )
         smac = HyperparameterOptimizationFacade(
             scenario=scenario,
