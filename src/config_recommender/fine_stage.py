@@ -53,7 +53,10 @@ class FineStage(FineSpace):
         for index, value in index_min_pairs:
             config_id = index + 1
             config_value_dict = data["configs"][str(config_id)]
-            config_cost = data["data"][index][4]
+            try:
+                config_cost = data["data"][index][4]
+            except:
+                config_cost = data["data"][index]['cost']
             assert value == config_cost
             # make type transformation from coarse to fine 
             transfer_config_value_dict = {}
