@@ -286,6 +286,6 @@ if __name__ == '__main__':
 
         gptuner_fine.optimize(
             name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
-            trials_number=110 # history trials + new tirals
+            trials_number=200 # history trials + new tirals
         )   
 
