@@ -12,7 +12,9 @@ from knowledge_handler.utils import get_hardware_info, get_disk_type
 from dbms.postgres import PgDBMS
 from dbms.mysql import  MysqlDBMS
 from config_recommender.coarse_stage import CoarseStage
+from config_recommender.coarse_stage_catune import CoarseStageCATune
 from config_recommender.fine_stage import FineStage
+from config_recommender.fine_stage_catune import FineStageCATune
 from knowledge_handler.knowledge_preparation import KGPre
 from knowledge_handler.knowledge_transformation import KGTrans
 from space_optimizer.knob_selection import KnobSelection
@@ -21,6 +23,13 @@ from utils.logger import MyLogger
 from dotenv import load_dotenv
 from utils.exp_tools import replace_range_for_knobs, replace_special_values
 load_dotenv()  # take environment variables from .env.
+
+# Package from CATune
+from run_SMAC import rule_v5
+
+conditional_activations = [
+            ("max_prepared_transactions", "max_prepared_transactions_mode", {"enabled"}),
+        ]
 
 def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
     try:
@@ -96,6 +105,7 @@ if __name__ == '__main__':
     parser.add_argument("--model", type=str, default="gpt-4o-mini")
     parser.add_argument("--restart_cmd", type=str, default="sudo restart tpcc_workload")
     parser.add_argument("--recover_script", type=str, default="./scripts/recover_docker_postgres.sh")
+    parser.add_argument("--rules", action='store_true')
     args = parser.parse_args()
     misc.over_write_args_from_file(args, args.config)
 
@@ -254,38 +264,81 @@ if __name__ == '__main__':
     if args.process == 'whole' or args.process == 'optimization':
         special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
-        gptuner_coarse = CoarseStage(
-            dbms=dbms, 
-            target_knobs_path=target_knobs_path, 
-            test=args.test, 
-            timeout=args.timeout, 
-            seed=args.seed,
-            special_skill_path=special_skill_path,
-            log=log,
-            results_folder = folder_path
-        )
-
-        gptuner_coarse.optimize(
-            name = os.path.join(f".{folder_path}", f"{args.db}", "coarse"),  # f"../optimization_results/{args.db}/coarse/", 
-            trials_number=30, 
-            initial_config_number=10
+        if args.rules:
+            
+            gptuner_coarse = CoarseStageCATune(
+                dbms=dbms, 
+                target_knobs_path=target_knobs_path, 
+                test=args.test, 
+                timeout=args.timeout, 
+                seed=args.seed,
+                special_skill_path=special_skill_path,
+                log=log,
+                results_folder = folder_path,
+                rules=rule_v5,
+                conditional_activations=conditional_activations
             )
-        time.sleep(2)
 
-        
-        gptuner_fine = FineStage(
-            dbms=dbms, 
-            target_knobs_path=target_knobs_path, 
-            test=args.test, 
-            timeout=args.timeout, 
-            seed=args.seed,
-            special_skill_path=special_skill_path,
-            log=log,
-            results_folder = folder_path 
-        )
+            gptuner_coarse.optimize(
+                name = os.path.join(f".{folder_path}", f"{args.db}", "coarse"),  # f"../optimization_results/{args.db}/coarse/", 
+                trials_number=30, 
+                initial_config_number=10,
+                strategy='adaptive'
+                )
+            time.sleep(2)
 
-        gptuner_fine.optimize(
-            name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
-            trials_number=200 # history trials + new tirals
-        )   
+            gptuner_fine = FineStageCATune(
+                dbms=dbms, 
+                target_knobs_path=target_knobs_path, 
+                test=args.test, 
+                timeout=args.timeout, 
+                seed=args.seed,
+                special_skill_path=special_skill_path,
+                log=log,
+                results_folder = folder_path,
+                rules=rule_v5,
+                conditional_activations=conditional_activations
+            )
+
+            gptuner_fine.optimize(
+                name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
+                trials_number=200, # history trials + new tirals
+                strategy='adaptive'
+            ) 
+
+        else:
+            gptuner_coarse = CoarseStage(
+                dbms=dbms, 
+                target_knobs_path=target_knobs_path, 
+                test=args.test, 
+                timeout=args.timeout, 
+                seed=args.seed,
+                special_skill_path=special_skill_path,
+                log=log,
+                results_folder = folder_path
+            )
+
+            gptuner_coarse.optimize(
+                name = os.path.join(f".{folder_path}", f"{args.db}", "coarse"),  # f"../optimization_results/{args.db}/coarse/", 
+                trials_number=30, 
+                initial_config_number=10
+                )
+            time.sleep(2)
+
+            
+            gptuner_fine = FineStage(
+                dbms=dbms, 
+                target_knobs_path=target_knobs_path, 
+                test=args.test, 
+                timeout=args.timeout, 
+                seed=args.seed,
+                special_skill_path=special_skill_path,
+                log=log,
+                results_folder = folder_path 
+            )
+
+            gptuner_fine.optimize(
+                name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
+                trials_number=200 # history trials + new tirals
+            )   
 

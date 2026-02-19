@@ -12,12 +12,20 @@ from ConfigSpace import (
     Configuration,
 )
 
+# Package from CATune
+from optimizer.topo_latin_hypercube_design import TopoLatinHypercubeInitialDesign
+from run_SMAC import setup_rules, rule_v5
+from search_space.knowledge_based_space import build_search_space, attach_sampler_to_configspace, unify_unit
+
 class FineStage(FineSpace):
 
-    def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log):
+    def __init__(self, dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log, rules=[]):
         super().__init__(dbms, test, timeout, target_knobs_path, special_skill_path, results_folder, seed, log)
+        self.rules = rules
 
-    def optimize(self, name, trials_number):
+    def optimize(self, name, trials_number, topo_sampler=None):
+        self.search_space = setup_rules(self.search_space, rule_v5, self.all_knob_info)
+        attach_sampler_to_configspace(cs=self.search_space, sampler=topo_sampler, method_name='sample_configuration')
         scenario = Scenario(
             configspace=self.search_space,
             name = name,
