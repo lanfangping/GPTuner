@@ -1,0 +1,1 @@
+Set `bgwriter_flush_after` to a small nonzero chunk size to smooth background writes—typically **256–512 kB** on SSDs (start at **512 kB**) and **1024–2048 kB** on HDDs (start at **2048 kB**), increasing if you still see write spikes and decreasing if it causes excessive fragmentation/overhead.

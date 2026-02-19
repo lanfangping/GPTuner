@@ -1,0 +1,1 @@
+Reserves a fixed number of connection slots for PostgreSQL superusers (default **3**), so when active connections reach **max_connections − superuser_reserved_connections** only superusers can connect (no new replication connections), and this value must be **< max_connections** and is set only at server start.

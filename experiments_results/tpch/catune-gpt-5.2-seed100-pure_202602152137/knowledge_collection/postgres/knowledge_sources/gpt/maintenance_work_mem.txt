@@ -1,0 +1,1 @@
+Set `maintenance_work_mem` to **about 5–10% of RAM per concurrent maintenance job**, capping it so that **(maintenance_work_mem × max simultaneous VACUUM/CREATE INDEX/ALTER TABLE jobs)** stays comfortably below available memory—for example **2 GB RAM → 128–256 MB**, **16 GB → 1–2 GB**, **64 GB → 4–8 GB** (and if you run 4 such jobs at once, **2 GB each = 8 GB total**).

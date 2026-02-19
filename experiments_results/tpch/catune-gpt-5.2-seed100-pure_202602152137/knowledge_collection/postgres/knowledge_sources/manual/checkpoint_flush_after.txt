@@ -1,0 +1,1 @@
+**checkpoint_flush_after**: During a checkpoint, once more than *N* data has been written, PostgreSQL requests the OS to flush those writes to storage to limit dirty page-cache buildup and reduce end-of-checkpoint fsync stalls (range **0**=off to **2MB**; default **256kB** on Linux, **0** elsewhere; values without units are in **8kB blocks**).

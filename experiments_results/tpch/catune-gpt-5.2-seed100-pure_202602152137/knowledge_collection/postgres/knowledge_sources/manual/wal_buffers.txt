@@ -1,0 +1,1 @@
+**wal_buffers** sets how much shared memory PostgreSQL uses to buffer unwritten WAL data—by default **-1 = shared_buffers/32 (~3%)**, clamped to **64kB–16MB (one WAL segment)**, with a minimum effective manual value of **32kB** (or **8kB blocks if no units),** and increasing it beyond **a few MB** usually yields little benefit since WAL buffers flush on every commit.

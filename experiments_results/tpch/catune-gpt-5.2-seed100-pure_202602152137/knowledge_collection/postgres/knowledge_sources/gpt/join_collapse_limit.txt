@@ -1,0 +1,1 @@
+Set `join_collapse_limit` to roughly the number of tables you typically join in a query (e.g., keep the default **8** for most workloads; raise to **12–20** only if many important queries join that many tables and planning time is acceptable; lower to **1–4** if planning time is a problem or you want to strongly preserve join order/hints from query structure).

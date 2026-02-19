@@ -1,0 +1,1 @@
+When a table’s `relminmxid` age reaches `vacuum_multixact_freeze_table_age` (default **150,000,000** multixacts; configurable **0–2,000,000,000** but effectively capped at **95%** of `autovacuum_multixact_freeze_max_age`), `VACUUM` switches to an **aggressive scan** that checks every page that might contain unfrozen XIDs/MXIDs.

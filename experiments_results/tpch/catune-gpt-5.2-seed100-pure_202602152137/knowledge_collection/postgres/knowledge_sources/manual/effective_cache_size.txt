@@ -1,0 +1,1 @@
+**SENTENCE:** `effective_cache_size` tells the planner how much total cache (PostgreSQL shared_buffers + likely OS page cache, shared across concurrent queries) it can assume for costing—higher values favor index scans and lower values favor sequential scans; it’s estimation-only and defaults to **4GB** (or **~524,288 blocks** if **BLCKSZ=8KB**).

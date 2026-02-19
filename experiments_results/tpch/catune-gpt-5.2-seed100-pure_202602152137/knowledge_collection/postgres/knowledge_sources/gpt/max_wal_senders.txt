@@ -1,0 +1,1 @@
+Set `max_wal_senders` to the **maximum number of concurrent WAL-sender connections you expect**—i.e., **one per streaming replica plus any extra** for tools like `pg_basebackup`/backup/CDC—so for **N replicas set it to N (or N+1/N+2 for headroom)** (e.g., **2 replicas → 3–4**, **5 replicas → 6–7**, **10 replicas → 11–12**).

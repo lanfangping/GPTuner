@@ -1,0 +1,1 @@
+**bgwriter_lru_multiplier** scales the background writer’s predicted buffer demand (based on recent allocations) so that each round aims to write enough dirty buffers to leave `multiplier × recent_average_needed` clean reusable buffers (e.g., **1.0 = just-in-time**, **2.0 default = double the recent average for cushion**), capped at **`bgwriter_lru_maxpages`** writes per round.

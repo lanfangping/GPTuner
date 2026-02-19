@@ -1,0 +1,1 @@
+**commit_delay** sets how long PostgreSQL waits (default **0 µs**) before starting a **WAL flush** to improve group-commit throughput when at least **commit_siblings** other transactions are active, at the cost of up to **commit_delay** extra commit latency per flush (no effect if **fsync** is off; values without units are in **microseconds**).

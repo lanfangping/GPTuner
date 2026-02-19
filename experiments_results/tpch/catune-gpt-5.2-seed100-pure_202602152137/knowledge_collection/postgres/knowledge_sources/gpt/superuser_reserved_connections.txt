@@ -1,0 +1,1 @@
+Set `superuser_reserved_connections` to a small fixed buffer—typically **2–5** (often **3**)—so that even when `max_connections` is fully consumed, a few connections remain available for superusers/maintenance (e.g., with `max_connections=200`, use **3**, leaving **197** non-superuser slots).

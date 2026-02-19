@@ -1,0 +1,1 @@
+Use genetic query optimization (GEQO) when a query has **≥ geqo_threshold FROM items** (with **FULL OUTER JOIN counting as 1 item**); the **default is 12**, so queries with fewer items typically use the exhaustive planner, while larger ones switch to GEQO to avoid excessive planning time.

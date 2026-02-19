@@ -1,0 +1,1 @@
+Set `wal_writer_delay` to a small value (typically **10–200 ms**): use **~200 ms** for a balanced default, lower it toward **10–50 ms** if you want WAL to be flushed/written more promptly (at the cost of more frequent I/O), and raise it (e.g., **500–1000 ms**) only if you’re deliberately trading durability/latency for fewer write bursts.

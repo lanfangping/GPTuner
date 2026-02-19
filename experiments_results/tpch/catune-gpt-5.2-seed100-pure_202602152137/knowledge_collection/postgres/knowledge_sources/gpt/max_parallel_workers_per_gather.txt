@@ -1,0 +1,1 @@
+Set `max_parallel_workers_per_gather` to a small integer based on your CPU and workload—start at **2** (typical OLTP), try **4** for mixed workloads, and go up to **8** (rarely higher) for heavy analytic queries on machines with **≥16 cores**, ensuring it never exceeds `max_parallel_workers` and that total parallel workers across concurrent queries won’t saturate the CPU.

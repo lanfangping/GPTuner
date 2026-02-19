@@ -6,7 +6,7 @@ password: postgres
 database: workload
 test: tpch
 timeout: 180
-seed: 100
+seed: 60
 model: gpt-5.2
 restart_cmd: echo 251314 | sudo -S docker restart benchbase
 recover_script: ./scripts/recover_docker_postgres.sh

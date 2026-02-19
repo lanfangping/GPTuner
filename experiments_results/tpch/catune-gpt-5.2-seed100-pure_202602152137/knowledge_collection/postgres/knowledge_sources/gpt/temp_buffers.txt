@@ -1,0 +1,1 @@
+Set `temp_buffers` to a modest per-session value (commonly **8–32 MB**) and ensure **`temp_buffers × expected concurrent sessions using temp tables`** stays comfortably within available RAM (e.g., **32 MB × 100 sessions ≈ 3.2 GB**), increasing it only if you see temp table activity spilling or becoming a bottleneck and decreasing it if memory pressure/OOM risk rises.

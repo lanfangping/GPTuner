@@ -1,0 +1,1 @@
+Set `effective_cache_size` to a realistic estimate of the total data cache available to PostgreSQL from **OS page cache + shared buffers** (not just RAM), typically **~50–75% of system RAM** (e.g., on **32 GB** RAM set **16–24 GB**, and if `shared_buffers=8 GB` then `effective_cache_size` might be **20 GB** assuming ~**12 GB** OS cache).

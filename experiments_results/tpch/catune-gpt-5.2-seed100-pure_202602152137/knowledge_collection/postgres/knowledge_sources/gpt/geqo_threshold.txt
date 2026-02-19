@@ -1,0 +1,1 @@
+Set `geqo_threshold` to roughly the smallest join count where PostgreSQL’s standard join-order search becomes too slow—typically keep it at the default **12** for most workloads, **raise it to ~15–20** if your **12+ table** queries still plan quickly, and **lower it to ~8–10** (or just enable GEQO for those queries) if planning time becomes noticeable for **10–15+ joins**.

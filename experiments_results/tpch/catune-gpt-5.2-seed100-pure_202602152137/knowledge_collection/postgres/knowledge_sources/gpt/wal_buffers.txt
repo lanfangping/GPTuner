@@ -1,0 +1,1 @@
+Set `wal_buffers` to **-1 (auto)** in most cases; if you tune manually, use about **1–3% of `shared_buffers`** (e.g., `shared_buffers=8GB` → `wal_buffers` ≈ **128MB**) and generally **don’t exceed ~256MB** unless you’ve measured a clear benefit.

@@ -1,0 +1,1 @@
+Set `checkpoint_flush_after` to a small positive amount so the checkpointer issues writes in smoother batches—typically start around **256 kB**, increase to **1–4 MB** if you still see bursty checkpoint write I/O, and use **0** to disable this behavior (letting the OS decide when to flush).

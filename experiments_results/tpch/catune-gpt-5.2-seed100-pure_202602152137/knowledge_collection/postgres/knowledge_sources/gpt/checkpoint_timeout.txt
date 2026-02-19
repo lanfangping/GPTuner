@@ -1,0 +1,1 @@
+Set `checkpoint_timeout` to a few minutes (typically **5–15 min**; many start at **10 min**) and increase it (up to **30–60 min**) if your disk can handle larger checkpoints and you want fewer checkpoint bursts/WAL churn, while decreasing it (<**5 min**) only if you need faster crash recovery or to bound WAL growth.

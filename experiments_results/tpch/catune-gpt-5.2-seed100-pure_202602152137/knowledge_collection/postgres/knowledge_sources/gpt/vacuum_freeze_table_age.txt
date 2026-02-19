@@ -1,0 +1,1 @@
+Set `vacuum_freeze_table_age` to an age (in transactions) lower than `autovacuum_freeze_max_age` so tables are proactively vacuum-frozen before wraparound risk—commonly keep it at the default **150,000,000** (150M) and, if you need more aggressive freezing, reduce it (e.g., **50M–100M**) while ensuring it remains **< autovacuum_freeze_max_age** (default **200,000,000**).

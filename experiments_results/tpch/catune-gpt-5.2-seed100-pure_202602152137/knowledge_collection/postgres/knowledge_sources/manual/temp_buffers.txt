@@ -1,0 +1,1 @@
+**temp_buffers** sets the per-session maximum memory for temporary-table buffers (default **8MB** = **1024** blocks at **8kB/BLCKSZ**), allocates up to that limit as needed, can only be changed **before** first temp-table use in the session, and costs about **64B per buffer** reserved plus **~8192B (BLCKSZ) per buffer** actually used.

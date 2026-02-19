@@ -1,0 +1,1 @@
+**work_mem** sets the per-operation memory limit (default **4MB**, or **kB** if no unit) that each sort or hash operation can use before spilling to temporary disk, and because a single query/session can run multiple such operations concurrently, total RAM can be **many × work_mem** (with hash tables allowed up to **work_mem × hash_mem_multiplier**).
