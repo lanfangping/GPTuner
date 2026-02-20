@@ -1,0 +1,1 @@
+`from_collapse_limit` sets the maximum number of FROM items (default **8**) allowed after merging subqueries into an upper query; lower than 8 can speed planning but may worsen plans, while setting it to **≥ geqo_threshold** can trigger **GEQO** and yield non-optimal plans.

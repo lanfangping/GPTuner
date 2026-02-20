@@ -1,0 +1,1 @@
+`checkpoint_flush_after` sets how much data (0 to 2MB; default 256kB on Linux, 0 elsewhere) can be written during a checkpoint before PostgreSQL asks the OS to flush it to disk to limit dirty page-cache buildup and reduce fsync stalls/latency (value in 8kB blocks if no unit).

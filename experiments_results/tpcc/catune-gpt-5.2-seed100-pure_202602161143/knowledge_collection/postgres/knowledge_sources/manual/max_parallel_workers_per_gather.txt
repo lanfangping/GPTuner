@@ -1,0 +1,1 @@
+**max_parallel_workers_per_gather** sets the per-`Gather`/`Gather Merge` cap on parallel worker processes (default **2**; **0** disables parallel query), drawn from `max_worker_processes` and limited by `max_parallel_workers`, and since each worker is like an extra session a query with **4** workers can consume up to about **5×** the CPU/memory/I/O of a non-parallel query.

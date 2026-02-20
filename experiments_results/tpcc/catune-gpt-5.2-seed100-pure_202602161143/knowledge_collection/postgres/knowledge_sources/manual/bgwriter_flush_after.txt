@@ -1,0 +1,1 @@
+**bgwriter_flush_after** sets how much data the background writer can write before forcing the OS to flush it to storage to limit dirty page-cache data and reduce fsync/checkpoint stalls—**0 disables it**, valid range **0 to 2MB**, default **512kB on Linux (0 elsewhere)**, and unitless values are in **blocks of BLCKSZ (typically 8kB each)**.

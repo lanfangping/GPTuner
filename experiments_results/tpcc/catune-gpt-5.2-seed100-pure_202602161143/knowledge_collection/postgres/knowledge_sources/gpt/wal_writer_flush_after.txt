@@ -1,0 +1,1 @@
+Set `wal_writer_flush_after` to a small multiple of your WAL segment/I/O “chunk” size—typically **1–16 MB** (common starting point **1 MB**), increasing it (e.g., **8–16 MB**) to reduce fsync/flush frequency on high-throughput systems, or decreasing it toward **0–1 MB** if you want WAL flushed more continuously (note: **0** disables the size-based trigger).

@@ -1,0 +1,1 @@
+`vacuum_freeze_table_age` sets the relfrozenxid age threshold at which `VACUUM` switches to an aggressive scan (default **150,000,000** transactions; user range **0–2,000,000,000**, but the effective value is capped at **95% of `autovacuum_freeze_max_age`**).

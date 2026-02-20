@@ -1,0 +1,1 @@
+**SENTENCE:** `join_collapse_limit` sets the maximum number of FROM items (e.g., **1** = no reordering of explicit JOINs; higher values allow rewriting JOINs into a list for reordering) that the planner will produce when collapsing explicit JOINs (except FULL JOINs)—lower values speed planning but can worsen plans, and setting it to **≥ geqo_threshold** may trigger GEQO.

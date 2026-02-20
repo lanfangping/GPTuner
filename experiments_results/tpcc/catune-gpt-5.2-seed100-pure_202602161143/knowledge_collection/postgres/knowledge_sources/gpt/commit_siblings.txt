@@ -1,0 +1,1 @@
+Set `commit_siblings` to an estimate of how many other *concurrently committing* transactions you typically have—start with **5** (the default), lower it to **0–2** if commits are usually solitary/low-concurrency, and raise it to about **10–50** on very high-concurrency systems (more siblings makes PostgreSQL assume it should favor spreading commits out to reduce I/O contention).

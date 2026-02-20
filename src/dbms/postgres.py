@@ -123,13 +123,17 @@ class PgDBMS(DBMSTemplate):
         if success:
             self.config[knob] = knob_value
         else:
-            # get the actual number the config uses
-            cursor = self.connection.cursor()
-            cursor.execute(f"SHOW {knob};")
-            value = cursor.fetchone()[0]
-            self.log.info(f"Knob {knob} is set to {value}")
-            self.config[knob] = value
-            cursor.close()
+            try:
+                # get the actual number the config uses
+                cursor = self.connection.cursor()
+                cursor.execute(f"SHOW {knob};")
+                value = cursor.fetchone()[0]
+                self.log.info(f"Knob {knob} is set to {value}")
+                self.config[knob] = value
+                cursor.close()
+            except Exception as e:
+                self.log.warning(f"Failed to get the actual value of {knob} after failed to set it, error: {e}")
+                return success 
         return success 
     
     def get_knob_value(self, knob):

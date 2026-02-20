@@ -1,0 +1,1 @@
+Set `checkpoint_timeout` to **10–15 minutes (600–900s)** for typical OLTP workloads, increasing toward **30 minutes (1800s)** when you want fewer checkpoints and can tolerate larger crash-recovery time, and decreasing toward **5 minutes (300s)** only if you specifically need faster recovery or tighter bounds on WAL volume between checkpoints.

@@ -1,0 +1,1 @@
+Set `min_wal_size` to roughly the amount of WAL your system generates between normal checkpoints—start at **2–8 GB** for typical workloads, increase to **16–64 GB** (or more) for high write/large bulk-load systems to avoid frequent checkpoint/recycle churn, and keep it at least **~25–50% of `max_wal_size`** (e.g., `max_wal_size=32GB` → `min_wal_size=8–16GB`).

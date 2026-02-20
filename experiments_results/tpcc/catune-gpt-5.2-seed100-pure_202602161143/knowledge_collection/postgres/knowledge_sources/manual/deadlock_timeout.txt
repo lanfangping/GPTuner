@@ -1,0 +1,1 @@
+**deadlock_timeout** sets how long PostgreSQL waits on a lock before running the (expensive) deadlock check (and, if `log_lock_waits` is on, before logging the wait); it defaults to **1s** (unitless values are **milliseconds**), and increasing it (e.g., **2–10s** on busy systems) reduces needless checks but delays real deadlock detection.

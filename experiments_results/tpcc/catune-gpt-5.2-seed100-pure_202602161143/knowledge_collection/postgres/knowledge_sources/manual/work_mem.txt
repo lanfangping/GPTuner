@@ -1,0 +1,1 @@
+**work_mem** sets the per-operation memory cap (default **4MB**, units default to **kB**) for sorts and hashes before spilling to temp files, but total RAM can be **N × work_mem** across multiple concurrent operations/sessions, and hash tables may use up to **work_mem × hash_mem_multiplier**.

@@ -1,0 +1,1 @@
+**SENTENCE:** `wal_sync_method` chooses which OS-level sync operation is used to force WAL writes to durable storage at each commit (e.g., `fdatasync()`/`fsync()` per commit, or `O_DSYNC`/`O_SYNC` on WAL file open), and it matters only when `fsync=on`; defaults to the first supported method (typically `fdatasync` on Linux/FreeBSD).

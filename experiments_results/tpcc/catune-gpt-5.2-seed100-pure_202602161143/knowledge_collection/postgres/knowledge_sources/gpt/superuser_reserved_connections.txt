@@ -1,0 +1,1 @@
+Set `superuser_reserved_connections` to a small fixed count (typically **3–5**, e.g., **3** by default) reserved for superusers/roles with `pg_use_reserved_connections`, and keep it **< `max_connections`** so that in an “all connections used” event you still have a few slots to log in and fix the system (e.g., `max_connections=200` → `superuser_reserved_connections=3–5`).

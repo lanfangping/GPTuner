@@ -1,0 +1,1 @@
+**backend_flush_after** sets how much data a single backend may write before PostgreSQL asks the OS to flush it to storage to limit dirty cache and reduce fsync/checkpoint stalls; valid range **0 (disabled, default)** to **2MB**, and if no units are given the value is in **8kB blocks (BLCKSZ)**.

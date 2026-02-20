@@ -1,0 +1,1 @@
+Set `wal_buffers` to **16MB** as a good default; if you want to tune it, use about **3% of `shared_buffers`** (Postgres’s usual cap is **64MB**)—e.g., `shared_buffers=2GB` ⇒ `wal_buffers≈64MB`, `shared_buffers=512MB` ⇒ `wal_buffers≈16MB`.

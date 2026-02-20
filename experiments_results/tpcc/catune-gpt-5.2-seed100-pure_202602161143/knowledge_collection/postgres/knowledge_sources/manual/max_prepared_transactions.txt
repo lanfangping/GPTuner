@@ -1,0 +1,1 @@
+**SENTENCE:** `max_prepared_transactions` sets how many transactions can be simultaneously in the **prepared** state (0 = disabled/default), must be set at server start, is typically set to **≥ max_connections** if you use prepared transactions, and on a standby must be **≥ the primary’s value** (otherwise queries on the standby are blocked).

@@ -1,0 +1,1 @@
+Set `random_page_cost` to approximate **(random I/O latency) / (sequential I/O latency)** for your storage—typical starting points are **~4.0 for HDD**, **~1.1–1.5 for SSD**, and **~1.0–1.2 for fast SSD/NVMe or well-cached storage**—then validate with `EXPLAIN (ANALYZE, BUFFERS)` and adjust if plans still over/under-prefer index scans.

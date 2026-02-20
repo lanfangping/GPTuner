@@ -1,0 +1,1 @@
+Set `checkpoint_flush_after` to **0** (default/disabled) unless you need to throttle bursty checkpoint I/O; if you do, start at **256kB**, then try **512kB–2MB** and pick the smallest value that smooths write spikes without noticeably increasing checkpoint duration (typical effective range: **128kB–4MB**).

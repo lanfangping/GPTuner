@@ -1,0 +1,1 @@
+Set `maintenance_work_mem` to about **5–10% of RAM per concurrent maintenance task** (e.g., on a **32 GB** server use **1–3 GB**, and if you might run **4** parallel `VACUUM/CREATE INDEX/ALTER TABLE` jobs, keep it nearer **1 GB each** so the total stays around **4 GB**, while typical safe ranges are **256 MB–2 GB** and rarely above **4–8 GB** per task).

@@ -1,0 +1,1 @@
+Set `effective_io_concurrency` to approximately the number of storage requests your system can handle in parallel—use **0** for HDDs or when using `mdadm` RAID without `libaio`, use **~32** for a typical SSD, and use **~128–256** for fast NVMe/SAN/RAID storage—then confirm with `EXPLAIN (ANALYZE, BUFFERS)` that bitmap heap scans speed up without saturating I/O.

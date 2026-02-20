@@ -1,0 +1,1 @@
+`max_parallel_maintenance_workers` sets how many parallel worker processes a single maintenance command (B-tree `CREATE INDEX` or non-`FULL` `VACUUM`) may use—default **2** workers, **0** disables parallelism, and the actual workers used can be fewer if constrained by `max_worker_processes`/`max_parallel_workers`.

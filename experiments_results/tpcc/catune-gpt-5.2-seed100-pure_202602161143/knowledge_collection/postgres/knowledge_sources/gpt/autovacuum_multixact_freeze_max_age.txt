@@ -1,0 +1,1 @@
+Set `autovacuum_multixact_freeze_max_age` to a “safe fraction” of `multixact_freeze_max_age` (so autovacuum freezes multixacts well before wraparound), typically **~50–80%**—e.g., if `multixact_freeze_max_age = 400,000,000` (default), use **200,000,000–320,000,000** (often **~300,000,000**) and lower it further if you see wraparound warnings or autovacuum can’t keep up.

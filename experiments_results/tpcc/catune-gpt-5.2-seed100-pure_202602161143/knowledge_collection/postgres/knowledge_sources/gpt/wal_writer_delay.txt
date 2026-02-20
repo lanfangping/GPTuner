@@ -1,0 +1,1 @@
+Set `wal_writer_delay` to a small interval so WAL is flushed frequently without wasting CPU: start at **200ms** (PostgreSQL default), decrease toward **10–50ms** if you need lower commit latency on fast storage, or increase toward **500–1000ms** if you want fewer wakeups/less background I/O and can tolerate more WAL sitting in memory between flushes.
