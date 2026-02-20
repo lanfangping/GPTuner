@@ -8,6 +8,7 @@ import threading
 import glob
 import re
 import time
+import random
 import functools
 from ConfigSpace import (
     ConfigurationSpace,
@@ -16,6 +17,7 @@ from ConfigSpace import (
     CategoricalHyperparameter,
     Constant,
 )
+from search_space.knowledge_based_space import unify_unit
 
 
 class DefaultSpace:
@@ -31,13 +33,14 @@ class DefaultSpace:
         self.summary_path = os.path.join(task_folder, 'temp_results') # "./optimization_results/temp_results"
         self.benchmark_copy_db = ['tpcc', 'twitter', "sibench", "voter", "tatp", "smallbank", "seats"]   # Some benchmark will insert or delete data, Need to be rewrite each time.
         self.benchmark_latency = ['tpch']
+        self.factors = [0, 0.25, 0.5]
         self.search_space = ConfigurationSpace()
         self.skill_path = os.path.join(task_folder, f"knowledge_collection/{self.dbms.name}/structured_knowledge/normal")
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
             self.dbms.create_template(self.test)
-        # self.penalty = 0
-        self.penalty = self.get_default_result()
+        self.penalty = 0
+        # self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
         self.log_file = os.path.join(task_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
         self.feasible_configs = {}
@@ -210,6 +213,7 @@ class DefaultSpace:
 
 
     def set_and_replay(self, config, seed=0):
+        return random.uniform(1000,2000)
         begin_time = time.time()
         cost = self.set_and_replay_ori(config, seed)
         end_time = time.time()
@@ -303,3 +307,132 @@ class DefaultSpace:
     @abstractmethod
     def define_search_space(self):
         pass
+
+
+    def _get_value_and_unit(self, value_with_unit):
+        if value_with_unit is None:
+            return None, None
+        pattern = r'(\d+(?:\.\d+)?)([a-zA-Z]+)?'
+        match = re.match(pattern, value_with_unit)
+        if match:
+            value = float(match.group(1))
+            unit = match.group(2) if match.group(2) else None
+            return value, unit
+        else:
+            print(f"Value '{value_with_unit}' does not match the expected pattern. Returning the original value.")
+            return value_with_unit, None
+
+    def get_special_info(self):
+        self.suggest_knob_info = {}
+        normal_skill_path = os.path.join(os.path.dirname(self.special_skill_path), 'normal')
+        for file_name in os.listdir(normal_skill_path):
+            with open(os.path.join(normal_skill_path, file_name), 'r') as json_file:
+                normal_skill = json.load(json_file)
+
+                # Assume they will use the same unit 
+                min_value_with_unit = normal_skill["min_value"]
+                # print(f"min_value_with_unit: {min_value_with_unit}")
+                min_value, unit = self._get_value_and_unit(min_value_with_unit)
+                max_value_with_unit = normal_skill["max_value"]
+                max_value, _ = self._get_value_and_unit(max_value_with_unit)
+
+                suggested_values_with_unit = normal_skill["suggested_values"]
+                suggested_values = [self._get_value_and_unit(value_with_unit)[0] for value_with_unit in suggested_values_with_unit]
+
+            with open(os.path.join(self.special_skill_path, file_name), 'r') as json_file:
+                special_skill = json.load(json_file)
+                is_special = False
+                special_knob = special_skill["special_knob"]
+                if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
+                    is_special = True
+                    print(f"special_value: {special_skill['special_value']}")
+                    print(type(special_skill['special_value']))
+                    special_value = eval(str(special_skill["special_value"]))
+
+            knob_name = file_name.replace('.json', '')
+            self.suggest_knob_info[knob_name] = {
+                "min_value": min_value,
+                "max_value": max_value,
+                "unit": unit,
+                "suggested_values": suggested_values,
+                "is_special": is_special,
+                "special_value": special_value if is_special else None
+            }
+
+    def get_sequence_from_coarse(self, knob):
+        info = self.dbms.knob_info[knob]
+        if info is None:
+            self.log(f"knob {knob} is removed since it does not be found in system_view")
+            self.target_knobs.remove(knob) # this knob is not by the DBMS under specific version
+            return []
+
+        knob_type = info["vartype"] 
+        if knob_type == "enum" or knob_type == "bool":
+            knob = self.get_default_space(knob, info)
+            self.search_space.add_hyperparameter(knob)
+            return []
+        
+        suggest_info = self.suggest_knob_info.get(knob, None)
+        if suggest_info is None:
+            return []
+
+        suggested_values = suggest_info["suggested_values"]
+        suggest_unit = suggest_info["unit"]
+        boot_value = info["reset_val"]
+        unit = info["unit"]
+        knob_type = info["vartype"]
+
+        # hardware constraint if exists
+        min_from_sys, max_from_sys = False, False
+        min_value = suggest_info["min_value"]
+        if min_value is None:
+            min_value = info["min_val"]
+            min_from_sys = True
+        
+        max_value = suggest_info["max_value"]
+        if max_value is None:
+            max_value = info["max_val"]
+            max_from_sys = True
+
+        # unify the number based on the unit, then convert the data type(int, float)
+        min_value = self._type_transfer(knob_type, unify_unit(min_value, suggest_unit))
+        max_value = self._type_transfer(knob_type, unify_unit(max_value, suggest_unit))
+        boot_value = self._type_transfer(knob_type, unify_unit(boot_value, unit))
+        suggested_values = [self._type_transfer(knob_type, unify_unit(value, suggest_unit)) for value in suggested_values]
+
+        sequence = []
+        if boot_value > sys.maxsize / 10:
+            boot_value = sys.maxsize / 10
+
+        min_value = min(min_value, boot_value)
+        max_value = max(max_value, boot_value)
+
+        # print(f"Coarse sequence for knob {knob}: {min_value}, {max_value}, {boot_value}, suggested_values: {suggested_values}")
+        for value in suggested_values:
+            if value > max_value or value < min_value:
+                self.error_log.warning(f"Suggested value '{value}' is outside of suggested min/max or default range. It is discarded.")
+                continue
+            for factor in self.factors:
+                explore_up = value + factor * (max_value - value) # scale up the suggested value
+                explore_down = value + factor * (min_value - value) # scale down the suggested value
+                if explore_up < sys.maxsize / 10 and explore_down < explore_up:
+                    sequence.append(explore_up)
+                    sequence.append(explore_down)
+
+        # if a suggested value is not given but a min_val or masx_val is suggested in skill library, equidistant sample.
+        if sequence == [] and (not min_from_sys or not max_from_sys):
+            for factor in [0.25, 0.5, 0.75]:
+                sequence.append(boot_value + factor * (max_value - boot_value)) 
+            if not min_from_sys:
+                sequence.append(min_value)
+            if not max_from_sys:
+                sequence.append(max_value)
+        sequence.append(boot_value)
+        if knob_type == "integer":
+            sequence = [int(round(value)) for value in sequence]
+        else:
+            sequence = [float(value) for value in sequence]
+        sequence = list(set(sequence)) # remove the duplicated value
+        sequence.sort()
+        # print(f"Coarse sequence for knob {knob}: {sequence}")
+        return sequence

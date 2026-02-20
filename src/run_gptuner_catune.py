@@ -25,11 +25,7 @@ from utils.exp_tools import replace_range_for_knobs, replace_special_values
 load_dotenv()  # take environment variables from .env.
 
 # Package from CATune
-from run_SMAC import rule_v5
-
-conditional_activations = [
-            ("max_prepared_transactions", "max_prepared_transactions_mode", {"enabled"}),
-        ]
+from rules.rule_lists import rule_v5, conditional_activations
 
 def process_knob(knob, knowledge_pre, knowledge_trans, knowledge_update):
     try:
@@ -117,7 +113,13 @@ if __name__ == '__main__':
         folder_name = f'{script_name}_{current_time}'
     else:
         folder_name = args.folder # "deepseek-v3-overall_202504101721"
+    
     folder_path = f"./experiments_results/{args.test}/{folder_name}"
+    
+    if args.rules:
+        folder_path_rules = os.path.join(folder_path, "rules")
+        os.makedirs(folder_path_rules, exist_ok=True) 
+        os.makedirs(os.path.join(folder_path_rules, 'temp_results'), exist_ok=True) 
 
     setattr(args, 'result_path', folder_path)
     make_folders(folder_path=folder_path, args=args)
@@ -265,7 +267,10 @@ if __name__ == '__main__':
         special_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/special")
         normal_skill_path = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/normal")
         if args.rules:
-            
+            conditional_activations = [
+                ("max_prepared_transactions", "control_max_prepared_transactions", {"0"}),
+            ]
+
             gptuner_coarse = CoarseStageCATune(
                 dbms=dbms, 
                 target_knobs_path=target_knobs_path, 
@@ -280,12 +285,31 @@ if __name__ == '__main__':
             )
 
             gptuner_coarse.optimize(
-                name = os.path.join(f".{folder_path}", f"{args.db}", "coarse"),  # f"../optimization_results/{args.db}/coarse/", 
+                name = os.path.join(f".{folder_path}", f"{args.db}", "coarse_rules"),  # f"../optimization_results/{args.db}/coarse/", 
                 trials_number=30, 
                 initial_config_number=10,
-                strategy='adaptive'
+                strategy=None
                 )
             time.sleep(2)
+            
+
+            # gptuner_coarse = CoarseStage(
+            #     dbms=dbms, 
+            #     target_knobs_path=target_knobs_path, 
+            #     test=args.test, 
+            #     timeout=args.timeout, 
+            #     seed=args.seed,
+            #     special_skill_path=special_skill_path,
+            #     log=log,
+            #     results_folder = folder_path
+            # )
+
+            # gptuner_coarse.optimize(
+            #     name = os.path.join(f".{folder_path}", f"{args.db}", "coarse_rules"),  # f"../optimization_results/{args.db}/coarse/", 
+            #     trials_number=30, 
+            #     initial_config_number=10
+            #     )
+            # time.sleep(2)
 
             gptuner_fine = FineStageCATune(
                 dbms=dbms, 
@@ -301,7 +325,7 @@ if __name__ == '__main__':
             )
 
             gptuner_fine.optimize(
-                name = os.path.join(f".{folder_path}", f"{args.db}", "fine"), # f"../optimization_results/{args.db}/fine/", 
+                name = os.path.join(f".{folder_path}", f"{args.db}", "fine_rules"), # f"../optimization_results/{args.db}/fine/", 
                 trials_number=200, # history trials + new tirals
                 strategy='adaptive'
             ) 
