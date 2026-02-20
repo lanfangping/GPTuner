@@ -39,8 +39,8 @@ class DefaultSpace:
         self.target_knobs = self.knob_select()
         if self.test in self.benchmark_copy_db:
             self.dbms.create_template(self.test)
-        self.penalty = 0
-        # self.penalty = self.get_default_result()
+        # self.penalty = 0
+        self.penalty = self.get_default_result()
         print(f"DEFAULT : {self.penalty}")
         self.log_file = os.path.join(task_folder, f"{self.dbms.name}/log/{self.seed}_log.txt")
         self.feasible_configs = {}
@@ -213,7 +213,7 @@ class DefaultSpace:
 
 
     def set_and_replay(self, config, seed=0):
-        return random.uniform(1000,2000)
+        # return random.uniform(1000,2000)
         begin_time = time.time()
         cost = self.set_and_replay_ori(config, seed)
         end_time = time.time()

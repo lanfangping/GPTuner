@@ -129,7 +129,6 @@ class FineStageCATune(FineSpaceCATune):
             target_function=self.set_and_replay, # tuning process with normal random optimization
             overwrite=False,
         )
-        input()
 
         # Convert previously evaluated configurations into TrialInfo and TrialValue instances to pass to SMAC
         trial_infos = [TrialInfo(config=c, seed=self.seed) for c in initial_configurations]
