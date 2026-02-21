@@ -312,8 +312,8 @@ class DefaultSpace:
     def _get_value_and_unit(self, value_with_unit):
         if value_with_unit is None:
             return None, None
-        pattern = r'(\d+(?:\.\d+)?)([a-zA-Z]+)?'
-        match = re.match(pattern, value_with_unit)
+        pattern = r'(\d+(?:\.\d+)?)[\s]*([a-zA-Z]+)' # r'(\d+(?:\.\d+)?)[\s]*([a-zA-Z]+)'. 
+        match = re.match(pattern, str(value_with_unit))
         if match:
             value = float(match.group(1))
             unit = match.group(2) if match.group(2) else None
@@ -332,12 +332,12 @@ class DefaultSpace:
                 # Assume they will use the same unit 
                 min_value_with_unit = normal_skill["min_value"]
                 # print(f"min_value_with_unit: {min_value_with_unit}")
-                min_value, unit = self._get_value_and_unit(min_value_with_unit)
+                min_value, min_unit = self._get_value_and_unit(min_value_with_unit)
                 max_value_with_unit = normal_skill["max_value"]
-                max_value, _ = self._get_value_and_unit(max_value_with_unit)
-
+                max_value, max_unit = self._get_value_and_unit(max_value_with_unit)
+                
                 suggested_values_with_unit = normal_skill["suggested_values"]
-                suggested_values = [self._get_value_and_unit(value_with_unit)[0] for value_with_unit in suggested_values_with_unit]
+                suggested_values_with_unit_tuples = [self._get_value_and_unit(value_with_unit) for value_with_unit in suggested_values_with_unit]
 
             with open(os.path.join(self.special_skill_path, file_name), 'r') as json_file:
                 special_skill = json.load(json_file)
@@ -345,19 +345,24 @@ class DefaultSpace:
                 special_knob = special_skill["special_knob"]
                 if type(special_knob) == str and special_knob.lower() == 'true' or special_knob is True:
                     is_special = True
-                    print(f"special_value: {special_skill['special_value']}")
-                    print(type(special_skill['special_value']))
+                    # print(f"special_value: {special_skill['special_value']}")
+                    # print(type(special_skill['special_value']))
                     special_value = eval(str(special_skill["special_value"]))
 
             knob_name = file_name.replace('.json', '')
+            # print(f"{knob_name} min_value_with_unit: {min_value_with_unit}, max_value_with_unit: {max_value_with_unit}, unit: {unit}, suggested_values_with_unit: {suggested_values_with_unit}, is_special: {is_special}, special_value: {special_value if is_special else None}")
+            # print(f"{knob_name} min_value: {min_value}, max_value: {max_value}, unit: {unit}, suggested_values: {suggested_values}, is_special: {is_special}, special_value: {special_value if is_special else None}")
             self.suggest_knob_info[knob_name] = {
                 "min_value": min_value,
                 "max_value": max_value,
-                "unit": unit,
-                "suggested_values": suggested_values,
+                "min_unit": min_unit,
+                "max_unit": max_unit,
+                "suggested_values": suggested_values_with_unit_tuples,
                 "is_special": is_special,
                 "special_value": special_value if is_special else None
             }
+            # if knob_name == 'checkpoint_flush_after':
+            #     exit()
 
     def get_sequence_from_coarse(self, knob):
         info = self.dbms.knob_info[knob]
@@ -377,7 +382,6 @@ class DefaultSpace:
             return []
 
         suggested_values = suggest_info["suggested_values"]
-        suggest_unit = suggest_info["unit"]
         boot_value = info["reset_val"]
         unit = info["unit"]
         knob_type = info["vartype"]
@@ -395,11 +399,11 @@ class DefaultSpace:
             max_from_sys = True
 
         # unify the number based on the unit, then convert the data type(int, float)
-        min_value = self._type_transfer(knob_type, unify_unit(min_value, suggest_unit))
-        max_value = self._type_transfer(knob_type, unify_unit(max_value, suggest_unit))
+        min_value = self._type_transfer(knob_type, unify_unit(min_value, suggest_info["min_unit"]))
+        max_value = self._type_transfer(knob_type, unify_unit(max_value, suggest_info["max_unit"]))
         boot_value = self._type_transfer(knob_type, unify_unit(boot_value, unit))
-        suggested_values = [self._type_transfer(knob_type, unify_unit(value, suggest_unit)) for value in suggested_values]
-
+        suggested_values = [self._type_transfer(knob_type, unify_unit(value, unit)) for value, unit in suggested_values]
+        # print(f"Coarse sequence for knob {knob}: {min_value}, {max_value}, {boot_value}, suggested_values: {suggested_values}")
         sequence = []
         if boot_value > sys.maxsize / 10:
             boot_value = sys.maxsize / 10
@@ -418,7 +422,7 @@ class DefaultSpace:
                 if explore_up < sys.maxsize / 10 and explore_down < explore_up:
                     sequence.append(explore_up)
                     sequence.append(explore_down)
-
+        # print(f"Coarse sequence for knob {knob} after adding scaled values: {sequence}")
         # if a suggested value is not given but a min_val or masx_val is suggested in skill library, equidistant sample.
         if sequence == [] and (not min_from_sys or not max_from_sys):
             for factor in [0.25, 0.5, 0.75]:
@@ -428,6 +432,7 @@ class DefaultSpace:
             if not max_from_sys:
                 sequence.append(max_value)
         sequence.append(boot_value)
+        print(f"Coarse sequence for knob {knob} after adding equidistant values: {sequence}")
         if knob_type == "integer":
             sequence = [int(round(value)) for value in sequence]
         else:
@@ -435,4 +440,6 @@ class DefaultSpace:
         sequence = list(set(sequence)) # remove the duplicated value
         sequence.sort()
         # print(f"Coarse sequence for knob {knob}: {sequence}")
+        # if knob == 'checkpoint_flush_after':
+        #     exit()
         return sequence
