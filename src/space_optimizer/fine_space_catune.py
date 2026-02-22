@@ -56,7 +56,6 @@ class FineSpaceCATune(DefaultSpace):
                 continue
 
             # print(f"Defining fine search space for knob: {knob}")
-            suggest_unit = suggest_info["unit"]
             boot_value = info["reset_val"]
             unit = info["unit"]
             knob_type = info["vartype"]
@@ -74,8 +73,8 @@ class FineSpaceCATune(DefaultSpace):
                 max_value = info["max_val"]
 
             # unify the number based on the unit, then convert the data type(int, float)
-            min_value = self._type_transfer(knob_type, unify_unit(min_value, suggest_unit))
-            max_value = self._type_transfer(knob_type, unify_unit(max_value, suggest_unit))
+            min_value = self._type_transfer(knob_type, unify_unit(min_value, suggest_info['min_unit']))
+            max_value = self._type_transfer(knob_type, unify_unit(max_value, suggest_info['max_unit']))
             boot_value = self._type_transfer(knob_type, unify_unit(boot_value, unit))
 
             # if knob == 'seq_page_cost':

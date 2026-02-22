@@ -975,3 +975,363 @@
     wal_buffers | control_wal_buffers == '0'
     wal_writer_flush_after | control_wal_writer_flush_after == '0'
 
+[2026-02-21 14:09:05,587 INFO] [run_gptuner_catune.py:<module>:129] Input arguments: Namespace(config='src/exp_configs/tpcc/catune-gpt-5.2-seed100-pure.yml', folder='catune-gpt-5.2-seed100-pure_202602161143', process='optimization', db='postgres', database='workload', test='tpcc', timeout=180, seed=60, result_path='./experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143', knobs='catune/target_knobs.txt', suggest_range_path='None', suggest_range_target_path='None', suggest_range_mode='default', suggest_values_path='None', special_skill_path='None', special_skill_base_path='None', special_skill_mode='default', model='gpt-5.2', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', rules=True, user='postgres', password='postgres')
+[2026-02-21 14:10:36,744 INFO] [coarse_space_catune.py:define_search_space:33] CoarseSpaceCATune - Building coarse search space...
+[2026-02-21 14:10:36,768 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-21 14:10:36,779 INFO] [coarse_space_catune.py:get_default_space:93] Default search space for knob wal_sync_method: min=None, max=None, boot=fdatasync
+[2026-02-21 14:10:36,779 INFO] [coarse_space_catune.py:get_default_space:97] Unified default search space for knob wal_sync_method: min=None, max=None, boot=fdatasync
+[2026-02-21 14:10:36,785 INFO] [coarse_space_catune.py:__init__:30] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {100050000, 150025000, 200000000, 650000000, 1100000000}, Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {250000000, 275000000, 325000000, 350000000, 400000000}, Default: 400000000
+    backend_flush_after, Type: Categorical, Choices: {0}, Default: 0
+    bgwriter_delay, Type: Categorical, Choices: {30, 40, 55, 78, 200, 2538, 2575, 5025, 5050}, Default: 200
+    bgwriter_flush_after, Type: Categorical, Choices: {64, 112, 160, 208}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {50, 75, 100, 150, 250, 375, 268435531, 268435606, 268435831, 536870962, 536871012, 536871162}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.0, 1.5, 1.75, 2.0, 2.75, 3.0, 3.5}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.8500000000000001, 0.875, 0.9}, Default: 0.9
+    checkpoint_flush_after, Type: Categorical, Choices: {32, 272, 392, 896, 1040, 1280, 1544, 2048}, Default: 32
+    checkpoint_timeout, Type: Categorical, Choices: {300, 300150, 450075, 450150, 675075, 900000, 900150, 1125000, 1200000, 1350000, 1350075, 1800000}, Default: 300
+    commit_delay, Type: Categorical, Choices: {0}, Default: 0
+    commit_siblings, Type: Categorical, Choices: {2, 4, 5, 254, 502}, Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: Categorical, Choices: {1000, 3250, 5500}, Default: 1000
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 175, 200, 275, 300, 350}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 8650752, 10747904, 12320768, 12713984, 15859712, 18219008, 18677760, 20578304, 21823488, 22675456, 24182784, 24248320}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {0, 1, 6, 9, 250, 259, 500, 506}, Default: 1
+    from_collapse_limit, Type: Categorical, Choices: {4, 6, 8, 536870918, 1073741828}, Default: 8
+    geqo_threshold, Type: Categorical, Choices: {10, 11, 12, 14, 16}, Default: 12
+    join_collapse_limit, Type: Categorical, Choices: {5, 6, 8, 11, 14}, Default: 8
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 131584, 196864, 262656, 393472, 458752, 524800, 655360, 786432, 786688, 1048576}, Default: 65536
+    max_connections, Type: Categorical, Choices: {42, 51, 70, 80, 100}, Default: 100
+    max_logical_replication_workers, Type: Categorical, Choices: {4, 5, 8, 65543, 131076}, Default: 4
+    max_parallel_maintenance_workers, Type: Categorical, Choices: {2, 3, 4}, Default: 2
+    max_parallel_workers, Type: Categorical, Choices: {6, 8, 9, 265, 518}, Default: 8
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {1, 2, 3, 4}, Default: 2
+    max_prepared_transactions, Type: Categorical, Choices: {0}, Default: 0
+    max_sync_workers_per_subscription, Type: Categorical, Choices: {1, 2, 65537, 131072}, Default: 2
+    max_wal_senders, Type: Categorical, Choices: {5, 8, 10, 65543, 131076}, Default: 10
+    max_wal_size, Type: Categorical, Choices: {1024, 524289, 786432, 537657344, 1074266112}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8, 9, 10}, Default: 8
+    min_wal_size, Type: Categorical, Choices: {80, 524328, 786452, 4980736, 8912896}, Default: 80
+    random_page_cost, Type: Categorical, Choices: {1.15, 1.175, 1.9, 2.55, 2.5999999999999996, 3.275, 4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0, 2.0, 2.5, 3.25, 3.5}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 4063240, 6094852, 9345434, 10564403}, Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: Categorical, Choices: {2, 3, 65538, 131073}, Default: 3
+    temp_buffers, Type: Categorical, Choices: {1024, 33280, 49408, 66048, 98560, 114688, 131584, 163840, 196608, 196864, 262144}, Default: 1024
+    vacuum_freeze_min_age, Type: Categorical, Choices: {15000000, 17500000, 27500000, 35000000, 50000000}, Default: 50000000
+    vacuum_freeze_table_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 112500000, 125000000, 150000000}, Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {2500000, 3750000, 5000000, 253750000, 502500000}, Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {75000000, 112500000, 150000000, 612500000, 1075000000}, Default: 150000000
+    wal_buffers, Type: Categorical, Choices: {512, 8208, 12296, 16384}, Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: Categorical, Choices: {105, 152, 200, 400, 600}, Default: 200
+    wal_writer_flush_after, Type: Categorical, Choices: {128, 4160, 6176, 8256, 10240, 12288, 12320, 16384}, Default: 128
+    work_mem, Type: Categorical, Choices: {4096, 10240, 13312, 1996288, 3976192}, Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2026-02-21 14:11:00,681 ERROR] [default_space.py:set_and_replay_ori:255] Config 0: knob checkpoint_timeout is failed to set to 300150
+[2026-02-21 14:11:44,107 ERROR] [default_space.py:set_and_replay_ori:255] Config 1: knob checkpoint_flush_after is failed to set to 272
+[2026-02-21 14:11:44,130 ERROR] [default_space.py:set_and_replay_ori:255] Config 1: knob checkpoint_timeout is failed to set to 1350075
+[2026-02-21 14:13:14,655 ERROR] [default_space.py:set_and_replay_ori:255] Config 2: knob checkpoint_flush_after is failed to set to 2048
+[2026-02-21 14:13:14,677 ERROR] [default_space.py:set_and_replay_ori:255] Config 2: knob checkpoint_timeout is failed to set to 1200000
+[2026-02-21 14:13:58,253 ERROR] [default_space.py:set_and_replay_ori:255] Config 3: knob checkpoint_flush_after is failed to set to 1544
+[2026-02-21 14:13:58,275 ERROR] [default_space.py:set_and_replay_ori:255] Config 3: knob checkpoint_timeout is failed to set to 1200000
+[2026-02-21 14:14:41,839 ERROR] [default_space.py:set_and_replay_ori:255] Config 4: knob checkpoint_flush_after is failed to set to 1280
+[2026-02-21 14:14:41,861 ERROR] [default_space.py:set_and_replay_ori:255] Config 4: knob checkpoint_timeout is failed to set to 675075
+[2026-02-21 14:15:25,399 ERROR] [default_space.py:set_and_replay_ori:255] Config 5: knob checkpoint_flush_after is failed to set to 896
+[2026-02-21 14:15:25,423 ERROR] [default_space.py:set_and_replay_ori:255] Config 5: knob checkpoint_timeout is failed to set to 675075
+[2026-02-21 14:16:08,911 ERROR] [default_space.py:set_and_replay_ori:255] Config 6: knob checkpoint_flush_after is failed to set to 272
+[2026-02-21 14:16:08,934 ERROR] [default_space.py:set_and_replay_ori:255] Config 6: knob checkpoint_timeout is failed to set to 1800000
+[2026-02-21 14:16:52,490 ERROR] [default_space.py:set_and_replay_ori:255] Config 7: knob checkpoint_flush_after is failed to set to 1040
+[2026-02-21 14:17:36,032 ERROR] [default_space.py:set_and_replay_ori:255] Config 8: knob checkpoint_flush_after is failed to set to 1544
+[2026-02-21 14:17:36,055 ERROR] [default_space.py:set_and_replay_ori:255] Config 8: knob checkpoint_timeout is failed to set to 900150
+[2026-02-21 14:18:19,519 ERROR] [default_space.py:set_and_replay_ori:255] Config 9: knob checkpoint_flush_after is failed to set to 392
+[2026-02-21 14:18:19,542 ERROR] [default_space.py:set_and_replay_ori:255] Config 9: knob checkpoint_timeout is failed to set to 450150
+[2026-02-21 14:21:18,937 ERROR] [default_space.py:set_and_replay_ori:255] Config 12: knob checkpoint_flush_after is failed to set to 1280
+[2026-02-21 14:21:18,962 ERROR] [default_space.py:set_and_replay_ori:255] Config 12: knob checkpoint_timeout is failed to set to 450075
+[2026-02-21 14:22:02,519 ERROR] [default_space.py:set_and_replay_ori:255] Config 13: knob checkpoint_flush_after is failed to set to 1040
+[2026-02-21 14:22:02,541 ERROR] [default_space.py:set_and_replay_ori:255] Config 13: knob checkpoint_timeout is failed to set to 1350000
+[2026-02-21 14:22:46,187 ERROR] [default_space.py:set_and_replay_ori:255] Config 14: knob checkpoint_flush_after is failed to set to 1280
+[2026-02-21 14:22:46,210 ERROR] [default_space.py:set_and_replay_ori:255] Config 14: knob checkpoint_timeout is failed to set to 675075
+[2026-02-21 14:24:17,096 ERROR] [default_space.py:set_and_replay_ori:255] Config 15: knob checkpoint_flush_after is failed to set to 1544
+[2026-02-21 14:24:17,117 ERROR] [default_space.py:set_and_replay_ori:255] Config 15: knob checkpoint_timeout is failed to set to 1350075
+[2026-02-21 14:25:00,671 ERROR] [default_space.py:set_and_replay_ori:255] Config 16: knob checkpoint_flush_after is failed to set to 896
+[2026-02-21 14:25:00,693 ERROR] [default_space.py:set_and_replay_ori:255] Config 16: knob checkpoint_timeout is failed to set to 1125000
+[2026-02-21 14:27:14,336 ERROR] [default_space.py:set_and_replay_ori:255] Config 18: knob checkpoint_flush_after is failed to set to 1280
+[2026-02-21 14:27:57,949 ERROR] [default_space.py:set_and_replay_ori:255] Config 19: knob checkpoint_flush_after is failed to set to 1040
+[2026-02-21 14:27:57,974 ERROR] [default_space.py:set_and_replay_ori:255] Config 19: knob checkpoint_timeout is failed to set to 675075
+[2026-02-21 14:28:41,547 ERROR] [default_space.py:set_and_replay_ori:255] Config 20: knob checkpoint_flush_after is failed to set to 392
+[2026-02-21 14:28:41,568 ERROR] [default_space.py:set_and_replay_ori:255] Config 20: knob checkpoint_timeout is failed to set to 1200000
+[2026-02-21 14:29:26,258 ERROR] [default_space.py:set_and_replay_ori:255] Config 21: knob checkpoint_flush_after is failed to set to 2048
+[2026-02-21 14:29:26,280 ERROR] [default_space.py:set_and_replay_ori:255] Config 21: knob checkpoint_timeout is failed to set to 900000
+[2026-02-21 14:30:10,062 ERROR] [default_space.py:set_and_replay_ori:255] Config 22: knob checkpoint_flush_after is failed to set to 1280
+[2026-02-21 14:30:10,082 ERROR] [default_space.py:set_and_replay_ori:255] Config 22: knob checkpoint_timeout is failed to set to 900000
+[2026-02-21 14:31:40,213 ERROR] [default_space.py:set_and_replay_ori:255] Config 23: knob checkpoint_timeout is failed to set to 900000
+[2026-02-21 14:33:10,724 ERROR] [default_space.py:set_and_replay_ori:255] Config 24: knob checkpoint_flush_after is failed to set to 272
+[2026-02-21 14:33:10,745 ERROR] [default_space.py:set_and_replay_ori:255] Config 24: knob checkpoint_timeout is failed to set to 900150
+[2026-02-21 14:34:41,004 ERROR] [default_space.py:set_and_replay_ori:255] Config 25: knob checkpoint_flush_after is failed to set to 392
+[2026-02-21 14:34:41,027 ERROR] [default_space.py:set_and_replay_ori:255] Config 25: knob checkpoint_timeout is failed to set to 1200000
+[2026-02-21 14:35:24,650 ERROR] [default_space.py:set_and_replay_ori:255] Config 26: knob checkpoint_flush_after is failed to set to 1280
+[2026-02-21 14:35:24,672 ERROR] [default_space.py:set_and_replay_ori:255] Config 26: knob checkpoint_timeout is failed to set to 900000
+[2026-02-21 14:36:55,824 ERROR] [default_space.py:set_and_replay_ori:255] Config 27: knob checkpoint_flush_after is failed to set to 2048
+[2026-02-21 14:36:55,850 ERROR] [default_space.py:set_and_replay_ori:255] Config 27: knob checkpoint_timeout is failed to set to 900000
+[2026-02-21 14:38:25,792 ERROR] [default_space.py:set_and_replay_ori:255] Config 28: knob checkpoint_flush_after is failed to set to 896
+[2026-02-21 14:38:25,814 ERROR] [default_space.py:set_and_replay_ori:255] Config 28: knob checkpoint_timeout is failed to set to 900150
+[2026-02-21 14:39:56,279 ERROR] [default_space.py:set_and_replay_ori:255] Config 29: knob checkpoint_flush_after is failed to set to 2048
+[2026-02-21 14:39:56,304 ERROR] [default_space.py:set_and_replay_ori:255] Config 29: knob checkpoint_timeout is failed to set to 900000
+[2026-02-21 17:02:07,814 INFO] [run_gptuner_catune.py:<module>:129] Input arguments: Namespace(config='src/exp_configs/tpcc/catune-gpt-5.2-seed100-pure.yml', folder='catune-gpt-5.2-seed100-pure_202602161143', process='optimization', db='postgres', database='workload', test='tpcc', timeout=180, seed=60, result_path='./experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143', knobs='catune/target_knobs.txt', suggest_range_path='None', suggest_range_target_path='None', suggest_range_mode='default', suggest_values_path='None', special_skill_path='None', special_skill_base_path='None', special_skill_mode='default', model='gpt-5.2', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', rules=True, user='postgres', password='postgres')
+[2026-02-21 17:03:39,926 INFO] [coarse_space_catune.py:define_search_space:33] CoarseSpaceCATune - Building coarse search space...
+[2026-02-21 17:03:40,035 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-21 17:03:40,077 INFO] [coarse_space_catune.py:get_default_space:93] Default search space for knob wal_sync_method: min=None, max=None, boot=fdatasync
+[2026-02-21 17:03:40,078 INFO] [coarse_space_catune.py:get_default_space:97] Unified default search space for knob wal_sync_method: min=None, max=None, boot=fdatasync
+[2026-02-21 17:03:40,100 INFO] [coarse_space_catune.py:__init__:30] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {100050000, 150025000, 200000000, 650000000, 1100000000}, Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {250000000, 275000000, 325000000, 350000000, 400000000}, Default: 400000000
+    backend_flush_after, Type: Categorical, Choices: {0}, Default: 0
+    bgwriter_delay, Type: Categorical, Choices: {30, 40, 55, 78, 200, 2538, 2575, 5025, 5050}, Default: 200
+    bgwriter_flush_after, Type: Categorical, Choices: {64, 112, 160, 208}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {50, 75, 100, 150, 250, 375, 268435531, 268435606, 268435831, 536870962, 536871012, 536871162}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.0, 1.5, 1.75, 2.0, 2.75, 3.0, 3.5}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.8500000000000001, 0.875, 0.9}, Default: 0.9
+    checkpoint_flush_after, Type: Categorical, Choices: {32, 272, 392, 896, 1040, 1280, 1544, 2048}, Default: 32
+    checkpoint_timeout, Type: Categorical, Choices: {300, 300150, 450075, 450150, 675075, 900000, 900150, 1125000, 1200000, 1350000, 1350075, 1800000}, Default: 300
+    commit_delay, Type: Categorical, Choices: {0}, Default: 0
+    commit_siblings, Type: Categorical, Choices: {2, 4, 5, 254, 502}, Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: Categorical, Choices: {1000, 3250, 5500}, Default: 1000
+    default_statistics_target, Type: Categorical, Choices: {100, 150, 175, 200, 275, 300, 350}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 8650752, 10747904, 12320768, 12713984, 15859712, 18219008, 18677760, 20578304, 21823488, 22675456, 24182784, 24248320}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {0, 1, 6, 9, 250, 259, 500, 506}, Default: 1
+    from_collapse_limit, Type: Categorical, Choices: {4, 6, 8, 536870918, 1073741828}, Default: 8
+    geqo_threshold, Type: Categorical, Choices: {10, 11, 12, 14, 16}, Default: 12
+    join_collapse_limit, Type: Categorical, Choices: {5, 6, 8, 11, 14}, Default: 8
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 131584, 196864, 262656, 393472, 458752, 524800, 655360, 786432, 786688, 1048576}, Default: 65536
+    max_connections, Type: Categorical, Choices: {42, 51, 70, 80, 100}, Default: 100
+    max_logical_replication_workers, Type: Categorical, Choices: {4, 5, 8, 65543, 131076}, Default: 4
+    max_parallel_maintenance_workers, Type: Categorical, Choices: {2, 3, 4}, Default: 2
+    max_parallel_workers, Type: Categorical, Choices: {6, 8, 9, 265, 518}, Default: 8
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {1, 2, 3, 4}, Default: 2
+    max_prepared_transactions, Type: Categorical, Choices: {0}, Default: 0
+    max_sync_workers_per_subscription, Type: Categorical, Choices: {1, 2, 65537, 131072}, Default: 2
+    max_wal_senders, Type: Categorical, Choices: {5, 8, 10, 65543, 131076}, Default: 10
+    max_wal_size, Type: Categorical, Choices: {1024, 524289, 786432, 537657344, 1074266112}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {8, 9, 10}, Default: 8
+    min_wal_size, Type: Categorical, Choices: {80, 524328, 786452, 4980736, 8912896}, Default: 80
+    random_page_cost, Type: Categorical, Choices: {1.15, 1.175, 1.9, 2.55, 2.5999999999999996, 3.275, 4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0, 2.0, 2.5, 3.25, 3.5}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 4063240, 6094852, 9345434, 10564403}, Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: Categorical, Choices: {2, 3, 65538, 131073}, Default: 3
+    temp_buffers, Type: Categorical, Choices: {1024, 33280, 49408, 66048, 98560, 114688, 131584, 163840, 196608, 196864, 262144}, Default: 1024
+    vacuum_freeze_min_age, Type: Categorical, Choices: {15000000, 17500000, 27500000, 35000000, 50000000}, Default: 50000000
+    vacuum_freeze_table_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 112500000, 125000000, 150000000}, Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {2500000, 3750000, 5000000, 253750000, 502500000}, Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {75000000, 112500000, 150000000, 612500000, 1075000000}, Default: 150000000
+    wal_buffers, Type: Categorical, Choices: {512, 8208, 12296, 16384}, Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: Categorical, Choices: {105, 152, 200, 400, 600}, Default: 200
+    wal_writer_flush_after, Type: Categorical, Choices: {128, 4160, 6176, 8256, 10240, 12288, 12320, 16384}, Default: 128
+    work_mem, Type: Categorical, Choices: {4096, 10240, 13312, 1996288, 3976192}, Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2026-02-21 17:05:12,828 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-21 17:05:12,850 INFO] [fine_space_catune.py:get_default_space:149] Boot value: fdatasync, min value: None, max value: None for knob wal_sync_method
+[2026-02-21 17:05:12,850 INFO] [fine_space_catune.py:get_default_space:153] Unified boot value: fdatasync, unified min value: None, unified max value: None for knob wal_sync_method
+[2026-02-21 17:05:12,857 INFO] [fine_space_catune.py:__init__:32] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [200000000, 400000000], Default: 400000000
+    backend_flush_after, Type: UniformInteger, Range: [0, 256], Default: 0
+    bgwriter_delay, Type: UniformInteger, Range: [10, 10000], Default: 200
+    bgwriter_flush_after, Type: UniformInteger, Range: [64, 256], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [0, 1073741823], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [1.0, 5.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.8, 0.9], Default: 0.9
+    checkpoint_flush_after, Type: UniformInteger, Range: [32, 2048], Default: 32
+    checkpoint_timeout, Type: UniformInteger, Range: [300, 1800000], Default: 300
+    commit_delay, Type: UniformInteger, Range: [0, 1], Default: 0
+    commit_siblings, Type: UniformInteger, Range: [0, 1000], Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_join_collapse_limit, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: UniformInteger, Range: [1000, 10000], Default: 1000
+    default_statistics_target, Type: UniformInteger, Range: [100, 500], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [524288, 24379392], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [0, 1000], Default: 1
+    from_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    geqo_threshold, Type: UniformInteger, Range: [8, 20], Default: 12
+    join_collapse_limit, Type: UniformInteger, Range: [2, 20], Default: 8
+    maintenance_work_mem, Type: UniformInteger, Range: [1024, 1048576], Default: 65536
+    max_connections, Type: UniformInteger, Range: [24, 100], Default: 100
+    max_logical_replication_workers, Type: UniformInteger, Range: [0, 262143], Default: 4
+    max_parallel_maintenance_workers, Type: UniformInteger, Range: [2, 6], Default: 2
+    max_parallel_workers, Type: UniformInteger, Range: [0, 1024], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 6], Default: 2
+    max_prepared_transactions, Type: UniformInteger, Range: [0, 262143], Default: 0
+    max_sync_workers_per_subscription, Type: UniformInteger, Range: [0, 262143], Default: 2
+    max_wal_senders, Type: UniformInteger, Range: [0, 262143], Default: 10
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [8, 11], Default: 8
+    min_wal_size, Type: UniformInteger, Range: [80, 16777216], Default: 80
+    random_page_cost, Type: UniformFloat, Range: [1.1, 4.0], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16, 13002342], Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_join_collapse_limit, Type: Constant, Value: 1
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: UniformInteger, Range: [0, 262143], Default: 3
+    temp_buffers, Type: UniformInteger, Range: [1024, 262144], Default: 1024
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [10000000, 50000000], Default: 50000000
+    vacuum_freeze_table_age, Type: UniformInteger, Range: [50000000, 150000000], Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [0, 1000000000], Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: UniformInteger, Range: [0, 2000000000], Default: 150000000
+    wal_buffers, Type: UniformInteger, Range: [32, 16384], Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: UniformInteger, Range: [10, 1000], Default: 200
+    wal_writer_flush_after, Type: UniformInteger, Range: [128, 16384], Default: 128
+    work_mem, Type: UniformInteger, Range: [4096, 7936000], Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    join_collapse_limit | control_join_collapse_limit == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_join_collapse_limit | control_join_collapse_limit == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2026-02-21 17:05:48,629 ERROR] [default_space.py:set_and_replay_ori:255] Config 0: knob min_wal_size is failed to set to 0
+[2026-02-21 17:05:48,668 ERROR] [default_space.py:set_and_replay_ori:255] Config 0: knob checkpoint_timeout is failed to set to 0
+[2026-02-21 17:05:48,681 ERROR] [default_space.py:set_and_replay_ori:255] Config 0: knob max_wal_size is failed to set to 1
+[2026-02-21 17:24:09,750 ERROR] [default_space.py:set_and_replay_ori:255] Config 12: knob checkpoint_timeout is failed to set to 28
+[2026-02-21 18:40:49,418 ERROR] [default_space.py:set_and_replay_ori:255] Config 62: knob checkpoint_timeout is failed to set to 15
+[2026-02-21 19:07:24,071 ERROR] [default_space.py:set_and_replay_ori:255] Config 79: knob checkpoint_timeout is failed to set to 21
