@@ -2999,3 +2999,199 @@
     wal_buffers | control_wal_buffers == '0'
     wal_writer_flush_after | control_wal_writer_flush_after == '0'
 
+[2026-02-22 16:10:28,352 INFO] [run_gptuner_catune.py:<module>:129] Input arguments: Namespace(config='src/exp_configs/tpch/catune-gpt-5.2-seed100-catune.yml', folder='catune-gpt-5.2-seed100-pure_202602152137', process='optimization', db='postgres', database='workload', test='tpch', timeout=180, seed=60, result_path='./experiments_results/tpch/catune-gpt-5.2-seed100-pure_202602152137', knobs='catune/target_knobs.txt', suggest_range_path='None', suggest_range_target_path='None', suggest_range_mode='default', suggest_values_path='None', special_skill_path='None', special_skill_base_path='None', special_skill_mode='default', model='gpt-5.2', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', rules=False, user='postgres', password='postgres', knowledge_folder='experiments_results/tpch/catune-gpt-5.2-seed100-pure_202602152137/knowledge_collection')
+[2026-02-22 16:10:59,497 WARNING] [coarse_space.py:define_search_space:145] Suggested value '0' is outside of suggested min/max or default range. It is discarded.
+[2026-02-22 16:10:59,537 INFO] [coarse_space.py:__init__:23] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {200000000}, Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {320000000, 335000000, 340000000, 342500000, 350000000, 360000000, 362500000, 365000000, 375000000, 385000000, 390000000, 400000000}, Default: 400000000
+    backend_flush_after, Type: Categorical, Choices: {0, 32, 48, 112, 160}, Default: 0
+    bgwriter_delay, Type: Categorical, Choices: {35, 42, 110, 155, 200, 287, 400, 525, 600}, Default: 200
+    bgwriter_flush_after, Type: Categorical, Choices: {32, 48, 64, 112, 160}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 100, 268435455, 536870911}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.5, 1.75, 2.0, 2.75, 3.5}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.45, 0.675, 0.9, 0.925, 0.95}, Default: 0.9
+    checkpoint_flush_after, Type: Categorical, Choices: {16, 24, 32, 88, 144}, Default: 32
+    checkpoint_timeout, Type: Categorical, Choices: {300, 450, 525, 600, 675, 750, 900}, Default: 300
+    commit_delay, Type: Categorical, Choices: {0, 3, 5}, Default: 0
+    commit_siblings, Type: Categorical, Choices: {2, 3, 5, 253, 502}, Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: Categorical, Choices: {200, 350, 425, 600, 800, 1000, 1100, 1400, 1550, 1625, 2000, 2600, 2750, 3000, 3500, 3800, 5000}, Default: 1000
+    default_statistics_target, Type: Categorical, Choices: {50, 75, 100, 2575, 5050}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 1500000, 2250000, 539120911, 1075241823}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {1, 16, 24, 32, 48, 56, 64, 80, 96, 128}, Default: 1
+    from_collapse_limit, Type: Categorical, Choices: {4, 6, 8, 536870917, 1073741827}, Default: 8
+    geqo_threshold, Type: Categorical, Choices: {7, 9, 12, 536870920, 1073741829}, Default: 12
+    join_collapse_limit, Type: Categorical, Choices: {4, 6, 8, 536870917, 1073741827}, Default: 8
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 532768, 766384, 1525000, 2050000}, Default: 65536
+    max_connections, Type: Categorical, Choices: {21, 25, 97, 100, 165}, Default: 100
+    max_logical_replication_workers, Type: Categorical, Choices: {4}, Default: 4
+    max_parallel_maintenance_workers, Type: Categorical, Choices: {2, 3, 4}, Default: 2
+    max_parallel_workers, Type: Categorical, Choices: {4, 6, 8, 262, 516}, Default: 8
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {1, 2, 3}, Default: 2
+    max_prepared_transactions, Type: Categorical, Choices: {0, 65535, 131071}, Default: 0
+    max_sync_workers_per_subscription, Type: Categorical, Choices: {1, 2, 65537, 131072}, Default: 2
+    max_wal_senders, Type: Categorical, Choices: {6, 9, 10, 65544, 131077}, Default: 10
+    max_wal_size, Type: Categorical, Choices: {1024, 2001, 3000, 4001, 6000, 536873911, 536876911, 1073743823, 1073745823}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {5, 6, 7, 8}, Default: 8
+    min_wal_size, Type: Categorical, Choices: {80, 540, 770, 1250, 1500}, Default: 80
+    random_page_cost, Type: Categorical, Choices: {1.05, 1.0750000000000002, 1.1, 1.15, 1.8250000000000002, 1.9, 2.55, 2.5999999999999996, 4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 508192, 754096, 1137500, 1275000}, Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_checkpoint_flush_after, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: Categorical, Choices: {2, 3, 4}, Default: 3
+    temp_buffers, Type: Categorical, Choices: {1024, 1500, 1750, 2500, 3000}, Default: 1024
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 125000000, 150000000, 162500000, 175000000, 200000000}, Default: 50000000
+    vacuum_freeze_table_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 112500000, 125000000, 150000000}, Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {5000000, 12500000, 16250000, 17500000, 22500000, 23750000, 25000000, 30000000, 31250000, 32500000, 35000000, 40000000}, Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {50000000, 62500000, 68750000, 75000000, 87500000, 150000000, 175000000, 237500000, 256250000, 275000000, 387500000, 425000000, 437500000, 450000000, 550000000, 575000000, 650000000}, Default: 150000000
+    wal_buffers, Type: Categorical, Choices: {4, 512, 65919, 131327, 196735}, Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: Categorical, Choices: {105, 152, 200, 400, 600}, Default: 200
+    wal_writer_flush_after, Type: Categorical, Choices: {62, 93, 128, 536871005, 1073741886}, Default: 128
+    work_mem, Type: Categorical, Choices: {4096, 8032, 12016, 536882911, 1073749823}, Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2026-02-22 16:27:39,986 INFO] [fine_space.py:__init__:27] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [320000000, 400000000], Default: 400000000
+    backend_flush_after, Type: UniformInteger, Range: [0, 256], Default: 0
+    bgwriter_delay, Type: UniformInteger, Range: [20, 1000], Default: 200
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 256], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [0, 1073741823], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [1.0, 5.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    checkpoint_flush_after, Type: UniformInteger, Range: [0, 256], Default: 32
+    checkpoint_timeout, Type: UniformInteger, Range: [300, 900], Default: 300
+    commit_delay, Type: UniformInteger, Range: [0, 10], Default: 0
+    commit_siblings, Type: UniformInteger, Range: [0, 1000], Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: UniformInteger, Range: [200, 5000], Default: 1000
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [1, 128], Default: 1
+    from_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    geqo_threshold, Type: UniformInteger, Range: [2, 2147483647], Default: 12
+    join_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    maintenance_work_mem, Type: UniformInteger, Range: [65536, 3100000], Default: 65536
+    max_connections, Type: UniformInteger, Range: [12, 300], Default: 100
+    max_logical_replication_workers, Type: UniformInteger, Range: [0, 262143], Default: 4
+    max_parallel_maintenance_workers, Type: UniformInteger, Range: [2, 4], Default: 2
+    max_parallel_workers, Type: UniformInteger, Range: [0, 1024], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 4], Default: 2
+    max_prepared_transactions, Type: UniformInteger, Range: [0, 262143], Default: 0
+    max_sync_workers_per_subscription, Type: UniformInteger, Range: [0, 262143], Default: 2
+    max_wal_senders, Type: UniformInteger, Range: [0, 262143], Default: 10
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [5, 8], Default: 8
+    min_wal_size, Type: UniformInteger, Range: [80, 2000], Default: 80
+    random_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16384, 1550000], Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_checkpoint_flush_after, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: UniformInteger, Range: [2, 5], Default: 3
+    temp_buffers, Type: UniformInteger, Range: [1000, 4000], Default: 1024
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [50000000, 200000000], Default: 50000000
+    vacuum_freeze_table_age, Type: UniformInteger, Range: [50000000, 150000000], Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [5000000, 40000000], Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: UniformInteger, Range: [50000000, 800000000], Default: 150000000
+    wal_buffers, Type: UniformInteger, Range: [1, 262143], Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: UniformInteger, Range: [10, 1000], Default: 200
+    wal_writer_flush_after, Type: UniformInteger, Range: [0, 2147483647], Default: 128
+    work_mem, Type: UniformInteger, Range: [64, 2147483647], Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
