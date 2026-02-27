@@ -293,29 +293,10 @@ if __name__ == '__main__':
                 name = os.path.join(f".{folder_path}", f"{args.db}", "coarse_rules"),  # f"../optimization_results/{args.db}/coarse/", 
                 trials_number=30, 
                 initial_config_number=10,
-                strategy=args.sampling_strategy
+                strategy=None
                 )
             time.sleep(2)
             
-
-            # gptuner_coarse = CoarseStage(
-            #     dbms=dbms, 
-            #     target_knobs_path=target_knobs_path, 
-            #     test=args.test, 
-            #     timeout=args.timeout, 
-            #     seed=args.seed,
-            #     special_skill_path=special_skill_path,
-            #     log=log,
-            #     results_folder = folder_path
-            # )
-
-            # gptuner_coarse.optimize(
-            #     name = os.path.join(f".{folder_path}", f"{args.db}", "coarse_rules"),  # f"../optimization_results/{args.db}/coarse/", 
-            #     trials_number=30, 
-            #     initial_config_number=10
-            #     )
-            # time.sleep(2)
-
             gptuner_fine = FineStageCATune(
                 dbms=dbms, 
                 target_knobs_path=target_knobs_path, 
@@ -332,7 +313,7 @@ if __name__ == '__main__':
             gptuner_fine.optimize(
                 name = os.path.join(f".{folder_path}", f"{args.db}", "fine_rules"), # f"../optimization_results/{args.db}/fine/", 
                 trials_number=200, # history trials + new tirals
-                strategy='adaptive'
+                strategy=args.sampling_strategy
             ) 
 
         else:
