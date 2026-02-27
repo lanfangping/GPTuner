@@ -5,6 +5,7 @@ from datetime import datetime
 import os
 import json
 import openai
+import yaml
 import concurrent.futures
 import subprocess
 from knowledge_handler.knowledge_update import KGUpdate
@@ -102,6 +103,7 @@ if __name__ == '__main__':
     parser.add_argument("--restart_cmd", type=str, default="sudo restart tpcc_workload")
     parser.add_argument("--recover_script", type=str, default="./scripts/recover_docker_postgres.sh")
     parser.add_argument("--rules", action='store_true')
+    parser.add_argument("--sampling_strategy", type=str, default='adaptive', choices=['adaptive', 'uniform'])
     args = parser.parse_args()
     misc.over_write_args_from_file(args, args.config)
 
@@ -123,6 +125,9 @@ if __name__ == '__main__':
 
     setattr(args, 'result_path', folder_path)
     make_folders(folder_path=folder_path, args=args)
+
+    with open(os.path.join(folder_path, f"config_rule{args.rules}_{args.sampling_strategy}_seed{args.seed}.yaml"), "w") as f:
+        yaml.dump(vars(args), f, default_flow_style=False, sort_keys=False)
 
     logger_level = "INFO"
     log = MyLogger(script_name, folder_path, logger_level).logger
@@ -288,7 +293,7 @@ if __name__ == '__main__':
                 name = os.path.join(f".{folder_path}", f"{args.db}", "coarse_rules"),  # f"../optimization_results/{args.db}/coarse/", 
                 trials_number=30, 
                 initial_config_number=10,
-                strategy=None
+                strategy=args.sampling_strategy
                 )
             time.sleep(2)
             
