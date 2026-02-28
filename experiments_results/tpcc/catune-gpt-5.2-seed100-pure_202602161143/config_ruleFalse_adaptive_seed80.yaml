@@ -1,0 +1,24 @@
+config: src/exp_configs/tpcc/catune-gpt-5.2-seed100-pure.yml
+folder: catune-gpt-5.2-seed100-pure_202602161143
+process: optimization
+db: postgres
+database: workload
+test: tpcc
+timeout: 180
+seed: 80
+result_path: ./experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143
+knobs: catune/target_knobs.txt
+suggest_range_path: None
+suggest_range_target_path: None
+suggest_range_mode: default
+suggest_values_path: None
+special_skill_path: None
+special_skill_base_path: None
+special_skill_mode: default
+model: gpt-5.2
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
+recover_script: ./scripts/recover_docker_postgres.sh
+rules: false
+sampling_strategy: adaptive
+user: postgres
+password: postgres

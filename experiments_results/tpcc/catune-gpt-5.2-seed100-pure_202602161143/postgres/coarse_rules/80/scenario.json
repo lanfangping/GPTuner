@@ -1,5 +1,5 @@
 {
-    "name": "../experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143/postgres/fine",
+    "name": "../experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143/postgres/coarse_rules",
     "deterministic": true,
     "objectives": "cost",
     "crash_cost": Infinity,
@@ -8,8 +8,8 @@
     "cputime_limit": Infinity,
     "trial_walltime_limit": null,
     "trial_memory_limit": null,
-    "n_trials": 200,
-    "use_default_config": false,
+    "n_trials": 30,
+    "use_default_config": true,
     "instances": null,
     "instance_features": null,
     "min_budget": null,
@@ -27,14 +27,14 @@
         "model": {
             "name": "RandomForest",
             "types": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
+                5,
+                5,
+                9,
+                7,
+                3,
+                8,
+                12,
+                5,
                 2,
                 2,
                 2,
@@ -47,41 +47,41 @@
                 2,
                 2,
                 2,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
+                3,
+                7,
+                13,
+                5,
+                5,
+                11,
+                5,
+                5,
+                3,
+                5,
+                5,
+                3,
+                5,
+                7,
+                5,
+                5,
                 4,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
+                11,
+                5,
+                7,
+                5,
+                5,
+                4,
+                5,
+                5,
+                2,
+                5,
+                13,
+                2,
+                9,
+                6,
+                5,
+                2,
+                5,
+                6,
                 2,
                 2,
                 2,
@@ -94,44 +94,40 @@
                 2,
                 2,
                 2,
-                0,
-                0
+                5,
+                9
             ],
             "bounds": [
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    9,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    7,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    3,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    8,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    12,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
-                ],
-                [
-                    2,
+                    5,
                     NaN
                 ],
                 [
@@ -179,147 +175,147 @@
                     NaN
                 ],
                 [
-                    0,
-                    1.0
+                    2,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    3,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    7,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    13,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    11,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    3,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    3,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    7,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
-                ],
-                [
-                    0,
-                    1.0
-                ],
-                [
-                    0,
-                    1.0
-                ],
-                [
-                    0,
-                    1.0
-                ],
-                [
-                    0,
-                    1.0
-                ],
-                [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
                     4,
                     NaN
                 ],
                 [
-                    0,
-                    1.0
+                    11,
+                    NaN
                 ],
                 [
-                    0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    7,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    4,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
-                ],
-                [
-                    -1.0,
-                    1.0
-                ],
-                [
-                    -1.0,
-                    1.0
-                ],
-                [
-                    -1.0,
-                    1.0
-                ],
-                [
-                    -1.0,
-                    1.0
+                    5,
+                    NaN
                 ],
                 [
                     2,
+                    NaN
+                ],
+                [
+                    5,
+                    NaN
+                ],
+                [
+                    13,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    9,
+                    NaN
+                ],
+                [
+                    6,
+                    NaN
+                ],
+                [
+                    5,
+                    NaN
+                ],
+                [
+                    2,
+                    NaN
+                ],
+                [
+                    5,
+                    NaN
+                ],
+                [
+                    6,
                     NaN
                 ],
                 [
@@ -367,12 +363,16 @@
                     NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    2,
+                    NaN
                 ],
                 [
-                    -1.0,
-                    1.0
+                    5,
+                    NaN
+                ],
+                [
+                    9,
+                    NaN
                 ]
             ],
             "pca_components": 7,
@@ -432,10 +432,70 @@
             "seed": 80
         },
         "initial_design": {
-            "name": "DefaultInitialDesign",
-            "n_configs": 50,
+            "name": "TopoLatinHypercubeInitialDesign",
+            "n_configs": 10,
             "n_configs_per_hyperparameter": 10,
-            "additional_configs": [],
+            "additional_configs": [
+                {
+                    "autovacuum_freeze_max_age": 200000000,
+                    "autovacuum_multixact_freeze_max_age": 400000000,
+                    "bgwriter_delay": 200,
+                    "bgwriter_lru_multiplier": 2.0,
+                    "checkpoint_completion_target": 0.9,
+                    "checkpoint_flush_after": 32,
+                    "checkpoint_timeout": 300,
+                    "commit_siblings": 5,
+                    "control_backend_flush_after": "0",
+                    "control_bgwriter_flush_after": "0",
+                    "control_bgwriter_lru_maxpages": "0",
+                    "control_commit_delay": "0",
+                    "control_effective_io_concurrency": "0",
+                    "control_join_collapse_limit": "0",
+                    "control_max_parallel_workers_per_gather": "0",
+                    "control_max_prepared_transactions": "0",
+                    "control_max_sync_workers_per_subscription": "0",
+                    "control_max_wal_senders": "0",
+                    "control_wal_buffers": "0",
+                    "control_wal_writer_flush_after": "0",
+                    "deadlock_timeout": 1000,
+                    "default_statistics_target": 100,
+                    "effective_cache_size": 524288,
+                    "from_collapse_limit": 8,
+                    "geqo_threshold": 12,
+                    "maintenance_work_mem": 65536,
+                    "max_connections": 100,
+                    "max_logical_replication_workers": 4,
+                    "max_parallel_maintenance_workers": 2,
+                    "max_parallel_workers": 8,
+                    "max_wal_size": 1024,
+                    "max_worker_processes": 8,
+                    "min_wal_size": 80,
+                    "random_page_cost": 4.0,
+                    "seq_page_cost": 1.0,
+                    "shared_buffers": 16384,
+                    "superuser_reserved_connections": 3,
+                    "temp_buffers": 1024,
+                    "vacuum_freeze_min_age": 50000000,
+                    "vacuum_freeze_table_age": 150000000,
+                    "vacuum_multixact_freeze_min_age": 5000000,
+                    "vacuum_multixact_freeze_table_age": 150000000,
+                    "wal_sync_method": "fdatasync",
+                    "wal_writer_delay": 200,
+                    "work_mem": 4096,
+                    "backend_flush_after": 0,
+                    "bgwriter_flush_after": 64,
+                    "bgwriter_lru_maxpages": 100,
+                    "commit_delay": 0,
+                    "effective_io_concurrency": 1,
+                    "join_collapse_limit": 8,
+                    "max_parallel_workers_per_gather": 2,
+                    "max_prepared_transactions": 0,
+                    "max_sync_workers_per_subscription": 2,
+                    "max_wal_senders": 10,
+                    "wal_buffers": 512,
+                    "wal_writer_flush_after": 128
+                }
+            ],
             "seed": 80
         },
         "random_design": {
@@ -463,5 +523,5 @@
         },
         "version": "2.3.1"
     },
-    "output_directory": "smac3_output/../experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143/postgres/fine/80"
+    "output_directory": "smac3_output/../experiments_results/tpcc/catune-gpt-5.2-seed100-pure_202602161143/postgres/coarse_rules/80"
 }

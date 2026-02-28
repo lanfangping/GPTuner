@@ -1,0 +1,15 @@
+folder: catune-gpt-5.2-seed100-pure_202602161143
+process: optimization
+db: postgres
+user: postgres
+password: postgres
+database: workload
+test: tpcc
+timeout: 180
+seed: 80
+model: gpt-5.2
+restart_cmd: echo 251314 | sudo -S docker restart benchbase
+recover_script: ./scripts/recover_docker_postgres.sh
+knobs: catune/target_knobs.txt
+rules: True
+sampling_strategy: uniform
