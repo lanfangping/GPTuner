@@ -3730,3 +3730,327 @@
 [2026-02-23 14:31:38,100 ERROR] [default_space.py:set_and_replay_ori:255] Config 166: knob checkpoint_timeout is failed to set to 8
 [2026-02-23 14:35:29,030 ERROR] [default_space.py:set_and_replay_ori:255] Config 168: knob checkpoint_timeout is failed to set to 23
 [2026-02-23 14:35:51,822 ERROR] [default_space.py:set_and_replay_ori:255] Config 169: knob checkpoint_timeout is failed to set to 14
+[2026-02-27 17:06:55,352 INFO] [run_gptuner_catune.py:<module>:134] Input arguments: Namespace(config='src/exp_configs/tpch/catune-gpt-5.2-seed100-catune.yml', folder='catune-gpt-5.2-seed100-pure_202602152137', process='optimization', db='postgres', database='workload', test='tpch', timeout=180, seed=80, result_path='./experiments_results/tpch/catune-gpt-5.2-seed100-pure_202602152137', knobs='catune/target_knobs.txt', suggest_range_path='None', suggest_range_target_path='None', suggest_range_mode='default', suggest_values_path='None', special_skill_path='None', special_skill_base_path='None', special_skill_mode='default', model='gpt-5.2', restart_cmd='echo 251314 | sudo -S docker restart benchbase', recover_script='./scripts/recover_docker_postgres.sh', rules=True, sampling_strategy='uniform', user='postgres', password='postgres', knowledge_folder='experiments_results/tpch/catune-gpt-5.2-seed100-pure_202602152137/knowledge_collection')
+[2026-02-27 17:07:26,445 INFO] [coarse_space_catune.py:define_search_space:33] CoarseSpaceCATune - Building coarse search space...
+[2026-02-27 17:07:26,452 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '-1' is outside of suggested min/max or default range. It is discarded.
+[2026-02-27 17:07:26,453 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-27 17:07:26,470 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-27 17:07:26,480 INFO] [coarse_space_catune.py:get_default_space:93] Default search space for knob wal_sync_method: min=None, max=None, boot=fdatasync
+[2026-02-27 17:07:26,481 INFO] [coarse_space_catune.py:get_default_space:97] Unified default search space for knob wal_sync_method: min=None, max=None, boot=fdatasync
+[2026-02-27 17:07:26,488 INFO] [coarse_space_catune.py:__init__:30] Coarse Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: Categorical, Choices: {200000000}, Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: Categorical, Choices: {320000000, 335000000, 340000000, 342500000, 350000000, 360000000, 362500000, 365000000, 375000000, 385000000, 390000000, 400000000}, Default: 400000000
+    backend_flush_after, Type: Categorical, Choices: {0}, Default: 0
+    bgwriter_delay, Type: Categorical, Choices: {35, 42, 110, 155, 200, 288, 400, 525, 600}, Default: 200
+    bgwriter_flush_after, Type: Categorical, Choices: {64}, Default: 64
+    bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 100, 268435456, 536870912}, Default: 100
+    bgwriter_lru_multiplier, Type: Categorical, Choices: {1.5, 1.75, 2.0, 2.75, 3.5}, Default: 2.0
+    checkpoint_completion_target, Type: Categorical, Choices: {0.45, 0.675, 0.9, 0.925, 0.95}, Default: 0.9
+    checkpoint_flush_after, Type: Categorical, Choices: {32, 128, 192, 256}, Default: 32
+    checkpoint_timeout, Type: Categorical, Choices: {300, 300150, 450075, 450150, 675000, 675075, 750000, 900000}, Default: 300
+    commit_delay, Type: Categorical, Choices: {0, 1, 3, 6}, Default: 0
+    commit_siblings, Type: Categorical, Choices: {2, 4, 5, 254, 502}, Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: Categorical, Choices: {200, 350, 425, 600, 800, 1000, 1100, 1400, 1550, 1625, 2000, 2600, 2750, 3000, 3500, 3800, 5000}, Default: 1000
+    default_statistics_target, Type: Categorical, Choices: {50, 75, 100, 2575, 5050}, Default: 100
+    effective_cache_size, Type: Categorical, Choices: {524288, 12582912, 18874368, 555745280, 1086324736}, Default: 524288
+    effective_io_concurrency, Type: Categorical, Choices: {1, 16, 24, 32, 48, 56, 64, 80, 96, 128}, Default: 1
+    from_collapse_limit, Type: Categorical, Choices: {4, 6, 8, 536870918, 1073741828}, Default: 8
+    geqo_threshold, Type: Categorical, Choices: {7, 10, 12, 536870921, 1073741830}, Default: 12
+    join_collapse_limit, Type: Categorical, Choices: {4, 6, 8, 536870918, 1073741828}, Default: 8
+    maintenance_work_mem, Type: Categorical, Choices: {65536, 557056, 802816, 1599078, 2149580}, Default: 65536
+    max_connections, Type: Categorical, Choices: {21, 26, 98, 100, 165}, Default: 100
+    max_logical_replication_workers, Type: Categorical, Choices: {4}, Default: 4
+    max_parallel_maintenance_workers, Type: Categorical, Choices: {2, 3, 4}, Default: 2
+    max_parallel_workers, Type: Categorical, Choices: {4, 6, 8, 262, 516}, Default: 8
+    max_parallel_workers_per_gather, Type: Categorical, Choices: {2, 3}, Default: 2
+    max_prepared_transactions, Type: Categorical, Choices: {0, 65536, 131072}, Default: 0
+    max_sync_workers_per_subscription, Type: Categorical, Choices: {1, 2, 65537, 131072}, Default: 2
+    max_wal_senders, Type: Categorical, Choices: {6, 9, 10, 65545, 131078}, Default: 10
+    max_wal_size, Type: Categorical, Choices: {1024, 2097153, 3145728, 4194305, 6291456, 540016640, 543162368, 1075838976, 1077936128}, Default: 1024
+    max_worker_processes, Type: Categorical, Choices: {6, 7, 8}, Default: 8
+    min_wal_size, Type: Categorical, Choices: {80, 524328, 786452, 1310720, 1572864}, Default: 80
+    random_page_cost, Type: Categorical, Choices: {1.05, 1.0750000000000002, 1.1, 1.15, 1.8250000000000002, 1.9, 2.55, 2.5999999999999996, 4.0}, Default: 4.0
+    seq_page_cost, Type: Categorical, Choices: {1.0}, Default: 1.0
+    shared_buffers, Type: Categorical, Choices: {16384, 4202496, 6295552, 9542042, 10695475}, Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_checkpoint_flush_after, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: Categorical, Choices: {2, 3, 4}, Default: 3
+    temp_buffers, Type: Categorical, Choices: {1024, 8704, 12544, 20480, 24576}, Default: 1024
+    vacuum_freeze_min_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 125000000, 150000000, 162500000, 175000000, 200000000}, Default: 50000000
+    vacuum_freeze_table_age, Type: Categorical, Choices: {50000000, 75000000, 87500000, 100000000, 112500000, 125000000, 150000000}, Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: Categorical, Choices: {5000000, 12500000, 16250000, 17500000, 22500000, 23750000, 25000000, 30000000, 31250000, 32500000, 35000000, 40000000}, Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: Categorical, Choices: {50000000, 62500000, 68750000, 75000000, 87500000, 150000000, 175000000, 237500000, 256250000, 275000000, 387500000, 425000000, 437500000, 450000000, 550000000, 575000000, 650000000}, Default: 150000000
+    wal_buffers, Type: Categorical, Choices: {32, 512, 65920, 131328, 196735}, Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: Categorical, Choices: {105, 152, 200, 400, 600}, Default: 200
+    wal_writer_flush_after, Type: Categorical, Choices: {128, 512, 768, 536871680, 1073742336}, Default: 128
+    work_mem, Type: Categorical, Choices: {4096, 8224, 12304, 536883200, 1073750016}, Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2026-02-27 17:07:50,450 ERROR] [default_space.py:set_and_replay_ori:255] Config 1: knob checkpoint_timeout is failed to set to 750000
+[2026-02-27 17:08:11,881 ERROR] [default_space.py:set_and_replay_ori:255] Config 2: knob checkpoint_timeout is failed to set to 300150
+[2026-02-27 17:08:48,810 ERROR] [default_space.py:set_and_replay_ori:255] Config 3: knob checkpoint_timeout is failed to set to 450075
+[2026-02-27 17:09:10,198 ERROR] [default_space.py:set_and_replay_ori:255] Config 4: knob checkpoint_timeout is failed to set to 450150
+[2026-02-27 17:09:31,602 ERROR] [default_space.py:set_and_replay_ori:255] Config 5: knob checkpoint_timeout is failed to set to 750000
+[2026-02-27 17:09:53,002 ERROR] [default_space.py:set_and_replay_ori:255] Config 6: knob checkpoint_timeout is failed to set to 675000
+[2026-02-27 17:10:25,446 ERROR] [default_space.py:set_and_replay_ori:255] Config 7: knob checkpoint_timeout is failed to set to 675000
+[2026-02-27 17:10:46,849 ERROR] [default_space.py:set_and_replay_ori:255] Config 8: knob checkpoint_timeout is failed to set to 900000
+[2026-02-27 17:12:31,486 ERROR] [default_space.py:set_and_replay_ori:255] Config 11: knob checkpoint_timeout is failed to set to 675000
+[2026-02-27 17:13:22,052 ERROR] [default_space.py:set_and_replay_ori:255] Config 12: knob checkpoint_timeout is failed to set to 750000
+[2026-02-27 17:13:55,520 ERROR] [default_space.py:set_and_replay_ori:255] Config 13: knob checkpoint_timeout is failed to set to 675000
+[2026-02-27 17:14:56,319 ERROR] [default_space.py:set_and_replay_ori:255] Config 14: knob checkpoint_timeout is failed to set to 900000
+[2026-02-27 17:15:43,159 ERROR] [default_space.py:set_and_replay_ori:255] Config 15: knob checkpoint_timeout is failed to set to 675075
+[2026-02-27 17:16:17,924 ERROR] [default_space.py:set_and_replay_ori:255] Config 16: knob checkpoint_timeout is failed to set to 675075
+[2026-02-27 17:17:02,359 ERROR] [default_space.py:set_and_replay_ori:255] Config 17: knob checkpoint_timeout is failed to set to 450150
+[2026-02-27 17:19:04,745 ERROR] [default_space.py:set_and_replay_ori:255] Config 21: knob checkpoint_timeout is failed to set to 450075
+[2026-02-27 17:19:52,976 ERROR] [default_space.py:set_and_replay_ori:255] Config 23: knob checkpoint_timeout is failed to set to 675000
+[2026-02-27 17:20:25,442 ERROR] [default_space.py:set_and_replay_ori:255] Config 24: knob checkpoint_timeout is failed to set to 750000
+[2026-02-27 17:20:58,258 ERROR] [default_space.py:set_and_replay_ori:255] Config 25: knob checkpoint_timeout is failed to set to 450075
+[2026-02-27 17:21:19,677 ERROR] [default_space.py:set_and_replay_ori:255] Config 26: knob checkpoint_timeout is failed to set to 750000
+[2026-02-27 17:21:54,156 ERROR] [default_space.py:set_and_replay_ori:255] Config 27: knob checkpoint_timeout is failed to set to 675075
+[2026-02-27 17:22:20,147 ERROR] [default_space.py:set_and_replay_ori:255] Config 28: knob checkpoint_timeout is failed to set to 450150
+[2026-02-27 17:22:41,504 ERROR] [default_space.py:set_and_replay_ori:255] Config 29: knob checkpoint_timeout is failed to set to 675075
+[2026-02-27 17:23:35,913 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '-1' is outside of suggested min/max or default range. It is discarded.
+[2026-02-27 17:23:35,915 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-27 17:23:35,934 WARNING] [default_space.py:get_sequence_from_coarse:417] Suggested value '512' is outside of suggested min/max or default range. It is discarded.
+[2026-02-27 17:23:35,946 INFO] [fine_space_catune.py:get_default_space:149] Boot value: fdatasync, min value: None, max value: None for knob wal_sync_method
+[2026-02-27 17:23:35,946 INFO] [fine_space_catune.py:get_default_space:153] Unified boot value: fdatasync, unified min value: None, unified max value: None for knob wal_sync_method
+[2026-02-27 17:23:35,952 INFO] [fine_space_catune.py:__init__:32] Fine Configuration Space: Configuration space object:
+  Hyperparameters:
+    autovacuum_freeze_max_age, Type: UniformInteger, Range: [100000, 2000000000], Default: 200000000
+    autovacuum_multixact_freeze_max_age, Type: UniformInteger, Range: [320000000, 400000000], Default: 400000000
+    backend_flush_after, Type: UniformInteger, Range: [0, 256], Default: 0
+    bgwriter_delay, Type: UniformInteger, Range: [20, 1000], Default: 200
+    bgwriter_flush_after, Type: UniformInteger, Range: [0, 256], Default: 64
+    bgwriter_lru_maxpages, Type: UniformInteger, Range: [0, 1073741823], Default: 100
+    bgwriter_lru_multiplier, Type: UniformFloat, Range: [1.0, 5.0], Default: 2.0
+    checkpoint_completion_target, Type: UniformFloat, Range: [0.0, 1.0], Default: 0.9
+    checkpoint_flush_after, Type: UniformInteger, Range: [0, 256], Default: 32
+    checkpoint_timeout, Type: UniformInteger, Range: [300, 900000], Default: 300
+    commit_delay, Type: UniformInteger, Range: [0, 10], Default: 0
+    commit_siblings, Type: UniformInteger, Range: [0, 1000], Default: 5
+    control_backend_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_bgwriter_lru_maxpages, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_checkpoint_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_commit_delay, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_effective_io_concurrency, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_parallel_workers_per_gather, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_prepared_transactions, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_sync_workers_per_subscription, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_max_wal_senders, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_buffers, Type: Categorical, Choices: {0, 1}, Default: 0
+    control_wal_writer_flush_after, Type: Categorical, Choices: {0, 1}, Default: 0
+    deadlock_timeout, Type: UniformInteger, Range: [200, 5000], Default: 1000
+    default_statistics_target, Type: UniformInteger, Range: [1, 10000], Default: 100
+    effective_cache_size, Type: UniformInteger, Range: [1, 2147483647], Default: 524288
+    effective_io_concurrency, Type: UniformInteger, Range: [1, 128], Default: 1
+    from_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    geqo_threshold, Type: UniformInteger, Range: [2, 2147483647], Default: 12
+    join_collapse_limit, Type: UniformInteger, Range: [1, 2147483647], Default: 8
+    maintenance_work_mem, Type: UniformInteger, Range: [65536, 3250585], Default: 65536
+    max_connections, Type: UniformInteger, Range: [12, 300], Default: 100
+    max_logical_replication_workers, Type: UniformInteger, Range: [0, 262143], Default: 4
+    max_parallel_maintenance_workers, Type: UniformInteger, Range: [2, 4], Default: 2
+    max_parallel_workers, Type: UniformInteger, Range: [0, 1024], Default: 8
+    max_parallel_workers_per_gather, Type: UniformInteger, Range: [1, 4], Default: 2
+    max_prepared_transactions, Type: UniformInteger, Range: [0, 262143], Default: 0
+    max_sync_workers_per_subscription, Type: UniformInteger, Range: [0, 262143], Default: 2
+    max_wal_senders, Type: UniformInteger, Range: [0, 262143], Default: 10
+    max_wal_size, Type: UniformInteger, Range: [2, 2147483647], Default: 1024
+    max_worker_processes, Type: UniformInteger, Range: [5, 8], Default: 8
+    min_wal_size, Type: UniformInteger, Range: [80, 2097152], Default: 80
+    random_page_cost, Type: UniformFloat, Range: [1.0, 4.0], Default: 4.0
+    seq_page_cost, Type: UniformFloat, Range: [0.0, 9.223372036854776e+17], Default: 1.0
+    shared_buffers, Type: UniformInteger, Range: [16384, 13002342], Default: 16384
+    special_backend_flush_after, Type: Constant, Value: 0
+    special_bgwriter_flush_after, Type: Constant, Value: 0
+    special_bgwriter_lru_maxpages, Type: Constant, Value: 0
+    special_checkpoint_flush_after, Type: Constant, Value: 0
+    special_commit_delay, Type: Constant, Value: 0
+    special_effective_io_concurrency, Type: Constant, Value: 0
+    special_max_parallel_workers_per_gather, Type: Constant, Value: 0
+    special_max_prepared_transactions, Type: Constant, Value: 0
+    special_max_sync_workers_per_subscription, Type: Constant, Value: 0
+    special_max_wal_senders, Type: Constant, Value: 0
+    special_wal_buffers, Type: Constant, Value: -1
+    special_wal_writer_flush_after, Type: Constant, Value: 0
+    superuser_reserved_connections, Type: UniformInteger, Range: [2, 5], Default: 3
+    temp_buffers, Type: UniformInteger, Range: [1024, 32768], Default: 1024
+    vacuum_freeze_min_age, Type: UniformInteger, Range: [50000000, 200000000], Default: 50000000
+    vacuum_freeze_table_age, Type: UniformInteger, Range: [50000000, 150000000], Default: 150000000
+    vacuum_multixact_freeze_min_age, Type: UniformInteger, Range: [5000000, 40000000], Default: 5000000
+    vacuum_multixact_freeze_table_age, Type: UniformInteger, Range: [50000000, 800000000], Default: 150000000
+    wal_buffers, Type: UniformInteger, Range: [32, 262143], Default: 512
+    wal_sync_method, Type: Categorical, Choices: {fsync, fdatasync, open_sync, open_datasync}, Default: fdatasync
+    wal_writer_delay, Type: UniformInteger, Range: [10, 1000], Default: 200
+    wal_writer_flush_after, Type: UniformInteger, Range: [0, 2147483647], Default: 128
+    work_mem, Type: UniformInteger, Range: [64, 2147483647], Default: 4096
+  Conditions:
+    backend_flush_after | control_backend_flush_after == '0'
+    bgwriter_flush_after | control_bgwriter_flush_after == '0'
+    bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '0'
+    checkpoint_flush_after | control_checkpoint_flush_after == '0'
+    commit_delay | control_commit_delay == '0'
+    effective_io_concurrency | control_effective_io_concurrency == '0'
+    max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '0'
+    max_prepared_transactions | control_max_prepared_transactions == '0'
+    max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '0'
+    max_wal_senders | control_max_wal_senders == '0'
+    special_backend_flush_after | control_backend_flush_after == '1'
+    special_bgwriter_flush_after | control_bgwriter_flush_after == '1'
+    special_bgwriter_lru_maxpages | control_bgwriter_lru_maxpages == '1'
+    special_checkpoint_flush_after | control_checkpoint_flush_after == '1'
+    special_commit_delay | control_commit_delay == '1'
+    special_effective_io_concurrency | control_effective_io_concurrency == '1'
+    special_max_parallel_workers_per_gather | control_max_parallel_workers_per_gather == '1'
+    special_max_prepared_transactions | control_max_prepared_transactions == '1'
+    special_max_sync_workers_per_subscription | control_max_sync_workers_per_subscription == '1'
+    special_max_wal_senders | control_max_wal_senders == '1'
+    special_wal_buffers | control_wal_buffers == '1'
+    special_wal_writer_flush_after | control_wal_writer_flush_after == '1'
+    wal_buffers | control_wal_buffers == '0'
+    wal_writer_flush_after | control_wal_writer_flush_after == '0'
+
+[2026-02-27 17:23:51,776 ERROR] [default_space.py:set_and_replay_ori:255] Config 0: knob checkpoint_timeout is failed to set to 29
+[2026-02-27 17:27:02,440 ERROR] [default_space.py:set_and_replay_ori:255] Config 1: knob min_wal_size is failed to set to 0
+[2026-02-27 17:46:41,923 ERROR] [default_space.py:set_and_replay_ori:255] Config 8: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 17:50:14,888 ERROR] [default_space.py:set_and_replay_ori:255] Config 10: knob min_wal_size is failed to set to 0
+[2026-02-27 18:03:09,932 ERROR] [default_space.py:set_and_replay_ori:255] Config 15: knob checkpoint_timeout is failed to set to 21
+[2026-02-27 18:06:51,867 ERROR] [default_space.py:set_and_replay_ori:255] Config 17: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:09:59,042 ERROR] [default_space.py:set_and_replay_ori:255] Config 18: knob min_wal_size is failed to set to 0
+[2026-02-27 18:13:32,315 ERROR] [default_space.py:set_and_replay_ori:255] Config 20: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 18:13:58,052 ERROR] [default_space.py:set_and_replay_ori:255] Config 21: knob checkpoint_timeout is failed to set to 25
+[2026-02-27 18:23:32,740 ERROR] [default_space.py:set_and_replay_ori:255] Config 24: knob min_wal_size is failed to set to 0
+[2026-02-27 18:24:17,945 ERROR] [default_space.py:set_and_replay_ori:255] Config 26: knob min_wal_size is failed to set to 0
+[2026-02-27 18:24:42,765 ERROR] [default_space.py:set_and_replay_ori:255] Config 27: knob min_wal_size is failed to set to 0
+[2026-02-27 18:27:49,965 ERROR] [default_space.py:set_and_replay_ori:255] Config 28: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:31:25,515 ERROR] [default_space.py:set_and_replay_ori:255] Config 30: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:31:49,226 ERROR] [default_space.py:set_and_replay_ori:255] Config 31: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 18:32:26,263 ERROR] [default_space.py:set_and_replay_ori:255] Config 32: knob checkpoint_timeout is failed to set to 4
+[2026-02-27 18:32:50,002 ERROR] [default_space.py:set_and_replay_ori:255] Config 33: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:36:25,059 ERROR] [default_space.py:set_and_replay_ori:255] Config 35: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:39:32,274 ERROR] [default_space.py:set_and_replay_ori:255] Config 36: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 18:39:56,025 ERROR] [default_space.py:set_and_replay_ori:255] Config 37: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:47:11,272 ERROR] [default_space.py:set_and_replay_ori:255] Config 41: knob checkpoint_timeout is failed to set to 12
+[2026-02-27 18:53:29,316 ERROR] [default_space.py:set_and_replay_ori:255] Config 43: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 18:59:43,712 ERROR] [default_space.py:set_and_replay_ori:255] Config 45: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:00:07,386 ERROR] [default_space.py:set_and_replay_ori:255] Config 46: knob checkpoint_timeout is failed to set to 4
+[2026-02-27 19:06:35,707 ERROR] [default_space.py:set_and_replay_ori:255] Config 48: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:06:59,442 ERROR] [default_space.py:set_and_replay_ori:255] Config 49: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:07:23,193 ERROR] [default_space.py:set_and_replay_ori:255] Config 50: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:07:46,952 ERROR] [default_space.py:set_and_replay_ori:255] Config 51: knob checkpoint_timeout is failed to set to 15
+[2026-02-27 19:08:10,739 ERROR] [default_space.py:set_and_replay_ori:255] Config 52: knob checkpoint_timeout is failed to set to 4
+[2026-02-27 19:11:43,270 ERROR] [default_space.py:set_and_replay_ori:255] Config 54: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:12:07,000 ERROR] [default_space.py:set_and_replay_ori:255] Config 55: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:12:43,708 ERROR] [default_space.py:set_and_replay_ori:255] Config 56: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:13:07,443 ERROR] [default_space.py:set_and_replay_ori:255] Config 57: knob checkpoint_timeout is failed to set to 4
+[2026-02-27 19:16:14,654 ERROR] [default_space.py:set_and_replay_ori:255] Config 58: knob min_wal_size is failed to set to 0
+[2026-02-27 19:16:38,455 ERROR] [default_space.py:set_and_replay_ori:255] Config 59: knob checkpoint_timeout is failed to set to 3
+[2026-02-27 19:17:02,246 ERROR] [default_space.py:set_and_replay_ori:255] Config 60: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:20:09,435 ERROR] [default_space.py:set_and_replay_ori:255] Config 61: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:20:33,274 ERROR] [default_space.py:set_and_replay_ori:255] Config 62: knob checkpoint_timeout is failed to set to 2
+[2026-02-27 19:20:57,060 ERROR] [default_space.py:set_and_replay_ori:255] Config 63: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:21:33,815 ERROR] [default_space.py:set_and_replay_ori:255] Config 64: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:21:57,586 ERROR] [default_space.py:set_and_replay_ori:255] Config 65: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:25:32,350 ERROR] [default_space.py:set_and_replay_ori:255] Config 67: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:29:07,338 ERROR] [default_space.py:set_and_replay_ori:255] Config 69: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:29:31,113 ERROR] [default_space.py:set_and_replay_ori:255] Config 70: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:30:29,363 ERROR] [default_space.py:set_and_replay_ori:255] Config 72: knob min_wal_size is failed to set to 0
+[2026-02-27 19:30:53,222 ERROR] [default_space.py:set_and_replay_ori:255] Config 73: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:31:14,657 ERROR] [default_space.py:set_and_replay_ori:255] Config 74: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:31:38,389 ERROR] [default_space.py:set_and_replay_ori:255] Config 75: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:32:02,181 ERROR] [default_space.py:set_and_replay_ori:255] Config 76: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:32:25,934 ERROR] [default_space.py:set_and_replay_ori:255] Config 77: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:32:49,752 ERROR] [default_space.py:set_and_replay_ori:255] Config 78: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:33:13,494 ERROR] [default_space.py:set_and_replay_ori:255] Config 79: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:33:50,661 ERROR] [default_space.py:set_and_replay_ori:255] Config 80: knob checkpoint_timeout is failed to set to 2
+[2026-02-27 19:37:23,552 ERROR] [default_space.py:set_and_replay_ori:255] Config 82: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 19:37:47,298 ERROR] [default_space.py:set_and_replay_ori:255] Config 83: knob checkpoint_timeout is failed to set to 3
+[2026-02-27 19:38:11,055 ERROR] [default_space.py:set_and_replay_ori:255] Config 84: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:45:51,802 ERROR] [default_space.py:set_and_replay_ori:255] Config 89: knob checkpoint_timeout is failed to set to 1
+[2026-02-27 19:46:15,622 ERROR] [default_space.py:set_and_replay_ori:255] Config 90: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:49:46,571 ERROR] [default_space.py:set_and_replay_ori:255] Config 92: knob checkpoint_timeout is failed to set to 20
+[2026-02-27 19:53:30,220 ERROR] [default_space.py:set_and_replay_ori:255] Config 94: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:58:25,316 ERROR] [default_space.py:set_and_replay_ori:255] Config 96: knob min_wal_size is failed to set to 0
+[2026-02-27 19:58:49,194 ERROR] [default_space.py:set_and_replay_ori:255] Config 97: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:59:12,952 ERROR] [default_space.py:set_and_replay_ori:255] Config 98: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 19:59:36,787 ERROR] [default_space.py:set_and_replay_ori:255] Config 99: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 20:00:00,586 ERROR] [default_space.py:set_and_replay_ori:255] Config 100: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:00:24,383 ERROR] [default_space.py:set_and_replay_ori:255] Config 101: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:00:48,201 ERROR] [default_space.py:set_and_replay_ori:255] Config 102: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 20:08:11,238 ERROR] [default_space.py:set_and_replay_ori:255] Config 106: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:18:00,820 ERROR] [default_space.py:set_and_replay_ori:255] Config 110: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:19:01,839 ERROR] [default_space.py:set_and_replay_ori:255] Config 112: knob min_wal_size is failed to set to 0
+[2026-02-27 20:19:25,690 ERROR] [default_space.py:set_and_replay_ori:255] Config 113: knob checkpoint_timeout is failed to set to 17
+[2026-02-27 20:19:49,504 ERROR] [default_space.py:set_and_replay_ori:255] Config 114: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:23:24,135 ERROR] [default_space.py:set_and_replay_ori:255] Config 116: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:23:47,922 ERROR] [default_space.py:set_and_replay_ori:255] Config 117: knob min_wal_size is failed to set to 0
+[2026-02-27 20:24:13,018 ERROR] [default_space.py:set_and_replay_ori:255] Config 118: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:24:36,895 ERROR] [default_space.py:set_and_replay_ori:255] Config 119: knob checkpoint_timeout is failed to set to 4
+[2026-02-27 20:25:25,587 ERROR] [default_space.py:set_and_replay_ori:255] Config 120: knob min_wal_size is failed to set to 0
+[2026-02-27 20:35:15,613 ERROR] [default_space.py:set_and_replay_ori:255] Config 124: knob checkpoint_timeout is failed to set to 4
+[2026-02-27 20:35:39,429 ERROR] [default_space.py:set_and_replay_ori:255] Config 125: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:36:27,091 ERROR] [default_space.py:set_and_replay_ori:255] Config 127: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 20:37:49,513 ERROR] [default_space.py:set_and_replay_ori:255] Config 130: knob min_wal_size is failed to set to 0
+[2026-02-27 20:45:17,140 ERROR] [default_space.py:set_and_replay_ori:255] Config 135: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:46:41,603 ERROR] [default_space.py:set_and_replay_ori:255] Config 138: knob min_wal_size is failed to set to 0
+[2026-02-27 20:47:05,403 ERROR] [default_space.py:set_and_replay_ori:255] Config 139: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:47:30,198 ERROR] [default_space.py:set_and_replay_ori:255] Config 140: knob checkpoint_timeout is failed to set to 2
+[2026-02-27 20:47:54,015 ERROR] [default_space.py:set_and_replay_ori:255] Config 141: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:48:17,834 ERROR] [default_space.py:set_and_replay_ori:255] Config 142: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:48:41,665 ERROR] [default_space.py:set_and_replay_ori:255] Config 143: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:53:17,541 ERROR] [default_space.py:set_and_replay_ori:255] Config 147: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:53:41,294 ERROR] [default_space.py:set_and_replay_ori:255] Config 148: knob checkpoint_timeout is failed to set to 6
+[2026-02-27 20:54:05,034 ERROR] [default_space.py:set_and_replay_ori:255] Config 149: knob checkpoint_timeout is failed to set to 11
+[2026-02-27 20:54:28,803 ERROR] [default_space.py:set_and_replay_ori:255] Config 150: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:54:52,656 ERROR] [default_space.py:set_and_replay_ori:255] Config 151: knob checkpoint_timeout is failed to set to 0
+[2026-02-27 20:57:47,223 ERROR] [default_space.py:set_and_replay_ori:255] Config 158: knob min_wal_size is failed to set to 0
+[2026-02-27 21:09:27,657 ERROR] [default_space.py:set_and_replay_ori:255] Config 166: knob min_wal_size is failed to set to 0
