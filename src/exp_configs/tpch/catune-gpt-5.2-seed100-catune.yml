@@ -7,10 +7,11 @@ password: postgres
 database: workload
 test: tpch
 timeout: 180
-seed: 80
+seed: 20
 model: gpt-5.2
 restart_cmd: echo 251314 | sudo -S docker restart benchbase
 recover_script: ./scripts/recover_docker_postgres.sh
 knobs: catune/target_knobs.txt
 knowledge_folder: experiments_results/tpch/catune-gpt-5.2-seed100-pure_202602152137/knowledge_collection
-rules: False
+rules: True
+sampling_strategy: uniform
