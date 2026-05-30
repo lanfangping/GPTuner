@@ -1,0 +1,1 @@
+**SENTENCE:** `effective_io_concurrency` sets how many disk I/O requests PostgreSQL will try to run in parallel per session during bitmap heap scans—use **0** to disable async I/O, otherwise choose **1–1000** (often **# of RAID0/RAID1 data drives**, excluding RAID5 parity, or **hundreds on SSDs**); default is **1** on supported systems (**0** if not).

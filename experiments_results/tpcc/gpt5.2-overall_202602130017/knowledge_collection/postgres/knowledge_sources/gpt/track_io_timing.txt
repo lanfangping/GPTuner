@@ -1,0 +1,1 @@
+Set `track_io_timing` to `on` only when you need per-query block I/O time breakdowns (it adds a small overhead, often around ~1–2% but can be higher on very I/O‑heavy workloads), and otherwise keep it `off` on latency/throughput‑sensitive production systems.

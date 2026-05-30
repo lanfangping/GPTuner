@@ -1,0 +1,1 @@
+Set `vacuum_cost_page_hit` (default **1**) based on how much you want to throttle vacuum I/O: keep it around **1–2** on fast SSD/NVMe to let vacuum run more aggressively, but raise it to about **5–20** (or higher) on slower or I/O‑sensitive systems to slow vacuum down (since higher cost makes autovacuum hit its `vacuum_cost_limit` sooner and sleep more).

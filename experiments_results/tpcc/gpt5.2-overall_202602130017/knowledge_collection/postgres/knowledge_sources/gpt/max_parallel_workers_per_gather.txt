@@ -1,0 +1,1 @@
+Set `max_parallel_workers_per_gather` to a small fraction of your CPU cores—start at **2** (or **1** on small instances), then try **2–4 per parallel-friendly query**, keeping it **≤ ~½ of vCPUs** (e.g., **8 vCPUs → 2–4**, **16 vCPUs → 4–8**) and ensuring it doesn’t cause overall parallel worker demand to exceed `max_parallel_workers` (and ultimately `max_worker_processes`).

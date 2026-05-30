@@ -1,0 +1,1 @@
+Set `autovacuum_work_mem` to about **1–4% of RAM** (≈ **0.5–2 GB on 64 GB**, **1–4 GB on 128 GB**) **but cap it so that** `autovacuum_work_mem × autovacuum_max_workers` stays within roughly **5–10% of RAM**, since that’s the worst-case concurrent memory the autovacuum workers could consume.

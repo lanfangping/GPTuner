@@ -1,0 +1,1 @@
+Set `autovacuum_vacuum_cost_limit` by starting with the default **200** and increasing it in steps (e.g., **400 → 800 → 1600**) until vacuum keeps up (dead tuples/bloat stop growing), while ensuring user-query latency and I/O don’t regress; on fast SSD-heavy systems values around **1000–3000** are common, whereas on HDD/constrained I/O you may stay near **200–500**.

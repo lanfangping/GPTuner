@@ -1,0 +1,1 @@
+Set `autovacuum_max_workers` to roughly the number of concurrent vacuums you can “afford” in CPU and I/O—start with **3 (default)**, raise gradually to **5–10** on dedicated servers if autovacuum falls behind, and keep it **≤ min(8–16, CPU_cores/2)** unless storage is very fast and the workload tolerates the extra I/O/CPU.

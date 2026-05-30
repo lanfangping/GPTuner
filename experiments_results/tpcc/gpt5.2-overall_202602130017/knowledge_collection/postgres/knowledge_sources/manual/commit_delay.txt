@@ -1,0 +1,1 @@
+`commit_delay` adds an optional wait (default **0 µs**) of up to the configured time (in **microseconds** if no unit is given) before starting a WAL flush to improve group-commit throughput, but it only waits when **fsync is enabled** and at least **commit_siblings** other transactions are active, and it can increase commit latency by up to that delay per flush.

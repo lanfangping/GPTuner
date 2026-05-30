@@ -1,0 +1,1 @@
+Set `superuser_reserved_connections` to **~3–5** (keep the default **3** unless you have many superuser/maintenance roles), and ensure `max_connections` is high enough that **`max_connections - superuser_reserved_connections`** still covers peak normal clients—for example, with **200** total connections and **3** reserved, only **197** are available to non-superusers.

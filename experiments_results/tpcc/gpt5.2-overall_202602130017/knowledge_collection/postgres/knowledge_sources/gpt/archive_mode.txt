@@ -1,0 +1,1 @@
+Set `archive_mode` to `off` (0) if you don’t need WAL archiving; otherwise enable it as `on` (1) for manual/async archiving or `always` (2) if you want archiving to run even during recovery (e.g., on a standby for cascaded replication), and then ensure `archive_command` is correctly configured.

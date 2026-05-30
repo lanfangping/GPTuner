@@ -1,0 +1,1 @@
+Controls whether PostgreSQL runs the autovacuum launcher daemon (`on` by default; requires `track_counts=on`), configurable only in `postgresql.conf`/server command line (though tables can disable it via storage parameters), and even with `autovacuum=off` the server will still start autovacuum workers as needed to prevent transaction ID wraparound.

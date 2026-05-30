@@ -1,0 +1,1 @@
+Applies expensive JIT optimizations only when a query’s estimated cost exceeds **jit_optimize_above_cost** (default **500000**), trading extra planning time for faster execution; values **< jit_above_cost** are not meaningful, values **> jit_inline_above_cost** are unlikely to help, and **-1** disables these optimizations.

@@ -1,0 +1,1 @@
+**SENTENCE:** `archive_command` sets the shell command PostgreSQL runs **once per completed WAL segment (typically 16 MB)** to archive it, substituting **`%p` = full path** and **`%f` = file name**, and it **must exit 0 only on success** (it’s used only when `archive_mode` is enabled at startup; **default `''` disables archiving and causes WAL files to accumulate**).

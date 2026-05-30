@@ -1,0 +1,1 @@
+Set `enable_indexonlyscan` to **`on` (1)** in normal operation so PostgreSQL can choose index-only scans when they’re cheapest, and only set it to **`off` (0)** temporarily for **diagnostics/what-if testing** (e.g., comparing plan costs and timings with it toggled), because it’s a **planner on/off switch** rather than a performance “tuning level” knob.

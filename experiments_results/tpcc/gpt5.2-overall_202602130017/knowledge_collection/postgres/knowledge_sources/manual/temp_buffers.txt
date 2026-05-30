@@ -1,0 +1,1 @@
+**temp_buffers** sets the per-session cap on memory for temporary-table buffers—default **8MB** (≈**1024** 8KB blocks), costing about **64 bytes** of metadata per configured buffer plus **8KB** (BLCKSZ) for each buffer actually used, and it can only be changed **before** the session first accesses a temporary table.

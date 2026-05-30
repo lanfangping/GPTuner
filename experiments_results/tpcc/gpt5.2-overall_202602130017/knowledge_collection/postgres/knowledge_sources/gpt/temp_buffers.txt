@@ -1,0 +1,1 @@
+Set `temp_buffers` high enough to keep each session’s temporary-table workload in memory—start around **16–64 MB** per connection, increase to **128–256 MB** if temp tables routinely spill to disk, and keep in mind it is **per session** (max temp RAM ≈ **temp_buffers × concurrent sessions**, e.g., **64 MB × 50 = 3.2 GB**).

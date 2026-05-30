@@ -1,0 +1,1 @@
+**bgwriter_lru_multiplier** multiplies the recent average number of buffers needed (e.g., if ~100 new buffers/round and set to **2.0** → target **~200** clean buffers by writing dirty ones), where **1.0** is “just-in-time,” higher values add cushion, lower values shift more writing to backends, and each round is capped by **bgwriter_lru_maxpages**.

@@ -1,0 +1,1 @@
+Set `track_counts` to `on` for most workloads so PostgreSQL can keep approximate row and page counts for the planner (default `on`); only set it to `off` if you’ve verified the stats-collection overhead matters (it’s usually small, often around ~1% or less) and you can tolerate worse plan choices—there isn’t a meaningful numeric “size” to tune because it’s a boolean (on/off).

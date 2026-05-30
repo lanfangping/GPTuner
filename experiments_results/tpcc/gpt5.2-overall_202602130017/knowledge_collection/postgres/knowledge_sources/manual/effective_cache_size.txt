@@ -1,0 +1,1 @@
+**effective_cache_size** tells the planner how much cache (PostgreSQL shared_buffers + OS filesystem cache) it can assume is effectively available per query for costing index vs. sequential scans (higher → more index scans), expressed in 8KB blocks if no units are given, with a default of **4GB** (≈ **524,288** 8KB blocks).

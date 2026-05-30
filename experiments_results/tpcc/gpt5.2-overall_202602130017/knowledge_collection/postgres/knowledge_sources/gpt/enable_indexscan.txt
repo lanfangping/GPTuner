@@ -1,0 +1,1 @@
+Set `enable_indexscan` to `on` (default) for normal operation, and only set it to `off` temporarily (e.g., for a specific session/query during diagnosis) to force the planner to avoid index scans and compare alternatives—it's a boolean knob (`on/off`, no numeric range), so the “concrete numbers” are effectively **1 = on** and **0 = off** (via `SET enable_indexscan TO on|off;`).

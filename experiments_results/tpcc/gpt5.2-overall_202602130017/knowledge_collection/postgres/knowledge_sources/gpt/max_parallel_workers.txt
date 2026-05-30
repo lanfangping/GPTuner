@@ -1,0 +1,1 @@
+Set `max_parallel_workers` to roughly the number of CPU cores you want PostgreSQL to use for parallel queries—typically **equal to (or slightly below) the machine’s vCPU count** (e.g., **8 vCPUs → 8**, **16 vCPUs → 16**), and **cap it at about 50–75% of total vCPUs** if you need to reserve CPU for other workloads (e.g., **32 vCPUs → 16–24**).

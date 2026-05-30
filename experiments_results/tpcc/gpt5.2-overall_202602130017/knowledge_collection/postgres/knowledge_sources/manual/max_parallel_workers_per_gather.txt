@@ -1,0 +1,1 @@
+Controls how many parallel worker processes a single `Gather`/`Gather Merge` can use (default **2**; **0** disables parallel query), bounded by `max_worker_processes` and `max_parallel_workers`, and note that **N** workers can consume roughly **(N+1)×** the CPU/memory/I/O (e.g., **4** workers ≈ **5×**).

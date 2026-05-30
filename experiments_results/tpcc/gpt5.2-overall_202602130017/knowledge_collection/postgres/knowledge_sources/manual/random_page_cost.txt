@@ -1,0 +1,1 @@
+**SENTENCE:** `random_page_cost` sets the planner’s assumed cost of fetching a non-sequential (random) disk page—default **4.0**—so lowering it (e.g., **1.1** for SSD or fully cached data) makes index scans more attractive, while raising it reflects a lower cache hit rate than the default ~**90%** (roughly “random I/O is 40× slower than sequential, but mostly cached”).

@@ -1,0 +1,1 @@
+Set `min_wal_size` to roughly **2× your typical WAL generated between checkpoints**—a practical starting point is **1–2 GB** for small/moderate systems (e.g., **2 GB**), and increase it (e.g., **4–16 GB**) if you observe frequent WAL recycling/checkpoint churn, keeping it **≤ `max_wal_size`** (with `max_wal_size` commonly **2–4×** `min_wal_size`).

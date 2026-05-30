@@ -1,0 +1,1 @@
+Set `wal_writer_delay` to **~10 ms** for write-heavy/low-latency workloads and to **~100–200 ms** (PostgreSQL default is **200 ms**) for typical mixed workloads to reduce background wakeups; if you see frequent WAL flush-related latency spikes, **lower toward 10–50 ms**, and if CPU wakeups are a concern and latency is acceptable, **raise toward 200–1000 ms**.

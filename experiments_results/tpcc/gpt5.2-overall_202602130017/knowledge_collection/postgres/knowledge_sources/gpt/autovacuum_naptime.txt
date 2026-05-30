@@ -1,0 +1,1 @@
+Set `autovacuum_naptime` to **~10s** on busy/OLTP systems (often **5–15s**) to start autovacuum workers more frequently and reduce bloat, and to **~30–60s** on low-write systems to reduce overhead (default is **60s**; generally avoid going above **60–120s** unless you’re sure vacuum lag won’t accumulate).

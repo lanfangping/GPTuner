@@ -1,0 +1,1 @@
+Set `wal_level` to the lowest level that still supports your features—use `minimal` for a standalone server with no replication/archiving, `replica` (the default) for physical replication or PITR/archiving, and `logical` only if you need logical decoding/logical replication (it generates the most WAL and typically costs noticeable extra write volume/CPU compared to `replica`).

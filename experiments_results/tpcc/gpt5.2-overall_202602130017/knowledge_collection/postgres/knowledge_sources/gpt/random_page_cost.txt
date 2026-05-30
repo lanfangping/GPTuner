@@ -1,0 +1,1 @@
+Set `random_page_cost` to roughly the ratio of a random read vs a sequential read on your storage: use **~4.0** for old spinning HDDs, **~1.5–2.0** for typical SSD/NVMe with some cache, and **~1.0–1.2** when most data is served from RAM or very fast NVMe—then verify with `EXPLAIN (ANALYZE, BUFFERS)` and adjust if the planner is choosing too many/few index scans.

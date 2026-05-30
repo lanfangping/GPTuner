@@ -1,0 +1,1 @@
+**SENTENCE:** Sets the total cost limit for autovacuum VACUUM; **-1 (default)** means use `vacuum_cost_limit`, and if multiple autovacuum workers run, this value is **split proportionally so their per-worker limits sum to no more than the configured limit** (e.g., **2000 total** with **4 workers ≈ 500 each).

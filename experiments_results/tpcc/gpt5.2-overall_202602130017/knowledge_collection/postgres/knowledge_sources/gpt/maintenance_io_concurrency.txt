@@ -1,0 +1,1 @@
+Set `maintenance_io_concurrency` to match the number of concurrent I/O requests your storage can efficiently handle during maintenance (vacuum/create index/etc.): keep it at **0** (disabled) on **HDD/unknown**, use about **32–64** for typical **SSD**, and **128–256** for fast **NVMe/SAN**, increasing until maintenance jobs stop getting faster (then back off).

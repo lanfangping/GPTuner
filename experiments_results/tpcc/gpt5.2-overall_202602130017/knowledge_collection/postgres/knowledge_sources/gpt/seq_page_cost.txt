@@ -1,0 +1,1 @@
+Set `seq_page_cost` to approximate your storage’s sequential-read cost relative to CPU (default **1.0** for HDD-like behavior); keep it around **1.0** for spinning disks, and lower it (commonly **0.2–0.5**, often ~**0.1–0.3** on fast SSD/NVMe) if sequential scans are much cheaper so the planner is more willing to choose them over index access.

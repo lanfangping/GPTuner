@@ -1,0 +1,1 @@
+**SENTENCE:** `maintenance_work_mem` sets the per-operation memory limit for maintenance tasks (e.g., VACUUM, CREATE INDEX, ADD FOREIGN KEY), defaulting to **64MB** (unitless values are **kB**); while only one such task runs per session, **autovacuum can allocate up to autovacuum_max_workers × maintenance_work_mem**, and VACUUM’s dead-tuple collection uses at most **1GB**.

@@ -1,0 +1,1 @@
+Set `fsync` to **`on` (default)** for any production system where you need crash-safe durability; only set it to **`off`** for **temporary/dev/benchmark** workloads where you can tolerate total data loss, because `off` can make writes faster (often **~2× or more** in some cases) but a crash/power loss can corrupt or lose **all** recent data regardless of other settings.

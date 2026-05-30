@@ -1,0 +1,1 @@
+SENTENCE: `max_wal_size` sets a soft cap (default **1 GB**, values without units are **MB**) on how large the WAL can grow before an automatic checkpoint is triggered, though it may exceed this under heavy load/archive failures/high `wal_keep_size`, and raising it can lengthen crash recovery time (set only in `postgresql.conf` or via server command line).

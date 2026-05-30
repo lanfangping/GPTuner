@@ -1,0 +1,1 @@
+Set PostgreSQL’s `huge_page_size` to the **OS huge page size** you actually allocate (typically **2 MB** on most Linux systems, sometimes **1 GB** for “gigantic” huge pages), and leave it **0 (default)** unless you’re using huge pages—e.g., if `/proc/meminfo` shows `Hugepagesize: 2048 kB` use **`huge_page_size = 2MB`**, or if it shows `1048576 kB` use **`huge_page_size = 1GB`**.

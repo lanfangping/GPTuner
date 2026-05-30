@@ -1,0 +1,1506 @@
+{
+  "hyperparameters": [
+    {
+      "name": "archive_mode",
+      "type": "categorical",
+      "choices": [
+        "always",
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "autovacuum",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "autovacuum_analyze_scale_factor",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 100.0,
+      "default": 0.1,
+      "q": null
+    },
+    {
+      "name": "autovacuum_analyze_threshold",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 50,
+      "upper": 500,
+      "default": 50,
+      "q": null
+    },
+    {
+      "name": "autovacuum_freeze_max_age",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 100000,
+      "upper": 2000000000,
+      "default": 200000000,
+      "q": null
+    },
+    {
+      "name": "autovacuum_max_workers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 3,
+      "upper": 10,
+      "default": 3,
+      "q": null
+    },
+    {
+      "name": "autovacuum_multixact_freeze_max_age",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 200000000,
+      "upper": 1000000000,
+      "default": 400000000,
+      "q": null
+    },
+    {
+      "name": "autovacuum_naptime",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 5,
+      "upper": 120,
+      "default": 60,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_insert_scale_factor",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 100.0,
+      "default": 0.2,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_scale_factor",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.01,
+      "upper": 0.2,
+      "default": 0.2,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_threshold",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 50,
+      "upper": 200,
+      "default": 50,
+      "q": null
+    },
+    {
+      "name": "bgwriter_delay",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 10,
+      "upper": 10000,
+      "default": 200,
+      "q": null
+    },
+    {
+      "name": "bgwriter_lru_multiplier",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 2.0,
+      "upper": 3.0,
+      "default": 2.0,
+      "q": null
+    },
+    {
+      "name": "checkpoint_completion_target",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 1.0,
+      "default": 0.9,
+      "q": null
+    },
+    {
+      "name": "checkpoint_timeout",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 300,
+      "upper": 86400,
+      "default": 300,
+      "q": null
+    },
+    {
+      "name": "checkpoint_warning",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 30,
+      "upper": 60,
+      "default": 30,
+      "q": null
+    },
+    {
+      "name": "commit_siblings",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1000,
+      "default": 5,
+      "q": null
+    },
+    {
+      "name": "control_archive_timeout",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_cost_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_vacuum_insert_threshold",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_autovacuum_work_mem",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_bgwriter_lru_maxpages",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_checkpoint_flush_after",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_commit_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_effective_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_jit_above_cost",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_jit_inline_above_cost",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_log_autovacuum_min_duration",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_log_min_duration_statement",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_maintenance_io_concurrency",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_workers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_parallel_workers_per_gather",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_replication_slots",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_max_wal_senders",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_old_snapshot_threshold",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_temp_file_limit",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_vacuum_cost_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_buffers",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_keep_size",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_writer_delay",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "control_wal_writer_flush_after",
+      "type": "categorical",
+      "choices": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "weights": null
+    },
+    {
+      "name": "cpu_index_tuple_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 9.223372036854776e+17,
+      "default": 0.005,
+      "q": null
+    },
+    {
+      "name": "cpu_tuple_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.003,
+      "upper": 0.03,
+      "default": 0.01,
+      "q": null
+    },
+    {
+      "name": "default_statistics_target",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 100,
+      "upper": 1000,
+      "default": 100,
+      "q": null
+    },
+    {
+      "name": "effective_cache_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 2147483647,
+      "default": 524288,
+      "q": null
+    },
+    {
+      "name": "enable_bitmapscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_hashjoin",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexonlyscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_indexscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_memoize",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_nestloop",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_partition_pruning",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "enable_seqscan",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "fsync",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "full_page_writes",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "huge_page_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 2147483647,
+      "default": 0,
+      "q": null
+    },
+    {
+      "name": "huge_pages",
+      "type": "categorical",
+      "choices": [
+        "off",
+        "on",
+        "try"
+      ],
+      "default": "try",
+      "weights": null
+    },
+    {
+      "name": "jit",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "jit_optimize_above_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 10000.0,
+      "upper": 1000000.0,
+      "default": 500000.0,
+      "q": null
+    },
+    {
+      "name": "log_checkpoints",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "maintenance_work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1024,
+      "upper": 1000000,
+      "default": 65536,
+      "q": null
+    },
+    {
+      "name": "max_connections",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 24,
+      "upper": 100,
+      "default": 100,
+      "q": null
+    },
+    {
+      "name": "max_locks_per_transaction",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 10,
+      "upper": 2147483647,
+      "default": 64,
+      "q": null
+    },
+    {
+      "name": "max_wal_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1024,
+      "upper": 74000,
+      "default": 1024,
+      "q": null
+    },
+    {
+      "name": "max_worker_processes",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 262143,
+      "default": 8,
+      "q": null
+    },
+    {
+      "name": "min_wal_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 2147483647,
+      "default": 80,
+      "q": null
+    },
+    {
+      "name": "parallel_setup_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 9.223372036854776e+17,
+      "default": 1000.0,
+      "q": null
+    },
+    {
+      "name": "parallel_tuple_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.05,
+      "upper": 0.2,
+      "default": 0.1,
+      "q": null
+    },
+    {
+      "name": "random_page_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 1.1,
+      "upper": 4.0,
+      "default": 4.0,
+      "q": null
+    },
+    {
+      "name": "seq_page_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 9.223372036854776e+17,
+      "default": 1.0,
+      "q": null
+    },
+    {
+      "name": "shared_buffers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 16,
+      "upper": 1550000,
+      "default": 16384,
+      "q": null
+    },
+    {
+      "name": "superuser_reserved_connections",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 3,
+      "upper": 5,
+      "default": 3,
+      "q": null
+    },
+    {
+      "name": "synchronous_commit",
+      "type": "categorical",
+      "choices": [
+        "local",
+        "remote_write",
+        "remote_apply",
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "temp_buffers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1024,
+      "upper": 8000,
+      "default": 1024,
+      "q": null
+    },
+    {
+      "name": "track_counts",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "on",
+      "weights": null
+    },
+    {
+      "name": "track_io_timing",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "vacuum_cost_limit",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 200,
+      "upper": 5000,
+      "default": 200,
+      "q": null
+    },
+    {
+      "name": "vacuum_cost_page_dirty",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 10,
+      "upper": 100,
+      "default": 20,
+      "q": null
+    },
+    {
+      "name": "vacuum_cost_page_hit",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 20,
+      "default": 1,
+      "q": null
+    },
+    {
+      "name": "vacuum_cost_page_miss",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 10000,
+      "default": 2,
+      "q": null
+    },
+    {
+      "name": "vacuum_freeze_table_age",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 2000000000,
+      "default": 150000000,
+      "q": null
+    },
+    {
+      "name": "wal_compression",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "wal_level",
+      "type": "categorical",
+      "choices": [
+        "minimal",
+        "replica",
+        "logical"
+      ],
+      "default": "replica",
+      "weights": null
+    },
+    {
+      "name": "wal_log_hints",
+      "type": "categorical",
+      "choices": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "weights": null
+    },
+    {
+      "name": "wal_segment_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1048576,
+      "upper": 1073741824,
+      "default": 16777216,
+      "q": null
+    },
+    {
+      "name": "wal_sync_method",
+      "type": "categorical",
+      "choices": [
+        "fsync",
+        "fdatasync",
+        "open_sync",
+        "open_datasync"
+      ],
+      "default": "fdatasync",
+      "weights": null
+    },
+    {
+      "name": "work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 64,
+      "upper": 2147483647,
+      "default": 4096,
+      "q": null
+    },
+    {
+      "name": "archive_timeout",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1073741823,
+      "default": 0,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_delay",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 2.0,
+      "upper": 20.0,
+      "default": 2.0,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_cost_limit",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 1325,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "autovacuum_vacuum_insert_threshold",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 249,
+      "upper": 1000000,
+      "default": 1000,
+      "q": null
+    },
+    {
+      "name": "autovacuum_work_mem",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 1000000,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "bgwriter_lru_maxpages",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1073741823,
+      "default": 100,
+      "q": null
+    },
+    {
+      "name": "checkpoint_flush_after",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 32,
+      "upper": 125,
+      "default": 32,
+      "q": null
+    },
+    {
+      "name": "commit_delay",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1,
+      "default": 0,
+      "q": null
+    },
+    {
+      "name": "effective_io_concurrency",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 4,
+      "default": 1,
+      "q": null
+    },
+    {
+      "name": "jit_above_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": -1.0,
+      "upper": 9.223372036854776e+17,
+      "default": 100000.0,
+      "q": null
+    },
+    {
+      "name": "jit_inline_above_cost",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 50000.0,
+      "upper": 5000000.0,
+      "default": 500000.0,
+      "q": null
+    },
+    {
+      "name": "log_autovacuum_min_duration",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 2147483647,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "log_min_duration_statement",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 2147483647,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "maintenance_io_concurrency",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1000,
+      "default": 10,
+      "q": null
+    },
+    {
+      "name": "max_parallel_workers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 1024,
+      "default": 8,
+      "q": null
+    },
+    {
+      "name": "max_parallel_workers_per_gather",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 6,
+      "default": 2,
+      "q": null
+    },
+    {
+      "name": "max_replication_slots",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 262143,
+      "default": 10,
+      "q": null
+    },
+    {
+      "name": "max_wal_senders",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 262143,
+      "default": 10,
+      "q": null
+    },
+    {
+      "name": "old_snapshot_threshold",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 4320,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "special_archive_timeout",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_autovacuum_vacuum_cost_delay",
+      "type": "constant",
+      "value": -1.0
+    },
+    {
+      "name": "special_autovacuum_vacuum_cost_limit",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_autovacuum_vacuum_insert_threshold",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_autovacuum_work_mem",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_bgwriter_lru_maxpages",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_checkpoint_flush_after",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_commit_delay",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_effective_io_concurrency",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_jit_above_cost",
+      "type": "constant",
+      "value": -1.0
+    },
+    {
+      "name": "special_jit_inline_above_cost",
+      "type": "constant",
+      "value": -1.0
+    },
+    {
+      "name": "special_log_autovacuum_min_duration",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_log_min_duration_statement",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_maintenance_io_concurrency",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_parallel_workers",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_parallel_workers_per_gather",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_replication_slots",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_max_wal_senders",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_old_snapshot_threshold",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_temp_file_limit",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_vacuum_cost_delay",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "special_wal_buffers",
+      "type": "constant",
+      "value": -1
+    },
+    {
+      "name": "special_wal_keep_size",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_wal_writer_delay",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "special_wal_writer_flush_after",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "temp_file_limit",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 2147483647,
+      "default": -1,
+      "q": null
+    },
+    {
+      "name": "vacuum_cost_delay",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.0,
+      "upper": 1.0,
+      "default": 0.0,
+      "q": null
+    },
+    {
+      "name": "wal_buffers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": -1,
+      "upper": 512,
+      "default": 512,
+      "q": null
+    },
+    {
+      "name": "wal_keep_size",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 2147483647,
+      "default": 0,
+      "q": null
+    },
+    {
+      "name": "wal_writer_delay",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 10,
+      "upper": 1000,
+      "default": 200,
+      "q": null
+    },
+    {
+      "name": "wal_writer_flush_after",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 125,
+      "upper": 8000,
+      "default": 128,
+      "q": null
+    }
+  ],
+  "conditions": [
+    {
+      "child": "archive_timeout",
+      "parent": "control_archive_timeout",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_archive_timeout",
+      "parent": "control_archive_timeout",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_cost_delay",
+      "parent": "control_autovacuum_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_cost_delay",
+      "parent": "control_autovacuum_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_cost_limit",
+      "parent": "control_autovacuum_vacuum_cost_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_vacuum_insert_threshold",
+      "parent": "control_autovacuum_vacuum_insert_threshold",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_vacuum_insert_threshold",
+      "parent": "control_autovacuum_vacuum_insert_threshold",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "autovacuum_work_mem",
+      "parent": "control_autovacuum_work_mem",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_autovacuum_work_mem",
+      "parent": "control_autovacuum_work_mem",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "bgwriter_lru_maxpages",
+      "parent": "control_bgwriter_lru_maxpages",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_bgwriter_lru_maxpages",
+      "parent": "control_bgwriter_lru_maxpages",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "checkpoint_flush_after",
+      "parent": "control_checkpoint_flush_after",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_checkpoint_flush_after",
+      "parent": "control_checkpoint_flush_after",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "commit_delay",
+      "parent": "control_commit_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_commit_delay",
+      "parent": "control_commit_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "effective_io_concurrency",
+      "parent": "control_effective_io_concurrency",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_effective_io_concurrency",
+      "parent": "control_effective_io_concurrency",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "jit_above_cost",
+      "parent": "control_jit_above_cost",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_jit_above_cost",
+      "parent": "control_jit_above_cost",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "jit_inline_above_cost",
+      "parent": "control_jit_inline_above_cost",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_jit_inline_above_cost",
+      "parent": "control_jit_inline_above_cost",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "log_autovacuum_min_duration",
+      "parent": "control_log_autovacuum_min_duration",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_log_autovacuum_min_duration",
+      "parent": "control_log_autovacuum_min_duration",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_log_min_duration_statement",
+      "parent": "control_log_min_duration_statement",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "maintenance_io_concurrency",
+      "parent": "control_maintenance_io_concurrency",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_maintenance_io_concurrency",
+      "parent": "control_maintenance_io_concurrency",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_workers",
+      "parent": "control_max_parallel_workers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_workers",
+      "parent": "control_max_parallel_workers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_parallel_workers_per_gather",
+      "parent": "control_max_parallel_workers_per_gather",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_replication_slots",
+      "parent": "control_max_replication_slots",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_replication_slots",
+      "parent": "control_max_replication_slots",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "max_wal_senders",
+      "parent": "control_max_wal_senders",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_max_wal_senders",
+      "parent": "control_max_wal_senders",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "old_snapshot_threshold",
+      "parent": "control_old_snapshot_threshold",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_old_snapshot_threshold",
+      "parent": "control_old_snapshot_threshold",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "special_temp_file_limit",
+      "parent": "control_temp_file_limit",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "temp_file_limit",
+      "parent": "control_temp_file_limit",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_vacuum_cost_delay",
+      "parent": "control_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "vacuum_cost_delay",
+      "parent": "control_vacuum_cost_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_buffers",
+      "parent": "control_wal_buffers",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_buffers",
+      "parent": "control_wal_buffers",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_keep_size",
+      "parent": "control_wal_keep_size",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_keep_size",
+      "parent": "control_wal_keep_size",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_writer_delay",
+      "parent": "control_wal_writer_delay",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_writer_delay",
+      "parent": "control_wal_writer_delay",
+      "type": "EQ",
+      "value": "0"
+    },
+    {
+      "child": "special_wal_writer_flush_after",
+      "parent": "control_wal_writer_flush_after",
+      "type": "EQ",
+      "value": "1"
+    },
+    {
+      "child": "wal_writer_flush_after",
+      "parent": "control_wal_writer_flush_after",
+      "type": "EQ",
+      "value": "0"
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.1",
+  "json_format_version": 0.4
+}

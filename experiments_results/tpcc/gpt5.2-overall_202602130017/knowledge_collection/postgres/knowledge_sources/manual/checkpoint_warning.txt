@@ -1,0 +1,1 @@
+Write a server log warning if WAL-fill checkpoints occur less than `checkpoint_warning` apart (default `30s`, `0` disables; units default to seconds), suggesting `max_wal_size` should be increased; no warning if `checkpoint_timeout < checkpoint_warning`, and it can only be set in `postgresql.conf` or on the server command line.

@@ -1,0 +1,1 @@
+Set `jit_above_cost` to roughly **10× `cpu_tuple_cost`** (a good starting range is **100–5,000**, e.g., keep the default **100**) so PostgreSQL only JIT-compiles **expensive queries**; if you see JIT overhead on “moderately costly” queries, **raise it** (e.g., to **500–2,000**), and if large analytic queries would benefit but aren’t using JIT, **lower it** (e.g., to **50–200**).

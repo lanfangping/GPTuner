@@ -1,0 +1,1 @@
+Set `enable_hashjoin` to **on (1)** in normal workloads to allow the planner to choose hash joins, and set it to **off (0)** only for targeted testing or as a workaround when hash joins are known to be problematic—because it’s a **boolean knob** (0/1) and is typically not a performance “tuning” parameter so much as a way to **forbid** that join type.

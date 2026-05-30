@@ -1,0 +1,1 @@
+Set `checkpoint_flush_after` to **0** (the default) unless you’re using **direct I/O** and see “checkpoint write” bursts; in that case start with **256kB–1MB** (e.g., **`checkpoint_flush_after = 1MB`**), and increase gradually (up to a few MB) until checkpoint-related write spikes smooth out without hurting throughput.

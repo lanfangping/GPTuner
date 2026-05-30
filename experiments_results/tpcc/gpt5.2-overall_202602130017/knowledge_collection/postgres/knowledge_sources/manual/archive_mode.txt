@@ -1,0 +1,1 @@
+**SENTENCE:** `archive_mode` controls whether PostgreSQL archives completed WAL segments via `archive_command` (**0=off**, **1=on**, **2=always** where **always** also archives during recovery/standby and can re-archive restored/streamed WAL); it’s **set only at server start** and cannot be enabled if `wal_level=minimal`.

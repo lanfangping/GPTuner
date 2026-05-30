@@ -1,0 +1,1 @@
+Set `wal_writer_flush_after` to roughly **0.5–2× `wal_segment_size`**—a common starting point is **1 segment (16MB)**, increase to **32–64MB** if you want fewer flushes (at the cost of more WAL data sitting dirty in cache), or lower to **1–8MB** if you want WAL to be flushed more frequently.

@@ -1,0 +1,1 @@
+Set `log_min_duration_statement` to a latency threshold (in ms) so Postgres logs only “slow” queries—e.g., start with `1000` (log queries ≥1s) in production, tighten to `200–500`ms when actively tuning, use `0` only briefly for full query logging during debugging, and set `-1` to disable.

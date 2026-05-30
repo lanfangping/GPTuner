@@ -1,0 +1,1 @@
+**SENTENCE:** `autovacuum_freeze_max_age` sets the maximum transaction age of a table’s `relfrozenxid` before PostgreSQL forces a VACUUM to prevent transaction ID wraparound—by default at **200,000,000 transactions** (autovacuum will still run for wraparound protection even if autovacuum is otherwise disabled, and this is a server-start-only setting).

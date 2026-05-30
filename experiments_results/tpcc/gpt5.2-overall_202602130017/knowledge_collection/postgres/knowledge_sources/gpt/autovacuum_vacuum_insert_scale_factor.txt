@@ -1,0 +1,1 @@
+Set `autovacuum_vacuum_insert_scale_factor` to a small fraction of table size so autovacuum triggers after roughly “that fraction × reltuples” inserts since the last vacuum—e.g., keep the default `0.2` (vacuum after ~20% new inserts), lower to `0.05` for frequently-inserted/hot tables (~5%), or to `0.01` for very write-heavy tables where you want earlier cleanup (~1%).

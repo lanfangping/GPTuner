@@ -1,0 +1,1 @@
+Set `wal_segment_size` (default **16MB**) to a larger power-of-two multiple (e.g., **64MB–1GB**) when you have **high WAL volume** or **high-latency archiving/replication** to reduce segment churn and file-handling overhead, but keep it **small (16–64MB)** if you need **finer-grained archiving/retention** or you frequently create/ship many small WAL files.

@@ -1,0 +1,1 @@
+**work_mem** sets the per-operation memory limit (default **4MB**, units default to **KB**) for sorts/hashes before spilling to disk; because **each sort/hash can use up to work_mem** (and hash tables up to **work_mem × hash_mem_multiplier**) and many operations/sessions can run at once, total RAM usage can be **multiple times** this value.

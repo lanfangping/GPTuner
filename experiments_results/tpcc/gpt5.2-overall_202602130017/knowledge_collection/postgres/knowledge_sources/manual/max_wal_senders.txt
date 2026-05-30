@@ -1,0 +1,1 @@
+**max_wal_senders** sets how many WAL sender processes (replication/streaming backup connections) can run at once—default **10**, **0** disables replication—so set it **slightly above your expected number of standby/backup clients** to allow quick reconnects, and ensure a standby’s value is **≥ the primary’s** (requires **wal_level ≥ replica** and is start-time only).

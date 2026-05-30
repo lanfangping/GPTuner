@@ -1,0 +1,1 @@
+When `wal_log_hints` is **on (1)**, PostgreSQL writes a **full disk page image** to WAL the **first time each page is modified after a checkpoint** (even for hint-bit-only changes), increasing WAL volume; it is **ignored if data checksums are enabled**, is **startup-only**, and defaults to **off (0)**.

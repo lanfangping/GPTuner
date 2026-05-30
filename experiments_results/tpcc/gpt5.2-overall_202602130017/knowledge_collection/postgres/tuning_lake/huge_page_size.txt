@@ -1,0 +1,1 @@
+{'suggestion': 'Set PostgreSQL’s `huge_page_size` to match the OS huge page size you have actually allocated, and otherwise leave it at the default if you aren’t using huge pages. You can confirm the OS huge page size via `/proc/meminfo` (e.g., `Hugepagesize: 2048 kB` → `huge_page_size = 2MB`; `Hugepagesize: 1048576 kB` → `huge_page_size = 1GB`).'}

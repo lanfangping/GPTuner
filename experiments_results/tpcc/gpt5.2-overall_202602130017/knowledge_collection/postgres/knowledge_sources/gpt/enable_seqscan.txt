@@ -1,0 +1,1 @@
+Set `enable_seqscan` to `on` (the default) in almost all cases, and only set it to `off` temporarily for diagnostics/testing to force the planner toward index-based plans—e.g., run `SET enable_seqscan = off;` for a single session/query and then turn it back `on`, rather than leaving it disabled globally in `postgresql.conf`.

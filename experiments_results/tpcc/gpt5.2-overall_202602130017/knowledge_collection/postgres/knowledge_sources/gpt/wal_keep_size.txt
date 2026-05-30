@@ -1,0 +1,1 @@
+Set `wal_keep_size` to at least the amount of WAL your standby might need to fetch after its worst‑case disconnection, i.e., `wal_keep_size ≥ (peak WAL generation rate in MB/s) × (max expected replication outage in seconds)`—for example, if you generate ~20 MB/s and want to tolerate 30 minutes offline, use ≥ `20×1800 = 36,000 MB` (≈ `36GB`), often rounded up (e.g., `40GB`).

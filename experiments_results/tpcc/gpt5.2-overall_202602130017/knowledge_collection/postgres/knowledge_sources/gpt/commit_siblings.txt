@@ -1,0 +1,1 @@
+Set `commit_siblings` to the *estimated number of concurrent transactions that could be committing at about the same time as you*—typically **0** for a dedicated OLTP server, **~5–10** for moderate concurrency, and **~10–100+** for high-concurrency workloads—because higher values make PostgreSQL delay a commit slightly (to group commits) to reduce fsync overhead.

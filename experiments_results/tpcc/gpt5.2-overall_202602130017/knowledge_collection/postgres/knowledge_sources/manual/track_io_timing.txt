@@ -1,0 +1,1 @@
+**SENTENCE:** `track_io_timing` enables per-I/O call timing (reported in `pg_stat_database`, `EXPLAIN (BUFFERS)`, and `pg_stat_statements`), but is **off by default** because it makes **repeated OS time queries** that can add **significant overhead** on some platforms (measure with `pg_test_timing`); **only superusers** can change it.

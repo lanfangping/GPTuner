@@ -1,0 +1,1 @@
+{'suggestion': 'Keep `enable_memoize` set to `on` (the default) for most workloads because it typically reduces repeated inner scans in nested-loop joins and improves performance. Consider turning it `off` only if `EXPLAIN (ANALYZE, BUFFERS)` shows `Memoize` nodes with low hit ratios and non-trivial overhead (e.g., many thousands of cache misses/evictions).'}

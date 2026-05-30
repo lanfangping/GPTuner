@@ -1,0 +1,1 @@
+`autovacuum_multixact_freeze_max_age` sets the multixact-age threshold at which PostgreSQL will force a VACUUM to avoid multixact ID wraparound (and clean up old `pg_multixact` files), with a default of **400,000,000 multixacts**, and autovacuum will still run for this purpose even if autovacuum is otherwise disabled.

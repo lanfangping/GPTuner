@@ -1,0 +1,1 @@
+**SENTENCE:** `archive_timeout` forces PostgreSQL to switch (and thus archive) the current WAL segment after a set time since the last switch when there’s been any activity, limiting how long WAL can go unarchived (e.g., **60s** is usually reasonable; very small values bloat archives; **0** disables; default unit is **seconds**).
