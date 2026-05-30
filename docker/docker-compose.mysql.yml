@@ -1,0 +1,21 @@
+name: mysql
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-8
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: workload
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    volumes:
+      - ./mysql-8-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-pmysql"]
+      interval: 10s
+      timeout: 5s
+      retries: 10

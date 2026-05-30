@@ -3,18 +3,19 @@ import mysql.connector
 import os
 import json
 import time
+import subprocess
 
 class MysqlDBMS(DBMSTemplate):
-    """ Instantiate DBMSTemplate to support PostgreSQL DBMS """
-    def __init__(self, db, user, password, restart_cmd, recover_script, knob_info_path):
-        super().__init__(db, user, password, restart_cmd, recover_script, knob_info_path)
+    """ Instantiate DBMSTemplate to support MySQL DBMS """
+    def __init__(self, db, user, password, restart_cmd, recover_script, knob_info_path, host="localhost", port=3306):
+        super().__init__(db, user, password, restart_cmd, recover_script, knob_info_path, host=host, port=port)
         self.name = "mysql"
-        self.global_vars = [t[0] for t in self.query_all(
-            'show global variables') if self.is_numerical(t[1])]
-        self.server_cost_params = [t[0] for t in self.query_all(
-            'select cost_name from mysql.server_cost')]
-        self.engine_cost_params = [t[0] for t in self.query_all(
-            'select cost_name from mysql.engine_cost')]
+        self.global_vars = [t[0] for t in (
+            self.query_all('show global variables') or []) if self.is_numerical(t[1])]
+        self.server_cost_params = [t[0] for t in (
+            self.query_all('select cost_name from mysql.server_cost') or [])]
+        self.engine_cost_params = [t[0] for t in (
+            self.query_all('select cost_name from mysql.engine_cost') or [])]
         self.all_variables = self.global_vars + \
             self.server_cost_params + self.engine_cost_params
     
@@ -29,7 +30,8 @@ class MysqlDBMS(DBMSTemplate):
                     database=db,
                     user=self.user,
                     password=self.password,
-                    host="localhost"
+                    host=self.host,
+                    port=int(self.port or 3306)
                 )
                 print(f"Success to connect to {db} with user {self.user}")
                 return True
@@ -52,15 +54,39 @@ class MysqlDBMS(DBMSTemplate):
             self.connection = None
     
     def copy_db(self, source_db, target_db):
-        ms_clc_prefix = f'mysql -u{self.user} -p{self.password} '
-        ms_dump_prefix = f'mysqldump -u{self.user} -p{self.password} '
-        os.system(ms_dump_prefix + f' {source_db} > copy_db_dump')
+        container_name = os.environ.get("MYSQL_DOCKER_CONTAINER", "mysql-8")
+        dump_path = "copy_db_dump"
+        mysql_prefix = [
+            "docker",
+            "exec",
+            container_name,
+            "mysql",
+            f"-u{self.user}",
+            f"-p{self.password}",
+        ]
+
+        with open(dump_path, "wb") as dump_file:
+            subprocess.run(
+                [
+                    "docker",
+                    "exec",
+                    container_name,
+                    "mysqldump",
+                    f"-u{self.user}",
+                    f"-p{self.password}",
+                    "--single-transaction",
+                    source_db,
+                ],
+                stdout=dump_file,
+                check=True,
+            )
         print('Dumped old database')
-        os.system(ms_clc_prefix + f" -e 'drop database if exists {target_db}'")
+        subprocess.run(mysql_prefix + ["-e", f"drop database if exists `{target_db}`"], check=True)
         print('Dropped old database')
-        os.system(ms_clc_prefix + f" -e 'create database {target_db}'")
+        subprocess.run(mysql_prefix + ["-e", f"create database `{target_db}`"], check=True)
         print('Created new database')
-        os.system(ms_clc_prefix + f" {target_db} < copy_db_dump")
+        with open(dump_path, "rb") as dump_file:
+            subprocess.run(mysql_prefix + [target_db], stdin=dump_file, check=True)
         print('Initialized new database')
 
     def query_one(self, sql):
@@ -85,9 +111,8 @@ class MysqlDBMS(DBMSTemplate):
     def reset_config(self):
         """ Reset all parameters to default values. """
         self._disconnect()
-        os.system(self.restart_cmd)
-        time.sleep(2)
-        res= False
+        self.recover_dbms()
+        res = False
         while not res:
             print("Reconnecting for reconfiguring...")
             res = self._connect()
@@ -156,8 +181,22 @@ class MysqlDBMS(DBMSTemplate):
         return result, description
 
     def set_knob(self, knob, knob_value):
+        def mysql_literal(value):
+            if isinstance(value, bool):
+                return "ON" if value else "OFF"
+            if isinstance(value, (int, float)):
+                return str(value)
+
+            value = str(value)
+            try:
+                float(value)
+                return value
+            except ValueError:
+                escaped = value.replace("\\", "\\\\").replace("'", "\\'")
+                return f"'{escaped}'"
+
         if knob in self.global_vars:
-            success = self.update_dbms(f'set global {knob}={knob_value}')
+            success = self.update_dbms(f"set global `{knob}` = {mysql_literal(knob_value)}")
         elif knob in self.server_cost_params:
             success = self.update_dbms(
                 f"update mysql.server_cost set cost_value={knob_value} where cost_name='{knob}'")

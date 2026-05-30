@@ -1,0 +1,12 @@
+folder: default #rerun the optimization
+process: knowledge
+db: mysql
+user: mysql
+password: mysql
+database: workload
+test: tpcc
+timeout: 180
+seed: 100
+model: gpt-5.1
+restart_cmd: echo 251314 | sudo -S docker restart mysql-8
+recover_script: ./scripts/recover_docker_mysql.sh

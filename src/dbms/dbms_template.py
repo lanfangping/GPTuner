@@ -3,14 +3,17 @@ import json
 import datetime
 import os
 import re
+import inspect
 
 class DBMSTemplate(ABC):
     """ Base template to be extended to support various dbms (e.g., postgresql, mysql) """
-    def __init__(self, db, user, password, restart_cmd, recover_script, knob_info_path):
+    def __init__(self, db, user, password, restart_cmd, recover_script, knob_info_path, host="localhost", port=None):
         
         self.db = db
         self.user = user
         self.password = password
+        self.host = host
+        self.port = port
         self.restart_cmd = restart_cmd
         self.config = {}
         self.knob_info = None
@@ -26,9 +29,14 @@ class DBMSTemplate(ABC):
         db = config['DATABASE']['db']
         db_user = config['DATABASE']['user']
         password = config['DATABASE']['password']
+        host = config['DATABASE'].get('host', 'localhost')
+        port = config['DATABASE'].get('port', None)
         restart_cmd = config['DATABASE']['restart_cmd']
         recover_script = config['DATABASE']['recover_script']
         knob_info_path = config['DATABASE']['knob_info_path']
+        init_params = inspect.signature(cls.__init__).parameters
+        if 'host' in init_params or 'port' in init_params:
+            return cls(db, db_user, password, restart_cmd, recover_script, knob_info_path, host=host, port=port)
         return cls(db, db_user, password, restart_cmd, recover_script, knob_info_path)
 
     def get_knob_info(self, knob_info_path):
