@@ -53,15 +53,17 @@ def make_folders(folder_path, args):
         os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/tuning_lake"), exist_ok=True)
         os.makedirs(os.path.join(f"{folder_path}", f"{args.db}"), exist_ok=True) # optimization results
         os.makedirs(os.path.join(f"{folder_path}", f"{args.db}", "log"), exist_ok=True)
+        if args.db == 'mysql':
+            os.makedirs(os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/structured_knowledge/max"), exist_ok=True)
     except Exception as e:
         print(f"Warning: {e}")
     
-    source_web_folder = "knowledge_collection/postgres/knowledge_sources/web"
+    source_web_folder = f"knowledge_collection/{args.db}/knowledge_sources/web"
     dest_web_folder = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knowledge_sources")
     source_official_document = "src/utils/official_document.json"
-    source_system_view = "knowledge_collection/postgres/knob_info/system_view.json"
+    source_system_view = f"knowledge_collection/{args.db}/knob_info/system_view.json"
     dest_knob_info = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}/knob_info")
-    source_candicate_knobs = "knowledge_collection/postgres/candidate_knobs.txt"
+    source_candicate_knobs = f"knowledge_collection/{args.db}/candidate_knobs.txt"
     dest_candicate_knobs = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}")
     commands = [
         f"cp -r {source_web_folder} {dest_web_folder}",
@@ -157,9 +159,10 @@ if __name__ == '__main__':
     if args.knobs != "None": # provide selected knobs
         source_selected_knobs = args.knobs
         dest_selected_knobs = os.path.join(f"{folder_path}", f"knowledge_collection/{args.db}")
-        command = f"cp {source_selected_knobs} {dest_selected_knobs}"
-        subprocess.run(command, shell=True, check=True)
-        time.sleep(2)
+        if not os.path.samefile(os.path.dirname(source_selected_knobs), dest_selected_knobs):
+            command = f"cp {source_selected_knobs} {dest_selected_knobs}"
+            subprocess.run(command, shell=True, check=True)
+            time.sleep(2)
 
     elif args.process == 'whole' or args.process == 'knowledge':
         dbms._connect(args.database)

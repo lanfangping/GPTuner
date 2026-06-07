@@ -1,0 +1,1 @@
+Set `innodb_flush_neighbors` to `0` on SSDs (no neighbor flushing), to `1` on spinning disks with random write workloads, and to `2` only on older versions or very sequential workloads, verifying improvements by comparing write latency and IOPS before and after (e.g., `SHOW GLOBAL STATUS LIKE 'Innodb_data_writes';`).

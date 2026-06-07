@@ -1,0 +1,1 @@
+Set `tmp_table_size` (and match `max_heap_table_size`) high enough to keep most on-disk temp tables in memory but within RAM limits, typically starting at 64–256 MB per connection (e.g., `tmp_table_size = 128M`, `max_heap_table_size = 128M`) and ensuring `max_connections × tmp_table_size` plus other memory buffers still fits comfortably inside available system memory.

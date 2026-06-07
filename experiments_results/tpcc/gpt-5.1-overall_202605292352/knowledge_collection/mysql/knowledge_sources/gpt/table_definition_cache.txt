@@ -1,0 +1,1 @@
+Set `table_definition_cache` to at least the greater of `400` or `2 * max_connections`, and for larger workloads typically use values in the low thousands (for example, `2000–4000` for busy OLTP systems) while verifying that `Opened_table_definitions` stays low over time.

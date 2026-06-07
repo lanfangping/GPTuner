@@ -1,0 +1,1 @@
+Set `open_files_limit` to at least `2 × max_connections + table_open_cache` (for example, with `max_connections = 500` and `table_open_cache = 2000`, use `open_files_limit ≥ 2 × 500 + 2000 = 3000`, and in practice round up to 4096 or 8192 to leave headroom).

@@ -1,0 +1,1 @@
+Set `thread_handling` to `one-thread-per-connection` (the default and appropriate for almost all workloads), and only consider `pool-of-threads` on very high-concurrency systems (e.g., consistently >1,000–2,000 active connections) after careful benchmarking, as changing this option requires a server restart and can affect performance characteristics significantly.

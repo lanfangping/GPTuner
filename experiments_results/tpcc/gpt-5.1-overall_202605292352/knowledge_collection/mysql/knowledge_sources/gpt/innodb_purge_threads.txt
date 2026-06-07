@@ -1,0 +1,1 @@
+Set `innodb_purge_threads` to 4–8 on modern multi-core servers with heavy write/delete workloads and large undo logs, 2–4 on typical OLTP systems with moderate activity, and leave it at 1–2 on small or lightly loaded instances, increasing it only if you observe growing purge/undo history or long-running purge lag.

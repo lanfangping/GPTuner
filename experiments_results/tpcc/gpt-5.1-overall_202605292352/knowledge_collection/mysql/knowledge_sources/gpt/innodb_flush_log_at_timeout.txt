@@ -1,0 +1,1 @@
+Set `innodb_flush_log_at_timeout` to a small value like 1–2 seconds for safer durability on busy systems, and increase it to 5–10 seconds (up to the max 2700) only if you need to reduce `fsync()` overhead and can tolerate losing up to that many seconds of transactions in a crash.

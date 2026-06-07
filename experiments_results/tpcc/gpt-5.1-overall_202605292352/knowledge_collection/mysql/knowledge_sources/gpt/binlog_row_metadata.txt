@@ -1,0 +1,1 @@
+Set `binlog_row_metadata` to `MINIMAL` (default) for lowest binlog size and overhead in most cases, and switch to `FULL` on replicas or during debugging when you need all column metadata (at the cost of roughly 5–20% larger row-based binlogs depending on table width and row format).

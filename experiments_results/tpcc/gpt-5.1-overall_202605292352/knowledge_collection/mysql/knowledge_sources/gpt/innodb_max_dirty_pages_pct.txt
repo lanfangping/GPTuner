@@ -1,0 +1,1 @@
+Set `innodb_max_dirty_pages_pct` by starting around 75 (the default), lowering it to 30–50 on write‑heavy or latency‑sensitive systems to reduce checkpoint spikes, or raising it toward 80–90 only if you have ample I/O bandwidth and need higher write throughput at the cost of potentially longer recovery times.

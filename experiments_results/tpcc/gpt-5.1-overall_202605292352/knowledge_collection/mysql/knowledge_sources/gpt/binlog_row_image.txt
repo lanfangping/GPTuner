@@ -1,0 +1,1 @@
+Set `binlog_row_image` to `MINIMAL` for most workloads to shrink binlog size by 30–70% and reduce I/O, use `FULL` only when you rely on all column values in row events (e.g., some auditing or CDC tools), and consider `NOBLOB` as a middle ground when only large BLOB/TEXT columns (often >1 MB each) can be safely omitted from before/after images.

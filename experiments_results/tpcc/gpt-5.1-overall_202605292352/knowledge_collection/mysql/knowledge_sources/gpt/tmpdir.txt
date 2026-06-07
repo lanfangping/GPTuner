@@ -1,0 +1,1 @@
+Set `tmpdir` to a dedicated, fast local storage path (e.g., an SSD-backed directory with several GB free, such as `/mnt/ssd_tmp` with at least 2–3× your largest `sort_buffer_size * max_connections`—for many systems, this means allocating on the order of 10–50 GB of space) and ensure it is not on a slow or network filesystem.

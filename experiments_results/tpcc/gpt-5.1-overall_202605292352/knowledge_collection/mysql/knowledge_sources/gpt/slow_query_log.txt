@@ -1,0 +1,1 @@
+Set `slow_query_log` to `ON` (or `1`) in MySQL 5.1+ by adding `slow_query_log = 1` to `my.cnf` under `[mysqld]` (and optionally specifying `slow_query_log_file = /var/log/mysql/slow.log`) and then running `SET GLOBAL slow_query_log = 1;` so that queries exceeding `long_query_time` (e.g., `0.5` seconds) are recorded.

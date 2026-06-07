@@ -1,0 +1,1 @@
+Set `thread_cache_size` so that `Threads_created` increases by less than about 1 per second under peak load (often starting around 16–64 for small/medium systems and going up to a few hundred—e.g., 100–500—for busy servers), and adjust until new thread creation is rare without consuming excessive memory (roughly a few hundred KB per cached thread).

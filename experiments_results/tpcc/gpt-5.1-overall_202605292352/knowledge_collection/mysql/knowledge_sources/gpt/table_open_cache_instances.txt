@@ -1,0 +1,1 @@
+Set `table_open_cache_instances` to 16–64 on busy servers (often 16 by default, 32 or 64 for very high concurrency), keeping it as a power of two and ensuring `table_open_cache` is at least 4,000–10,000 so that each instance manages a few hundred tables rather than thousands.

@@ -1,0 +1,1 @@
+Set `relay_log_recovery=1` in production so that on restart MySQL automatically discards and re-fetches relay logs to avoid corruption and replication errors (leaving it at the default `0` is only reasonable for testing or when you are willing to manually inspect and recover relay logs).

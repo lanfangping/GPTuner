@@ -1,0 +1,1 @@
+Set `innodb_lru_scan_depth` so that `innodb_buffer_pool_read_ahead_evicted` stays near zero under load—typically starting at 1024 for small/medium servers, increasing toward 2048–4096 on busy systems with large buffer pools (≥64–128 GB), and decreasing below 1024 if you see high buffer flush activity or CPU overhead from the page cleaner.

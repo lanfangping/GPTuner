@@ -1,0 +1,1 @@
+Set `innodb_file_per_table` to `ON` (1) for almost all modern deployments—especially when you expect many tables (e.g., >100), large individual tables (e.g., >10–50 GB each), or frequent table drops/truncations—only considering `OFF` (0) if you have a small schema (e.g., <20 tables) and want simpler single-file management on very small systems.

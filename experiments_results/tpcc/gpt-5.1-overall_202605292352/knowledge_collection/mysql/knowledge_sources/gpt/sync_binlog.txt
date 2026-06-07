@@ -1,0 +1,1 @@
+For `sync_binlog`, use `1` on critical, high-durability systems to guarantee no more than 1 transaction is lost on a crash, use `0` (the default) or a higher value like `100–1000` on less critical or very write-heavy systems to trade the possibility of losing up to that many transactions per crash for higher throughput.

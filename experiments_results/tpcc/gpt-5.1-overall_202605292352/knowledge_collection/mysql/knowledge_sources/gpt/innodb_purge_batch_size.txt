@@ -1,0 +1,1 @@
+Set `innodb_purge_batch_size` to around 300–500 for general workloads, increase toward 1,000–2,000 if you see history list length growing too large without causing noticeable purge lag, and only consider values above ~3,000–5,000 on very write‑heavy systems after carefully checking that I/O and CPU can handle the extra purge work.

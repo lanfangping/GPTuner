@@ -1,0 +1,1 @@
+For `transaction_isolation` in MySQL, leave it at the default `REPEATABLE-READ` for most workloads, but if you need stronger consistency (e.g., to avoid phantom reads in financial apps), explicitly set it to `SERIALIZABLE`, and only relax it to `READ-COMMITTED` or `READ-UNCOMMITTED` when you can tolerate anomalies to gain performance.

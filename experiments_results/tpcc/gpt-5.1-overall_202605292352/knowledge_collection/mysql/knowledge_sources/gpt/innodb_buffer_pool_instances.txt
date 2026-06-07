@@ -1,0 +1,1 @@
+Set `innodb_buffer_pool_instances` so each instance is roughly 1–8 GB, with a common rule of thumb being 1 instance per 1 GB of buffer pool up to about 8 instances (e.g., `innodb_buffer_pool_size=16G` → `innodb_buffer_pool_instances=8`), and avoid setting it above 8–16 unless `innodb_buffer_pool_size` is very large and you have many CPU cores.

@@ -1,0 +1,1 @@
+Set `innodb_flush_log_at_trx_commit` to `1` for maximum durability (flush and fsync every commit, safest for critical data), `2` for better performance with some risk (write every commit, fsync once per second), and `0` only when you can tolerate losing up to 1 second of transactions (write and fsync once per second, highest performance, lowest durability).

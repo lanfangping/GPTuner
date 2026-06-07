@@ -1,0 +1,1 @@
+Set `innodb_dedicated_server=ON` only on a dedicated MySQL server, which will then auto-allocate roughly 50–75% of system RAM to `innodb_buffer_pool_size`, up to about 64–128 GB on large-memory machines, while reserving the rest for OS and other MySQL overhead.

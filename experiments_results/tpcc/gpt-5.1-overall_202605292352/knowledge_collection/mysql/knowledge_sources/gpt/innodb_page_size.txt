@@ -1,0 +1,1 @@
+Set `innodb_page_size` only at initial database creation, typically keeping the default 16 KB, but consider 4 KB pages if your OS/filesystem is 4 KB and you have many small rows or heavy random I/O, or 32 KB–64 KB pages if you mostly run large sequential scans or handle big rows (e.g., >8–16 KB) and have enough RAM (e.g., >32–64 GB) to absorb the larger buffer-pool footprint.

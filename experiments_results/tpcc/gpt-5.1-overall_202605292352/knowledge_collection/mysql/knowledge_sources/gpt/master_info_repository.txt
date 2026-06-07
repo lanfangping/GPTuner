@@ -1,0 +1,1 @@
+Set `master_info_repository` to `TABLE` (instead of the legacy `FILE`) for most production systems to gain crash safety and centralized metadata management, and only keep the default `FILE` on older MySQL versions (< 5.6) or extremely small deployments (e.g., < 10 replicas, low write load < 100 tps) where compatibility with existing setups is more critical than robustness.

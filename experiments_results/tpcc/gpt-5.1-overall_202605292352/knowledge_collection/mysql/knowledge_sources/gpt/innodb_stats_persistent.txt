@@ -1,0 +1,1 @@
+Set `innodb_stats_persistent = ON` (1) in almost all production cases so InnoDB index statistics are stored on disk and remain stable between restarts—only consider `OFF` (0) for temporary or heavily volatile test schemas where you explicitly need fresh statistics on each restart.

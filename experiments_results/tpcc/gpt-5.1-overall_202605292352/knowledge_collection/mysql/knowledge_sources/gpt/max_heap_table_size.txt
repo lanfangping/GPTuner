@@ -1,0 +1,1 @@
+Set `max_heap_table_size` to the larger of your typical in‑memory temporary table size and `tmp_table_size` (often 64–256 MB for small/medium systems, 512 MB–1 GB or more on large-memory servers), but always keep it comfortably below available RAM divided by the maximum number of concurrent sessions to avoid exhausting memory if many HEAP tables are used at once.

@@ -1,0 +1,1 @@
+Set `skip_name_resolve` to `ON` (e.g., `skip_name_resolve=1` in `my.cnf`) on production systems with stable IP-based client access to eliminate DNS lookups and reduce connection latency by a few to tens of milliseconds per connection, but leave it `OFF` (`0`) if you rely on host name–based privileges or frequently changing client IPs.

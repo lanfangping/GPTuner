@@ -1,0 +1,1 @@
+Set `innodb_random_read_ahead=ON` only for workloads doing large, mostly sequential range scans (e.g., table/index scans reading tens of MBs or more per query) on spinning disks, and leave it `OFF` (the default) for typical OLTP or random I/O workloads, especially on SSDs, where enabling it can hurt performance.

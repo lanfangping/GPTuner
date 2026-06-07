@@ -1,0 +1,1 @@
+For `sort_buffer_size`, start with MySQL’s default (typically 256 KB–2 MB), increase it cautiously in small steps (e.g., 256 KB or 512 KB at a time) while monitoring `Sort_merge_passes`, and generally avoid going above 4–8 MB per session on busy systems to prevent excessive per-connection memory usage (e.g., 500 active connections × 8 MB = ~4 GB).

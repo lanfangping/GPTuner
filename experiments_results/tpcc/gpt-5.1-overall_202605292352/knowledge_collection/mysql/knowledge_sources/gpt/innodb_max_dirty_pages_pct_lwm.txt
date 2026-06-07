@@ -1,0 +1,1 @@
+Set `innodb_max_dirty_pages_pct_lwm` to a value around 5–15 (e.g., 10) so that when the buffer pool’s dirty pages exceed this low watermark, background flushing starts early enough to keep `innodb_max_dirty_pages_pct` (often 60–75) from being hit under write load.

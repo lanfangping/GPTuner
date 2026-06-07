@@ -1,0 +1,1 @@
+Set `join_buffer_size` just large enough to hold typical join result rows (for example, start around 256K–1M, increase in small steps up to a few MB if EXPLAIN shows many Block Nested Loop joins), but avoid very large values (for example, >8–16M) because it is allocated per connection and can quickly consume gigabytes of RAM under high concurrency.

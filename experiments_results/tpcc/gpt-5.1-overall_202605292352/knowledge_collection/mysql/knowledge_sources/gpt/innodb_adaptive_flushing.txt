@@ -1,0 +1,1 @@
+Set `innodb_adaptive_flushing` to `ON` (1) for most workloads to let InnoDB automatically adjust flush rates based on the checkpoint age, and only consider turning it `OFF` (0) temporarily for debugging or very specialized workloads where you tightly control flushing via `innodb_io_capacity` (e.g., 100–2000) and `innodb_io_capacity_max` (e.g., 2000–40000).

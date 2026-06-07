@@ -1,0 +1,1 @@
+Set `innodb_log_files_in_group` to the default of **2** for almost all workloads, increasing only in special cases where you need more but smaller logs for parallelism (e.g., up to **4** files of **~1–4 GB** each, keeping total redo log size within recommended limits such as **4–8×** your working set change rate per hour).

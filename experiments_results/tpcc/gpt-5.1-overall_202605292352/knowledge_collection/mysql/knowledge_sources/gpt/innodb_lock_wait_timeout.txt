@@ -1,0 +1,1 @@
+Set `innodb_lock_wait_timeout` high enough to tolerate normal contention but low enough to fail fast on deadlocks—typically 30–50 seconds for OLTP workloads, shortened to 5–15 seconds for highly concurrent or latency-sensitive systems, and rarely above 120 seconds except for long-running batch operations.

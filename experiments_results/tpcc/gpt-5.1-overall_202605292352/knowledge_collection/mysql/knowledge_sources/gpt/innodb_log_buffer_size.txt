@@ -1,0 +1,1 @@
+Set `innodb_log_buffer_size` large enough that normal transactions rarely flush due to log buffer being full—typically 16–64 MB for most workloads, 256 MB+ for heavy write/large BLOB workloads—while ensuring that `SHOW GLOBAL STATUS LIKE 'Innodb_log_waits'` stays at or very close to 0 and that the buffer size remains small enough to avoid excessive memory use on the host.

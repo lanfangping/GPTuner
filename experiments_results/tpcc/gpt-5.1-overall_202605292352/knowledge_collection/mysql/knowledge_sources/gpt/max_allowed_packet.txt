@@ -1,0 +1,1 @@
+Set `max_allowed_packet` to comfortably exceed your largest expected query or BLOB size (for example, if you expect up to 32 MB rows, set it to 64M), but generally keep it within 16M–64M for typical workloads and only raise toward the default maximum of 1G if you truly need to handle very large packets and have enough RAM.

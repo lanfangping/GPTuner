@@ -1,0 +1,1 @@
+Set `log_bin` to `ON` (or a file base name like `mysql-bin`) **only** when you need point‑in‑time recovery or replication, and, if enabled, ensure the server has enough I/O capacity for writing roughly one binary log file per 100–500 MB of data changes per hour (e.g., a system doing ~5 GB of updates/day might generate around 10–50 binary log files of 100–500 MB each).

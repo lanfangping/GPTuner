@@ -1,0 +1,1 @@
+Set `max_connections` to a bit above your real peak concurrency but within OS/resource limits—for example, start around 200–500 for small/medium servers, up to 1,000–5,000 for large ones, ensure `ulimit -n` is several times higher (e.g., ≥10,000), and monitor that the server doesn’t hit `Too many connections` or run out of RAM.

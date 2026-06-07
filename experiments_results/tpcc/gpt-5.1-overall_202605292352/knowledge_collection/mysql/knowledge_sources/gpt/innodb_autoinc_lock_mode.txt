@@ -1,0 +1,1 @@
+Set `innodb_autoinc_lock_mode` to **2** for best concurrency on modern applications, use **1** if you rely on “bulk insert” auto‐increment predictability or have legacy code, and fall back to **0** only if you hit rare edge‑case issues and can tolerate the heavier locking.

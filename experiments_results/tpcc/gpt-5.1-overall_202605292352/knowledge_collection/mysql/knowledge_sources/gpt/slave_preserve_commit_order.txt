@@ -1,0 +1,1 @@
+Set `slave_preserve_commit_order=1` only when you require strict commit order on replicas (e.g., financial or audit logs) and can accept potential throughput reduction, and leave it at `0` for most workloads to maximize replication performance.

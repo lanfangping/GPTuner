@@ -1,0 +1,1 @@
+Set `innodb_log_file_size` large enough to hold about 1 hour of your peak write volume (commonly 512M–4G per log file, e.g., `innodb_log_file_size = 1G` with `innodb_log_files_in_group = 2` for a 2G total log size), while ensuring crash recovery time (roughly minutes per GB of total log) stays acceptable for your environment.

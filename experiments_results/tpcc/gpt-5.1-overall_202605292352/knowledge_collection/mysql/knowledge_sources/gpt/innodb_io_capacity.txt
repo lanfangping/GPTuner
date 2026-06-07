@@ -1,0 +1,1 @@
+Set `innodb_io_capacity` to roughly match your storage’s realistic IOPS, for example about 100–200 for a single SATA HDD, 1,000–5,000 for decent enterprise SSDs, and up to 10,000–20,000 (or more) for high‑end NVMe/RAID, then fine‑tune based on observed InnoDB background flush and checkpoint behavior.

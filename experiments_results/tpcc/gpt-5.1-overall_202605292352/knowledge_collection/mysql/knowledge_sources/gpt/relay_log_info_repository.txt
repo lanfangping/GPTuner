@@ -1,0 +1,1 @@
+Set `relay_log_info_repository` to `TABLE` (the default since MySQL 8.0, replacing `FILE`) for crash‑safe replication metadata storage, and only use `FILE` (legacy mode available in 5.6+ and 5.7, with values `0` = FILE, `1` = TABLE) if you specifically need compatibility with very old setups or external tools that read the metadata files directly.

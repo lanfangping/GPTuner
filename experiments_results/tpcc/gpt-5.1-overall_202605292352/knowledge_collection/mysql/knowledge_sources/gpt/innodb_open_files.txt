@@ -1,0 +1,1 @@
+Set `innodb_open_files` a bit above your expected number of concurrently open InnoDB tables (and their indexes), for example around 4,096–8,192 for small/medium deployments and 20,000–65,535 for large systems, ensuring it does not exceed your OS file‑descriptor limit (often 65,535 or lower), otherwise use 0 to let InnoDB manage it automatically.

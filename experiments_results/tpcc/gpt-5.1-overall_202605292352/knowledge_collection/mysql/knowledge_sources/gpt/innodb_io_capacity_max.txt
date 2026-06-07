@@ -1,0 +1,1 @@
+For `innodb_io_capacity_max`, a common rule is to start around 2–4× your `innodb_io_capacity` (e.g., if `innodb_io_capacity` is 2000 IOPS, set `innodb_io_capacity_max` to 4000–8000), staying within typical ranges of about 1000–20,000 for SSDs and up to roughly 200,000 only for very fast NVMe/PCIe storage, and then fine‑tune based on purge and flush lag under peak write load.

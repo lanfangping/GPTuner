@@ -1,0 +1,1 @@
+Set `innodb_write_io_threads` roughly to the number of physical CPU cores (commonly 4–8 on modern servers, up to 16 on very high‑end systems), increasing from the default (often 4) only if you see write I/O bottlenecks, and avoiding values higher than your core count since they rarely improve throughput.

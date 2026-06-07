@@ -1,0 +1,1 @@
+Set `innodb_change_buffering` to `all` (the default) for typical OLTP workloads, consider `inserts` or `deletes` on heavy write workloads with many secondary indexes, and set it to `none` on mostly read-only or SSD‑only systems where change buffering overhead may outweigh benefits.

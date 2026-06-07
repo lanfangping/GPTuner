@@ -1,0 +1,1 @@
+Set `read_buffer_size` per session starting from the default (e.g., 128 KB), increase it in small steps up to a few MB (commonly 256 KB–2 MB, rarely above 8 MB) only for workloads doing large sequential table scans, and keep it low (default or lower) for OLTP/point-query workloads to avoid excessive per-thread memory use.

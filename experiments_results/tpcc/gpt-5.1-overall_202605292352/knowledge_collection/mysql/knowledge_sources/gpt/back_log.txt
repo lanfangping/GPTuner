@@ -1,0 +1,1 @@
+Set `back_log` high enough to handle bursts but not waste memory—commonly `50–100` for small systems, `200–500` for busy servers, and up to `1000` (or the OS limit, e.g., Linux `somaxconn` often 128–4096) for very high-traffic MySQL instances, ensuring it does not exceed the operating system’s maximum listen backlog.

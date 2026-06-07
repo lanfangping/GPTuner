@@ -1,0 +1,1 @@
+Set `binlog_order_commits = ON` (1) in almost all production environments to guarantee binlog transaction order and safe replication, and only consider `OFF` (0) on single‑threaded, non‑replicated, or test systems where you have measured that the extra parallel commit overhead (often a few percent slowdown) is unacceptable and strict commit ordering is not required.

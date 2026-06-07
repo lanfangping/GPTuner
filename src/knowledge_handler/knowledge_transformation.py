@@ -245,7 +245,7 @@ class KGTrans(GPT):
         self.token += self.calc_token(prompt, answer)
         self.money += self.calc_money(prompt, answer)
         with open(os.path.join(self.max_path, knob+".txt"), 'w') as file:
-            file.write(answer)
+            file.write(str(answer))
         return answer
 
     def pipeline(self, knob):

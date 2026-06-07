@@ -1,0 +1,1 @@
+For `innodb_read_ahead_threshold`, start with the default of **56** pages and tune by **lowering toward 8–16** on highly sequential workloads to trigger read‑ahead earlier, or **raising toward 64–128** on mostly random workloads to avoid useless prefetching, watching that read‑ahead I/O stays beneficial (high hit rate, low wasted reads) in your monitoring.

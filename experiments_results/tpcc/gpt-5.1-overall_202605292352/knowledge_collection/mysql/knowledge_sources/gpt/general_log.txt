@@ -1,0 +1,1 @@
+Set `general_log` to `OFF` (0) on production systems to avoid heavy I/O (it can generate tens to hundreds of MB/hour or more), and only turn it `ON` (1) temporarily for debugging—ideally with `log_output='FILE'` and a capped log file size (for example, rotate at 100–500 MB) to prevent the disk from filling.
